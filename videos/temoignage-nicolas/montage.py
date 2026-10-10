@@ -119,6 +119,25 @@ MUSIC_FX = {"version": 1, "nodes": [
     {"type": "peaking", "id": "n2", "params": {"frequency": 630, "gain": -3.4, "q": 1.46}},
     {"type": "peaking", "id": "n3", "params": {"frequency": 1600, "gain": -4.29, "q": 1.46}}]}
 
+# --- Motion design (v3) -------------------------------------------------------
+# Caméra vivante (règle multi-phase-camera) : poussée lente continue sur chaque plan.
+PUSH_TH = 1.06        # face caméra : +6 % sur la durée du plan
+PUSH_BROLL = 1.08     # plans de coupe : +8 %
+# Coups de zoom sur les temps forts de la musique (beats/assets/musique.wav.json),
+# seulement quand Nicolas est à l'image.
+BEATS = "beats/assets/musique.wav.json"
+BEAT_MIN_STRENGTH = 0.4
+BEAT_MIN_GAP = 2.5    # s entre deux coups
+BEAT_PUNCH = 1.045    # amplitude du coup (retour à 1 en 0,35 s)
+
+# Chiffres animés (règle counting-dynamic-scale) : (valeur, unité, libellé, segment, src)
+STATS = [
+    (43, "ANS", "NICOLAS · CASTELNAU", "intro", 3.20),
+    (9, "MOIS", "DE COACHING", "duree", 13.04),
+    (3, "MOIS", "PREMIERS MOIS · DIÈTE", "diete", 51.30),
+]
+STAT_DUR = 2.3
+
 # ---------------------------------------------------------------------------
 def build():
     seg_start, t = {}, 0.0
@@ -144,6 +163,7 @@ def build():
     total = round(end_start + END_CARD, 3)
 
     parts, tweens = [], []
+    th_windows, cover = [], []  # fenêtres où Nicolas est à l'image / où il est masqué
     z = 1
 
     # Témoignage : un <video> par segment, dans un cadre non minuté pour les punch-in.
@@ -154,23 +174,30 @@ def build():
         fade = {"version": 1, "lanes": [{"target": "volume", "points": [
             {"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": round(d - 0.04, 3), "v": 1}, {"t": d, "v": 0}]}]}
         parts.append(
-            f'<div class="frame" id="thf-{sid}" style="z-index:{z}">'
+            f'<div class="frame" id="thf-{sid}" style="z-index:{z}"><div class="punch" id="thp-{sid}">'
             f'<video id="th-{sid}" src="assets/temoignage.mp4" data-start="{round(t0,3)}" data-duration="{d}" '
             f'data-media-start="{a}" data-track-index="0" playsinline data-has-audio="true" '
-            f"data-automation='{json.dumps(fade)}'></video></div>")
-        tweens.append(f'tl.set("#thf-{sid}", {{scale: {PUNCH_SCALE if tight else 1}}}, {round(t0,3)});')
-        for f in flips:
-            tight = not tight
-            tweens.append(f'tl.set("#thf-{sid}", {{scale: {PUNCH_SCALE if tight else 1}}}, {to_tl(sid, f)});')
-        tight = not tight  # chaque coupe alterne le cadrage
+            f"data-automation='{json.dumps(fade)}'></video></div></div>")
+        # Cadrage large/serré alterné à chaque coupe, avec une poussée lente continue.
+        bounds = [round(t0, 3)] + [to_tl(sid, f) for f in flips] + [round(t0 + d, 3)]
+        for r0, r1 in zip(bounds, bounds[1:]):
+            s0 = PUNCH_SCALE if tight else 1
+            tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {round(s0 * PUSH_TH, 4)}, '
+                          f'duration: {round(r1 - r0, 3)}, ease: "none", immediateRender: false}}, {r0});')
+            th_windows.append((r0, r1, sid))
+            tight = not tight  # chaque coupe (ou changement de cadrage) alterne large/serré
     z += 1
 
     # Plans de coupe (muets, par-dessus le témoignage).
     for k, (src, sid, s, d, off) in enumerate(BROLL_AT):
         st = to_tl(sid, s)
         parts.append(
-            f'<video id="br-{k}" class="clip full" src="{src}" data-start="{st}" data-duration="{d}" '
-            f'data-media-start="{off}" data-track-index="1" muted playsinline style="z-index:{z}"></video>')
+            f'<div class="frame-b" id="brf-{k}" style="z-index:{z}">'
+            f'<video id="br-{k}" class="full" src="{src}" data-start="{st}" data-duration="{d}" '
+            f'data-media-start="{off}" data-track-index="1" muted playsinline></video></div>')
+        tweens.append(f'tl.fromTo("#brf-{k}", {{scale: 1}}, {{scale: {PUSH_BROLL}, duration: {d}, '
+                      f'ease: "none", immediateRender: false}}, {st});')
+        cover.append((st, round(st + d, 3)))
     z += 1
 
     # Flash (0,3 s) au passage vers l'archive.
@@ -186,15 +213,65 @@ def build():
             f'data-duration="{round(proof_end - proof_t,3)}" data-media-start="0" data-track-index="1" '
             f'muted playsinline style="z-index:{z}"></video>')
 
-    # Carte de preuve.
+    # Carte de preuve : la moitié « avant » d'abord, puis un balayage révèle « après ».
+    cover.append((proof_t, proof_end))
     pt = proof_t
     for k, (img, d) in enumerate(PROOF):
+        p = round(pt, 3)
         parts.append(
-            f'<div id="proof-{k}" class="clip proof" data-start="{round(pt,3)}" data-duration="{d}" '
-            f'data-track-index="3" style="z-index:{z+1}"><div class="proof-card"><img src="{img}" alt="Nicolas avant et après" /></div></div>')
+            f'<div id="proof-{k}" class="clip proof" data-start="{p}" data-duration="{d}" '
+            f'data-track-index="3" style="z-index:{z+1}"><div class="proof-card">'
+            f'<img class="proof-img" src="{img}" alt="Nicolas avant et après" />'
+            f'<div class="proof-divider"></div>'
+            f'<span class="tag tag-avant">AVANT</span><span class="tag tag-apres">APRÈS</span></div></div>')
+        q = f"#proof-{k}"
         if k == 0:
-            tweens.append(f'tl.fromTo("#proof-{k} .proof-card", {{scale: 0.96, opacity: 0}}, {{scale: 1, opacity: 1, duration: 0.25, ease: "power2.out"}}, {round(pt,3)});')
+            tweens += [
+                f'tl.fromTo("{q} .proof-card", {{scale: 0.94, opacity: 0}}, {{scale: 1, opacity: 1, duration: 0.3, ease: "power3.out"}}, {p});',
+                f'tl.fromTo("{q} .proof-img", {{clipPath: "inset(0% 50% 0% 0%)"}}, {{clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.inOut"}}, {round(p + 0.65, 3)});',
+                f'tl.fromTo("{q} .proof-divider", {{opacity: 0, x: 0}}, {{opacity: 1, x: 0, duration: 0.15}}, {round(p + 0.5, 3)});',
+                f'tl.to("{q} .proof-divider", {{x: 372, duration: 0.6, ease: "power2.inOut"}}, {round(p + 0.65, 3)});',
+                f'tl.set("{q} .proof-divider", {{x: 0}}, {round(p + 1.27, 3)});',
+                f'tl.fromTo("{q} .tag-avant", {{y: -16, opacity: 0}}, {{y: 0, opacity: 1, duration: 0.3, ease: "power3.out"}}, {round(p + 0.2, 3)});',
+                f'tl.fromTo("{q} .tag-apres", {{scale: 0.6, opacity: 0}}, {{scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)"}}, {round(p + 1.2, 3)});',
+            ]
         pt += d
+
+    # Chiffres animés : plaque sombre, chiffre or qui compte en grandissant, unité puis libellé.
+    for k, (val, unit, label, sid, src) in enumerate(STATS):
+        st = to_tl(sid, src)
+        q = f"#stat-{k}"
+        parts.append(
+            f'<div id="stat-{k}" class="clip stat" data-start="{st}" data-duration="{STAT_DUR}" '
+            f'data-track-index="7" style="z-index:{z+2}"><div class="stat-plate">'
+            f'<div class="stat-row"><span class="stat-num" id="stat-num-{k}">{val}</span>'
+            f'<span class="stat-unit">{unit}</span></div><div class="stat-label">{html.escape(label)}</div></div></div>')
+        cd = 0.7 if val > 9 else 0.45
+        tweens += [
+            f'tl.fromTo("{q} .stat-plate", {{scaleX: 0.2, opacity: 0}}, {{scaleX: 1, opacity: 1, duration: 0.28, ease: "power3.out"}}, {st});',
+            f'(() => {{ const el = document.getElementById("stat-num-{k}"); const c{k} = {{ v: 0 }}; '
+            f'tl.fromTo(c{k}, {{ v: 0 }}, {{ v: {val}, duration: {cd}, ease: "power2.out", '
+            f'{"immediateRender: false, " if k else ""}onUpdate: () => {{ el.textContent = String(Math.round(c{k}.v)); }} }}, {round(st + 0.1, 3)}); }})();',
+            f'tl.fromTo("#stat-num-{k}", {{scale: 0.55}}, {{scale: 1, duration: {cd}, ease: "power2.out"}}, {round(st + 0.1, 3)});',
+            f'tl.fromTo("{q} .stat-unit", {{x: -24, opacity: 0}}, {{x: 0, opacity: 1, duration: 0.3, ease: "back.out(1.7)"}}, {round(st + 0.1 + cd, 3)});',
+            f'tl.fromTo("{q} .stat-label", {{y: 10, opacity: 0}}, {{y: 0, opacity: 1, duration: 0.3, ease: "power2.out"}}, {round(st + 0.25, 3)});',
+            f'tl.to("{q} .stat-plate", {{opacity: 0, y: -12, duration: 0.25, ease: "power2.in"}}, {round(st + STAT_DUR - 0.3, 3)});',
+        ]
+
+    # Coups de zoom sur les temps forts de la musique, quand Nicolas est à l'image.
+    m0 = round(to_tl(*FLASH_ANCHOR), 3)
+    beats = sorted((round(m0 + b["time"], 3), b["strength"]) for b in json.load(open(BEATS))["beats"]
+                   if b["strength"] >= BEAT_MIN_STRENGTH)
+    punches, last = [], -99.0
+    for bt, _ in beats:
+        win = next((w for w in th_windows if w[0] + 0.3 <= bt <= w[1] - 0.45), None)
+        hidden = any(c0 - 0.1 <= bt <= c1 + 0.1 for c0, c1 in cover)
+        if win and not hidden and bt - last >= BEAT_MIN_GAP:
+            punches.append((bt, win[2]))
+            last = bt
+    for bt, sid in punches:
+        tweens.append(f'tl.fromTo("#thp-{sid}", {{scale: {BEAT_PUNCH}}}, {{scale: 1, duration: 0.35, '
+                      f'ease: "power3.out", immediateRender: false}}, {bt});')
 
     # Sous-titres.
     caps = []
@@ -255,14 +332,31 @@ TEMPLATE = """<!doctype html>
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
       html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #000000; }}
       #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; }}
-      .frame {{ position: absolute; inset: 0; transform-origin: {origin}; }}
+      .frame {{ position: absolute; inset: 0; transform-origin: {origin}; will-change: transform; }}
+      .punch {{ position: absolute; inset: 0; transform-origin: {origin}; will-change: transform; }}
+      .frame-b {{ position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; overflow: hidden; }}
       .frame video, video.full {{ position: absolute; left: 0; top: 0; width: {W}px; height: {H}px; object-fit: cover; }}
       #flash {{ position: absolute; inset: 0; }}
       .flash-inner {{ position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }}
       /* Carte de preuve — STYLE § 6 */
       .proof {{ position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: flex-start; padding-top: 420px; }}
       .proof-card {{ width: 760px; height: 760px; border: 8px solid #FFFFFF; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: #000000; }}
+      .proof-card {{ position: relative; overflow: hidden; }}
       .proof-card img {{ display: block; width: 100%; height: 100%; object-fit: cover; }}
+      .proof-divider {{ position: absolute; top: 0; bottom: 0; left: 50%; width: 10px; margin-left: -5px; background: #E3CF8F; box-shadow: 0 0 0 2px rgba(0,0,0,0.55), 0 0 24px rgba(227,207,143,0.9); }}
+      .tag {{ position: absolute; top: 18px; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.14em;
+             padding: 8px 16px; border-radius: 4px; line-height: 1; }}
+      .tag-avant {{ left: 18px; color: #FFFFFF; background: rgba(0,0,0,0.65); }}
+      .tag-apres {{ right: 18px; color: #000000; background: #C3B486; transform-origin: 100% 0%; }}
+      /* Chiffres animés */
+      .stat {{ position: absolute; left: 0; width: {W}px; top: 940px; height: 300px; display: flex; align-items: center; justify-content: center; }}
+      .stat-plate {{ display: flex; flex-direction: column; align-items: center; padding: 22px 56px 26px; background: rgba(8,8,8,0.8);
+                    border-top: 4px solid #C3B486; border-radius: 6px; transform-origin: 50% 50%; }}
+      .stat-row {{ display: flex; align-items: baseline; justify-content: center; gap: 18px; width: 460px; }}
+      .stat-num {{ display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 170px; line-height: 0.9;
+                  color: #C3B486; font-variant-numeric: tabular-nums; transform-origin: 50% 80%; }}
+      .stat-unit {{ display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 64px; color: #C3B486; letter-spacing: 0.06em; }}
+      .stat-label {{ margin-top: 12px; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 0.2em; color: #FFFFFF; }}
       /* Sous-titres — STYLE § 5 */
       #captions {{ position: absolute; inset: 0; pointer-events: none; }}
       .cap {{ position: absolute; left: 0; width: {W}px; top: 1340px; height: 100px; display: flex; align-items: center; justify-content: center; }}
