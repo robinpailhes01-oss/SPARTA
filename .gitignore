@@ -6,3 +6,16 @@
 *.webm
 *.wav
 references/**/frames/
+*.MP4
+*.MOV
+*.HEIC
+# Rushes clients (téléchargés depuis le Drive), jamais versionnés
+rushes/
+# Médias de montage : vidéos, photos d'adhérents (données personnelles), rendus
+videos/*/assets/*.mp4
+videos/*/assets/broll/
+videos/*/assets/photos/
+videos/*/renders/
+videos/*/snapshots/
+videos/*/.hyperframes/
+node_modules/

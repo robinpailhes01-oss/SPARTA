@@ -1,0 +1,267 @@
+"""Génère index.html (composition HyperFrames) à partir de la liste de montage ci-dessous.
+
+Usage : python3 montage.py   (depuis le dossier du projet)
+
+Toutes les valeurs de style viennent de ../../STYLE.md (charte v0.1).
+Les temps « src » sont ceux du témoignage brut (assets/temoignage.mp4).
+"""
+
+import html
+import json
+
+W, H, FPS = 1080, 1920, 30
+
+# --- 1. Segments du témoignage, dans l'ordre du montage -----------------------
+# (id, src_in, src_out, [instants src où le cadrage alterne large/serré])
+SEGMENTS = [
+    ("hook",      20.72, 26.35, []),            # « J'avais envie de me reprendre en main… »
+    ("intro",      2.08,  5.15, []),            # « Moi c'est Nicolas, 43 ans, Castelnau »
+    ("debut",      5.92,  9.40, []),            # « J'ai commencé le coaching en fin avril »
+    ("duree",     12.02, 14.80, []),            # « 7, 8 mois, 9 mois, je ne compte plus »
+    ("pourquoi",  27.05, 34.40, [29.88]),       # « plutôt que de rester sans rien faire… »
+    ("sparta",    35.25, 38.45, []),            # « j'ai trouvé coach Sparta… »
+    ("coachs",    39.92, 43.08, []),            # « Marco, Akli et tous les coachs »
+    ("feeling",   43.48, 45.95, []),            # « le feeling est bien passé »
+    ("diete",     46.55, 58.02, [49.40]),       # « tenir 3 mois… la diète… prise de masse »
+]
+
+# Cadrage : large = 100 %, serré = 128 % centré sur le visage (STYLE § 3).
+PUNCH_SCALE = 1.28
+PUNCH_ORIGIN = "47% 21%"
+FIRST_TIGHT = True  # l'accroche démarre en plan serré
+
+# --- 2. Sous-titres : (texte, src_début, src_fin). **x** = ExtraBold (chiffres)
+CAPTIONS = [
+    ("J'avais envie", 20.80, 21.32),
+    ("de me reprendre", 21.32, 22.16),
+    ("un peu en main,", 22.16, 22.78),
+    ("je sortais d'une période", 22.86, 23.50),
+    ("difficile,", 23.50, 24.04),
+    ("personnellement,", 24.04, 24.72),
+    ("professionnellement.", 24.90, 26.20),
+    ("Moi c'est Nicolas,", 2.16, 3.02),
+    ("j'ai **43 ans**,", 3.20, 4.20),
+    ("je vis à Castelnau.", 4.22, 5.06),
+    ("J'ai commencé", 6.00, 6.72),
+    ("le coaching", 6.72, 7.80),
+    ("en fin avril.", 7.80, 9.32),
+    ("Peut-être **7, 8 mois**,", 12.10, 13.02),
+    ("**9 mois**, je sais pas,", 13.04, 13.68),
+    ("je ne compte plus.", 13.74, 14.70),
+    ("Plutôt que de rester", 27.12, 29.10),
+    ("sans rien faire", 29.10, 29.88),
+    ("l'été arrivant,", 29.88, 30.72),
+    ("je me suis dit", 30.94, 31.32),
+    ("pourquoi pas essayer", 31.32, 33.12),
+    ("de se mettre", 33.12, 33.46),
+    ("au sport à fond.", 33.46, 34.28),
+    ("Du coup j'ai trouvé", 35.32, 36.22),
+    ("coach Sparta,", 36.22, 36.98),
+    ("qui était juste à côté", 36.98, 37.94),
+    ("de chez moi.", 37.94, 38.36),
+    ("J'ai fait", 39.98, 40.32),
+    ("la connaissance", 40.32, 40.84),
+    ("de Marco, Akli", 40.84, 42.22),
+    ("et tous les coachs,", 42.22, 42.96),
+    ("ça s'est", 43.54, 43.92),
+    ("super bien passé,", 43.92, 44.64),
+    ("le feeling", 44.78, 45.12),
+    ("est bien passé.", 45.12, 45.84),
+    ("J'ai pu me motiver", 46.60, 48.06),
+    ("et être motivé", 48.06, 48.90),
+    ("comme il fallait", 48.90, 49.44),
+    ("pour tenir d'abord", 49.44, 51.24),
+    ("les **3 premiers mois**,", 51.24, 52.18),
+    ("avec un premier mois", 52.18, 53.80),
+    ("super difficile", 53.80, 54.70),
+    ("avec la diète,", 54.70, 55.90),
+    ("et puis après", 56.04, 56.72),
+    ("un peu de", 56.72, 57.32),
+    ("prise de masse.", 57.32, 57.98),
+]
+
+# --- 3. Plans de coupe, en temps du MONTAGE : (fichier, début, fin, src_offset)
+#        (rempli après le calcul des segments, voir BROLL_AT plus bas)
+#        ancre = (segment, instant src) : le plan démarre à cet instant du témoignage.
+BROLL_AT = [
+    # fichier                       segment     src_début  durée  offset
+    ("assets/archive_salle.mp4",    "hook",     22.86,     2.06,  0.2),  # « je sortais d'une période difficile »
+    ("assets/broll/mesure.mp4",     "debut",    6.60,      2.10,  0.3),  # « j'ai commencé le coaching »
+    ("assets/broll/souleve_terre.mp4", "pourquoi", 31.20,  1.60,  0.4),  # « pourquoi pas essayer »
+    ("assets/broll/disque.mp4",     "pourquoi", 32.80,     1.60,  0.6),  # « au sport à fond »
+    ("assets/broll/enseigne_sparta.mp4", "sparta", 36.10,  2.35,  0.2),  # « coach Sparta »
+    ("assets/broll/coachs_accueil.mp4", "coachs", 40.30,   1.75,  0.3),  # « la connaissance de Marco, Akli »
+    ("assets/broll/coach_enseigne.mp4", "coachs", 42.05,   1.03,  0.5),  # « et tous les coachs »
+    ("assets/archive_rire.mp4",     "feeling",  43.48,     2.47,  0.3),  # « super bien passé » (Nicolas)
+    ("assets/broll/developpe_couche.mp4", "diete", 49.30,  1.90,  0.4),  # « pour tenir d'abord »
+    ("assets/broll/rowing_coach.mp4", "diete",  51.20,     1.70,  0.5),  # « les 3 premiers mois »
+    ("assets/broll/shaker.mp4",     "diete",    54.60,     1.60,  0.9),  # « avec la diète »
+]
+
+# Preuve (STYLE § 6) : avant/après de face puis de profil, ancré sur « et puis après ».
+PROOF_ANCHOR = ("diete", 55.95)
+PROOF = [("assets/photos/8e2b3bca.jpg", 2.0), ("assets/photos/934393f3.jpg", 1.9)]
+PROOF_BG = "assets/broll/disque_10kg.mp4"    # sous la carte, assombri (la voix continue)
+
+END_CARD = 2.0  # 1,5 s de logo + 0,5 s de fondu au noir (STYLE § 7)
+FLASH_ANCHOR = ("hook", 22.86)  # le seul effet autorisé : flash vers l'archive
+
+# ---------------------------------------------------------------------------
+def build():
+    seg_start, t = {}, 0.0
+    for sid, a, b, _ in SEGMENTS:
+        seg_start[sid] = (t, a, b)
+        t = round(t + round(b - a, 3), 3)  # cumul arrondi : aucun chevauchement audio
+    speech_end = t
+
+    def to_tl(sid, src):
+        t0, a, b = seg_start[sid]
+        assert a - 1e-6 <= src <= b + 1e-6, (sid, src)
+        return round(t0 + (src - a), 3)
+
+    def seg_of(src):
+        for sid, a, b, _ in SEGMENTS:
+            if a - 0.05 <= src <= b + 0.05:
+                return sid
+        raise ValueError(src)
+
+    proof_t = to_tl(*PROOF_ANCHOR)
+    proof_end = round(proof_t + sum(d for _, d in PROOF), 3)
+    end_start = max(proof_end, speech_end)
+    total = round(end_start + END_CARD, 3)
+
+    parts, tweens = [], []
+    z = 1
+
+    # Témoignage : un <video> par segment, dans un cadre non minuté pour les punch-in.
+    tight = FIRST_TIGHT
+    for i, (sid, a, b, flips) in enumerate(SEGMENTS):
+        t0 = seg_start[sid][0]
+        d = round(b - a - 0.002, 3)  # 2 ms de marge : jamais deux voix superposées
+        fade = {"version": 1, "lanes": [{"target": "volume", "points": [
+            {"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": round(d - 0.04, 3), "v": 1}, {"t": d, "v": 0}]}]}
+        parts.append(
+            f'<div class="frame" id="thf-{sid}" style="z-index:{z}">'
+            f'<video id="th-{sid}" src="assets/temoignage.mp4" data-start="{round(t0,3)}" data-duration="{d}" '
+            f'data-media-start="{a}" data-track-index="0" playsinline data-has-audio="true" '
+            f"data-automation='{json.dumps(fade)}'></video></div>")
+        tweens.append(f'tl.set("#thf-{sid}", {{scale: {PUNCH_SCALE if tight else 1}}}, {round(t0,3)});')
+        for f in flips:
+            tight = not tight
+            tweens.append(f'tl.set("#thf-{sid}", {{scale: {PUNCH_SCALE if tight else 1}}}, {to_tl(sid, f)});')
+        tight = not tight  # chaque coupe alterne le cadrage
+    z += 1
+
+    # Plans de coupe (muets, par-dessus le témoignage).
+    for k, (src, sid, s, d, off) in enumerate(BROLL_AT):
+        st = to_tl(sid, s)
+        parts.append(
+            f'<video id="br-{k}" class="clip full" src="{src}" data-start="{st}" data-duration="{d}" '
+            f'data-media-start="{off}" data-track-index="1" muted playsinline style="z-index:{z}"></video>')
+    z += 1
+
+    # Flash (0,3 s) au passage vers l'archive.
+    ft = to_tl(*FLASH_ANCHOR)
+    parts.append(f'<div id="flash" class="clip" data-start="{round(ft-0.02,3)}" data-duration="0.4" '
+                 f'data-track-index="2" style="z-index:{z+3}"><div class="flash-inner"></div></div>')
+    tweens.append(f'tl.fromTo("#flash .flash-inner", {{opacity: 0.85}}, {{opacity: 0, duration: 0.32, ease: "power2.out"}}, {round(ft,3)});')
+
+    # Fond sous la carte de preuve, une fois la parole finie.
+    if True:
+        parts.append(
+            f'<video id="proof-bg" class="clip full" src="{PROOF_BG}" data-start="{round(proof_t,3)}" '
+            f'data-duration="{round(proof_end - proof_t,3)}" data-media-start="0" data-track-index="1" '
+            f'muted playsinline style="z-index:{z}"></video>')
+
+    # Carte de preuve.
+    pt = proof_t
+    for k, (img, d) in enumerate(PROOF):
+        parts.append(
+            f'<div id="proof-{k}" class="clip proof" data-start="{round(pt,3)}" data-duration="{d}" '
+            f'data-track-index="3" style="z-index:{z+1}"><div class="proof-card"><img src="{img}" alt="Nicolas avant et après" /></div></div>')
+        if k == 0:
+            tweens.append(f'tl.fromTo("#proof-{k} .proof-card", {{scale: 0.96, opacity: 0}}, {{scale: 1, opacity: 1, duration: 0.25, ease: "power2.out"}}, {round(pt,3)});')
+        pt += d
+
+    # Sous-titres.
+    caps = []
+    for text, a, b in CAPTIONS:
+        sid = seg_of(a)
+        caps.append([to_tl(sid, a), to_tl(sid, min(b, seg_start[sid][2])), sid, text])
+    for i, c in enumerate(caps):
+        end = c[1] + 0.12
+        if i + 1 < len(caps) and caps[i + 1][2] == c[2]:
+            end = min(end, caps[i + 1][0]) if caps[i + 1][0] - c[1] < 0.3 else end
+            end = min(end, caps[i + 1][0])
+        seg_end = seg_start[c[2]][0] + (seg_start[c[2]][2] - seg_start[c[2]][1])
+        c[1] = round(min(end, seg_end), 3)
+    cap_html = []
+    for i, (a, b, _, text) in enumerate(caps):
+        esc = html.escape(text).replace("&#x27;", "’").replace("'", "’")
+        while "**" in esc:
+            esc = esc.replace("**", "<b>", 1).replace("**", "</b>", 1)
+        cap_html.append(f'<div id="cap-{i}" class="clip cap" data-start="{a}" data-duration="{round(b-a,3)}" '
+                        f'data-track-index="4"><span class="cap-box">{esc}</span></div>')
+    parts.append(f'<div id="captions" style="z-index:{z+4}">' + "".join(cap_html) + "</div>")
+
+    # Carte de fin.
+    parts.append(
+        f'<div id="endcard" class="clip" data-start="{round(end_start,3)}" data-duration="{END_CARD}" '
+        f'data-track-index="5" style="z-index:{z+5}"><img id="end-logo" src="assets/brand/logo_or_blanc.png" alt="Sparta, centre de coaching privé" /></div>')
+    tweens.append(f'tl.fromTo("#end-logo", {{opacity: 0, scale: 0.97}}, {{opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}}, {round(end_start,3)});')
+    tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
+
+    doc = TEMPLATE.format(W=W, H=H, FPS=FPS, total=total, parts="\n      ".join(parts),
+                          tweens="\n      ".join(tweens), origin=PUNCH_ORIGIN)
+    open("index.html", "w").write(doc)
+    print(f"index.html : {total:.2f} s, parole {speech_end:.2f} s, {len(caps)} sous-titres, "
+          f"{len(BROLL_AT)} plans de coupe, preuve à {proof_t:.2f} s, carte de fin à {end_start:.2f} s")
+
+
+TEMPLATE = """<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width={W}, height={H}" />
+    <title>Témoignage Nicolas — Sparta</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {{ font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }}
+      @font-face {{ font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }}
+      * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+      html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #000000; }}
+      #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; }}
+      .frame {{ position: absolute; inset: 0; transform-origin: {origin}; }}
+      .frame video, video.full {{ position: absolute; left: 0; top: 0; width: {W}px; height: {H}px; object-fit: cover; }}
+      #flash {{ position: absolute; inset: 0; }}
+      .flash-inner {{ position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }}
+      /* Carte de preuve — STYLE § 6 */
+      .proof {{ position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: flex-start; padding-top: 420px; }}
+      .proof-card {{ width: 760px; height: 760px; border: 8px solid #FFFFFF; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: #000000; }}
+      .proof-card img {{ display: block; width: 100%; height: 100%; object-fit: cover; }}
+      /* Sous-titres — STYLE § 5 */
+      #captions {{ position: absolute; inset: 0; pointer-events: none; }}
+      .cap {{ position: absolute; left: 0; width: {W}px; top: 1340px; height: 100px; display: flex; align-items: center; justify-content: center; }}
+      .cap-box {{ display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 46px; line-height: 1; color: #FFFFFF;
+                 background: rgba(0,0,0,0.5); padding: 10px 14px; border-radius: 6px; white-space: nowrap; }}
+      .cap-box b {{ font-weight: 800; }}
+      /* Carte de fin — STYLE § 7 */
+      #endcard {{ position: absolute; inset: 0; background: #000000; display: flex; align-items: center; justify-content: center; }}
+      #end-logo {{ display: block; width: 520px; height: auto; }}
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="{W}" data-height="{H}" data-fps="{FPS}" data-duration="{total}">
+      {parts}
+    </div>
+    <script>
+      const tl = gsap.timeline({{ paused: true }});
+      {tweens}
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
+"""
+
+if __name__ == "__main__":
+    build()
