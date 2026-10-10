@@ -131,11 +131,9 @@ BEAT_MIN_GAP = 2.5    # s entre deux coups
 BEAT_PUNCH = 1.045    # amplitude du coup (retour à 1 en 0,35 s)
 
 # Chiffres animés (règle counting-dynamic-scale) : (valeur, unité, libellé, segment, src)
-STATS = [
-    (43, "ANS", "NICOLAS · CASTELNAU", "intro", 3.20),
-    (9, "MOIS", "DE COACHING", "duree", 13.04),
-    (3, "MOIS", "PREMIERS MOIS · DIÈTE", "diete", 51.30),
-]
+# Retirées après retour client : les plaques faisaient « gros cartouches », pas premium.
+# Les chiffres restent mis en valeur dans le sous-titre (or Sparta, ExtraBold).
+STATS = []
 STAT_DUR = 2.3
 
 # ---------------------------------------------------------------------------
@@ -362,7 +360,7 @@ TEMPLATE = """<!doctype html>
       .cap {{ position: absolute; left: 0; width: {W}px; top: 1340px; height: 100px; display: flex; align-items: center; justify-content: center; }}
       .cap-box {{ display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 46px; line-height: 1; color: #FFFFFF;
                  background: rgba(0,0,0,0.5); padding: 10px 14px; border-radius: 6px; white-space: nowrap; }}
-      .cap-box b {{ font-weight: 800; }}
+      .cap-box b {{ font-weight: 800; color: #D9C48E; }}
       /* Carte de fin — STYLE § 7 */
       #endcard {{ position: absolute; inset: 0; background: #000000; display: flex; align-items: center; justify-content: center; }}
       #end-logo {{ display: block; width: 520px; height: auto; }}

@@ -4,6 +4,14 @@
 > Le détail des mesures et leurs limites est dans `references/ANALYSES.md`. Les valeurs marquées **(est.)** viennent d'enregistrements d'écran Instagram et sont précises à ±10 %.
 > Une règle marquée **[Q n]** dépend de la question n en fin de document. La valeur indiquée est le choix par défaut tant que le client n'a pas répondu.
 
+## 0. Direction : premium et minimaliste (validée par le client)
+
+Chaque ajout doit avoir l'air d'un centre de coaching privé haut de gamme, pas d'un reel « TikTok ».
+- **Un seul élément graphique à l'écran à la fois**, en plus des sous-titres.
+- **Aucune plaque, aucun cartouche, aucun encadré décoratif** autour d'un texte ou d'un chiffre : refusé sur la v3 (« trois gros carrés »).
+- Mise en valeur par la typographie (graisse, or Sparta), jamais par un bloc de couleur.
+- Animation : mouvements lents et continus, plutôt que des effets visibles. Aucun rebond ni secousse sur le texte.
+
 ## 1. Format et export
 
 | Paramètre | Règle |
@@ -69,7 +77,7 @@ Règles de structure :
 | Découpage | par groupe de sens, sans couper un nom de son article ni un chiffre de son unité |
 | Synchronisation | apparition au début du premier mot (± 2 images), disparition à la fin du dernier mot (+ 0,1 s maximum) |
 | Animation | **aucune** : apparition et disparition sèches (comme la cible) |
-| Mot mis en avant | aucun mot en couleur. **Chiffres et unités en ExtraBold (800)** : « **23 kg** », « **9 %** » (repris de df1) |
+| Mot mis en avant | seulement les **chiffres et leur unité** : ExtraBold (800), or `#D9C48E` (« **43 ans** », « **9 mois** »). Aucun autre mot en couleur |
 | Chiffres | toujours en chiffres, avec l'unité et une espace insécable : « 23 kg », « 2 mois », « 60 ans » |
 | Langue | français, verbatim nettoyé : on enlève les « euh » et les répétitions, on ne reformule jamais le sens |
 
@@ -88,6 +96,15 @@ Règles de structure :
 | Bandeau prénom/salle | **aucun** par défaut (absent de la cible) ; le prénom passe à l'oral ou dans le sous-titre. **[Q6]** |
 | **Carte de fin** | Systématique, **1,5 s** puis fondu au noir de 0,5 s. Fond `#000000`, logo casque et « SPARTA · CENTRE DE COACHING PRIVÉ » centré, largeur 520 px (48 %), centre vertical à y = 960. Ligne de salle sous le logo : **[Q5/Q6]** |
 | Tenues | Coach en tenue Sparta noire avec logo visible. Pas de vêtement d'une autre marque au premier plan (vu dans df3) |
+
+## 7 bis. Motion design (validé sur la v3/v4)
+
+| Élément | Règle |
+|---|---|
+| Poussée lente | chaque plan grossit en continu : face caméra ×1,06, plans de coupe ×1,08 sur la durée du plan, sans accélération (`ease: none`) |
+| Coups de zoom | sur les temps forts de la musique, seulement quand l'adhérent·e est à l'image : ×1,045 → ×1 en 0,35 s, au moins 2,5 s d'écart |
+| Avant/après | la moitié « avant » seule, puis un balayage de 0,6 s révèle « après », suivi par une ligne or `#E3CF8F` de 10 px ; étiquettes AVANT et APRÈS en haut de chaque moitié |
+| Interdit | plaques ou compteurs de chiffres, textes animés en rebond, plusieurs éléments graphiques en même temps |
 
 ## 8. Image et transitions
 
