@@ -1,0 +1,8 @@
+# Rushes et vidéos de référence : jamais commités
+*.mp4
+*.mov
+*.MOV
+*.m4v
+*.webm
+*.wav
+references/**/frames/
