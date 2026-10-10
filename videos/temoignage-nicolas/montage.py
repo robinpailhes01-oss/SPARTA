@@ -106,6 +106,19 @@ PROOF_BG = "assets/broll/disque_10kg.mp4"    # sous la carte, assombri (la voix 
 END_CARD = 2.0  # 1,5 s de logo + 0,5 s de fondu au noir (STYLE § 7)
 FLASH_ANCHOR = ("hook", 22.86)  # le seul effet autorisé : flash vers l'archive
 
+# Musique (STYLE § 9) : extraite du reel Sparta df1 (voix retirée avec Demucs),
+# préparée à -30 LUFS (≈ -18 dB sous la voix à -13 LUFS). Elle entre sur le flash, reste sous la voix et remonte
+# sur la carte de fin. MUSIC_END_BOOST = gain sur la carte de fin (max 3.98 = +12 dB).
+MUSIC = "assets/musique.wav"
+MUSIC_LEN = 43.67
+MUSIC_END_BOOST = 3.5
+# Creux d'égalisation fixes calculés par le carve HyperFrames (force 0.3) : la musique
+# laisse de la place à la voix sur 250 Hz, 630 Hz et 1,6 kHz.
+MUSIC_FX = {"version": 1, "nodes": [
+    {"type": "peaking", "id": "n1", "params": {"frequency": 250, "gain": -6.8, "q": 1.46}},
+    {"type": "peaking", "id": "n2", "params": {"frequency": 630, "gain": -3.4, "q": 1.46}},
+    {"type": "peaking", "id": "n3", "params": {"frequency": 1600, "gain": -4.29, "q": 1.46}}]}
+
 # ---------------------------------------------------------------------------
 def build():
     seg_start, t = {}, 0.0
@@ -203,6 +216,17 @@ def build():
         cap_html.append(f'<div id="cap-{i}" class="clip cap" data-start="{a}" data-duration="{round(b-a,3)}" '
                         f'data-track-index="4"><span class="cap-box">{esc}</span></div>')
     parts.append(f'<div id="captions" style="z-index:{z+4}">' + "".join(cap_html) + "</div>")
+
+    # Musique : entre sur le flash, remonte sur la carte de fin.
+    m0 = round(ft, 3)
+    mdur = round(min(MUSIC_LEN, total - m0), 3)
+    sp_end, card = round(speech_end - m0, 3), round(end_start - m0, 3)
+    lane = {"version": 1, "lanes": [{"target": "volume", "points": [
+        {"t": 0, "v": 0}, {"t": 0.4, "v": 1}, {"t": sp_end, "v": 1},
+        {"t": card, "v": MUSIC_END_BOOST}, {"t": round(mdur - 0.6, 3), "v": MUSIC_END_BOOST}, {"t": mdur, "v": 0}]}]}
+    parts.append(f'<audio id="music" src="{MUSIC}" data-start="{m0}" data-duration="{mdur}" '
+                 f'data-media-start="0" data-track-index="6" data-volume="1" '
+                 f"data-fx-chain='{json.dumps(MUSIC_FX)}' data-automation='{json.dumps(lane)}'></audio>")
 
     # Carte de fin.
     parts.append(
