@@ -45,6 +45,25 @@ BEAT_MIN_STRENGTH = 0.4
 BEAT_MIN_GAP = 2.5
 BEAT_PUNCH = 1.045
 CAP_MAX_CHARS = 24      # § 5 : 1 ligne, ≤ 24 caractères
+# Styles de sous-titres (edl["cap_style"]). « boite » = fond noir 50 % (§ 5). Les autres sont sans fond :
+# lisibilité par ombre portée + léger voile dégradé en bas d'image (#cap-scrim), mots-clés (edl["keywords"]) en <em>.
+_SHADOW = "text-shadow: 0 2px 3px rgba(0,0,0,0.55), 0 0 14px rgba(0,0,0,0.55), 0 0 30px rgba(0,0,0,0.35);"
+_SCRIM = ("#cap-scrim { position: absolute; left: 0; right: 0; top: 1120px; height: 560px; "
+          "background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0.30) 62%, rgba(0,0,0,0) 100%); }")
+CAP_STYLES = {
+    "epure": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 50px; letter-spacing: -0.005em; " + _SHADOW + " }"
+             " .cap-box b, .cap-box em { font-weight: 800; color: #E2CC8E; }",
+    "editorial": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 600; font-size: 46px; " + _SHADOW + " }"
+                 " .cap-box em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 1.42em;"
+                 " letter-spacing: 0.005em; color: #E2CC8E; line-height: 0.8; }"
+                 " .cap-box b { font-weight: 800; color: #E2CC8E; }",
+    "majuscules": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 600; font-size: 36px; letter-spacing: 0.16em;"
+                  " text-transform: uppercase; " + _SHADOW + " }"
+                  " .cap-box b, .cap-box em { font-weight: 800; color: #E2CC8E; }",
+    "karaoke": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 50px; " + _SHADOW + " }"
+               " .cap-box .w { opacity: 0.42; } .cap-box .w:first-child { opacity: 1; }"
+               " .cap-box b, .cap-box em { font-weight: 800; color: #E2CC8E; }",
+}
 CAP_MAX_WORDS = 5
 GOLD = "#D9C48E"        # § 5 : chiffres mis en avant
 MUSIC_FX = {"version": 1, "nodes": [
@@ -183,9 +202,10 @@ def auto_captions(words, segments, emphasis=()):
             j = prev[j]
         cuts.reverse()
         for i, j in cuts:
-            toks, k = [], i
+            toks, times, k = [], [], i
             while k < j:
                 t = ws[k][2]
+                times.append(ws[k][0])
                 if is_number(t) and k + 1 < j and (_bare(ws[k + 1][2]) in NUM_FOLLOW):
                     span = 2 + (k + 2 < j and _bare(ws[k + 1][2]) not in UNITS and _bare(ws[k + 2][2]) in UNITS)
                     grp = [ws[k + m][2] for m in range(span)]
@@ -202,11 +222,11 @@ def auto_captions(words, segments, emphasis=()):
                 else:
                     toks.append(t)
                 k += 1
+            if sentence_start and toks and toks[0][:1].islower():
+                toks[0] = toks[0][0].upper() + toks[0][1:]
             text = " ".join(toks)
-            if sentence_start and text[:1].islower():
-                text = text[0].upper() + text[1:]
             sentence_start = text.rstrip("*")[-1:] in ".?!"
-            out.append([text, ws[i][0], min(ws[j - 1][1], seg["out"])])
+            out.append([text, ws[i][0], min(ws[j - 1][1], seg["out"]), toks, times])
     return out
 
 
@@ -380,25 +400,52 @@ def build(project):
     # Sous-titres.
     raw = edl.get("captions") or auto_captions(words, segments, {e.lower() for e in edl.get("emphasis", [])})
     caps = []
-    for text, a, b in raw:
+    for entry in raw:
+        text, a, b = entry[:3]
+        toks = entry[3] if len(entry) > 3 else text.split()
+        times = entry[4] if len(entry) > 4 else [a + (b - a) * m / max(1, len(toks)) for m in range(len(toks))]
         sid = seg_of(a)
-        caps.append([to_tl(sid, a), to_tl(sid, min(b, seg_start[sid][2])), sid, text])
+        caps.append([to_tl(sid, a), to_tl(sid, min(b, seg_start[sid][2])), sid, text,
+                     toks, [to_tl(sid, max(a, min(t, seg_start[sid][2]))) for t in times]])
+    # Mots-clés (« mot important ») : {"mots": "exigences préalables", "n": 1} = 1re occurrence ; "n": 0 = toutes
+    kw_marks = set()                                     # (indice sous-titre, indice mot)
+    for kw in edl.get("keywords", []):
+        kw = {"mots": kw, "n": 1} if isinstance(kw, str) else kw
+        target = [_bare(x) for x in kw["mots"].split()]
+        seen = 0
+        for ci, c in enumerate(caps):
+            bt = [_bare(x.replace("**", "")) for x in c[4]]
+            for wi in range(len(bt) - len(target) + 1):
+                if bt[wi:wi + len(target)] == target:
+                    seen += 1
+                    if kw.get("n", 1) in (0, seen):
+                        kw_marks.update((ci, wi + m) for m in range(len(target)))
     for i, c in enumerate(caps):
         end = c[1] + 0.12
         if i + 1 < len(caps) and caps[i + 1][2] == c[2]:
             end = min(end, caps[i + 1][0])
         seg_end = seg_start[c[2]][0] + (seg_start[c[2]][2] - seg_start[c[2]][1])
         c[1] = round(min(end, seg_end), 3)
+    cap_style = edl.get("cap_style", "boite")
     cap_html = []
-    for i, (a, b, _, text) in enumerate(caps):
+    for i, (a, b, _, text, toks, wtimes) in enumerate(caps):
         if b - a < 0.05:
             continue
-        esc = html.escape(text).replace("&#x27;", "’").replace("'", "’")
-        while "**" in esc:
-            esc = esc.replace("**", "<b>", 1).replace("**", "</b>", 1)
+        spans = []
+        for wi, tok in enumerate(toks):
+            esc = html.escape(tok).replace("&#x27;", "’").replace("'", "’")
+            while "**" in esc:
+                esc = esc.replace("**", "<b>", 1).replace("**", "</b>", 1)
+            if (i, wi) in kw_marks:                      # la ponctuation finale reste hors de la mise en valeur
+                core = esc.rstrip(",.?!;:\xa0»")
+                esc = f"<em>{core}</em>{esc[len(core):]}"
+            spans.append(f'<span class="w" id="w-{i}-{wi}">{esc}</span>')
+            if cap_style == "karaoke" and wi > 0:        # mot pas encore dit : estompé, puis plein à son instant
+                tweens.append(f'tl.set("#w-{i}-{wi}", {{opacity: 1}}, {round(max(a, wtimes[wi]), 3)});')
         cap_html.append(f'<div id="cap-{i}" class="clip cap" data-start="{a}" data-duration="{round(b-a,3)}" '
-                        f'data-track-index="4"><span class="cap-box">{esc}</span></div>')
-    parts.append(f'<div id="captions" style="z-index:{z+4}">' + "".join(cap_html) + "</div>")
+                        f'data-track-index="4"><span class="cap-box">{" ".join(spans)}</span></div>')
+    scrim = '<div id="cap-scrim"></div>' if cap_style != "boite" else ""
+    parts.append(f'<div id="captions" style="z-index:{z+4}">{scrim}' + "".join(cap_html) + "</div>")
 
     # Carte de fin.
     parts.append(
@@ -408,7 +455,8 @@ def build(project):
     tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
 
     doc = TEMPLATE.format(W=W, H=H, FPS=fps, total=total, parts="\n      ".join(parts), GOLD=GOLD,
-                          tweens="\n      ".join(tweens), origin=punch["origin"], title=html.escape(edl["title"]))
+                          tweens="\n      ".join(tweens), origin=punch["origin"], title=html.escape(edl["title"]),
+                          cap_css=CAP_STYLES.get(edl.get("cap_style", "boite"), ""))
     open(os.path.join(project, "index.html"), "w").write(doc)
     report = {"duration": total, "speech": speech_end, "segments": len(segments), "captions": len(cap_html),
               "broll": len(edl.get("broll", [])), "broll_cover": round(sum(c1 - c0 for c0, c1 in cover) / max(total, 1), 2),
@@ -427,6 +475,8 @@ TEMPLATE = """<!doctype html>
     <style>
       @font-face {{ font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }}
       @font-face {{ font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }}
+      @font-face {{ font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }}
+      @font-face {{ font-family: "Instrument Serif"; font-style: italic; font-weight: 400; src: url("assets/fonts/InstrumentSerif-Italic.ttf") format("truetype"); }}
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
       html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #000000; }}
       #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; }}
@@ -456,7 +506,8 @@ TEMPLATE = """<!doctype html>
       .cap {{ position: absolute; left: 0; width: {W}px; top: 1340px; height: 100px; display: flex; align-items: center; justify-content: center; }}
       .cap-box {{ display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 46px; line-height: 1; color: #FFFFFF;
                  background: rgba(0,0,0,0.5); padding: 10px 14px; border-radius: 6px; white-space: nowrap; }}
-      .cap-box b {{ font-weight: 800; color: {GOLD}; }}
+      .cap-box b, .cap-box em {{ font-weight: 800; font-style: normal; color: {GOLD}; }}
+      {cap_css}
       /* Carte de fin — § 7 */
       #endcard {{ position: absolute; inset: 0; background: #000000; display: flex; align-items: center; justify-content: center; }}
       #end-logo {{ display: block; width: 520px; height: auto; }}
