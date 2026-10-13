@@ -98,15 +98,31 @@ def main():
         shutil.copy(music_src, os.path.join(A, "musique.wav"))
     music_len = dur(os.path.join(A, "musique.wav"))
 
+    # 4 bis. Un petit fichier par morceau (0,3 s de marge) : beaucoup plus léger à lire que la face cam entière
+    os.makedirs(os.path.join(A, "fc"), exist_ok=True)
+    cuts = {}
+    for i, m in enumerate(edl["morceaux"]):
+        src = os.path.abspath(os.path.join(ROOT, plan["takes_dir"], m["prise"], "assets/facecam.mp4"))
+        start = max(0.0, m["in"] - 0.3)
+        out_f = os.path.join(A, "fc", f"m{i:02d}.mp4")
+        run("ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{start:.3f}", "-i", src, "-t", f"{m['out'] - start + 0.3:.3f}",
+            "-c:v", "libx264", "-crf", "15", "-preset", "fast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k",
+            "-movflags", "+faststart", out_f)
+        cuts[i] = (f"assets/fc/m{i:02d}.mp4", round(start + offsets[m["prise"]], 3))
+
     # 5. edl.json pour engine.py
     faces = plan.get("faces", {})
     segments = []
     for i, m in enumerate(edl["morceaux"]):
         p, off = m["prise"], offsets[m["prise"]]
-        s = {"id": f"m{i:02d}", "in": round(m["in"] + off, 3), "out": round(m["out"] + off, 3)}
+        s = {"id": f"m{i:02d}", "in": round(m["in"] + off, 3), "out": round(m["out"] + off, 3),
+             "src": cuts[i][0], "src_offset": cuts[i][1]}
         if m.get("cadrage") in ("serre", "large"):
             s["cadrage"] = m["cadrage"]
+        if m.get("flips"):                                  # changements de cadrage, en temps du rush
+            s["flips"] = [round(f + off, 3) for f in m["flips"]]
         s.update({k: v for k, v in faces.get(p, {}).items()})
+        s.update({k: m[k] for k in ("origin", "tight_scale", "wide_scale") if k in m})   # réglage propre au morceau
         segments.append(s)
     seg_of = lambda tt: next(s["id"] for s in segments if s["in"] - 0.06 <= tt <= s["out"] + 0.06)
     broll = []
@@ -121,7 +137,7 @@ def main():
                       "offset": b["offset"]})
     out = {
         "title": plan["title"], "fps": plan.get("fps", 25), "source": "assets/facecam.mp4",
-        "words": "assets/facecam.words.json", "segments": segments,
+        "words": "assets/facecam.words.json", "segments": segments,      # "source" : non lue (src par morceau)
         "punch": {"scale": 1.3, "origin": "50% 28%", "first_tight": True},
         "corrections": {a: b for a, b in edl.get("corrections", [])},
         "emphasis": plan.get("emphasis", []),
@@ -137,6 +153,7 @@ def main():
     if plan.get("grade"):
         out["grade"] = plan["grade"]
     json.dump(out, open(os.path.join(proj, "edl.json"), "w"), ensure_ascii=False, indent=1)
+    os.remove(os.path.join(A, "facecam.mp4"))          # chaque morceau a son fichier ; la concaténation ne sert plus
     print(f"edl.json : {len(segments)} morceaux, {len(broll)} plans de coupe, musique {music_len:.1f} s, offsets {offsets}")
 
 

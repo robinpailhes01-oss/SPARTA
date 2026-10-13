@@ -1,0 +1,212 @@
+{
+ "title": "EPMSP — version C courte — Sparta",
+ "fps": 25,
+ "takes_dir": "work/takes",
+ "words_dir": "work/edit/words_C",
+ "broll_dir": "broll/examen",
+ "faces": {
+  "0556": {
+   "origin": "50% 32%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  "0557": {
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  "0558": {
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  "0562": {
+   "origin": "58% 22%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.0
+  }
+ },
+ "edl": {
+  "angle": "Story ou pub organique en 34 s : accroche → définition → « concrètement, c'est l'étape qui te permet d'encadrer en stage » (cette phrase répond tout de suite au « pourquoi » de l'accroche, puisqu'il n'y a pas de relance dans un format court) → ce qui est évalué (pas la technique : la séance et la sécurité) → appel à l'action recrutement. Tout est tourné sur le canapé (0556, 0557), puis l'appel à l'action dans le couloir (0562). Aucune prise où il lit son téléphone. 8 plans de coupe de l'examen, 41,6 % du temps. Durée : 32,00 s de parole + 2 s de carte = 34,00 s.",
+  "hook": "La même que pour la version principale : 0556 [1,62–7,27], « Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ? ». Premier mot à 0,08 s, cible et bénéfice dans une seule phrase. Flip serré → large à 3,62 s du rush, aucun plan de coupe.",
+  "kicker": "FORMATION COACH SPORTIF",
+  "morceaux": [
+   {
+    "prise": "0556",
+    "in": 1.62,
+    "out": 7.27,
+    "texte": "Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ?",
+    "cadrage": "serre",
+    "flips": [
+     3.62
+    ]
+   },
+   {
+    "prise": "0557",
+    "in": 1.34,
+    "out": 5.07,
+    "texte": "EPMSP, ça veut dire exigences préalables à la mise en situation",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0557",
+    "in": 5.22,
+    "out": 6.12,
+    "texte": "professionnelle.",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0557",
+    "in": 15.27,
+    "out": 20.07,
+    "texte": "Concrètement, c'est une étape importante qui va te permettre d'encadrer dans le cadre de ton stage en formation.",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0557",
+    "in": 40.37,
+    "out": 44.72,
+    "texte": "Attention, ce n'est pas une simple épreuve où on regarde si tu sais faire un exercice niveau technique.",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0557",
+    "in": 64.3,
+    "out": 70.17,
+    "texte": "On va surtout s'intéresser à la capacité que tu as à mettre en place une séance et à assurer la sécurité du pratiquant.",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0562",
+    "in": 11.22,
+    "out": 13.57,
+    "texte": "Je ne sais pas où t'en es dans tes démarches de devenir coach sportif,",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0562",
+    "in": 13.77,
+    "out": 18.12,
+    "texte": "mais n'hésite pas à commenter coach ou à écrire en DM pour qu'on prenne contact avec toi.",
+    "cadrage": "serre"
+   }
+  ],
+  "broll": [
+   {
+    "prise": "0557",
+    "at": 2.6,
+    "clip": "IMG_4430",
+    "offset": 0.3,
+    "dur": 1.8,
+    "raison": "« exigences préalables » : gros plan sur la grille d'évaluation, coach en arrière-plan. Montage 6,91–8,71 s."
+   },
+   {
+    "prise": "0557",
+    "at": 4.4,
+    "clip": "IMG_4437",
+    "offset": 0.5,
+    "dur": 1.57,
+    "raison": "« mise en situation | professionnelle » : client à la machine, la coach et deux examinateurs qui observent. Masque le raccord 5,07 → 5,22. Montage 8,71–10,28 s."
+   },
+   {
+    "prise": "0557",
+    "at": 16.85,
+    "clip": "IMG_4436",
+    "offset": 7.2,
+    "dur": 1.6,
+    "raison": "« qui va te permettre d'encadrer » : le coach et sa cliente avancent vers la caméra, jury derrière. Montage 11,86–13,46 s."
+   },
+   {
+    "prise": "0557",
+    "at": 18.45,
+    "clip": "IMG_4430",
+    "offset": 5.8,
+    "dur": 1.62,
+    "raison": "« de ton stage en formation » : l'examinateur, grille en main, fait son retour à une coach. Le plan finit sur le out, puis l'image revient au visage sur « Attention ». Montage 13,46–15,08 s."
+   },
+   {
+    "prise": "0557",
+    "at": 42.27,
+    "clip": "IMG_4436",
+    "offset": 0.5,
+    "dur": 2.45,
+    "raison": "« où on regarde si tu sais faire un exercice niveau technique » : plan large du jury qui observe un coach et sa cliente sur le gazon. Montage 16,98–19,43 s."
+   },
+   {
+    "prise": "0557",
+    "at": 67.05,
+    "clip": "IMG_4434",
+    "offset": 2.2,
+    "dur": 1.25,
+    "raison": "« mettre en place une séance » : la coach donne la consigne, le client écoute. Montage 22,18–23,43 s."
+   },
+   {
+    "prise": "0557",
+    "at": 68.3,
+    "clip": "IMG_4438",
+    "offset": 8,
+    "dur": 1.87,
+    "raison": "« et à assurer la sécurité du pratiquant » : développé couché, la coach à la tête du banc, le jury qui observe. Montage 23,43–25,30 s."
+   },
+   {
+    "prise": "0562",
+    "at": 12.7,
+    "clip": "IMG_4440",
+    "offset": 0.5,
+    "dur": 2,
+    "raison": "« devenir coach sportif, | mais n'hésite pas » : salon d'accueil Sparta, kakémono COACHING et casque, c'est-à-dire la formation qui l'attend. Masque le raccord 13,57 → 13,77. Ensuite, l'appel à l'action reste face caméra de « à commenter coach » jusqu'à la fin. Montage 26,78–28,78 s."
+   }
+  ],
+  "flash": "",
+  "corrections": [
+   [
+    "SDGES",
+    "SDJES"
+   ],
+   [
+    "portif",
+    "sportif"
+   ],
+   [
+    "stagia",
+    "stagiaire"
+   ],
+   [
+    "validés",
+    "validées"
+   ],
+   [
+    "exigence",
+    "exigences"
+   ],
+   [
+    "préalable",
+    "préalables"
+   ],
+   [
+    "ssportif",
+    "sportif"
+   ],
+   [
+    "stagiaireire",
+    "stagiaire"
+   ],
+   [
+    "exigencess",
+    "exigences"
+   ],
+   [
+    "préalabless",
+    "préalables"
+   ]
+  ],
+  "duree_estimee": 34,
+  "remarques": "Mêmes règles et mêmes réserves que la version principale :\n- même words_dir (scratchpad/final/words) ;\n- mêmes entrées recalées sur l'attaque de la voix (0557 in 1,34 et 64,30) et même découpe de la définition en deux morceaux ;\n- flip 0556 [3,62] (équivalent concaténé 3,62 ; offsets 0556 = 0, 0557 = 21,3, 0562 = 94,5) ;\n- même note d'exactitude sur « mise en situation pédagogique », à reporter dans la légende.\n\nVérifié avec scratchpad/final/verif.py court : bornes conformes, jonctions de 0,22 à 0,41 s. Les 8 passages sont tous différents, autorisés et hors des zones « eviter », de 1,25 à 2,45 s, sans chevauchement et sans plan de coupe pendant l'accroche. Les 8 plans visage durent de 1,26 à 3,65 s (16 plans, 0,50 plan/s) et les sous-titres simulés sont complets.\n\nLe court reprend plusieurs passages du principal : ce sont deux vidéos distinctes, et l'unicité est respectée dans chacune. Pour l'accroche, l'image de la grille et le jury en plan large restent les plus forts.\n\nSi la plateforme impose 30 s ou moins, deux options :\n- remplacer 0557 64,30–70,17 par 53,27–57,02 (« On va surtout s'assurer que tu sais mettre en sécurité le pratiquant », −2,12 s), en gardant IMG_4438 sur « sécurité » et en retirant IMG_4434 ;\n- ou retirer « Concrètement… » (−4,80 s), mais le « pourquoi » de l'accroche resterait sans réponse."
+ },
+ "emphasis": [],
+ "music": "videos/temoignage-nicolas/assets/musique.wav",
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0
+ }
+}

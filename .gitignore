@@ -26,3 +26,4 @@ videos/*/assets/*.wav
 videos/*/assets/*.json
 videos/*/assets/*.txt
 work/
+videos/*/assets/fc/

@@ -13,6 +13,7 @@ edl.json (seuls "title", "source" et "segments" sont obligatoires) :
   "source": "assets/facecam.mp4",            # face cam (son conservé)
   "words": "assets/facecam.words.json",      # transcription mot à mot (pour les sous-titres auto)
   "segments": [{"id": "hook", "in": 20.72, "out": 26.35, "flips": [24.0],
+                "src": "assets/fc/m00.mp4", "src_offset": 20.42,   # optionnel : fichier propre au morceau
                 "cadrage": "serre", "origin": "50% 24%", "tight_scale": 1.5, "wide_scale": 1.1}],
   "tighten": 0.45,                           # optionnel : coupe les silences internes > 0,45 s
   "punch": {"scale": 1.28, "origin": "47% 21%", "first_tight": true},
@@ -65,8 +66,9 @@ def load_words(path, corrections):
     for seg in data:
         for s, e, w in seg["words"]:
             w = w.strip()
-            for bad, good in corrections.items():
-                w = w.replace(bad, good)
+            core = w.strip(",.?!;:«»\"")
+            if core in corrections:                          # correction en mot entier uniquement
+                w = w.replace(core, corrections[core], 1)
             if w:
                 words.append((float(s), float(e), w))
     # Whisper colle parfois « j » et « 'ai » : on recolle les élisions.
@@ -109,9 +111,12 @@ WEAK = {"le", "la", "les", "l’", "un", "une", "des", "du", "de", "d’", "à",
         "ou", "mais", "que", "qu’", "qui", "pour", "par", "avec", "sans", "sur", "dans", "chez", "je",
         "j’", "tu", "il", "elle", "on", "nous", "vous", "ils", "elles", "me", "m’", "te", "se", "s’",
         "ce", "c’", "ça", "mon", "ma", "mes", "ton", "ta", "tes", "son", "sa", "ses", "notre", "votre",
-        "leur", "leurs", "ne", "n’", "pas", "très", "plus", "trop", "si", "comme", "est", "suis", "a",
+        "leur", "leurs", "ne", "n’", "tant", "très", "plus", "trop", "si", "comme", "est", "suis", "a",
         "ai", "était", "puis", "donc", "alors", "parce", "quand", "lorsque", "y", "cette", "cet", "ces",
-        "pourquoi", "peu", "tout", "tous", "toute", "toutes", "bien", "super"}
+        "pourquoi", "peu", "tout", "tous", "toute", "toutes", "bien", "super",
+        "va", "vas", "vais", "vont", "peux", "peut", "dois", "doit", "faut"}
+# Paires jamais séparées entre deux sous-titres.
+NO_SPLIT = {("coach", "sportif"), ("coachs", "sportifs"), ("salle", "de"), ("mise", "en")}
 NUM_WORDS = {"deux": "2", "trois": "3", "quatre": "4", "cinq": "5", "six": "6", "sept": "7", "huit": "8",
              "neuf": "9", "dix": "10", "onze": "11", "douze": "12", "quinze": "15", "vingt": "20",
              "trente": "30", "quarante": "40", "cinquante": "50", "cent": "100"}
@@ -119,7 +124,7 @@ NUM_FOLLOW = UNITS | {"premiers", "premières", "derniers", "dernières"}
 
 
 def _bare(w):
-    w = w.strip(",.?!;:«»\"").lower()
+    w = w.replace("\xa0", " ").strip(" ,.?!;:«»\"").lower()
     return w.split("’")[-1] if "’" in w[:-1] else w      # « d’une » → « une », « j’ai » → « ai »
 
 
@@ -137,6 +142,8 @@ def _chunk_cost(toks, last_word, next_word):
         cost += 6.0                                 # jamais après un mot-outil
     if next_word and _bare(next_word) in UNITS and is_number(_bare(last_word)):
         cost += 50.0                                # jamais un chiffre séparé de son unité
+    if next_word and ((_bare(last_word), _bare(next_word)) in NO_SPLIT or _bare(next_word) == "pas"):
+        cost += 50.0                                # « coach | sportif », « sais | pas » : interdit
     return cost
 
 
@@ -145,6 +152,7 @@ def auto_captions(words, segments, emphasis=()):
     (ponctuation, jamais après un mot-outil, jamais un chiffre sans son unité) ;
     chiffres en nombres, chiffres + unité en gras or."""
     out = []
+    sentence_start = True                                   # suit l'ordre du montage, d'un morceau à l'autre
     for seg in segments:
         ws = [list(w) for w in words if w[0] >= seg["in"] - 0.05 and w[0] < seg["out"] - 0.05]
         # Nombres en lettres → chiffres quand ils précèdent une unité (« trois premiers mois »).
@@ -167,7 +175,6 @@ def auto_captions(words, segments, emphasis=()):
             cuts.append((prev[j], j))
             j = prev[j]
         cuts.reverse()
-        sentence_start = True
         for i, j in cuts:
             toks, k = [], i
             while k < j:
@@ -252,8 +259,8 @@ def build(project):
         org = s.get("origin", punch["origin"])          # point de zoom propre au morceau (visage)
         parts.append(
             f'<div class="frame" id="thf-{sid}" style="z-index:{z};transform-origin:{org}"><div class="punch" id="thp-{sid}" style="transform-origin:{org}">'
-            f'<video id="th-{sid}" src="{edl["source"]}" data-start="{round(t0,3)}" data-duration="{d}" '
-            f'data-media-start="{a}" data-track-index="0" playsinline data-has-audio="true"{grade_attr} '
+            f'<video id="th-{sid}" src="{s.get("src", edl["source"])}" data-start="{round(t0,3)}" data-duration="{d}" '
+            f'data-media-start="{round(a - s.get("src_offset", 0), 3)}" data-track-index="0" playsinline data-has-audio="true"{grade_attr} '
             f"data-automation='{json.dumps(fade)}'></video></div></div>")
         bounds = [round(t0, 3)] + [to_tl(sid, f) for f in s.get("flips", [])] + [round(t0 + d, 3)]
         if s.get("cadrage") in ("serre", "large"):

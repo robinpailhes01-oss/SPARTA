@@ -1,0 +1,463 @@
+{
+ "principal": {
+  "angle": "Rétention Instagram en boucle ouverte, sur la base de la proposition 1 (meilleure note moyenne : 8,0 contre 7,75 pour P3 et 6,25 pour P2), avec les greffes des deux juges. L'accroche en « tu » pose deux questions. Viennent ensuite la définition, puis ce que l'épreuve évalue vraiment : pas la technique, mais mettre en place une séance et assurer la sécurité. La relance « Et pourquoi c'est important ? » tombe à 20,5 s, au changement de décor (canapé → néon). La réponse suit la chaîne attestation → SDJES → carte d'éducateur sportif en stage → encadrer en alternance. La phrase de sens vient ensuite (« pas une formalité, un passage »), puis l'argument « ça démarre quelques jours après l'entrée en formation », puis l'appel à l'action recrutement de 0562, face caméra jusqu'au bout. Aucun flash. Les plans de coupe viennent tous de l'examen Sparta : 13 plans, 42,7 % du temps. Durée : 60,67 s de parole + 2 s de carte = 62,67 s.",
+  "hook": "0556 [1,62–7,27] : « Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ? ». Premier mot à 0,08 s et sigle prononcé avant 2 s. La phrase vise la cible (futur coach sportif) et promet un bénéfice (commencer à encadrer), d'une seule respiration et regard caméra. Elle est commune aux trois propositions. Prises écartées : 0555 commence par « Donc » et laisse environ 9 s de blanc entre ses deux moitiés ; 0554 est inutilisable. Visage seul : serré, puis un flip vers le large à 3,62 s du rush, entre « EPMSP » et « et surtout », pour ne pas dépasser 4 s sur un même plan. Surtitre FORMATION COACH SPORTIF de 0,15 à 2,75 s.",
+  "kicker": "FORMATION COACH SPORTIF",
+  "morceaux": [
+   {
+    "prise": "0556",
+    "in": 1.62,
+    "out": 7.27,
+    "texte": "Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ?",
+    "cadrage": "serre",
+    "flips": [
+     3.62
+    ]
+   },
+   {
+    "prise": "0557",
+    "in": 1.34,
+    "out": 5.07,
+    "texte": "EPMSP, ça veut dire exigences préalables à la mise en situation",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0557",
+    "in": 5.22,
+    "out": 6.12,
+    "texte": "professionnelle.",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0557",
+    "in": 40.37,
+    "out": 44.72,
+    "texte": "Attention, ce n'est pas une simple épreuve où on regarde si tu sais faire un exercice niveau technique.",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0557",
+    "in": 64.3,
+    "out": 70.17,
+    "texte": "On va surtout s'intéresser à la capacité que tu as à mettre en place une séance et à assurer la sécurité du pratiquant.",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0558",
+    "in": 0.77,
+    "out": 2.22,
+    "texte": "Et pourquoi c'est important ?",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0558",
+    "in": 6.97,
+    "out": 11.12,
+    "texte": "Parce qu'une fois que les EPMSP sont validées, tu vas obtenir une attestation de réussite",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0558",
+    "in": 17.07,
+    "out": 20.77,
+    "texte": "qui te permet ensuite de faire les démarches auprès du SDJES,",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0558",
+    "in": 35.55,
+    "out": 39.87,
+    "texte": "qui te permettra d'obtenir une carte professionnelle d'éducateur sportif en stage.",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0558",
+    "in": 74.97,
+    "out": 80.92,
+    "texte": "Et c'est cette carte de stagiaire qui va te permettre d'encadrer les pratiquants dans le cadre de ton alternance en entreprise,",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0558",
+    "in": 86.32,
+    "out": 89.72,
+    "texte": "Donc les EPMSP, ce n'est pas simplement une formalité administrative,",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0558",
+    "in": 95.42,
+    "out": 97.62,
+    "texte": "c'est un passage entre « je suis en formation »",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0558",
+    "in": 100.22,
+    "out": 104.17,
+    "texte": "et « je peux réellement commencer à exercer en situation professionnelle ».",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0562",
+    "in": 6.42,
+    "out": 8.82,
+    "texte": "Donc ces EPMSP vont démarrer",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0562",
+    "in": 9.22,
+    "out": 11.17,
+    "texte": "quelques jours après l'entrée en formation.",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0562",
+    "in": 11.22,
+    "out": 13.57,
+    "texte": "Je ne sais pas où t'en es dans tes démarches de devenir coach sportif,",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0562",
+    "in": 13.77,
+    "out": 18.12,
+    "texte": "mais n'hésite pas à commenter coach ou à écrire en DM pour qu'on prenne contact avec toi.",
+    "cadrage": "large",
+    "flips": [
+     15.8
+    ]
+   }
+  ],
+  "broll": [
+   {
+    "prise": "0557",
+    "at": 2.6,
+    "clip": "IMG_4430",
+    "offset": 0.3,
+    "dur": 1.8,
+    "raison": "« exigences préalables » : gros plan sur la main de l'examinateur et la grille d'évaluation (les critères), coach en arrière-plan. Montage 6,91–8,71 s."
+   },
+   {
+    "prise": "0557",
+    "at": 4.4,
+    "clip": "IMG_4437",
+    "offset": 0.5,
+    "dur": 1.57,
+    "raison": "« à la mise en situation | professionnelle » : client au développé à la machine, la coach et deux examinateurs qui observent (usage « mise en situation » au catalogue). Masque le raccord 5,07 → 5,22, qui retire 0,15 s de blanc. Montage 8,71–10,28 s."
+   },
+   {
+    "prise": "0557",
+    "at": 42.27,
+    "clip": "IMG_4436",
+    "offset": 0.5,
+    "dur": 2.45,
+    "raison": "« où on regarde si tu sais faire un exercice niveau technique » : plan large du jury (pantalons blancs, t-shirts noirs) qui observe un coach et sa cliente sur le gazon. C'est l'image de crédibilité (greffe 7 du juge 2). Montage 12,18–14,63 s."
+   },
+   {
+    "prise": "0557",
+    "at": 67.05,
+    "clip": "IMG_4434",
+    "offset": 2.2,
+    "dur": 1.25,
+    "raison": "« mettre en place une séance » : la coach donne la consigne, le client écoute. Montage 17,38–18,63 s."
+   },
+   {
+    "prise": "0557",
+    "at": 68.3,
+    "clip": "IMG_4438",
+    "offset": 8,
+    "dur": 1.87,
+    "raison": "« et à assurer la sécurité du pratiquant » : développé couché en plan serré, la coach à la tête du banc, le jury qui observe. Le plan finit sur le out, puis coupe franche vers le néon. Montage 18,63–20,50 s."
+   },
+   {
+    "prise": "0558",
+    "at": 8.62,
+    "clip": "IMG_4430",
+    "offset": 5.8,
+    "dur": 2.5,
+    "raison": "« sont validées, tu vas obtenir une attestation de réussite » : l'examinateur, grille en main, rend son verdict à une coach. Couvre la tête baissée de 11,0. Montage 23,60–26,10 s."
+   },
+   {
+    "prise": "0558",
+    "at": 19.4,
+    "clip": "IMG_4439",
+    "offset": 0,
+    "dur": 2.2,
+    "raison": "« auprès du SDJES, | qui te permettra » : entretien au salon, l'examinateur et son porte-documents vert face au coach assis (la partie administrative). Couvre la tête baissée de 20,3–20,7, le raccord 20,77 → 35,55 et la lecture du téléphone de 35,5–35,9. Montage 28,43–30,63 s."
+   },
+   {
+    "prise": "0558",
+    "at": 37.97,
+    "clip": "IMG_4436",
+    "offset": 7.2,
+    "dur": 1.9,
+    "raison": "« d'éducateur sportif en stage » : le coach et sa cliente avancent vers la caméra, jury derrière (le stagiaire en situation). Couvre le regard baissé de 39,7. Montage 32,22–34,12 s."
+   },
+   {
+    "prise": "0558",
+    "at": 76.5,
+    "clip": "IMG_4436",
+    "offset": 10.6,
+    "dur": 2.1,
+    "raison": "« d'encadrer les pratiquants » : caméra qui suit le coach et sa cliente en fentes marchées. Couvre le regard baissé de 76,6–76,8. Montage 35,65–37,75 s."
+   },
+   {
+    "prise": "0558",
+    "at": 80.2,
+    "clip": "IMG_4438",
+    "offset": 0.3,
+    "dur": 2.5,
+    "raison": "« en entreprise, | Donc les EPMSP, ce n'est pas simplement » : longue salle lumineuse, client au développé couché, coach et trois examinateurs. La vraie épreuve en salle contredit le mot « formalité ». Couvre les yeux baissés de 86,4 et 87,2–87,4 et masque le raccord. Montage 39,35–41,85 s."
+   },
+   {
+    "prise": "0558",
+    "at": 95.42,
+    "clip": "IMG_4439",
+    "offset": 5,
+    "dur": 2.2,
+    "raison": "« c'est un passage entre \"je suis en formation\" » : l'examinateur explique avec les mains, casque Sparta au mur (le temps de la formation). Couvre les regards baissés de 95,5–96,1 et 97,5. Montage 43,47–45,67 s."
+   },
+   {
+    "prise": "0558",
+    "at": 102.3,
+    "clip": "IMG_4435",
+    "offset": 0.2,
+    "dur": 2.5,
+    "raison": "« à exercer en situation professionnelle » : plan large de la salle, coach et client sur le gazon, un examinateur entre avec sa grille. Couvre le regard baissé de 103,9–104,1. Le plan déborde sur « Donc ces » (0562) : il masque le changement de décor et la tête d'une personne qui passe derrière le coach (0562, 6,45–6,8). Montage 47,75–50,25 s."
+   },
+   {
+    "prise": "0562",
+    "at": 9.22,
+    "clip": "IMG_4440",
+    "offset": 0.5,
+    "dur": 1.95,
+    "raison": "« quelques jours après l'entrée en formation » : salon d'accueil Sparta (kakémono COACHING, casque), c'est-à-dire l'arrivée en formation. Masque le raccord 8,82 → 9,22 pendant la marche. Montage 52,02–53,97 s."
+   }
+  ],
+  "flash": "",
+  "corrections": [
+   [
+    "SDGES",
+    "SDJES"
+   ],
+   [
+    "portif",
+    "sportif"
+   ],
+   [
+    "stagia",
+    "stagiaire"
+   ],
+   [
+    "validés",
+    "validées"
+   ],
+   [
+    "exigence",
+    "exigences"
+   ],
+   [
+    "préalable",
+    "préalables"
+   ],
+   [
+    "ssportif",
+    "sportif"
+   ],
+   [
+    "stagiaireire",
+    "stagiaire"
+   ],
+   [
+    "exigencess",
+    "exigences"
+   ],
+   [
+    "préalabless",
+    "préalables"
+   ]
+  ],
+  "duree_estimee": 62.67,
+  "remarques": "1) EXACTITUDE, à signaler au client (paroles inchangées). Le coach développe EPMSP en « exigence(s) préalable(s) à la mise en situation professionnelle ». L'intitulé réglementaire (référentiel BPJEPS) est « exigences préalables à la mise en situation pédagogique ». Aucune prise ne dit « pédagogique » (0556 dit « mise en pratique », puis « Non, c'est pas ça »). Le sous-titre suit la parole ; le pluriel « exigences préalables » se prononce pareil. Je conseille de mettre l'intitulé officiel dans la légende Instagram, et de ne pas corriger le seul sous-titre. Si le client veut la correction à l'image, il faut retourner les 4 s de la définition sur le canapé. À faire confirmer par le responsable formation : l'intitulé exact pour le diplôme préparé chez Sparta (le kakémono mentionne le CQP Instructeur Fitness) et le délai « quelques jours après l'entrée en formation ».\n\n2) SOUS-TITRES. Utiliser words_dir = /tmp/claude-0/-home-user-SPARTA/d6280e9a-28be-54a2-8a8f-0b4b4a4c018a/scratchpad/final/words. Ce dossier reprend premium/words (fc_v2 recalé), auquel j'ajoute la phrase 0557 64,05–70,05 retranscrite à part. J'y ai aussi recalé 5 mots sur l'attaque mesurée : « On » à 64,38, « qui » de 0558 à 35,63, « EPMSP, » à 1,42, fin de « situation » à 4,88, « professionnelle. » à 5,39. Sans ce recalage, auto_captions perd « On » et « qui ». Avec fc/ ou takes.json, il manque des mots sur 9 morceaux. J'ai simulé engine.auto_captions (version actuelle) sur ce dossier : les 17 morceaux sont complets, chaque ligne fait 24 caractères ou moins, et la majuscule suit le montage (« qui te permet… » reste en minuscule). Le moteur corrige désormais en mot entier : les quatre paires de garde (ssportif, stagiaireire, exigencess, préalabless) n'ont plus d'effet, je les garde seulement au cas où l'ancien remplacement par sous-chaîne serait utilisé. Emphasis = [] (pas de « coach » en or).\n\n3) BORNES. Tous les in et out suivent les zones de takes.md (zone − 0,08 / zone + 0,12), avec 4 exceptions voulues :\n- m01 est coupé en deux selon les zones (1,05–4,95 et 5,30–6,00). Le blanc réel entre « situation » et « professionnelle » mesure 0,52 s (et non 0,35 s comme le suggèrent les zones), il passe à 0,37 s.\n- Trois entrées démarrent sur l'attaque de la voix − 0,08, parce que la zone commence sur une respiration ou un claquement à −49 dB : 0557 in 1,34 (zone 1,05, voix 1,42), 0557 in 64,30 (zone 64,05, voix 64,38), 0558 in 35,55 (zone 35,15, voix 35,63). Avec les bornes de zone strictes (0,97 / 63,97 / 35,07), les jonctions feraient 0,65, 0,58 et 0,81 s de blanc. Elles passent à 0,28, 0,25 et 0,33 s. Aucun mot n'est entamé.\n- Toutes les jonctions sont maintenant entre 0,22 et 0,41 s, et aucun blanc de plus de 0,4 s ne reste à l'intérieur d'un morceau (mesure RMS sur l'audio).\n\n4) FLIPS (punch-in). Ils sont en temps du rush dans les morceaux : 0556 [3,62] et 0562 [15,80]. assemble_takes.py les transmet maintenant. Équivalent en face cam concaténée, si on édite edl.json à la main : 3,62 et 221,30 (offsets 0556 = 0, 0557 = 21,3, 0558 = 94,5, 0562 = 205,5). Sans ces flips, l'accroche (5,65 s) et l'appel à l'action (4,35 s) dépassent 4 s. m01 est en « auto » comme dans P3 : il passe en serré avec le flip et en large sans, donc pas de saut dans l'axe entre 0556 et 0557. Simulation : 17 plans visage de 1,26 à 3,65 s, 30 plans au total, 0,49 plan/s, médiane 2,00 s, et aucune coupe visage à visage au même cadrage.\n\n5) CADRAGE (faces). Sur le canapé (0556, 0557), le large montre les pieds : il faut un wide_scale d'environ 1,3 pour cadrer à mi-cuisse. Dans 0558, le large laisse voir le téléphone tenu à la hanche (m05, m07, m09). C'est acceptable, mais on peut serrer ces morceaux : tight_scale, wide_scale et origin se règlent maintenant par morceau.\n\n6) REGARDS TÉLÉPHONE (planches image par image). Tous les regards baissés des passages retenus de 0558 sont couverts. Il ne reste que 2 à 3 images où il relève les yeux vers l'objectif, au tout début de m06 (6,97–7,05) et de m09 (74,97–75,05). 0562 : regard caméra du début à la fin.\n\n7) PRÉPARATION. prep_all.log indique maintenant 0562 préparé (−13,3 LUFS). Les quatre prises utiles (0556, 0557, 0558, 0562) sont prêtes.\n\n8) À TESTER EN A/B (non retenu dans la version principale) :\n- Appel à l'action 0559 (« … écris EPMSP en commentaire », 37,57–40,12) : attire plus de curieux de l'épreuve, moins de futurs élèves.\n- Version sans la définition : −4,63 s, et l'inexactitude disparaît.\n- Prévoir une réponse automatique au mot « coach » et un commentaire épinglé.\n\nFichiers : listes de montage scratchpad/final/edls.json ; vérificateur scratchpad/final/verif.py (simule engine.py : bornes, blancs, passages, chevauchements, fenêtres visage, regards, sous-titres) ; jonctions scratchpad/final/junc.py."
+ },
+ "court": {
+  "angle": "Story ou pub organique en 34 s : accroche → définition → « concrètement, c'est l'étape qui te permet d'encadrer en stage » (cette phrase répond tout de suite au « pourquoi » de l'accroche, puisqu'il n'y a pas de relance dans un format court) → ce qui est évalué (pas la technique : la séance et la sécurité) → appel à l'action recrutement. Tout est tourné sur le canapé (0556, 0557), puis l'appel à l'action dans le couloir (0562). Aucune prise où il lit son téléphone. 8 plans de coupe de l'examen, 41,6 % du temps. Durée : 32,00 s de parole + 2 s de carte = 34,00 s.",
+  "hook": "La même que pour la version principale : 0556 [1,62–7,27], « Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ? ». Premier mot à 0,08 s, cible et bénéfice dans une seule phrase. Flip serré → large à 3,62 s du rush, aucun plan de coupe.",
+  "kicker": "FORMATION COACH SPORTIF",
+  "morceaux": [
+   {
+    "prise": "0556",
+    "in": 1.62,
+    "out": 7.27,
+    "texte": "Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ?",
+    "cadrage": "serre",
+    "flips": [
+     3.62
+    ]
+   },
+   {
+    "prise": "0557",
+    "in": 1.34,
+    "out": 5.07,
+    "texte": "EPMSP, ça veut dire exigences préalables à la mise en situation",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0557",
+    "in": 5.22,
+    "out": 6.12,
+    "texte": "professionnelle.",
+    "cadrage": "auto"
+   },
+   {
+    "prise": "0557",
+    "in": 15.27,
+    "out": 20.07,
+    "texte": "Concrètement, c'est une étape importante qui va te permettre d'encadrer dans le cadre de ton stage en formation.",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0557",
+    "in": 40.37,
+    "out": 44.72,
+    "texte": "Attention, ce n'est pas une simple épreuve où on regarde si tu sais faire un exercice niveau technique.",
+    "cadrage": "serre"
+   },
+   {
+    "prise": "0557",
+    "in": 64.3,
+    "out": 70.17,
+    "texte": "On va surtout s'intéresser à la capacité que tu as à mettre en place une séance et à assurer la sécurité du pratiquant.",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0562",
+    "in": 11.22,
+    "out": 13.57,
+    "texte": "Je ne sais pas où t'en es dans tes démarches de devenir coach sportif,",
+    "cadrage": "large"
+   },
+   {
+    "prise": "0562",
+    "in": 13.77,
+    "out": 18.12,
+    "texte": "mais n'hésite pas à commenter coach ou à écrire en DM pour qu'on prenne contact avec toi.",
+    "cadrage": "serre"
+   }
+  ],
+  "broll": [
+   {
+    "prise": "0557",
+    "at": 2.6,
+    "clip": "IMG_4430",
+    "offset": 0.3,
+    "dur": 1.8,
+    "raison": "« exigences préalables » : gros plan sur la grille d'évaluation, coach en arrière-plan. Montage 6,91–8,71 s."
+   },
+   {
+    "prise": "0557",
+    "at": 4.4,
+    "clip": "IMG_4437",
+    "offset": 0.5,
+    "dur": 1.57,
+    "raison": "« mise en situation | professionnelle » : client à la machine, la coach et deux examinateurs qui observent. Masque le raccord 5,07 → 5,22. Montage 8,71–10,28 s."
+   },
+   {
+    "prise": "0557",
+    "at": 16.85,
+    "clip": "IMG_4436",
+    "offset": 7.2,
+    "dur": 1.6,
+    "raison": "« qui va te permettre d'encadrer » : le coach et sa cliente avancent vers la caméra, jury derrière. Montage 11,86–13,46 s."
+   },
+   {
+    "prise": "0557",
+    "at": 18.45,
+    "clip": "IMG_4430",
+    "offset": 5.8,
+    "dur": 1.62,
+    "raison": "« de ton stage en formation » : l'examinateur, grille en main, fait son retour à une coach. Le plan finit sur le out, puis l'image revient au visage sur « Attention ». Montage 13,46–15,08 s."
+   },
+   {
+    "prise": "0557",
+    "at": 42.27,
+    "clip": "IMG_4436",
+    "offset": 0.5,
+    "dur": 2.45,
+    "raison": "« où on regarde si tu sais faire un exercice niveau technique » : plan large du jury qui observe un coach et sa cliente sur le gazon. Montage 16,98–19,43 s."
+   },
+   {
+    "prise": "0557",
+    "at": 67.05,
+    "clip": "IMG_4434",
+    "offset": 2.2,
+    "dur": 1.25,
+    "raison": "« mettre en place une séance » : la coach donne la consigne, le client écoute. Montage 22,18–23,43 s."
+   },
+   {
+    "prise": "0557",
+    "at": 68.3,
+    "clip": "IMG_4438",
+    "offset": 8,
+    "dur": 1.87,
+    "raison": "« et à assurer la sécurité du pratiquant » : développé couché, la coach à la tête du banc, le jury qui observe. Montage 23,43–25,30 s."
+   },
+   {
+    "prise": "0562",
+    "at": 12.7,
+    "clip": "IMG_4440",
+    "offset": 0.5,
+    "dur": 2,
+    "raison": "« devenir coach sportif, | mais n'hésite pas » : salon d'accueil Sparta, kakémono COACHING et casque, c'est-à-dire la formation qui l'attend. Masque le raccord 13,57 → 13,77. Ensuite, l'appel à l'action reste face caméra de « à commenter coach » jusqu'à la fin. Montage 26,78–28,78 s."
+   }
+  ],
+  "flash": "",
+  "corrections": [
+   [
+    "SDGES",
+    "SDJES"
+   ],
+   [
+    "portif",
+    "sportif"
+   ],
+   [
+    "stagia",
+    "stagiaire"
+   ],
+   [
+    "validés",
+    "validées"
+   ],
+   [
+    "exigence",
+    "exigences"
+   ],
+   [
+    "préalable",
+    "préalables"
+   ],
+   [
+    "ssportif",
+    "sportif"
+   ],
+   [
+    "stagiaireire",
+    "stagiaire"
+   ],
+   [
+    "exigencess",
+    "exigences"
+   ],
+   [
+    "préalabless",
+    "préalables"
+   ]
+  ],
+  "duree_estimee": 34,
+  "remarques": "Mêmes règles et mêmes réserves que la version principale :\n- même words_dir (scratchpad/final/words) ;\n- mêmes entrées recalées sur l'attaque de la voix (0557 in 1,34 et 64,30) et même découpe de la définition en deux morceaux ;\n- flip 0556 [3,62] (équivalent concaténé 3,62 ; offsets 0556 = 0, 0557 = 21,3, 0562 = 94,5) ;\n- même note d'exactitude sur « mise en situation pédagogique », à reporter dans la légende.\n\nVérifié avec scratchpad/final/verif.py court : bornes conformes, jonctions de 0,22 à 0,41 s. Les 8 passages sont tous différents, autorisés et hors des zones « eviter », de 1,25 à 2,45 s, sans chevauchement et sans plan de coupe pendant l'accroche. Les 8 plans visage durent de 1,26 à 3,65 s (16 plans, 0,50 plan/s) et les sous-titres simulés sont complets.\n\nLe court reprend plusieurs passages du principal : ce sont deux vidéos distinctes, et l'unicité est respectée dans chacune. Pour l'accroche, l'image de la grille et le jury en plan large restent les plus forts.\n\nSi la plateforme impose 30 s ou moins, deux options :\n- remplacer 0557 64,30–70,17 par 53,27–57,02 (« On va surtout s'assurer que tu sais mettre en sécurité le pratiquant », −2,12 s), en gardant IMG_4438 sur « sécurité » et en retirant IMG_4434 ;\n- ou retirer « Concrètement… » (−4,80 s), mais le « pourquoi » de l'accroche resterait sans réponse."
+ },
+ "justification": "J'ai pris la proposition 1 comme base parce qu'elle a la meilleure note moyenne (juge 1 : 7,5 ; juge 2 : 8,5 ; moyenne 8,0, contre 7,75 pour P3 et 6,25 pour P2). C'est aussi la seule qui garde le « pourquoi » ouvert jusqu'à la relance et qui finit sur l'appel à l'action recrutement face caméra.\n\nGreffes et corrections reprises des juges :\n- Flash retiré (STYLE § 0 et § 8).\n- Critère évalué complet : 0557 64,30–70,17 (« mettre en place une séance et à assurer la sécurité »). Je l'ai retranscrit isolément : c'est bien « et à assurer », P3 avait tort.\n- Carte : 0558 35,55 (« carte professionnelle d'éducateur sportif en stage », P2/P3, juge 1) plutôt que 46,62. On évite deux « va te permettre » de suite et un « donc ».\n- « donc en salle de sport » retiré : il faisait deux « donc » d'affilée avant la synthèse (critique du juge 2).\n- Synthèse couverte à l'attaque et sur 95,42 (juge 2), appel à l'action 0562 face caméra jusqu'au bout et coupé avant « Ciao ciao » (juge 1).\n- Plan large du jury sur « où on regarde » (juge 2, greffe 7).\n- m01 en « auto » (P3) pour éviter le saut dans l'axe entre 0556 et 0557.\n- Plus aucun plan visage de 0,8 s : le plus court fait 1,26 s.\n- Paires de garde gardées, emphasis vide, légende avec l'intitulé officiel, « quelques jours » à confirmer.\n\nRevérifications faites (scripts) :\n- Bornes : contrôlées contre takes.md.\n- Audio : j'ai mesuré le RMS. Il en sort la coupe de m01 aux limites de zone (0,52 s de blanc réel) et trois entrées recalées sur l'attaque de la voix, sinon il restait 0,58 à 0,81 s de blanc aux jonctions. Ces trois écarts à la règle de zone sont documentés, avec les valeurs de repli.\n- Regard : planches d'images de 0558 à 0,2 s d'intervalle. Les « détournements » de 79–80 et 87,6–89,6 sont des déplacements, il regarde l'objectif, et les vrais regards baissés sont tous couverts.\n- Catalogue : passages autorisés, aucun réemploi, 1,2 à 2,5 s, 42,7 % et 41,6 % de plans de coupe, rien pendant l'accroche.\n- Sous-titres : simulation avec engine.py, qui a changé depuis les jugements (correction en mot entier, majuscule qui suit le montage, flips et cadrage par morceau pris en charge par l'assembleur).\n\nLe court (34 s) suit le plan demandé (accroche, définition, ce qui est évalué, appel à l'action). J'y ajoute « Concrètement… », qui répond tout de suite au « pourquoi » de l'accroche, et il n'utilise que des prises sans téléphone."
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>EPMSP — version C courte — Sparta</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000000; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; }
+      .frame { position: absolute; inset: 0; transform-origin: 50% 28%; will-change: transform; }
+      .punch { position: absolute; inset: 0; transform-origin: 50% 28%; will-change: transform; }
+      .frame-b { position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; overflow: hidden; }
+      .frame video, video.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      #flash { position: absolute; inset: 0; }
+      .flash-inner { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+      /* Surtitre d'ouverture — § 0 : ligne fine or, texte espacé, sans fond */
+      #kicker { position: absolute; left: 0; width: 1080px; top: 250px; height: 120px; display: flex; justify-content: center; }
+      .kicker-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+      .kicker-rule { display: block; width: 72px; height: 3px; background: #D9C48E; transform-origin: 50% 50%; }
+      .kicker-text { display: block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 0.32em;
+                     color: #FFFFFF; text-shadow: 0 2px 14px rgba(0,0,0,0.55); }
+      /* Preuve — § 6 */
+      .proof { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: flex-start; padding-top: 420px; }
+      .proof-card { position: relative; overflow: hidden; width: 760px; height: 760px; border: 8px solid #FFFFFF; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: #000000; }
+      .proof-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .proof-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 10px; margin-left: -5px; background: #E3CF8F; box-shadow: 0 0 0 2px rgba(0,0,0,0.55), 0 0 24px rgba(227,207,143,0.9); }
+      .tag { position: absolute; top: 18px; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.14em;
+             padding: 8px 16px; border-radius: 4px; line-height: 1; }
+      .tag-avant { left: 18px; color: #FFFFFF; background: rgba(0,0,0,0.65); }
+      .tag-apres { right: 18px; color: #000000; background: #C3B486; transform-origin: 100% 0%; }
+      /* Sous-titres — § 5 */
+      #captions { position: absolute; inset: 0; pointer-events: none; }
+      .cap { position: absolute; left: 0; width: 1080px; top: 1340px; height: 100px; display: flex; align-items: center; justify-content: center; }
+      .cap-box { display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 46px; line-height: 1; color: #FFFFFF;
+                 background: rgba(0,0,0,0.5); padding: 10px 14px; border-radius: 6px; white-space: nowrap; }
+      .cap-box b { font-weight: 800; color: #D9C48E; }
+      /* Carte de fin — § 7 */
+      #endcard { position: absolute; inset: 0; background: #000000; display: flex; align-items: center; justify-content: center; }
+      #end-logo { display: block; width: 520px; height: auto; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-fps="25" data-duration="34.0">
+      <div class="frame" id="thf-m00" style="z-index:1;transform-origin:50% 32%"><div class="punch" id="thp-m00" style="transform-origin:50% 32%"><video id="th-m00" src="assets/facecam.mp4" data-start="0.0" data-duration="5.648" data-media-start="1.62" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 5.608, "v": 1}, {"t": 5.648, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m01" style="z-index:1;transform-origin:45% 29%"><div class="punch" id="thp-m01" style="transform-origin:45% 29%"><video id="th-m01" src="assets/facecam.mp4" data-start="5.65" data-duration="3.728" data-media-start="22.64" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 3.688, "v": 1}, {"t": 3.728, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m02" style="z-index:1;transform-origin:45% 29%"><div class="punch" id="thp-m02" style="transform-origin:45% 29%"><video id="th-m02" src="assets/facecam.mp4" data-start="9.38" data-duration="0.898" data-media-start="26.52" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 0.858, "v": 1}, {"t": 0.898, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m03" style="z-index:1;transform-origin:45% 29%"><div class="punch" id="thp-m03" style="transform-origin:45% 29%"><video id="th-m03" src="assets/facecam.mp4" data-start="10.28" data-duration="4.798" data-media-start="36.57" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 4.758, "v": 1}, {"t": 4.798, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m04" style="z-index:1;transform-origin:45% 29%"><div class="punch" id="thp-m04" style="transform-origin:45% 29%"><video id="th-m04" src="assets/facecam.mp4" data-start="15.08" data-duration="4.348" data-media-start="61.67" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 4.308, "v": 1}, {"t": 4.348, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m05" style="z-index:1;transform-origin:45% 29%"><div class="punch" id="thp-m05" style="transform-origin:45% 29%"><video id="th-m05" src="assets/facecam.mp4" data-start="19.43" data-duration="5.868" data-media-start="85.6" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 5.828, "v": 1}, {"t": 5.868, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m06" style="z-index:1;transform-origin:58% 22%"><div class="punch" id="thp-m06" style="transform-origin:58% 22%"><video id="th-m06" src="assets/facecam.mp4" data-start="25.3" data-duration="2.348" data-media-start="105.72" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 2.308, "v": 1}, {"t": 2.348, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="thf-m07" style="z-index:1;transform-origin:58% 22%"><div class="punch" id="thp-m07" style="transform-origin:58% 22%"><video id="th-m07" src="assets/facecam.mp4" data-start="27.65" data-duration="4.348" data-media-start="108.27" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": 4.308, "v": 1}, {"t": 4.348, "v": 0}]}]}'></video></div></div>
+      <div class="frame-b" id="brf-0" style="z-index:2"><video id="br-0" class="full" src="assets/broll/IMG_4430.mp4" data-start="6.91" data-duration="1.8" data-media-start="0.3" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-1" style="z-index:2"><video id="br-1" class="full" src="assets/broll/IMG_4437.mp4" data-start="8.71" data-duration="1.57" data-media-start="0.5" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-2" style="z-index:2"><video id="br-2" class="full" src="assets/broll/IMG_4436.mp4" data-start="11.86" data-duration="1.6" data-media-start="7.2" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-3" style="z-index:2"><video id="br-3" class="full" src="assets/broll/IMG_4430.mp4" data-start="13.46" data-duration="1.62" data-media-start="5.8" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-4" style="z-index:2"><video id="br-4" class="full" src="assets/broll/IMG_4436.mp4" data-start="16.98" data-duration="2.45" data-media-start="0.5" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-5" style="z-index:2"><video id="br-5" class="full" src="assets/broll/IMG_4434.mp4" data-start="22.18" data-duration="1.25" data-media-start="2.2" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-6" style="z-index:2"><video id="br-6" class="full" src="assets/broll/IMG_4438.mp4" data-start="23.43" data-duration="1.87" data-media-start="8" data-track-index="1" muted playsinline></video></div>
+      <div class="frame-b" id="brf-7" style="z-index:2"><video id="br-7" class="full" src="assets/broll/IMG_4440.mp4" data-start="26.78" data-duration="2" data-media-start="0.5" data-track-index="1" muted playsinline></video></div>
+      <div id="kicker" class="clip" data-start="0.15" data-duration="2.6" data-track-index="8" style="z-index:5"><div class="kicker-inner"><span class="kicker-rule"></span><span class="kicker-text">FORMATION COACH SPORTIF</span></div></div>
+      <audio id="music" src="assets/musique.wav" data-start="0.0" data-duration="34.0" data-media-start="0" data-track-index="6" data-volume="1" data-fx-chain='{"version": 1, "nodes": [{"type": "peaking", "id": "n1", "params": {"frequency": 250, "gain": -6.8, "q": 1.46}}, {"type": "peaking", "id": "n2", "params": {"frequency": 630, "gain": -3.4, "q": 1.46}}, {"type": "peaking", "id": "n3", "params": {"frequency": 1600, "gain": -4.29, "q": 1.46}}]}' data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.4, "v": 1}, {"t": 32.0, "v": 1}, {"t": 32.0, "v": 3.5}, {"t": 33.4, "v": 3.5}, {"t": 34.0, "v": 0}]}]}'></audio>
+      <div id="captions" style="z-index:7"><div id="cap-0" class="clip cap" data-start="0.08" data-duration="0.6" data-track-index="4"><span class="cap-box">Est-ce que tu sais</span></div><div id="cap-1" class="clip cap" data-start="0.68" data-duration="1.32" data-track-index="4"><span class="cap-box">ce que c’est les EPMSP</span></div><div id="cap-2" class="clip cap" data-start="2.0" data-duration="0.54" data-track-index="4"><span class="cap-box">et surtout</span></div><div id="cap-3" class="clip cap" data-start="2.54" data-duration="0.68" data-track-index="4"><span class="cap-box">pourquoi tu en as</span></div><div id="cap-4" class="clip cap" data-start="3.22" data-duration="0.76" data-track-index="4"><span class="cap-box">besoin pour commencer</span></div><div id="cap-5" class="clip cap" data-start="3.98" data-duration="0.82" data-track-index="4"><span class="cap-box">à encadrer en tant</span></div><div id="cap-6" class="clip cap" data-start="4.8" data-duration="0.85" data-track-index="4"><span class="cap-box">que coach sportif ?</span></div><div id="cap-7" class="clip cap" data-start="5.73" data-duration="1.19" data-track-index="4"><span class="cap-box">EPMSP, ça veut dire</span></div><div id="cap-8" class="clip cap" data-start="6.92" data-duration="1.1" data-track-index="4"><span class="cap-box">exigences préalables</span></div><div id="cap-9" class="clip cap" data-start="8.02" data-duration="1.29" data-track-index="4"><span class="cap-box">à la mise en situation</span></div><div id="cap-10" class="clip cap" data-start="9.55" data-duration="0.72" data-track-index="4"><span class="cap-box">professionnelle.</span></div><div id="cap-11" class="clip cap" data-start="10.36" data-duration="0.62" data-track-index="4"><span class="cap-box">Concrètement,</span></div><div id="cap-12" class="clip cap" data-start="11.0" data-duration="0.52" data-track-index="4"><span class="cap-box">c’est une étape</span></div><div id="cap-13" class="clip cap" data-start="11.52" data-duration="0.34" data-track-index="4"><span class="cap-box">importante</span></div><div id="cap-14" class="clip cap" data-start="11.86" data-duration="0.58" data-track-index="4"><span class="cap-box">qui va te permettre</span></div><div id="cap-15" class="clip cap" data-start="12.44" data-duration="1.08" data-track-index="4"><span class="cap-box">d’encadrer dans le cadre</span></div><div id="cap-16" class="clip cap" data-start="13.52" data-duration="0.72" data-track-index="4"><span class="cap-box">de ton stage</span></div><div id="cap-17" class="clip cap" data-start="14.24" data-duration="0.72" data-track-index="4"><span class="cap-box">en formation.</span></div><div id="cap-18" class="clip cap" data-start="15.16" data-duration="0.98" data-track-index="4"><span class="cap-box">Attention, ce n’est pas</span></div><div id="cap-19" class="clip cap" data-start="16.14" data-duration="0.98" data-track-index="4"><span class="cap-box">une simple épreuve où</span></div><div id="cap-20" class="clip cap" data-start="17.12" data-duration="0.82" data-track-index="4"><span class="cap-box">on regarde si tu sais</span></div><div id="cap-21" class="clip cap" data-start="17.94" data-duration="0.78" data-track-index="4"><span class="cap-box">faire un exercice</span></div><div id="cap-22" class="clip cap" data-start="18.72" data-duration="0.64" data-track-index="4"><span class="cap-box">niveau technique.</span></div><div id="cap-23" class="clip cap" data-start="19.51" data-duration="0.77" data-track-index="4"><span class="cap-box">On va surtout</span></div><div id="cap-24" class="clip cap" data-start="20.28" data-duration="0.6" data-track-index="4"><span class="cap-box">s’intéresser</span></div><div id="cap-25" class="clip cap" data-start="20.88" data-duration="0.8" data-track-index="4"><span class="cap-box">à la capacité</span></div><div id="cap-26" class="clip cap" data-start="21.68" data-duration="0.68" data-track-index="4"><span class="cap-box">que tu as à mettre</span></div><div id="cap-27" class="clip cap" data-start="22.36" data-duration="0.78" data-track-index="4"><span class="cap-box">en place une séance</span></div><div id="cap-28" class="clip cap" data-start="23.14" data-duration="1.44" data-track-index="4"><span class="cap-box">et à assurer la sécurité</span></div><div id="cap-29" class="clip cap" data-start="24.58" data-duration="0.72" data-track-index="4"><span class="cap-box">du pratiquant.</span></div><div id="cap-30" class="clip cap" data-start="25.38" data-duration="0.42" data-track-index="4"><span class="cap-box">Je ne sais pas</span></div><div id="cap-31" class="clip cap" data-start="25.8" data-duration="0.3" data-track-index="4"><span class="cap-box">où t’en es</span></div><div id="cap-32" class="clip cap" data-start="26.1" data-duration="0.6" data-track-index="4"><span class="cap-box">dans tes démarches</span></div><div id="cap-33" class="clip cap" data-start="26.7" data-duration="0.32" data-track-index="4"><span class="cap-box">de devenir</span></div><div id="cap-34" class="clip cap" data-start="27.02" data-duration="0.63" data-track-index="4"><span class="cap-box">coach sportif,</span></div><div id="cap-35" class="clip cap" data-start="27.73" data-duration="1.0" data-track-index="4"><span class="cap-box">mais n’hésite pas</span></div><div id="cap-36" class="clip cap" data-start="28.73" data-duration="0.94" data-track-index="4"><span class="cap-box">à commenter coach</span></div><div id="cap-37" class="clip cap" data-start="29.67" data-duration="0.92" data-track-index="4"><span class="cap-box">ou à écrire en DM</span></div><div id="cap-38" class="clip cap" data-start="30.59" data-duration="0.58" data-track-index="4"><span class="cap-box">pour qu’on prenne</span></div><div id="cap-39" class="clip cap" data-start="31.17" data-duration="0.74" data-track-index="4"><span class="cap-box">contact avec toi.</span></div></div>
+      <div id="endcard" class="clip" data-start="32.0" data-duration="2.0" data-track-index="5" style="z-index:8"><img id="end-logo" src="assets/brand/logo_or_blanc.png" alt="Sparta, centre de coaching privé" /></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#thf-m00", {scale: 1.6}, {scale: 1.696, duration: 2.0, ease: "none", immediateRender: false}, 0.0);
+      tl.fromTo("#thf-m00", {scale: 1.0}, {scale: 1.06, duration: 3.648, ease: "none", immediateRender: false}, 2.0);
+      tl.fromTo("#thf-m01", {scale: 1.6}, {scale: 1.696, duration: 3.728, ease: "none", immediateRender: false}, 5.65);
+      tl.fromTo("#thf-m02", {scale: 1.0}, {scale: 1.06, duration: 0.898, ease: "none", immediateRender: false}, 9.38);
+      tl.fromTo("#thf-m03", {scale: 1.0}, {scale: 1.06, duration: 4.798, ease: "none", immediateRender: false}, 10.28);
+      tl.fromTo("#thf-m04", {scale: 1.6}, {scale: 1.696, duration: 4.348, ease: "none", immediateRender: false}, 15.08);
+      tl.fromTo("#thf-m05", {scale: 1.0}, {scale: 1.06, duration: 5.868, ease: "none", immediateRender: false}, 19.43);
+      tl.fromTo("#thf-m06", {scale: 1.0}, {scale: 1.06, duration: 2.348, ease: "none", immediateRender: false}, 25.3);
+      tl.fromTo("#thf-m07", {scale: 1.3}, {scale: 1.378, duration: 4.348, ease: "none", immediateRender: false}, 27.65);
+      tl.fromTo("#brf-0", {scale: 1}, {scale: 1.08, duration: 1.8, ease: "none", immediateRender: false}, 6.91);
+      tl.fromTo("#brf-1", {scale: 1}, {scale: 1.08, duration: 1.57, ease: "none", immediateRender: false}, 8.71);
+      tl.fromTo("#brf-2", {scale: 1}, {scale: 1.08, duration: 1.6, ease: "none", immediateRender: false}, 11.86);
+      tl.fromTo("#brf-3", {scale: 1}, {scale: 1.08, duration: 1.62, ease: "none", immediateRender: false}, 13.46);
+      tl.fromTo("#brf-4", {scale: 1}, {scale: 1.08, duration: 2.45, ease: "none", immediateRender: false}, 16.98);
+      tl.fromTo("#brf-5", {scale: 1}, {scale: 1.08, duration: 1.25, ease: "none", immediateRender: false}, 22.18);
+      tl.fromTo("#brf-6", {scale: 1}, {scale: 1.08, duration: 1.87, ease: "none", immediateRender: false}, 23.43);
+      tl.fromTo("#brf-7", {scale: 1}, {scale: 1.08, duration: 2, ease: "none", immediateRender: false}, 26.78);
+      tl.fromTo("#kicker .kicker-rule", {scaleX: 0}, {scaleX: 1, duration: 0.5, ease: "power2.out"}, 0.15);
+      tl.fromTo("#kicker .kicker-text", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.5, ease: "power2.out"}, 0.35);
+      tl.to("#kicker .kicker-inner", {opacity: 0, duration: 0.4, ease: "power1.in"}, 2.3);
+      tl.fromTo("#thp-m00", {scale: 1.045}, {scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false}, 4.217);
+      tl.fromTo("#thp-m03", {scale: 1.045}, {scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false}, 11.47);
+      tl.fromTo("#thp-m04", {scale: 1.045}, {scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false}, 15.934);
+      tl.fromTo("#thp-m05", {scale: 1.045}, {scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false}, 20.212);
+      tl.fromTo("#thp-m06", {scale: 1.045}, {scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false}, 26.164);
+      tl.fromTo("#thp-m07", {scale: 1.045}, {scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false}, 30.069);
+      tl.fromTo("#end-logo", {opacity: 0, scale: 0.97}, {opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}, 32.0);
+      tl.to("#end-logo", {opacity: 0, duration: 0.5, ease: "power1.in"}, 33.45);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

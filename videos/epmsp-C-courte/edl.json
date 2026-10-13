@@ -1,0 +1,175 @@
+{
+ "title": "EPMSP — version C courte — Sparta",
+ "fps": 25,
+ "source": "assets/facecam.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 1.62,
+   "out": 7.27,
+   "cadrage": "serre",
+   "flips": [
+    3.62
+   ],
+   "origin": "50% 32%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m01",
+   "in": 22.64,
+   "out": 26.37,
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m02",
+   "in": 26.52,
+   "out": 27.42,
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m03",
+   "in": 36.57,
+   "out": 41.37,
+   "cadrage": "large",
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m04",
+   "in": 61.67,
+   "out": 66.02,
+   "cadrage": "serre",
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m05",
+   "in": 85.6,
+   "out": 91.47,
+   "cadrage": "large",
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m06",
+   "in": 105.72,
+   "out": 108.07,
+   "cadrage": "large",
+   "origin": "58% 22%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m07",
+   "in": 108.27,
+   "out": 112.62,
+   "cadrage": "serre",
+   "origin": "58% 22%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.0
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "corrections": {
+  "SDGES": "SDJES",
+  "portif": "sportif",
+  "stagia": "stagiaire",
+  "validés": "validées",
+  "exigence": "exigences",
+  "préalable": "préalables",
+  "ssportif": "sportif",
+  "stagiaireire": "stagiaire",
+  "exigencess": "exigences",
+  "préalabless": "préalables"
+ },
+ "emphasis": [],
+ "broll": [
+  {
+   "src": "assets/broll/IMG_4430.mp4",
+   "seg": "m01",
+   "at": 23.9,
+   "dur": 1.8,
+   "offset": 0.3
+  },
+  {
+   "src": "assets/broll/IMG_4437.mp4",
+   "seg": "m01",
+   "at": 25.7,
+   "dur": 1.57,
+   "offset": 0.5
+  },
+  {
+   "src": "assets/broll/IMG_4436.mp4",
+   "seg": "m03",
+   "at": 38.15,
+   "dur": 1.6,
+   "offset": 7.2
+  },
+  {
+   "src": "assets/broll/IMG_4430.mp4",
+   "seg": "m03",
+   "at": 39.75,
+   "dur": 1.62,
+   "offset": 5.8
+  },
+  {
+   "src": "assets/broll/IMG_4436.mp4",
+   "seg": "m04",
+   "at": 63.57,
+   "dur": 2.45,
+   "offset": 0.5
+  },
+  {
+   "src": "assets/broll/IMG_4434.mp4",
+   "seg": "m05",
+   "at": 88.35,
+   "dur": 1.25,
+   "offset": 2.2
+  },
+  {
+   "src": "assets/broll/IMG_4438.mp4",
+   "seg": "m05",
+   "at": 89.6,
+   "dur": 1.87,
+   "offset": 8
+  },
+  {
+   "src": "assets/broll/IMG_4440.mp4",
+   "seg": "m06",
+   "at": 107.2,
+   "dur": 2,
+   "offset": 0.5
+  }
+ ],
+ "music": {
+  "src": "assets/musique.wav",
+  "len": 43.675,
+  "end_boost": 3.5,
+  "start": {
+   "seg": "m00",
+   "at": 1.62
+  },
+  "beats": "beats/assets/musique.wav.json"
+ },
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0
+ },
+ "kicker": {
+  "text": "FORMATION COACH SPORTIF",
+  "dur": 2.6
+ }
+}
