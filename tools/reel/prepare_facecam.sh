@@ -1,6 +1,6 @@
 #!/bin/bash
 # Prépare un rush face cam pour engine.py :
-#   1. 1080x1920, 30 i/s (recadrage 9:16 si besoin)
+#   1. 1080x1920, 25 ou 30 i/s selon le rush (recadrage 9:16 si besoin)
 #   2. make-up léger (tools/makeup.sh)
 #   3. voix : coupe-bas 80 Hz + loudnorm -13 LUFS / -1,5 dBTP (deux passes)
 #   4. transcription mot à mot (tools/reel/transcribe.py)
@@ -10,10 +10,13 @@ SRC="$1"; PROJ="$2"; K="${3:-0.6}"
 TOOLS="$(cd "$(dirname "$0")/.." && pwd)"
 mkdir -p "$PROJ/assets"
 TMP="$PROJ/assets/.tmp_conform.mp4"
+# Cadence : on garde 25 i/s si le rush est en 25 (STYLE § 1 : jamais de 25 → 30), sinon 30.
+FPS=$(ffprobe -v error -select_streams v:0 -show_entries stream=r_frame_rate -of csv=p=0 "$SRC" | python3 -c "import sys;n,d=sys.stdin.read().split('/');f=float(n)/float(d);print(25 if abs(f-25)<1 or abs(f-50)<1 else 30)")
+echo "cadence : $FPS i/s"
 
 # 1. Conformation (le son est gardé tel quel à cette étape)
 ffmpeg -nostdin -v error -y -i "$SRC" -map 0:v:0 -map 0:a:0 \
-  -vf "scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=30" \
+  -vf "scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=$FPS" \
   -c:v libx264 -crf 15 -preset fast -pix_fmt yuv420p -c:a aac -b:a 256k "$TMP"
 
 # 2. Make-up

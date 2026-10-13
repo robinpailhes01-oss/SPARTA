@@ -22,3 +22,6 @@ node_modules/
 # B-roll de travail (versions légères, images de catalogue) et caches Python
 broll/
 __pycache__/
+videos/*/assets/*.wav
+videos/*/assets/*.json
+videos/*/assets/*.txt

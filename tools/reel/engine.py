@@ -195,6 +195,7 @@ def auto_captions(words, segments):
 # --- Construction ----------------------------------------------------------------
 def build(project):
     edl = json.load(open(os.path.join(project, "edl.json")))
+    fps = edl.get("fps", FPS)
     corrections = edl.get("corrections", {})
     words = load_words(os.path.join(project, edl["words"]), corrections) if edl.get("words") else []
     segments = edl["segments"]
@@ -379,7 +380,7 @@ def build(project):
     tweens.append(f'tl.fromTo("#end-logo", {{opacity: 0, scale: 0.97}}, {{opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}}, {round(end_start,3)});')
     tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
 
-    doc = TEMPLATE.format(W=W, H=H, FPS=FPS, total=total, parts="\n      ".join(parts), GOLD=GOLD,
+    doc = TEMPLATE.format(W=W, H=H, FPS=fps, total=total, parts="\n      ".join(parts), GOLD=GOLD,
                           tweens="\n      ".join(tweens), origin=punch["origin"], title=html.escape(edl["title"]))
     open(os.path.join(project, "index.html"), "w").write(doc)
     report = {"duration": total, "speech": speech_end, "segments": len(segments), "captions": len(cap_html),
