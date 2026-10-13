@@ -12,7 +12,8 @@ edl.json (seuls "title", "source" et "segments" sont obligatoires) :
   "title": "Témoignage Nicolas — Sparta",
   "source": "assets/facecam.mp4",            # face cam (son conservé)
   "words": "assets/facecam.words.json",      # transcription mot à mot (pour les sous-titres auto)
-  "segments": [{"id": "hook", "in": 20.72, "out": 26.35, "flips": [24.0]}],
+  "segments": [{"id": "hook", "in": 20.72, "out": 26.35, "flips": [24.0],
+                "cadrage": "serre", "origin": "50% 24%", "tight_scale": 1.5, "wide_scale": 1.1}],
   "tighten": 0.45,                           # optionnel : coupe les silences internes > 0,45 s
   "punch": {"scale": 1.28, "origin": "47% 21%", "first_tight": true},
   "grade": {"preset": "skin-soft", "intensity": 0.58},   # optionnel, sur la face cam
@@ -139,7 +140,7 @@ def _chunk_cost(toks, last_word, next_word):
     return cost
 
 
-def auto_captions(words, segments):
+def auto_captions(words, segments, emphasis=()):
     """Sous-titres § 5 : 1 ligne, 1 à 5 mots, ≤ 24 caractères, découpage optimal par phrase
     (ponctuation, jamais après un mot-outil, jamais un chiffre sans son unité) ;
     chiffres en nombres, chiffres + unité en gras or."""
@@ -178,9 +179,12 @@ def auto_captions(words, segments):
                     toks.append("**" + " ".join(grp).rstrip(",.?!") + "**" + trail)
                     k += span
                     continue
-                if is_number(t):
+                if is_number(t) or _bare(t) in emphasis:
                     trail = t[-1] if t[-1] in ",.?!" else ""
-                    toks.append(f"**{t.rstrip(',.?!')}**{trail}")
+                    word = t.rstrip(',.?!')
+                    if _bare(t) in emphasis:
+                        word = word.strip("«»\"").upper()        # mot d'appel à l'action : « COACH »
+                    toks.append(f"**{word}**{trail}")
                 else:
                     toks.append(t)
                 k += 1
@@ -245,14 +249,17 @@ def build(project):
         d = round(b - a - 0.002, 3)
         fade = {"version": 1, "lanes": [{"target": "volume", "points": [
             {"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": round(d - 0.04, 3), "v": 1}, {"t": d, "v": 0}]}]}
+        org = s.get("origin", punch["origin"])          # point de zoom propre au morceau (visage)
         parts.append(
-            f'<div class="frame" id="thf-{sid}" style="z-index:{z}"><div class="punch" id="thp-{sid}">'
+            f'<div class="frame" id="thf-{sid}" style="z-index:{z};transform-origin:{org}"><div class="punch" id="thp-{sid}" style="transform-origin:{org}">'
             f'<video id="th-{sid}" src="{edl["source"]}" data-start="{round(t0,3)}" data-duration="{d}" '
             f'data-media-start="{a}" data-track-index="0" playsinline data-has-audio="true"{grade_attr} '
             f"data-automation='{json.dumps(fade)}'></video></div></div>")
         bounds = [round(t0, 3)] + [to_tl(sid, f) for f in s.get("flips", [])] + [round(t0 + d, 3)]
+        if s.get("cadrage") in ("serre", "large"):
+            tight = s["cadrage"] == "serre"
         for r0, r1 in zip(bounds, bounds[1:]):
-            s0 = punch["scale"] if tight else 1
+            s0 = (s.get("tight_scale", punch["scale"]) if tight else s.get("wide_scale", 1))
             tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {round(s0 * PUSH_TH, 4)}, '
                           f'duration: {round(r1 - r0, 3)}, ease: "none", immediateRender: false}}, {r0});')
             th_windows.append((r0, r1, sid))
@@ -351,7 +358,7 @@ def build(project):
                     last = bt
 
     # Sous-titres.
-    raw = edl.get("captions") or auto_captions(words, segments)
+    raw = edl.get("captions") or auto_captions(words, segments, {e.lower() for e in edl.get("emphasis", [])})
     caps = []
     for text, a, b in raw:
         sid = seg_of(a)

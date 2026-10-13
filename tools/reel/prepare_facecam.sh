@@ -1,10 +1,11 @@
 #!/bin/bash
 # Prépare un rush face cam pour engine.py :
-#   1. 1080x1920, 25 ou 30 i/s selon le rush (recadrage 9:16 si besoin)
+#   1. 9:16 en pleine définition (jusqu'à 1512 px de large, pour des zooms nets), 25 ou 30 i/s selon le rush
 #   2. make-up léger (tools/makeup.sh)
 #   3. voix : coupe-bas 80 Hz + loudnorm -13 LUFS / -1,5 dBTP (deux passes)
 #   4. transcription mot à mot (tools/reel/transcribe.py)
-# Usage : tools/reel/prepare_facecam.sh <rush.MOV> <dossier_projet> [force_makeup=0.6]
+# Usage : tools/reel/prepare_facecam.sh <rush.MOV> <dossier_sortie> [force_makeup=0.6]
+# Écrit <dossier_sortie>/assets/facecam.mp4 (+ facecam.words.json sauf si SKIP_TRANSCRIBE=1)
 set -euo pipefail
 SRC="$1"; PROJ="$2"; K="${3:-0.6}"
 TOOLS="$(cd "$(dirname "$0")/.." && pwd)"
@@ -16,7 +17,7 @@ echo "cadence : $FPS i/s"
 
 # 1. Conformation (le son est gardé tel quel à cette étape)
 ffmpeg -nostdin -v error -y -i "$SRC" -map 0:v:0 -map 0:a:0 \
-  -vf "scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=$FPS" \
+  -vf "crop='trunc(min(iw\,ih*9/16)/2)*2':'trunc(min(ih\,iw*16/9)/2)*2',scale='min(iw\,1512)':-2:flags=lanczos,fps=$FPS" \
   -c:v libx264 -crf 15 -preset fast -pix_fmt yuv420p -c:a aac -b:a 256k "$TMP"
 
 # 2. Make-up
@@ -30,6 +31,8 @@ ffmpeg -nostdin -v error -y -i "$PROJ/assets/.tmp_makeup.mp4" -i "$TMP" -map 0:v
   -movflags +faststart "$PROJ/assets/facecam.mp4"
 rm -f "$TMP" "$PROJ/assets/.tmp_makeup.mp4"
 
-# 4. Transcription
-python3 "$TOOLS/reel/transcribe.py" "$PROJ/assets/facecam.mp4" "$PROJ/assets/facecam.words.json" medium
+# 4. Transcription (SKIP_TRANSCRIBE=1 pour la sauter quand elle existe déjà)
+if [ "${SKIP_TRANSCRIBE:-0}" != "1" ]; then
+  python3 "$TOOLS/reel/transcribe.py" "$PROJ/assets/facecam.mp4" "$PROJ/assets/facecam.words.json" medium
+fi
 ffmpeg -nostdin -i "$PROJ/assets/facecam.mp4" -af ebur128 -f null - 2>&1 | grep -E "^\s+I:" | tail -1

@@ -25,3 +25,4 @@ __pycache__/
 videos/*/assets/*.wav
 videos/*/assets/*.json
 videos/*/assets/*.txt
+work/
