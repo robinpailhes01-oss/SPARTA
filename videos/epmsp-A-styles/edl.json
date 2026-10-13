@@ -397,5 +397,6 @@
    "casse": true
   }
  ],
- "cap_style": "editorial"
+ "cap_style": "editorial",
+ "cap_max_chars": 26
 }

@@ -102,9 +102,9 @@ Règles de structure :
 | Élément | Règle |
 |---|---|
 | Poussée lente | chaque plan grossit en continu : face caméra ×1,06, plans de coupe ×1,08 sur la durée du plan, sans accélération (`ease: none`) |
-| Coups de zoom | sur les temps forts de la musique, seulement quand l'adhérent·e est à l'image : ×1,045 → ×1 en 0,35 s, au moins 2,5 s d'écart |
+| Coups de zoom | **supprimés** : le client n'aime pas les pulsations de zoom sur les temps de la musique (retour du 13/10/2026). Le rythme vient des coupes, de l'alternance large/serré et des plans de coupe |
 | Avant/après | la moitié « avant » seule, puis un balayage de 0,6 s révèle « après », suivi par une ligne or `#E3CF8F` de 10 px ; étiquettes AVANT et APRÈS en haut de chaque moitié |
-| Interdit | plaques ou compteurs de chiffres, textes animés en rebond, plusieurs éléments graphiques en même temps |
+| Interdit | plaques ou compteurs de chiffres, textes animés en rebond, plusieurs éléments graphiques en même temps, coups de zoom rapides |
 
 ## 8. Image et transitions
 

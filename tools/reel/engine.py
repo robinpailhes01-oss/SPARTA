@@ -49,19 +49,20 @@ CAP_MAX_CHARS = 24      # § 5 : 1 ligne, ≤ 24 caractères
 # lisibilité par ombre portée + léger voile dégradé en bas d'image (#cap-scrim), mots-clés (edl["keywords"]) en <em>.
 _SHADOW = "text-shadow: 0 0 1px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.30);"
 _HALO = (" .cap-box { position: relative; isolation: isolate; }"
-         " .cap-box::before { content: ''; position: absolute; inset: -40px -90px; z-index: -1;"
-         " background: radial-gradient(ellipse at center, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.16) 45%, rgba(0,0,0,0) 75%); }")
+         " .cap-box::before { content: ''; position: absolute; inset: -64px -70px; z-index: -1;"
+         " background: radial-gradient(closest-side, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.14) 50%, rgba(0,0,0,0) 100%); }")
 _KW_GOLD = "#E6D3A0"     # or « texte » : plus clair que l'or du logo, pour tenir sur le tee-shirt blanc
+_KW_SHADOW = "text-shadow: 0 0 2px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.30);"
 CAP_STYLES = {
     # Montserrat Bold blanc, mots-clés ExtraBold or.
     "epure": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 52px; " + _SHADOW + " }"
-             " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; font-size: 1.06em; letter-spacing: 0.01em; color: " + _KW_GOLD + "; }",
+             " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; font-size: 1.06em; letter-spacing: 0.01em; color: " + _KW_GOLD + "; " + _KW_SHADOW + " }",
     # Montserrat SemiBold blanc, mots-clés en Playfair Display italique or ; sigles en capitales droites or.
     "editorial": _HALO + " .cap-box { background: none; padding: 0; font-weight: 600; font-size: 52px; " + _SHADOW + " }"
                  " .cap-box em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: 1.3em;"
-                 " letter-spacing: 0; color: " + _KW_GOLD + "; line-height: 0.8; }"
+                 " letter-spacing: 0; color: " + _KW_GOLD + "; line-height: 0.8; " + _KW_SHADOW + " }"
                  " .cap-box em.ac, .cap-box b { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 800;"
-                 " font-size: 1em; letter-spacing: 0.04em; color: " + _KW_GOLD + "; }",
+                 " font-size: 1em; letter-spacing: 0.04em; color: " + _KW_GOLD + "; " + _KW_SHADOW + " }",
     "majuscules": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 44px; letter-spacing: 0.08em;"
                   " text-transform: uppercase; " + _SHADOW + " }"
                   " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; color: " + _KW_GOLD + "; }",
@@ -157,18 +158,20 @@ def _bare(w):
     return w.split("’")[-1] if "’" in w[:-1] else w      # « d’une » → « une », « j’ai » → « ai »
 
 
-def _chunk_cost(toks, last_word, next_word):
+def _chunk_cost(toks, last_word, next_word, dur=None, max_chars=CAP_MAX_CHARS):
     text = " ".join(toks)
     n = len(text)
-    if n > CAP_MAX_CHARS or len(toks) > CAP_MAX_WORDS:
+    if n > max_chars or len(toks) > CAP_MAX_WORDS:
         return None
     cost = abs(n - 18) * 0.15                       # longueur idéale ≈ 18 caractères
+    if dur is not None and dur < 0.45:
+        cost += 4.0                                 # carton trop bref : illisible, clignote
     if len(toks) == 1:
         cost += 3.0                                 # pas de mot isolé
     if last_word[-1:] in ",.?!;:":
         cost -= 2.5                                 # coupure sur la ponctuation
     elif _bare(last_word) in WEAK or last_word.endswith("’"):
-        cost += 6.0                                 # jamais après un mot-outil
+        cost += 8.0                                 # jamais après un mot-outil
     if next_word and _bare(next_word) in UNITS and is_number(_bare(last_word)):
         cost += 50.0                                # jamais un chiffre séparé de son unité
     if next_word and _bare(next_word) in OPENERS and _bare(last_word) not in WEAK:
@@ -178,7 +181,7 @@ def _chunk_cost(toks, last_word, next_word):
     return cost
 
 
-def auto_captions(words, segments, emphasis=()):
+def auto_captions(words, segments, emphasis=(), max_chars=CAP_MAX_CHARS):
     """Sous-titres § 5 : 1 ligne, 1 à 5 mots, ≤ 24 caractères, découpage optimal par phrase
     (ponctuation, jamais après un mot-outil, jamais un chiffre sans son unité) ;
     chiffres en nombres, chiffres + unité en gras or."""
@@ -198,7 +201,8 @@ def auto_captions(words, segments, emphasis=()):
             for i in range(max(0, j - CAP_MAX_WORDS), j):
                 if best[i] is None:
                     continue
-                c = _chunk_cost([w[2] for w in ws[i:j]], ws[j - 1][2], ws[j][2] if j < n else None)
+                d_ = (ws[j][0] if j < n else ws[j - 1][1]) - ws[i][0]
+                c = _chunk_cost([w[2] for w in ws[i:j]], ws[j - 1][2], ws[j][2] if j < n else None, d_, max_chars)
                 if c is not None and (best[j] is None or best[i] + c < best[j]):
                     best[j], prev[j] = best[i] + c, i
         cuts, j = [], n
@@ -389,7 +393,9 @@ def build(project):
         parts.append(f'<audio id="music" src="{music["src"]}" data-start="{m0}" data-duration="{mdur}" '
                      f'data-media-start="{music.get("offset", 0)}" data-track-index="6" data-volume="1" '
                      f"data-fx-chain='{json.dumps(MUSIC_FX)}' data-automation='{json.dumps(lane)}'></audio>")
-        if music.get("beats") and os.path.exists(os.path.join(project, music["beats"])):
+        # Coups de zoom sur les temps forts : désactivés par défaut (refusés par le client le 13/10),
+        # réactivables avec "coups_de_zoom": true dans l'EDL.
+        if edl.get("coups_de_zoom", False) and music.get("beats") and os.path.exists(os.path.join(project, music["beats"])):
             beats = sorted((round(m0 + b["time"] - music.get("offset", 0), 3), b["strength"])
                            for b in json.load(open(os.path.join(project, music["beats"])))["beats"]
                            if b["strength"] >= BEAT_MIN_STRENGTH)
@@ -403,13 +409,16 @@ def build(project):
                     last = bt
 
     # Sous-titres.
-    raw = edl.get("captions") or auto_captions(words, segments, {e.lower() for e in edl.get("emphasis", [])})
+    raw = edl.get("captions") or auto_captions(words, segments, {e.lower() for e in edl.get("emphasis", [])},
+                                               edl.get("cap_max_chars", CAP_MAX_CHARS))
     caps = []
     for entry in raw:
         text, a, b = entry[:3]
         toks = entry[3] if len(entry) > 3 else text.split()
         times = entry[4] if len(entry) > 4 else [a + (b - a) * m / max(1, len(toks)) for m in range(len(toks))]
         sid = seg_of(a)
+        if not caps or caps[-1][2] != sid:
+            a = seg_start[sid][1] if a - seg_start[sid][1] < 0.3 else a
         caps.append([to_tl(sid, a), to_tl(sid, min(b, seg_start[sid][2])), sid, text,
                      toks, [to_tl(sid, max(a, min(t, seg_start[sid][2]))) for t in times]])
     # Mots-clés (« mot important ») : {"mots": "exigences préalables", "n": 1} = 1re occurrence ; "n": 0 = toutes
