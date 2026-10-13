@@ -19,3 +19,6 @@ videos/*/renders/
 videos/*/snapshots/
 videos/*/.hyperframes/
 node_modules/
+# B-roll de travail (versions légères, images de catalogue) et caches Python
+broll/
+__pycache__/
