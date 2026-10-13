@@ -356,7 +356,7 @@
    "n": 1
   },
   {
-   "mots": "exigences préalables",
+   "mots": "préalables",
    "n": 1
   },
   {
@@ -393,8 +393,9 @@
   },
   {
    "mots": "COACH",
-   "n": 1
+   "n": 1,
+   "casse": true
   }
  ],
- "cap_style": "karaoke"
+ "cap_style": "editorial"
 }

@@ -47,22 +47,27 @@ BEAT_PUNCH = 1.045
 CAP_MAX_CHARS = 24      # § 5 : 1 ligne, ≤ 24 caractères
 # Styles de sous-titres (edl["cap_style"]). « boite » = fond noir 50 % (§ 5). Les autres sont sans fond :
 # lisibilité par ombre portée + léger voile dégradé en bas d'image (#cap-scrim), mots-clés (edl["keywords"]) en <em>.
-_SHADOW = "text-shadow: 0 2px 3px rgba(0,0,0,0.55), 0 0 14px rgba(0,0,0,0.55), 0 0 30px rgba(0,0,0,0.35);"
-_SCRIM = ("#cap-scrim { position: absolute; left: 0; right: 0; top: 1120px; height: 560px; "
-          "background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0.30) 62%, rgba(0,0,0,0) 100%); }")
+_SHADOW = "text-shadow: 0 0 1px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.30);"
+_HALO = (" .cap-box { position: relative; isolation: isolate; }"
+         " .cap-box::before { content: ''; position: absolute; inset: -40px -90px; z-index: -1;"
+         " background: radial-gradient(ellipse at center, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.16) 45%, rgba(0,0,0,0) 75%); }")
+_KW_GOLD = "#E6D3A0"     # or « texte » : plus clair que l'or du logo, pour tenir sur le tee-shirt blanc
 CAP_STYLES = {
-    "epure": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 50px; letter-spacing: -0.005em; " + _SHADOW + " }"
-             " .cap-box b, .cap-box em { font-weight: 800; color: #E2CC8E; }",
-    "editorial": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 600; font-size: 46px; " + _SHADOW + " }"
-                 " .cap-box em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 1.42em;"
-                 " letter-spacing: 0.005em; color: #E2CC8E; line-height: 0.8; }"
-                 " .cap-box b { font-weight: 800; color: #E2CC8E; }",
-    "majuscules": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 600; font-size: 36px; letter-spacing: 0.16em;"
+    # Montserrat Bold blanc, mots-clés ExtraBold or.
+    "epure": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 52px; " + _SHADOW + " }"
+             " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; font-size: 1.06em; letter-spacing: 0.01em; color: " + _KW_GOLD + "; }",
+    # Montserrat SemiBold blanc, mots-clés en Playfair Display italique or ; sigles en capitales droites or.
+    "editorial": _HALO + " .cap-box { background: none; padding: 0; font-weight: 600; font-size: 52px; " + _SHADOW + " }"
+                 " .cap-box em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: 1.3em;"
+                 " letter-spacing: 0; color: " + _KW_GOLD + "; line-height: 0.8; }"
+                 " .cap-box em.ac, .cap-box b { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 800;"
+                 " font-size: 1em; letter-spacing: 0.04em; color: " + _KW_GOLD + "; }",
+    "majuscules": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 44px; letter-spacing: 0.08em;"
                   " text-transform: uppercase; " + _SHADOW + " }"
-                  " .cap-box b, .cap-box em { font-weight: 800; color: #E2CC8E; }",
-    "karaoke": _SCRIM + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 50px; " + _SHADOW + " }"
-               " .cap-box .w { opacity: 0.42; } .cap-box .w:first-child { opacity: 1; }"
-               " .cap-box b, .cap-box em { font-weight: 800; color: #E2CC8E; }",
+                  " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; color: " + _KW_GOLD + "; }",
+    "karaoke": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 52px; " + _SHADOW + " }"
+               " .cap-box .w { opacity: 0.68; } .cap-box .w:first-child { opacity: 1; }"
+               " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; color: " + _KW_GOLD + "; }",
 }
 CAP_MAX_WORDS = 5
 GOLD = "#D9C48E"        # § 5 : chiffres mis en avant
@@ -411,10 +416,12 @@ def build(project):
     kw_marks = set()                                     # (indice sous-titre, indice mot)
     for kw in edl.get("keywords", []):
         kw = {"mots": kw, "n": 1} if isinstance(kw, str) else kw
-        target = [_bare(x) for x in kw["mots"].split()]
+        casse = kw.get("casse", False)                    # « COACH » (appel à l'action) ≠ « coach sportif »
+        norm = (lambda w: w.replace("\xa0", " ").strip(" ,.?!;:«»\"")) if casse else _bare
+        target = [norm(x) for x in kw["mots"].split()]
         seen = 0
         for ci, c in enumerate(caps):
-            bt = [_bare(x.replace("**", "")) for x in c[4]]
+            bt = [norm(x.replace("**", "")) for x in c[4]]
             for wi in range(len(bt) - len(target) + 1):
                 if bt[wi:wi + len(target)] == target:
                     seen += 1
@@ -436,16 +443,18 @@ def build(project):
             esc = html.escape(tok).replace("&#x27;", "’").replace("'", "’")
             while "**" in esc:
                 esc = esc.replace("**", "<b>", 1).replace("**", "</b>", 1)
-            if (i, wi) in kw_marks:                      # la ponctuation finale reste hors de la mise en valeur
-                core = esc.rstrip(",.?!;:\xa0»")
-                esc = f"<em>{core}</em>{esc[len(core):]}"
+            if (i, wi) in kw_marks:                      # la ponctuation reste hors de la mise en valeur
+                lead = esc[:len(esc) - len(esc.lstrip("«\xa0 "))]
+                core = esc[len(lead):].rstrip(",.?!;:\xa0» ")
+                tail = esc[len(lead) + len(core):]
+                ac = ' class="ac"' if core.isupper() and len(core) >= 3 else ""      # sigle : EPMSP, COACH
+                esc = f"{lead}<em{ac}>{core}</em>{tail}"
             spans.append(f'<span class="w" id="w-{i}-{wi}">{esc}</span>')
             if cap_style == "karaoke" and wi > 0:        # mot pas encore dit : estompé, puis plein à son instant
                 tweens.append(f'tl.set("#w-{i}-{wi}", {{opacity: 1}}, {round(max(a, wtimes[wi]), 3)});')
         cap_html.append(f'<div id="cap-{i}" class="clip cap" data-start="{a}" data-duration="{round(b-a,3)}" '
                         f'data-track-index="4"><span class="cap-box">{" ".join(spans)}</span></div>')
-    scrim = '<div id="cap-scrim"></div>' if cap_style != "boite" else ""
-    parts.append(f'<div id="captions" style="z-index:{z+4}">{scrim}' + "".join(cap_html) + "</div>")
+    parts.append(f'<div id="captions" style="z-index:{z+4}">' + "".join(cap_html) + "</div>")
 
     # Carte de fin.
     parts.append(
@@ -476,6 +485,7 @@ TEMPLATE = """<!doctype html>
       @font-face {{ font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }}
       @font-face {{ font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }}
       @font-face {{ font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }}
+      @font-face {{ font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; src: url("assets/fonts/PlayfairDisplay-Italic-VF.ttf") format("truetype"); }}
       @font-face {{ font-family: "Instrument Serif"; font-style: italic; font-weight: 400; src: url("assets/fonts/InstrumentSerif-Italic.ttf") format("truetype"); }}
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
       html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #000000; }}

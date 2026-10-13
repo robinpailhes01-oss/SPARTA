@@ -1,0 +1,401 @@
+{
+ "title": "EPMSP — A rétention — sous-titres editorial — musique df2",
+ "fps": 25,
+ "source": "assets/facecam.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 1.62,
+   "out": 7.27,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 1.32,
+   "cadrage": "serre",
+   "flips": [
+    3.7
+   ],
+   "origin": "50% 32%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.25
+  },
+  {
+   "id": "m01",
+   "in": 22.6,
+   "out": 26.28,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 22.3,
+   "cadrage": "serre",
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.25
+  },
+  {
+   "id": "m01b",
+   "in": 26.58,
+   "out": 27.42,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 22.3,
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.25
+  },
+  {
+   "id": "m02",
+   "in": 61.67,
+   "out": 66.02,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 61.37,
+   "cadrage": "serre",
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.25
+  },
+  {
+   "id": "m03",
+   "in": 85.6,
+   "out": 91.47,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 85.3,
+   "cadrage": "large",
+   "flips": [],
+   "origin": "45% 29%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.25
+  },
+  {
+   "id": "m04",
+   "in": 95.27,
+   "out": 96.72,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 94.97,
+   "cadrage": "serre",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m05",
+   "in": 101.52,
+   "out": 105.62,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 101.17,
+   "cadrage": "large",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m06",
+   "in": 111.57,
+   "out": 115.27,
+   "src": "assets/fc/m06.mp4",
+   "src_offset": 111.27,
+   "cadrage": "serre",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m07",
+   "in": 141.12,
+   "out": 144.92,
+   "src": "assets/fc/m07.mp4",
+   "src_offset": 140.82,
+   "cadrage": "large",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m08",
+   "in": 169.47,
+   "out": 175.42,
+   "src": "assets/fc/m08.mp4",
+   "src_offset": 169.17,
+   "cadrage": "serre",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m09",
+   "in": 176.17,
+   "out": 177.27,
+   "src": "assets/fc/m09.mp4",
+   "src_offset": 175.87,
+   "cadrage": "large",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m10",
+   "in": 180.82,
+   "out": 184.22,
+   "src": "assets/fc/m10.mp4",
+   "src_offset": 180.52,
+   "cadrage": "serre",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m11",
+   "in": 189.92,
+   "out": 192.12,
+   "src": "assets/fc/m11.mp4",
+   "src_offset": 189.62,
+   "cadrage": "large",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m12",
+   "in": 194.72,
+   "out": 198.67,
+   "src": "assets/fc/m12.mp4",
+   "src_offset": 194.42,
+   "cadrage": "serre",
+   "origin": "46% 44%",
+   "tight_scale": 1.35,
+   "wide_scale": 1.0
+  },
+  {
+   "id": "m13",
+   "in": 211.92,
+   "out": 214.32,
+   "src": "assets/fc/m13.mp4",
+   "src_offset": 211.62,
+   "cadrage": "large",
+   "origin": "58% 30%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.12
+  },
+  {
+   "id": "m14",
+   "in": 214.72,
+   "out": 216.67,
+   "src": "assets/fc/m14.mp4",
+   "src_offset": 214.42,
+   "cadrage": "serre",
+   "origin": "58% 30%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.12
+  },
+  {
+   "id": "m15",
+   "in": 216.72,
+   "out": 219.07,
+   "src": "assets/fc/m15.mp4",
+   "src_offset": 216.42,
+   "cadrage": "large",
+   "origin": "58% 30%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.12
+  },
+  {
+   "id": "m16",
+   "in": 219.27,
+   "out": 223.62,
+   "src": "assets/fc/m16.mp4",
+   "src_offset": 218.97,
+   "cadrage": "serre",
+   "origin": "58% 30%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.12,
+   "flips": [
+    221.29
+   ]
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "corrections": {
+  "SDGES": "SDJES",
+  "portif": "sportif",
+  "ssportif": "sportif",
+  "validés": "validées",
+  "stagia": "stagiaire",
+  "stagiaireire": "stagiaire",
+  "exigence": "exigences",
+  "préalable": "préalables"
+ },
+ "emphasis": [],
+ "broll": [
+  {
+   "src": "assets/broll/IMG_4430.mp4",
+   "seg": "m01",
+   "at": 23.87,
+   "dur": 1.8,
+   "offset": 0.4
+  },
+  {
+   "src": "assets/broll/IMG_4438.mp4",
+   "seg": "m01",
+   "at": 25.67,
+   "dur": 1.91,
+   "offset": 8
+  },
+  {
+   "src": "assets/broll/IMG_4436.mp4",
+   "seg": "m02",
+   "at": 64.54,
+   "dur": 1.82,
+   "offset": 10.68
+  },
+  {
+   "src": "assets/broll/IMG_4437.mp4",
+   "seg": "m03",
+   "at": 89.65,
+   "dur": 1.82,
+   "offset": 0.8
+  },
+  {
+   "src": "assets/broll/IMG_4430.mp4",
+   "seg": "m05",
+   "at": 103.06,
+   "dur": 1.4,
+   "offset": 5.8
+  },
+  {
+   "src": "assets/broll/IMG_4439.mp4",
+   "seg": "m05",
+   "at": 104.46,
+   "dur": 2.1,
+   "offset": 0.05
+  },
+  {
+   "src": "assets/broll/IMG_4440.mp4",
+   "seg": "m06",
+   "at": 114.7,
+   "dur": 1.3,
+   "offset": 5.0
+  },
+  {
+   "src": "assets/broll/IMG_4434.mp4",
+   "seg": "m07",
+   "at": 142.42,
+   "dur": 2.5,
+   "offset": 2.3
+  },
+  {
+   "src": "assets/broll/IMG_4436.mp4",
+   "seg": "m08",
+   "at": 171.39,
+   "dur": 2,
+   "offset": 7.4
+  },
+  {
+   "src": "assets/broll/IMG_4436.mp4",
+   "seg": "m08",
+   "at": 174.63,
+   "dur": 1.89,
+   "offset": 13.0
+  },
+  {
+   "src": "assets/broll/IMG_4430.mp4",
+   "seg": "m10",
+   "at": 180.82,
+   "dur": 1.9,
+   "offset": 7.3
+  },
+  {
+   "src": "assets/broll/IMG_4440.mp4",
+   "seg": "m11",
+   "at": 189.92,
+   "dur": 2.4,
+   "offset": 1.0
+  },
+  {
+   "src": "assets/broll/IMG_4437.mp4",
+   "seg": "m12",
+   "at": 197.38,
+   "dur": 1.29,
+   "offset": 3.4
+  },
+  {
+   "src": "assets/broll/IMG_4439.mp4",
+   "seg": "m13",
+   "at": 211.92,
+   "dur": 2.4,
+   "offset": 4.3
+  },
+  {
+   "src": "assets/broll/IMG_4435.mp4",
+   "seg": "m14",
+   "at": 214.72,
+   "dur": 1.95,
+   "offset": 0.3
+  }
+ ],
+ "music": {
+  "src": "assets/musique.wav",
+  "len": 95.96,
+  "end_boost": 3.5,
+  "start": {
+   "seg": "m00",
+   "at": 1.62
+  },
+  "beats": "beats/assets/musique.wav.json"
+ },
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0
+ },
+ "kicker": {
+  "text": "FORMATION | COACH SPORTIF",
+  "dur": 2.0
+ },
+ "keywords": [
+  {
+   "mots": "EPMSP",
+   "n": 1
+  },
+  {
+   "mots": "préalables",
+   "n": 1
+  },
+  {
+   "mots": "simple",
+   "n": 1
+  },
+  {
+   "mots": "sécurité",
+   "n": 1
+  },
+  {
+   "mots": "important",
+   "n": 1
+  },
+  {
+   "mots": "réussite",
+   "n": 1
+  },
+  {
+   "mots": "stagiaire",
+   "n": 1
+  },
+  {
+   "mots": "salle de sport",
+   "n": 1
+  },
+  {
+   "mots": "formalité",
+   "n": 1
+  },
+  {
+   "mots": "réellement",
+   "n": 1
+  },
+  {
+   "mots": "COACH",
+   "n": 1,
+   "casse": true
+  }
+ ],
+ "cap_style": "editorial"
+}
