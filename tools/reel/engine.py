@@ -388,7 +388,7 @@ def build(project):
         up1 = round(max(up0 + 0.3, card + 0.3), 3)
         fade0 = round(max(up1 + 0.1, mdur - 1.0), 3)
         lane = {"version": 1, "lanes": [{"target": "volume", "points": [
-            {"t": 0, "v": 0}, {"t": 0.4, "v": base}, {"t": up0, "v": base},
+            {"t": 0, "v": 0}, {"t": 0.5, "v": base}, {"t": up0, "v": base},
             {"t": up1, "v": boost}, {"t": fade0, "v": boost}, {"t": mdur, "v": 0}]}]}
         parts.append(f'<audio id="music" src="{music["src"]}" data-start="{m0}" data-duration="{mdur}" '
                      f'data-media-start="{music.get("offset", 0)}" data-track-index="6" data-volume="1" '
