@@ -1,0 +1,70 @@
+{
+  "source": "Drive SPARTA / RUSH EXAMEN — examen de certification des coachs Sparta",
+  "format": "iPhone 4K vertical 60 i/s ; versions de travail 1080x1920 30 i/s dans broll/examen/<id>.mp4",
+  "clips": [
+    {
+      "id": "IMG_4430", "duree": 9.35,
+      "passages": [
+        {"in": 0.0, "out": 4.2, "plan": "gros plan", "contenu": "main de l'examinateur sur la grille d'évaluation (porte-documents vert), coach en arrière-plan bras croisés", "usage": ["examen", "évaluation", "exigence", "grille", "critères"]},
+        {"in": 5.6, "out": 9.3, "plan": "plan moyen", "contenu": "l'examinateur (t-shirt noir, tatouages) parle à une coach en t-shirt blanc, grille en main", "usage": ["retour", "feedback", "jury", "correction"]}
+      ],
+      "eviter": [[4.2, 5.6]]
+    },
+    {
+      "id": "IMG_4434", "duree": 6.94,
+      "passages": [
+        {"in": 2.0, "out": 5.0, "plan": "plan moyen", "contenu": "coach (débardeur bleu) et client (t-shirt rose) mains sur les hanches, écoute de la consigne", "usage": ["consigne", "écoute", "coach", "client", "séance"]},
+        {"in": 5.0, "out": 6.9, "plan": "plan moyen", "contenu": "examinateur grille sous le bras à côté du mannequin, coach derrière", "usage": ["examinateur", "observation"]}
+      ],
+      "eviter": [[0.0, 1.8]]
+    },
+    {
+      "id": "IMG_4435", "duree": 2.94,
+      "passages": [
+        {"in": 0.0, "out": 2.9, "plan": "plan large", "contenu": "salle, coach et client sur le gazon, un examinateur entre avec sa grille", "usage": ["salle", "examen", "ambiance"]}
+      ],
+      "eviter": []
+    },
+    {
+      "id": "IMG_4436", "duree": 18.98,
+      "passages": [
+        {"in": 0.0, "out": 6.5, "plan": "plan large", "contenu": "jury (pantalons blancs, t-shirts noirs) observe un coach et sa cliente sur la piste de gazon", "usage": ["jury", "observation", "salle", "examen"]},
+        {"in": 7.0, "out": 10.0, "plan": "plan moyen", "contenu": "le coach et la cliente avancent vers la caméra, jury derrière", "usage": ["mouvement", "séance"]},
+        {"in": 10.5, "out": 15.5, "plan": "plan suivi", "contenu": "caméra qui suit le coach et la cliente en fentes marchées dans la salle", "usage": ["dynamique", "exercice", "séance", "accompagnement"]},
+        {"in": 17.0, "out": 18.9, "plan": "plan large", "contenu": "un examinateur, mains dans le dos, observe la séance au loin", "usage": ["exigence", "jury", "regard", "observation"]}
+      ],
+      "eviter": [[15.6, 16.9]]
+    },
+    {
+      "id": "IMG_4437", "duree": 5.87,
+      "passages": [
+        {"in": 0.0, "out": 5.8, "plan": "plan moyen", "contenu": "client allongé en développé à la machine, la coach et deux examinateurs debout qui observent", "usage": ["évaluation", "mise en situation", "exercice", "jury"]}
+      ],
+      "eviter": []
+    },
+    {
+      "id": "IMG_4438", "duree": 12.47,
+      "passages": [
+        {"in": 0.0, "out": 7.0, "plan": "plan large", "contenu": "longue salle lumineuse, client au développé couché, coach et trois examinateurs debout", "usage": ["salle", "examen", "premium", "ambiance"]},
+        {"in": 7.5, "out": 12.4, "plan": "plan moyen", "contenu": "même scène plus serrée, le client pousse, le jury observe", "usage": ["effort", "évaluation"]}
+      ],
+      "eviter": []
+    },
+    {
+      "id": "IMG_4439", "duree": 11.72,
+      "passages": [
+        {"in": 0.0, "out": 2.2, "plan": "plan moyen", "contenu": "débrief au salon : examinateur avec la grille verte face au coach (t-shirt rose) assis", "usage": ["débrief", "entretien", "examen"]},
+        {"in": 5.0, "out": 7.6, "plan": "plan moyen", "contenu": "l'examinateur explique avec les mains, logo casque Sparta au mur", "usage": ["explication", "retour", "marque"]},
+        {"in": 8.5, "out": 11.7, "plan": "plan moyen", "contenu": "un second examinateur rejoint, kakémono « COACHING » et casque Sparta visibles", "usage": ["marque", "équipe", "débrief"]}
+      ],
+      "eviter": [[2.4, 4.8]]
+    },
+    {
+      "id": "IMG_4440", "duree": 8.81,
+      "passages": [
+        {"in": 0.0, "out": 8.8, "plan": "plan large", "contenu": "salon de débrief à trois, kakémono « COACHING », casque Sparta, plantes : ambiance premium", "usage": ["marque", "débrief", "ambiance", "accueil"]}
+      ],
+      "eviter": []
+    }
+  ]
+}
