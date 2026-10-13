@@ -8,12 +8,12 @@
   "0556": {
    "origin": "50% 32%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   "0557": {
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   "0558": {
    "origin": "46% 44%",
@@ -21,15 +21,15 @@
    "wide_scale": 1.0
   },
   "0562": {
-   "origin": "58% 22%",
+   "origin": "58% 30%",
    "tight_scale": 1.3,
-   "wide_scale": 1.0
+   "wide_scale": 1.12
   }
  },
  "edl": {
   "angle": "Rétention Instagram, avec une boucle ouverte. L'accroche est une question directe en « tu » : premier mot à 0,08 s, « tu sais ce que c'est les EPMSP » prononcé avant 2 s. La question « pourquoi tu en as besoin » reste ouverte, puis le coach la relance lui-même à 18,9 s (« Et pourquoi c'est important ? »), au changement de décor (canapé → néon). Il y répond ensuite par une chaîne de causes courte : validation → attestation → SDJES → carte de stagiaire → encadrer en salle. Le sens arrive avec « pas une formalité, un passage entre je suis en formation et je peux exercer ». Le reel se termine sur l'appel à l'action recrutement de 0562 (commenter « coach » ou écrire en DM). Tout ce qui ralentit ou fait doublon est coupé : « Concrètement… », « statut de stagiaire », « modalités selon l'option », appel à l'action 0559, « Ciao ciao ». Parole 59,65 s + carte de fin 2 s = 61,65 s. Plans de coupe : 42 % du temps.",
   "hook": "0556 [1.62–7.27] : « Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ? ». Une seule respiration, premier mot à 0,08 s, sujet posé avant 2 s. La phrase nomme la cible (futur coach sportif) et promet un bénéfice (commencer à encadrer). Préférée à 0555, qui ouvre sur « Donc » et se coupe en deux morceaux séparés par 9 s de blanc, et à 0554 (inutilisable). Visage seul, sans plan de coupe.",
-  "kicker": "FORMATION COACH SPORTIF",
+  "kicker": "FORMATION | COACH SPORTIF",
   "morceaux": [
    {
     "prise": "0556",
@@ -176,18 +176,10 @@
    },
    {
     "prise": "0557",
-    "at": 42.26,
-    "clip": "IMG_4434",
-    "offset": 5.0,
-    "dur": 1.3,
-    "raison": "« où on regarde si tu sais » : examinateur, grille sous le bras"
-   },
-   {
-    "prise": "0557",
-    "at": 43.56,
+    "at": 43.24,
     "clip": "IMG_4436",
-    "offset": 11,
-    "dur": 1.5,
+    "offset": 10.68,
+    "dur": 1.82,
     "raison": "« faire un exercice niveau technique » : coach et cliente en fentes marchées (plan suivi). Déborde sur « On va » et masque le raccord 44,72 → 53,27. Montage 13,99–15,49 s."
    },
    {
@@ -233,8 +225,8 @@
    {
     "prise": "0558",
     "at": 80.13,
-    "clip": "IMG_4438",
-    "offset": 1,
+    "clip": "IMG_4436",
+    "offset": 13.0,
     "dur": 1.89,
     "raison": "« en entreprise, donc en salle de sport » : plan large de la longue salle lumineuse (premium). Masque les raccords 80,92 → 81,67 et 82,77 → 86,32. Montage 37,16–39,05 s."
    },
@@ -257,8 +249,8 @@
    {
     "prise": "0558",
     "at": 101.97,
-    "clip": "IMG_4436",
-    "offset": 1,
+    "clip": "IMG_4437",
+    "offset": 3.4,
     "dur": 2.2,
     "raison": "« commencer à exercer en situation professionnelle » : coach en séance avec sa cliente sur le gazon, jury qui observe. Couvre le regard baissé de 103,9. Montage 46,40–48,60 s."
    },
@@ -266,7 +258,7 @@
     "prise": "0562",
     "at": 6.42,
     "clip": "IMG_4439",
-    "offset": 5.0,
+    "offset": 4.5,
     "dur": 2.4,
     "raison": "« Donc ces EPMSP vont démarrer » : examinateur, casque Sparta au mur (masque le reflet dans le miroir)"
    },

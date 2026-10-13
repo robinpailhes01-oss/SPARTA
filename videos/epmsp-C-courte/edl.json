@@ -16,7 +16,7 @@
    ],
    "origin": "50% 32%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   {
    "id": "m01",
@@ -26,7 +26,7 @@
    "src_offset": 22.34,
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   {
    "id": "m02",
@@ -36,7 +36,7 @@
    "src_offset": 26.22,
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   {
    "id": "m03",
@@ -47,7 +47,7 @@
    "cadrage": "large",
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   {
    "id": "m04",
@@ -58,7 +58,7 @@
    "cadrage": "serre",
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   {
    "id": "m05",
@@ -69,7 +69,7 @@
    "cadrage": "large",
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   {
    "id": "m06",
@@ -78,9 +78,9 @@
    "src": "assets/fc/m06.mp4",
    "src_offset": 105.42,
    "cadrage": "large",
-   "origin": "58% 22%",
+   "origin": "58% 30%",
    "tight_scale": 1.3,
-   "wide_scale": 1.0
+   "wide_scale": 1.12
   },
   {
    "id": "m07",
@@ -89,9 +89,9 @@
    "src": "assets/fc/m07.mp4",
    "src_offset": 107.97,
    "cadrage": "serre",
-   "origin": "58% 22%",
+   "origin": "58% 30%",
    "tight_scale": 1.3,
-   "wide_scale": 1.0
+   "wide_scale": 1.12
   }
  ],
  "punch": {
@@ -185,7 +185,7 @@
   "dur": 2.0
  },
  "kicker": {
-  "text": "FORMATION COACH SPORTIF",
-  "dur": 2.6
+  "text": "FORMATION | COACH SPORTIF",
+  "dur": 2.0
  }
 }

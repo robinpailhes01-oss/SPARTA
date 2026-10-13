@@ -114,9 +114,14 @@ WEAK = {"le", "la", "les", "l’", "un", "une", "des", "du", "de", "d’", "à",
         "leur", "leurs", "ne", "n’", "tant", "très", "plus", "trop", "si", "comme", "est", "suis", "a",
         "ai", "était", "puis", "donc", "alors", "parce", "quand", "lorsque", "y", "cette", "cet", "ces",
         "pourquoi", "peu", "tout", "tous", "toute", "toutes", "bien", "super",
-        "va", "vas", "vais", "vont", "peux", "peut", "dois", "doit", "faut"}
+        "va", "vas", "vais", "vont", "peux", "peut", "dois", "doit", "faut", "où"}
 # Paires jamais séparées entre deux sous-titres.
-NO_SPLIT = {("coach", "sportif"), ("coachs", "sportifs"), ("salle", "de"), ("mise", "en")}
+NO_SPLIT = {("coach", "sportif"), ("coachs", "sportifs"), ("salle", "de"), ("mise", "en"),
+            # locutions figées : « en tant | que », « une fois | que », « mettre | en place », « prendre | contact »…
+            ("tant", "que"), ("fois", "que"), ("parce", "que"), ("alors", "que"), ("mettre", "en"), ("en", "place"),
+            ("as", "besoin"), ("a", "besoin"), ("avoir", "besoin")}
+# Mots qui ouvrent naturellement une nouvelle ligne (on préfère couper juste avant).
+OPENERS = {"et", "mais", "donc", "ou", "pour", "qui", "parce", "car", "quand"}
 NUM_WORDS = {"deux": "2", "trois": "3", "quatre": "4", "cinq": "5", "six": "6", "sept": "7", "huit": "8",
              "neuf": "9", "dix": "10", "onze": "11", "douze": "12", "quinze": "15", "vingt": "20",
              "trente": "30", "quarante": "40", "cinquante": "50", "cent": "100"}
@@ -142,6 +147,8 @@ def _chunk_cost(toks, last_word, next_word):
         cost += 6.0                                 # jamais après un mot-outil
     if next_word and _bare(next_word) in UNITS and is_number(_bare(last_word)):
         cost += 50.0                                # jamais un chiffre séparé de son unité
+    if next_word and _bare(next_word) in OPENERS and _bare(last_word) not in WEAK:
+        cost -= 1.0                                 # « …une séance | et à assurer… »
     if next_word and ((_bare(last_word), _bare(next_word)) in NO_SPLIT or _bare(next_word) == "pas"):
         cost += 50.0                                # « coach | sportif », « sais | pas » : interdit
     return cost
@@ -300,7 +307,7 @@ def build(project):
         kd = edl["kicker"].get("dur", 2.6)
         parts.append(f'<div id="kicker" class="clip" data-start="0.15" data-duration="{kd}" data-track-index="8" '
                      f'style="z-index:{z+2}"><div class="kicker-inner"><span class="kicker-rule"></span>'
-                     f'<span class="kicker-text">{html.escape(edl["kicker"]["text"])}</span></div></div>')
+                     f'<span class="kicker-text">{"<br>".join(html.escape(x.strip()) for x in edl["kicker"]["text"].split("|"))}</span></div></div>')
         tweens += [
             f'tl.fromTo("#kicker .kicker-rule", {{scaleX: 0}}, {{scaleX: 1, duration: 0.5, ease: "power2.out"}}, 0.15);',
             f'tl.fromTo("#kicker .kicker-text", {{opacity: 0, y: 8}}, {{opacity: 1, y: 0, duration: 0.5, ease: "power2.out"}}, 0.35);',
@@ -345,9 +352,15 @@ def build(project):
         mdur = round(min(music["len"], total - m0), 3)
         sp_end, card = round(speech_end - m0, 3), round(end_start - m0, 3)
         boost = music.get("end_boost", 3.5)
+        base = music.get("level", 0.7)                     # sous la voix : ≥ 18 dB en dessous (§ 9)
+        # Points à instants strictement croissants : deux points au même instant sont fusionnés par le
+        # moteur, qui étalait alors la remontée de fin sur toute la vidéo (+11 dB sous la voix).
+        up0 = round(max(0.5, min(sp_end, card) - 0.15), 3)
+        up1 = round(max(up0 + 0.3, card + 0.3), 3)
+        fade0 = round(max(up1 + 0.1, mdur - 1.0), 3)
         lane = {"version": 1, "lanes": [{"target": "volume", "points": [
-            {"t": 0, "v": 0}, {"t": 0.4, "v": 1}, {"t": sp_end, "v": 1},
-            {"t": card, "v": boost}, {"t": round(mdur - 0.6, 3), "v": boost}, {"t": mdur, "v": 0}]}]}
+            {"t": 0, "v": 0}, {"t": 0.4, "v": base}, {"t": up0, "v": base},
+            {"t": up1, "v": boost}, {"t": fade0, "v": boost}, {"t": mdur, "v": 0}]}]}
         parts.append(f'<audio id="music" src="{music["src"]}" data-start="{m0}" data-duration="{mdur}" '
                      f'data-media-start="{music.get("offset", 0)}" data-track-index="6" data-volume="1" '
                      f"data-fx-chain='{json.dumps(MUSIC_FX)}' data-automation='{json.dumps(lane)}'></audio>")
@@ -428,7 +441,7 @@ TEMPLATE = """<!doctype html>
       .kicker-inner {{ display: flex; flex-direction: column; align-items: center; gap: 18px; }}
       .kicker-rule {{ display: block; width: 72px; height: 3px; background: {GOLD}; transform-origin: 50% 50%; }}
       .kicker-text {{ display: block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 0.32em;
-                     color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.65), 0 2px 18px rgba(0,0,0,0.6); }}
+                     color: #FFFFFF; text-align: center; line-height: 1.45; text-shadow: 0 1px 3px rgba(0,0,0,0.65), 0 2px 18px rgba(0,0,0,0.6); }}
       /* Preuve — § 6 */
       .proof {{ position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: flex-start; padding-top: 420px; }}
       .proof-card {{ position: relative; overflow: hidden; width: 760px; height: 760px; border: 8px solid #FFFFFF; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: #000000; }}

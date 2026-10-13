@@ -13,9 +13,10 @@ ffmpeg -nostdin -v error -y -i "$IN" -map 0:v:0 -map 0:a:0 -c:v copy \
   -af "volume=${G}dB,alimiter=limit=0.794:attack=3:release=80:level=false,aresample=48000" \
   -c:a aac -b:a 256k -movflags +faststart "$OUT"
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT")
-VB=$(python3 -c "print(int(min(4000, (29.0*8*1024 - 192*$D) / $D)))")     # kb/s vidéo pour tenir sous 29 Mo
-ffmpeg -nostdin -v error -y -i "$OUT" -c:v libx264 -preset slow -b:v ${VB}k -maxrate $((VB*11/10))k -bufsize $((VB*2))k \
-  -pix_fmt yuv420p -color_primaries bt709 -color_trc bt709 -colorspace bt709 -movflags +faststart -c:a aac -b:a 192k "$LIGHT"
+VB=$(python3 -c "print(int(min(4000, (27.5*8*1024 - 192*$D) / $D)))")     # kb/s vidéo : < 30 000 000 octets
+ffmpeg -nostdin -v error -y -i "$IN" -map 0:v:0 -map 0:a:0 -c:v libx264 -preset slow -b:v ${VB}k -maxrate $((VB*11/10))k -bufsize $((VB*2))k \
+  -pix_fmt yuv420p -color_primaries bt709 -color_trc bt709 -colorspace bt709 -movflags +faststart \
+  -af "volume=${G}dB,alimiter=limit=0.794:attack=3:release=80:level=false,aresample=48000" -c:a aac -b:a 192k "$LIGHT"
 for f in "$OUT" "$LIGHT"; do
   echo "$(basename "$f") : $(ffmpeg -nostdin -i "$f" -af ebur128=peak=true -f null - 2>&1 | sed -n '/Summary:/,$p' | grep -E "^\s+(I|Peak):" | tr -s ' ' | tr '\n' ' ') $(du -h "$f" | cut -f1)"
 done

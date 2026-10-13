@@ -8,12 +8,12 @@
   "0556": {
    "origin": "50% 32%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   "0557": {
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   "0558": {
    "origin": "46% 44%",
@@ -21,15 +21,15 @@
    "wide_scale": 1.0
   },
   "0562": {
-   "origin": "58% 22%",
+   "origin": "58% 30%",
    "tight_scale": 1.3,
-   "wide_scale": 1.0
+   "wide_scale": 1.12
   }
  },
  "edl": {
   "angle": "Story ou pub organique en 34 s : accroche → définition → « concrètement, c'est l'étape qui te permet d'encadrer en stage » (cette phrase répond tout de suite au « pourquoi » de l'accroche, puisqu'il n'y a pas de relance dans un format court) → ce qui est évalué (pas la technique : la séance et la sécurité) → appel à l'action recrutement. Tout est tourné sur le canapé (0556, 0557), puis l'appel à l'action dans le couloir (0562). Aucune prise où il lit son téléphone. 8 plans de coupe de l'examen, 41,6 % du temps. Durée : 32,00 s de parole + 2 s de carte = 34,00 s.",
   "hook": "La même que pour la version principale : 0556 [1,62–7,27], « Est-ce que tu sais ce que c'est les EPMSP et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ? ». Premier mot à 0,08 s, cible et bénéfice dans une seule phrase. Flip serré → large à 3,62 s du rush, aucun plan de coupe.",
-  "kicker": "FORMATION COACH SPORTIF",
+  "kicker": "FORMATION | COACH SPORTIF",
   "morceaux": [
    {
     "prise": "0556",

@@ -147,7 +147,7 @@ def main():
         "end_card": plan.get("end_card", {"logo": "assets/brand/logo_or_blanc.png", "dur": 2.0}),
     }
     if edl.get("kicker"):
-        out["kicker"] = {"text": edl["kicker"], "dur": 2.6}
+        out["kicker"] = {"text": edl["kicker"], "dur": edl.get("kicker_dur", 2.0)}
     if plan.get("flash"):
         out["flash"] = plan["flash"]
     if plan.get("grade"):

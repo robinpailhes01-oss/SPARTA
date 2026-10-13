@@ -8,12 +8,12 @@
   "0556": {
    "origin": "50% 32%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   "0557": {
    "origin": "45% 29%",
    "tight_scale": 1.6,
-   "wide_scale": 1.0
+   "wide_scale": 1.25
   },
   "0558": {
    "origin": "46% 44%",
@@ -21,15 +21,15 @@
    "wide_scale": 1.0
   },
   "0562": {
-   "origin": "58% 22%",
+   "origin": "58% 30%",
    "tight_scale": 1.3,
-   "wide_scale": 1.0
+   "wide_scale": 1.12
   }
  },
  "edl": {
   "angle": "Sparta, LA formation exigeante. Dès que le sigle EPMSP est défini, on montre l'examen : grille d'évaluation, jury en blanc et noir, sécurité du pratiquant. Ensuite seulement, on explique ce que leur validation ouvre (attestation, démarches au SDJES, carte professionnelle, encadrement en salle). La conclusion est « pas une formalité, un passage » vers l'exercice réel, puis vient un appel à l'action de recrutement. Le montage suit trois chapitres, un par décor, pour une continuité propre : canapé (ce que c'est et l'exigence), néon (pourquoi), kakémono puis couloir (quand et contact). Rythme posé : 32 plans en 67,5 s, aucun plan visage de plus de 4 s hors accroche, 43 % de B-roll pris uniquement dans l'examen Sparta.",
   "hook": "« Est-ce que tu sais ce que c'est les EPMSP, et surtout pourquoi tu en as besoin pour commencer à encadrer en tant que coach sportif ? » (prise 0556, 1,62–7,27 ; premier mot à t = 0,08 s). C'est la seule prise qui pose les deux questions d'une traite, sans hésitation et le regard caméra, et elle finit sur « coach sportif », ce qui qualifie la cible du recrutement. La 0555 coupe la question en deux avec 9 s de blanc, commence par « Donc, » (ouverture interdite) et ne cible pas « coach sportif ». La 0554 est exclue (micro-cravate, bavardage).",
-  "kicker": "FORMATION COACH SPORTIF",
+  "kicker": "FORMATION | COACH SPORTIF",
   "morceaux": [
    {
     "prise": "0556",
@@ -250,15 +250,15 @@
     "prise": "0558",
     "at": 95.42,
     "clip": "IMG_4439",
-    "offset": 5,
+    "offset": 4.5,
     "dur": 2.2,
     "raison": "« c'est un passage entre “je suis en formation” » : l'examinateur explique avec les mains, casque Sparta au mur. Le candidat est encore en formation. Couvre le regard vers le bas (95,7–96,6 s)."
    },
    {
     "prise": "0558",
     "at": 102.27,
-    "clip": "IMG_4438",
-    "offset": 1,
+    "clip": "IMG_4437",
+    "offset": 3.3,
     "dur": 1.9,
     "raison": "« exercer en situation professionnelle » : longue salle lumineuse, client au développé, coach et trois examinateurs. C'est le plan le plus premium, placé en fin de démonstration ; il couvre le regard bas à 104,1 s."
    },
