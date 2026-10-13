@@ -27,3 +27,4 @@ videos/*/assets/*.json
 videos/*/assets/*.txt
 work/
 videos/*/assets/fc/
+videos/*/renders.log
