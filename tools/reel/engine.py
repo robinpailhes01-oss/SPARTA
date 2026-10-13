@@ -53,6 +53,11 @@ _HALO = (" .cap-box { position: relative; isolation: isolate; }"
          " background: radial-gradient(closest-side, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.14) 50%, rgba(0,0,0,0) 100%); }")
 _KW_GOLD = "#E6D3A0"     # or « texte » : plus clair que l'or du logo, pour tenir sur le tee-shirt blanc
 _KW_SHADOW = "text-shadow: 0 0 2px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.30);"
+# Variante éditoriale de la définition : initiales en Playfair italique, comme les mots-clés.
+DEF_STYLES = {
+    "editorial": " .di { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: 104px; padding-right: 10px; }"
+                 " .dr { font-weight: 600; }",
+}
 CAP_STYLES = {
     # Montserrat Bold blanc, mots-clés ExtraBold or.
     "epure": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 52px; " + _SHADOW + " }"
@@ -443,9 +448,38 @@ def build(project):
         seg_end = seg_start[c[2]][0] + (seg_start[c[2]][2] - seg_start[c[2]][1])
         c[1] = round(min(end, seg_end), 3)
     cap_style = edl.get("cap_style", "boite")
+    # Définition d'un sigle (acrostiche) : {"lignes": [["E", "xigences"], ["P", "réalables"], …],
+    # "mots": ["exigences", "préalables", …]} — chaque ligne se complète quand le mot est prononcé ;
+    # elle remplace les sous-titres pendant ce temps (un seul élément graphique à l'écran, § 7 bis).
+    dfn, def_win = edl.get("definition"), None
+    if dfn:
+        flat = [(_bare(tok.replace("**", "")), t) for c in caps for tok, t in zip(c[4], c[5])]
+        times, k = [], 0
+        for mot in dfn["mots"]:
+            while k < len(flat) and flat[k][0] != _bare(mot):
+                k += 1
+            times.append(flat[k][1] if k < len(flat) else None)
+            k += 1
+        if None not in times:
+            prev_end = [c[1] for c in caps if c[0] < times[0] - 0.2]
+            t0 = round(max(times[0] - 0.12, prev_end[-1] if prev_end else 0.0), 3)   # jamais avec un autre sous-titre
+            nxt = [c[0] for c in caps if c[0] > times[-1] + 0.3]
+            t1 = round(min(nxt[0] - 0.02 if nxt else times[-1] + 1.0, times[-1] + 1.4), 3)
+            def_win = (t0, t1)
+            rows = "".join(f'<div class="dl"><span class="di">{html.escape(L)}</span><span class="dr" id="dr-{n}">{html.escape(R)}</span></div>'
+                           for n, (L, R) in enumerate(dfn["lignes"]))
+            parts.append(f'<div id="def" class="clip" data-start="{t0}" data-duration="{round(t1 - t0, 3)}" data-track-index="9" '
+                         f'style="z-index:{z+3}"><div class="def-dim"></div><div class="def-col">{rows}</div></div>')
+            tweens.append(f'tl.fromTo("#def .def-dim", {{opacity: 0}}, {{opacity: 1, duration: 0.3, ease: "power1.out"}}, {t0});')
+            tweens.append(f'tl.fromTo("#def .di", {{opacity: 0, y: 14}}, {{opacity: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.06}}, {t0});')
+            for n, t in enumerate(times):
+                tweens.append(f'tl.fromTo("#dr-{n}", {{opacity: 0, x: -8}}, {{opacity: 1, x: 0, duration: 0.3, ease: "power2.out"}}, {round(max(t0 + 0.1, t - 0.04), 3)});')
+            tweens.append(f'tl.to("#def", {{opacity: 0, duration: 0.25, ease: "power1.in"}}, {round(t1 - 0.25, 3)});')
     cap_html = []
     for i, (a, b, _, text, toks, wtimes) in enumerate(caps):
         if b - a < 0.05:
+            continue
+        if def_win and def_win[0] - 0.05 <= a < def_win[1]:
             continue
         spans = []
         for wi, tok in enumerate(toks):
@@ -468,13 +502,19 @@ def build(project):
     # Carte de fin.
     parts.append(
         f'<div id="endcard" class="clip" data-start="{round(end_start,3)}" data-duration="{end_card["dur"]}" '
-        f'data-track-index="5" style="z-index:{z+5}"><img id="end-logo" src="{end_card["logo"]}" alt="Sparta, centre de coaching privé" /></div>')
+        f'data-track-index="5" style="z-index:{z+5}"><img id="end-logo" src="{end_card["logo"]}" alt="Sparta, centre de coaching privé" />'
+        + (f'<div id="end-cta">{cta_html}</div>' if (cta_html := (lambda t: t and html.escape(t).replace("**", "<b>", 1).replace("**", "</b>", 1))(end_card.get("cta"))) else "")
+        + '</div>')
     tweens.append(f'tl.fromTo("#end-logo", {{opacity: 0, scale: 0.97}}, {{opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}}, {round(end_start,3)});')
     tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
+    if end_card.get("cta"):
+        tweens.append(f'tl.fromTo("#end-cta", {{opacity: 0, y: 8}}, {{opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}}, {round(end_start + 0.45, 3)});')
+        tweens.append(f'tl.to("#end-cta", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55, 3)});')
 
     doc = TEMPLATE.format(W=W, H=H, FPS=fps, total=total, parts="\n      ".join(parts), GOLD=GOLD,
                           tweens="\n      ".join(tweens), origin=punch["origin"], title=html.escape(edl["title"]),
-                          cap_css=CAP_STYLES.get(edl.get("cap_style", "boite"), ""))
+                          cap_css=CAP_STYLES.get(edl.get("cap_style", "boite"), ""),
+                          def_css=DEF_STYLES.get(edl.get("cap_style", "boite"), ""))
     open(os.path.join(project, "index.html"), "w").write(doc)
     report = {"duration": total, "speech": speech_end, "segments": len(segments), "captions": len(cap_html),
               "broll": len(edl.get("broll", [])), "broll_cover": round(sum(c1 - c0 for c0, c1 in cover) / max(total, 1), 2),
@@ -530,6 +570,19 @@ TEMPLATE = """<!doctype html>
       /* Carte de fin — § 7 */
       #endcard {{ position: absolute; inset: 0; background: #000000; display: flex; align-items: center; justify-content: center; }}
       #end-logo {{ display: block; width: 520px; height: auto; }}
+      #end-cta {{ position: absolute; left: 0; width: {W}px; top: 1250px; text-align: center; font-family: "Montserrat", sans-serif;
+                 font-weight: 600; font-size: 30px; letter-spacing: 0.32em; color: #FFFFFF; }}
+      #end-cta b {{ font-weight: 800; color: #E6D3A0; }}
+      /* Définition d'un sigle (acrostiche) */
+      #def {{ position: absolute; inset: 0; }}
+      .def-dim {{ position: absolute; inset: 0; background: radial-gradient(ellipse 85% 60% at 50% 45%, rgba(0,0,0,0.55), rgba(0,0,0,0.30)); }}
+      .def-col {{ position: absolute; left: 0; right: 0; top: 560px; display: flex; flex-direction: column; align-items: center; }}
+      .dl {{ width: 580px; display: flex; align-items: baseline; height: 112px; }}
+      .di {{ display: inline-block; width: 96px; text-align: right; padding-right: 4px; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 92px;
+            color: #E6D3A0; text-shadow: 0 0 2px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.5); }}
+      .dr {{ font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 58px; color: #FFFFFF;
+            text-shadow: 0 0 1px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.30); }}
+      {def_css}
     </style>
   </head>
   <body>

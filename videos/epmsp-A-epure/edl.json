@@ -344,7 +344,8 @@
  },
  "end_card": {
   "logo": "assets/brand/logo_or_blanc.png",
-  "dur": 2.0
+  "dur": 2.0,
+  "cta": "COMMENTE « **COACH** »"
  },
  "kicker": {
   "text": "FORMATION | COACH SPORTIF",
@@ -398,5 +399,36 @@
   }
  ],
  "cap_style": "epure",
- "cap_max_chars": 26
+ "cap_max_chars": 26,
+ "definition": {
+  "lignes": [
+   [
+    "E",
+    "xigences"
+   ],
+   [
+    "P",
+    "réalables"
+   ],
+   [
+    "M",
+    "ise en"
+   ],
+   [
+    "S",
+    "ituation"
+   ],
+   [
+    "P",
+    "rofessionnelle"
+   ]
+  ],
+  "mots": [
+   "exigences",
+   "préalables",
+   "mise",
+   "situation",
+   "professionnelle"
+  ]
+ }
 }
