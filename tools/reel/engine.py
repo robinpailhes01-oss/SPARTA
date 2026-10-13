@@ -428,7 +428,7 @@ TEMPLATE = """<!doctype html>
       .kicker-inner {{ display: flex; flex-direction: column; align-items: center; gap: 18px; }}
       .kicker-rule {{ display: block; width: 72px; height: 3px; background: {GOLD}; transform-origin: 50% 50%; }}
       .kicker-text {{ display: block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 0.32em;
-                     color: #FFFFFF; text-shadow: 0 2px 14px rgba(0,0,0,0.55); }}
+                     color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.65), 0 2px 18px rgba(0,0,0,0.6); }}
       /* Preuve — § 6 */
       .proof {{ position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: flex-start; padding-top: 420px; }}
       .proof-card {{ position: relative; overflow: hidden; width: 760px; height: 760px; border: 8px solid #FFFFFF; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: #000000; }}

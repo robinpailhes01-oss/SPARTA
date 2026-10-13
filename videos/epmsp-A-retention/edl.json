@@ -24,7 +24,7 @@
    "out": 27.42,
    "src": "assets/fc/m01.mp4",
    "src_offset": 22.3,
-   "cadrage": "large",
+   "cadrage": "serre",
    "origin": "45% 29%",
    "tight_scale": 1.6,
    "wide_scale": 1.0
@@ -286,11 +286,11 @@
    "offset": 1
   },
   {
-   "src": "assets/broll/IMG_4436.mp4",
+   "src": "assets/broll/IMG_4430.mp4",
    "seg": "m10",
    "at": 180.82,
    "dur": 1.9,
-   "offset": 17.0
+   "offset": 2.3
   },
   {
    "src": "assets/broll/IMG_4440.mp4",
