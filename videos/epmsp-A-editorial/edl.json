@@ -69,9 +69,9 @@
    "src": "assets/fc/m04.mp4",
    "src_offset": 94.97,
    "cadrage": "serre",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m05",
@@ -80,9 +80,9 @@
    "src": "assets/fc/m05.mp4",
    "src_offset": 101.17,
    "cadrage": "large",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m06",
@@ -91,9 +91,9 @@
    "src": "assets/fc/m06.mp4",
    "src_offset": 111.27,
    "cadrage": "serre",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m07",
@@ -102,9 +102,9 @@
    "src": "assets/fc/m07.mp4",
    "src_offset": 140.82,
    "cadrage": "large",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m08",
@@ -113,9 +113,9 @@
    "src": "assets/fc/m08.mp4",
    "src_offset": 169.17,
    "cadrage": "serre",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m09",
@@ -124,9 +124,9 @@
    "src": "assets/fc/m09.mp4",
    "src_offset": 175.87,
    "cadrage": "large",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m10",
@@ -135,9 +135,9 @@
    "src": "assets/fc/m10.mp4",
    "src_offset": 180.52,
    "cadrage": "serre",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m11",
@@ -146,9 +146,9 @@
    "src": "assets/fc/m11.mp4",
    "src_offset": 189.62,
    "cadrage": "large",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m12",
@@ -157,9 +157,9 @@
    "src": "assets/fc/m12.mp4",
    "src_offset": 194.42,
    "cadrage": "serre",
-   "origin": "46% 44%",
-   "tight_scale": 1.35,
-   "wide_scale": 1.0
+   "origin": "46% 38%",
+   "tight_scale": 2.1,
+   "wide_scale": 1.95
   },
   {
    "id": "m13",
