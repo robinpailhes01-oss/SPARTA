@@ -23,6 +23,7 @@ node_modules/
 broll/
 __pycache__/
 videos/*/assets/*.wav
+videos/*/assets/*.mp3
 videos/*/assets/*.json
 videos/*/assets/*.txt
 work/
