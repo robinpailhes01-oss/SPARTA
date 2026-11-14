@@ -20,17 +20,11 @@
  "morceaux": [
   {
    "prise": "cours",
-   "in": 431.61,
+   "in": 431.75,
    "out": 434.58,
    "qui": "L",
-   "cadrage": "serre"
-  },
-  {
-   "prise": "cours",
-   "in": 436.86,
-   "out": 437.32,
-   "qui": "L",
-   "cadrage": "serre"
+   "cadrage": "serre",
+   "texte": "Généralement, quand tu as des fémurs longs, tu vas être beaucoup plus ischio-jambiers."
   },
   {
    "prise": "cours",
@@ -48,14 +42,16 @@
    "flips": [
     445.8,
     449.4
-   ]
+   ],
+   "texte": "Tu vas pencher et tu vas créer un étirement beaucoup plus accentué sur la partie _ _ _ ischio-jambiers. Donc, tu vas beaucoup plus recruter en extension de hanche. Donc, tu vas être beaucoup plus sur la chaîne postérieure."
   },
   {
    "prise": "cours",
-   "in": 414.14,
-   "out": 418.14,
+   "in": 414.86,
+   "out": 418.33,
    "qui": "L",
-   "cadrage": "large"
+   "cadrage": "large",
+   "texte": "Le trajet est beaucoup plus long, donc forcément, c'est pas des profils qui sont dédiés à la force."
   },
   {
    "prise": "cours",
@@ -65,7 +61,8 @@
    "cadrage": "serre",
    "flips": [
     425.0
-   ]
+   ],
+   "texte": "Un petit, petit bras de levier court, il a beaucoup moins de distance à parcourir, donc il va être plus fort."
   },
   {
    "prise": "cours",
@@ -75,14 +72,15 @@
    "cadrage": "large",
    "flips": [
     455.9
-   ]
+   ],
+   "texte": "Un petit, tchac, dos droit, ça va ressembler à du squat, presque du front squat, le truc. Il va être beaucoup plus _ _ quadriceps."
   }
  ],
  "broll": [
   {
    "src": "rushes/lot2/DJI_20261006100913_0539_D.MP4",
    "de": 2.0,
-   "morceau": 3,
+   "morceau": 2,
    "at": 447.3,
    "dur": 2.0
   }
@@ -91,8 +89,8 @@
   "cap_style": "epure",
   "cap_max_chars": 26,
   "kicker": {
-   "text": "FORMATION | COACH SPORTIF",
-   "dur": 2.0
+   "text": "LE SQUAT | AVEC DES FÉMURS LONGS",
+   "dur": 2.2
   },
   "end_card": {
    "logo": "assets/brand/logo_or_blanc.png",
@@ -101,7 +99,8 @@
   },
   "keywords": [
    "fémurs longs",
-   "chaîne postérieure"
+   "chaîne postérieure",
+   "front squat"
   ]
  }
 }

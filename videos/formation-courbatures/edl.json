@@ -1,0 +1,110 @@
+{
+ "title": "Les courbatures, ce n'est pas l'acide lactique — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 82.21,
+   "out": 89.76,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 81.91,
+   "origin": "100% 41%",
+   "tight_scale": 1.875,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    86.4
+   ]
+  },
+  {
+   "id": "m01",
+   "in": 64.49,
+   "out": 73.91,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 64.19,
+   "origin": "100% 41%",
+   "tight_scale": 1.875,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    68.1,
+    71.6
+   ]
+  },
+  {
+   "id": "m02",
+   "in": 74.4,
+   "out": 79.46,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 74.1,
+   "origin": "100% 41%",
+   "tight_scale": 1.875,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m03",
+   "in": 94.98,
+   "out": 103.81,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 94.68,
+   "origin": "100% 41%",
+   "tight_scale": 1.875,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    97.6,
+    101.6
+   ]
+  },
+  {
+   "id": "m04",
+   "in": 104.55,
+   "out": 109.19,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 104.25,
+   "origin": "100% 41%",
+   "tight_scale": 1.875,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [
+  {
+   "src": "assets/broll/b00.mp4",
+   "seg": "m02",
+   "at": 75.5,
+   "dur": 2.6,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b01.mp4",
+   "seg": "m03",
+   "at": 95.3,
+   "dur": 2.2,
+   "offset": 0
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "kicker": {
+  "text": "FORMATION | COACH SPORTIF",
+  "dur": 2.0
+ },
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0,
+  "cta": "COMMENTE « **COACH** »"
+ },
+ "keywords": [
+  "acide lactique",
+  "micro-lésions"
+ ]
+}

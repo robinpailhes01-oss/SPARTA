@@ -1,0 +1,114 @@
+{
+ "title": "Fémurs longs : pourquoi ton squat penche — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 431.75,
+   "out": 434.58,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 431.45,
+   "origin": "80% 24%",
+   "tight_scale": 1.8,
+   "wide_scale": 1.35,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m01",
+   "in": 438.01,
+   "out": 440.71,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 437.71,
+   "origin": "80% 24%",
+   "tight_scale": 1.8,
+   "wide_scale": 1.35,
+   "cadrage": "large"
+  },
+  {
+   "id": "m02",
+   "in": 442.56,
+   "out": 452.31,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 442.26,
+   "origin": "80% 24%",
+   "tight_scale": 1.8,
+   "wide_scale": 1.35,
+   "cadrage": "serre",
+   "flips": [
+    445.8,
+    449.4
+   ]
+  },
+  {
+   "id": "m03",
+   "in": 414.86,
+   "out": 418.33,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 414.56,
+   "origin": "80% 24%",
+   "tight_scale": 1.8,
+   "wide_scale": 1.35,
+   "cadrage": "large"
+  },
+  {
+   "id": "m04",
+   "in": 421.86,
+   "out": 428.27,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 421.56,
+   "origin": "80% 24%",
+   "tight_scale": 1.8,
+   "wide_scale": 1.35,
+   "cadrage": "serre",
+   "flips": [
+    425.0
+   ]
+  },
+  {
+   "id": "m05",
+   "in": 452.71,
+   "out": 458.87,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 452.41,
+   "origin": "80% 24%",
+   "tight_scale": 1.8,
+   "wide_scale": 1.35,
+   "cadrage": "large",
+   "flips": [
+    455.9
+   ]
+  }
+ ],
+ "broll": [
+  {
+   "src": "assets/broll/b00.mp4",
+   "seg": "m02",
+   "at": 447.3,
+   "dur": 2.0,
+   "offset": 0
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "kicker": {
+  "text": "LE SQUAT | AVEC DES FÉMURS LONGS",
+  "dur": 2.2
+ },
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0,
+  "cta": "COMMENTE « **COACH** »"
+ },
+ "keywords": [
+  "fémurs longs",
+  "chaîne postérieure",
+  "front squat"
+ ]
+}
