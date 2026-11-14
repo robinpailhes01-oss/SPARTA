@@ -17,10 +17,10 @@
   },
   {
    "id": "m01",
-   "in": 0.85,
+   "in": 0.9,
    "out": 6.19,
    "src": "assets/fc/m01.mp4",
-   "src_offset": 0.55,
+   "src_offset": 0.6,
    "origin": "90% 16%",
    "tight_scale": 1.9,
    "wide_scale": 1.0,
