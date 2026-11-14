@@ -1,0 +1,107 @@
+{
+ "title": "Fémurs longs : pourquoi ton squat penche — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/formation/formation-11min.MOV"
+ },
+ "vf": {
+  "cours": "zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,fps=30,unsharp=5:5:0.5"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "80% 24%",
+    "tight_scale": 1.8,
+    "wide_scale": 1.35
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 431.61,
+   "out": 434.58,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 436.86,
+   "out": 437.32,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 438.01,
+   "out": 440.71,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 442.56,
+   "out": 452.31,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    445.8,
+    449.4
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 414.14,
+   "out": 418.14,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 421.86,
+   "out": 428.27,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    425.0
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 452.71,
+   "out": 458.87,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    455.9
+   ]
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/lot2/DJI_20261006100913_0539_D.MP4",
+   "de": 2.0,
+   "morceau": 3,
+   "at": 447.3,
+   "dur": 2.0
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "FORMATION | COACH SPORTIF",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "keywords": [
+   "fémurs longs",
+   "chaîne postérieure"
+  ]
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "title": "Les courbatures, ce n'est pas l'acide lactique — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours2": "rushes/lot3/IMG_5148_10.MOV"
+ },
+ "vf": {
+  "cours2": "zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,crop=1350:2400:810:576,fps=30,unsharp=5:5:0.5"
+ },
+ "cadres": {
+  "cours2": {
+   "L": {
+    "origin": "100% 41%",
+    "tight_scale": 1.875,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "cours2",
+   "in": 82.21,
+   "out": 89.76,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    86.4
+   ]
+  },
+  {
+   "prise": "cours2",
+   "in": 64.49,
+   "out": 73.91,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    68.1,
+    71.6
+   ]
+  },
+  {
+   "prise": "cours2",
+   "in": 74.4,
+   "out": 79.46,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours2",
+   "in": 94.98,
+   "out": 103.81,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    97.6,
+    101.6
+   ]
+  },
+  {
+   "prise": "cours2",
+   "in": 104.55,
+   "out": 109.19,
+   "qui": "L",
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/lot2/DJI_20261006103634_0569_D.MP4",
+   "de": 10.0,
+   "morceau": 2,
+   "at": 75.5,
+   "dur": 2.6
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006112303_0607_D.MP4",
+   "de": 3.0,
+   "morceau": 3,
+   "at": 95.3,
+   "dur": 2.2
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "FORMATION | COACH SPORTIF",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "keywords": [
+   "acide lactique",
+   "micro-lésions"
+  ]
+ }
+}
