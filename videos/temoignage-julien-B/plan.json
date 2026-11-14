@@ -1,0 +1,181 @@
+{
+ "title": "Témoignage Julien (B) — Sparta",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "0298": "rushes/interview/DJI_20261026170411_0298_D.MP4"
+ },
+ "cadres": {
+  "0298": {
+   "J": {
+    "origin": "0% 24%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   },
+   "C": {
+    "origin": "90% 16%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "0298",
+   "in": 46.57,
+   "out": 48.86,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "J'ai plus eu mal au dos quasiment."
+  },
+  {
+   "prise": "0298",
+   "in": 0.9,
+   "out": 6.19,
+   "qui": "C",
+   "cadrage": "large",
+   "texte": "On vient de finir la séance avec Julien, donc ça fait maintenant deux mois bientôt que tu es avec nous."
+  },
+  {
+   "prise": "0298",
+   "in": 18.69,
+   "out": 24.05,
+   "qui": "J",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "0298",
+   "in": 37.45,
+   "out": 43.5,
+   "qui": "C",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "0298",
+   "in": 44.4,
+   "out": 46.52,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "Non, je l'ai senti dès les premières semaines."
+  },
+  {
+   "prise": "0298",
+   "in": 49.0,
+   "out": 53.1,
+   "qui": "J",
+   "cadrage": "large",
+   "texte": "Et maintenant, on peut commencer à travailler le reste du haut du corps, petit à petit."
+  },
+  {
+   "prise": "0298",
+   "in": 53.8,
+   "out": 58.24,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "Et dans la bonne humeur. Et ça m'a fait plus de bien que le kiné."
+  },
+  {
+   "prise": "0298",
+   "in": 64.24,
+   "out": 68.38,
+   "qui": "C",
+   "cadrage": "large",
+   "texte": "Si quelqu'un hésitait un petit peu à passer le cap de prendre du coaching privé,"
+  },
+  {
+   "prise": "0298",
+   "in": 70.9,
+   "out": 72.64,
+   "qui": "C",
+   "cadrage": "serre",
+   "texte": "qu'est-ce que tu lui dirais ?"
+  },
+  {
+   "prise": "0298",
+   "in": 72.84,
+   "out": 87.0,
+   "qui": "J",
+   "cadrage": "serre",
+   "flips": [
+    77.15,
+    80.6
+   ],
+   "texte": "Moi, je dirais qu'il vaut mieux investir dans une salle comme ça, ici, plutôt que dans les salles grand public moins chères, parce qu'ici, vous apprenez les gestes importants pour la santé, les articulations."
+  },
+  {
+   "prise": "0298",
+   "in": 87.36,
+   "out": 89.59,
+   "qui": "J",
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/lot2/DJI_20261006095550_0531_D.MP4",
+   "de": 12.0,
+   "morceau": 1,
+   "at": 3.3,
+   "dur": 2.7
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006103634_0569_D.MP4",
+   "de": 10.0,
+   "morceau": 3,
+   "at": 39.6,
+   "dur": 3.0
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006110016_0587_D.MP4",
+   "de": 17.0,
+   "morceau": 5,
+   "at": 49.6,
+   "dur": 3.2
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006100913_0539_D.MP4",
+   "de": 2.0,
+   "morceau": 7,
+   "at": 65.2,
+   "dur": 3.0
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006112008_0604_D.MP4",
+   "de": 7.0,
+   "morceau": 9,
+   "at": 75.4,
+   "dur": 2.4
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006105626_0584_D.MP4",
+   "de": 5.0,
+   "morceau": 9,
+   "at": 81.5,
+   "dur": 2.6
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006104318_0573_D.MP4",
+   "de": 14.0,
+   "morceau": 9,
+   "at": 84.1,
+   "dur": 2.6
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "TÉMOIGNAGE | COACHING PRIVÉ",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0
+  },
+  "keywords": [
+   "kiné",
+   "premières semaines",
+   "pas de prix"
+  ]
+ }
+}
