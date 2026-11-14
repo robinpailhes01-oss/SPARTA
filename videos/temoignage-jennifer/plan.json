@@ -1,36 +1,202 @@
 {
  "title": "Témoignage Jennifer — Sparta",
- "fps": 30, "modele": "large-v3",
- "prises": {"0347": "rushes/interview/DJI_20261026180353_0347_D.MP4",
-            "0349": "rushes/interview/DJI_20261026180503_0349_D.MP4",
-            "0350": "rushes/interview/DJI_20261026180635_0350_D.MP4"},
- "cadres": {"0347": {"J": {"origin": "0% 34%", "tight_scale": 1.9, "wide_scale": 1.0},
-                     "C": {"origin": "84% 32%", "tight_scale": 1.9, "wide_scale": 1.0}},
-            "0349": {"J": {"origin": "0% 32%", "tight_scale": 1.9, "wide_scale": 1.0},
-                     "C": {"origin": "100% 30%", "tight_scale": 1.9, "wide_scale": 1.0}},
-            "0350": {"J": {"origin": "0% 34%", "tight_scale": 1.9, "wide_scale": 1.0},
-                     "C": {"origin": "100% 32%", "tight_scale": 1.9, "wide_scale": 1.0}}},
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "0347": "rushes/interview/DJI_20261026180353_0347_D.MP4",
+  "0349": "rushes/interview/DJI_20261026180503_0349_D.MP4",
+  "0350": "rushes/interview/DJI_20261026180635_0350_D.MP4"
+ },
+ "cadres": {
+  "0347": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   },
+   "C": {
+    "origin": "84% 32%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0349": {
+   "J": {
+    "origin": "0% 32%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   },
+   "C": {
+    "origin": "100% 30%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0350": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   },
+   "C": {
+    "origin": "100% 32%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  }
+ },
  "morceaux": [
-  {"prise": "0347", "in": 19.19, "out": 26.66, "qui": "J", "cadrage": "serre", "flips": [22.8]},
-  {"prise": "0347", "in": 1.45, "out": 3.70, "qui": "C", "cadrage": "large"},
-  {"prise": "0347", "in": 12.38, "out": 19.19, "qui": "J", "cadrage": "serre", "flips": [15.0]},
-  {"prise": "0347", "in": 27.38, "out": 30.20, "qui": "J", "cadrage": "serre"},
-  {"prise": "0349", "in": 2.74, "out": 9.20, "qui": "C", "cadrage": "serre"},
-  {"prise": "0349", "in": 10.46, "out": 25.12, "qui": "J", "cadrage": "serre", "flips": [15.25, 18.75]},
-  {"prise": "0349", "in": 54.38, "out": 59.84, "qui": "C", "cadrage": "serre"},
-  {"prise": "0349", "in": 61.17, "out": 65.24, "qui": "J", "cadrage": "serre"},
-  {"prise": "0350", "in": 14.92, "out": 16.42, "qui": "C", "cadrage": "serre"},
-  {"prise": "0350", "in": 17.26, "out": 19.95, "qui": "C", "cadrage": "large"}
+  {
+   "prise": "0347",
+   "in": 19.19,
+   "out": 26.66,
+   "qui": "J",
+   "cadrage": "serre",
+   "flips": [
+    22.8
+   ]
+  },
+  {
+   "prise": "0347",
+   "in": 1.45,
+   "out": 3.7,
+   "qui": "C",
+   "cadrage": "large"
+  },
+  {
+   "prise": "0347",
+   "in": 12.38,
+   "out": 19.19,
+   "qui": "J",
+   "cadrage": "serre",
+   "flips": [
+    15.0
+   ]
+  },
+  {
+   "prise": "0347",
+   "in": 27.38,
+   "out": 30.2,
+   "qui": "J",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "0349",
+   "in": 2.74,
+   "out": 9.2,
+   "qui": "C",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "0349",
+   "in": 10.46,
+   "out": 15.28,
+   "qui": "J",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "0349",
+   "in": 15.38,
+   "out": 18.65,
+   "qui": "J",
+   "texte": "Et puis, je suis plus à l'aise maintenant à la salle quand j'y vais."
+  },
+  {
+   "prise": "0349",
+   "in": 18.75,
+   "out": 20.66,
+   "qui": "J",
+   "texte": "Les exercices que je ne savais pas faire,"
+  },
+  {
+   "prise": "0349",
+   "in": 20.74,
+   "out": 25.12,
+   "qui": "J"
+  },
+  {
+   "prise": "0349",
+   "in": 54.38,
+   "out": 59.84,
+   "qui": "C",
+   "cadrage": "serre",
+   "texte": "Qu'est-ce que tu dirais à quelqu'un qui hésite encore à se lancer et qui souhaiterait rejoindre le coaching privé ?"
+  },
+  {
+   "prise": "0349",
+   "in": 61.17,
+   "out": 65.24,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "Si tu décides de te reprendre en main, c'est comme ça que tu peux débloquer les choses."
+  },
+  {
+   "prise": "0350",
+   "in": 14.92,
+   "out": 16.42,
+   "qui": "C",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "0350",
+   "in": 17.26,
+   "out": 19.95,
+   "qui": "C",
+   "cadrage": "large"
+  }
  ],
  "broll": [
-  {"src": "rushes/lot2/DJI_20261006105553_0583_D.MP4", "de": 8.0, "morceau": 4, "at": 4.6, "dur": 3.0},
-  {"src": "rushes/lot2/DJI_20261006110323_0590_D.MP4", "de": 6.0, "morceau": 5, "at": 12.3, "dur": 2.6},
-  {"src": "rushes/lot2/DJI_20261006112909_0612_D.MP4", "de": 3.0, "morceau": 5, "at": 16.0, "dur": 2.4},
-  {"src": "rushes/lot2/DJI_20261006113235_0618_D.MP4", "de": 17.0, "morceau": 5, "at": 22.2, "dur": 2.6},
-  {"src": "rushes/lot2/DJI_20261006105626_0584_D.MP4", "de": 5.0, "morceau": 6, "at": 55.3, "dur": 2.8}
+  {
+   "src": "rushes/lot2/DJI_20261006105553_0583_D.MP4",
+   "de": 8.0,
+   "morceau": 4,
+   "at": 4.6,
+   "dur": 3.0
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006110323_0590_D.MP4",
+   "de": 6.0,
+   "morceau": 5,
+   "at": 12.3,
+   "dur": 2.6
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006112909_0612_D.MP4",
+   "de": 3.0,
+   "morceau": 6,
+   "at": 16.0,
+   "dur": 2.4
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006113235_0618_D.MP4",
+   "de": 17.0,
+   "morceau": 8,
+   "at": 22.2,
+   "dur": 2.6
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006105626_0584_D.MP4",
+   "de": 5.0,
+   "morceau": 9,
+   "at": 55.3,
+   "dur": 2.8
+  }
  ],
- "edl": {"cap_style": "epure", "cap_max_chars": 26,
-         "kicker": {"text": "TÉMOIGNAGE | COACHING PRIVÉ", "dur": 2.0},
-         "end_card": {"logo": "assets/brand/logo_or_blanc.png", "dur": 2.0},
-         "keywords": ["en sécurité", "bien encadrés", "plus à l’aise"]}
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "TÉMOIGNAGE | COACHING PRIVÉ",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0
+  },
+  "keywords": [
+   "en sécurité",
+   "bien encadrés",
+   "plus à l’aise"
+  ]
+ }
 }

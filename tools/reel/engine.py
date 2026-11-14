@@ -149,7 +149,8 @@ WEAK = {"le", "la", "les", "l’", "un", "une", "des", "du", "de", "d’", "à",
 NO_SPLIT = {("coach", "sportif"), ("coachs", "sportifs"), ("salle", "de"), ("mise", "en"),
             # locutions figées : « en tant | que », « une fois | que », « mettre | en place », « prendre | contact »…
             ("tant", "que"), ("fois", "que"), ("parce", "que"), ("alors", "que"), ("mettre", "en"), ("en", "place"),
-            ("as", "besoin"), ("a", "besoin"), ("avoir", "besoin")}
+            ("as", "besoin"), ("a", "besoin"), ("avoir", "besoin"),
+            ("est-ce", "que"), ("comme", "ça")}
 # Mots qui ouvrent naturellement une nouvelle ligne (on préfère couper juste avant).
 OPENERS = {"et", "mais", "donc", "ou", "pour", "qui", "parce", "car", "quand"}
 NUM_WORDS = {"deux": "2", "trois": "3", "quatre": "4", "cinq": "5", "six": "6", "sept": "7", "huit": "8",

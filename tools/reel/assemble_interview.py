@@ -119,6 +119,13 @@ def main():
                 poids = np.cumsum([0] + [len(t) + 1 for t in voulu])
                 mots = [[round(a0 + (b0 - a0) * poids[k] / poids[-1], 2), round(a0 + (b0 - a0) * poids[k + 1] / poids[-1], 2), t]
                         for k, t in enumerate(voulu)]
+        recolle = []                                   # « mois » + « ? » → « mois ? » (espace insécable)
+        for w in mots:
+            if recolle and w[2] in ("?", "!", ":", ";", "»"):
+                recolle[-1][1], recolle[-1][2] = w[1], recolle[-1][2] + "\xa0" + w[2]
+            else:
+                recolle.append(w)
+        mots = recolle
         for w in mots:
             w[0] = round(min(max(w[0], 0.02), dur - 0.1) + m["in"] + off, 3)
             w[1] = round(min(max(w[1], 0.05), dur - 0.02) + m["in"] + off, 3)
