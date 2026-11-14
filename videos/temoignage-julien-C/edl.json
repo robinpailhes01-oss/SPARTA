@@ -1,0 +1,196 @@
+{
+ "title": "Témoignage Julien (C) — Sparta",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 87.36,
+   "out": 89.59,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 87.06,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m01",
+   "in": 0.9,
+   "out": 6.19,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 0.6,
+   "origin": "90% 16%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m02",
+   "in": 18.69,
+   "out": 24.05,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 18.39,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m03",
+   "in": 37.45,
+   "out": 43.5,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 37.15,
+   "origin": "90% 16%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m04",
+   "in": 44.4,
+   "out": 53.1,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 44.1,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    49.0
+   ]
+  },
+  {
+   "id": "m05",
+   "in": 53.8,
+   "out": 58.24,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 53.5,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m06",
+   "in": 64.24,
+   "out": 68.38,
+   "src": "assets/fc/m06.mp4",
+   "src_offset": 63.94,
+   "origin": "90% 16%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m07",
+   "in": 70.9,
+   "out": 72.64,
+   "src": "assets/fc/m07.mp4",
+   "src_offset": 70.6,
+   "origin": "90% 16%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m08",
+   "in": 72.84,
+   "out": 87.0,
+   "src": "assets/fc/m08.mp4",
+   "src_offset": 72.54,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    77.15,
+    80.6
+   ]
+  },
+  {
+   "id": "m09",
+   "in": 1087.36,
+   "out": 1089.59,
+   "src": "assets/fc/m09.mp4",
+   "src_offset": 1087.06,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [
+  {
+   "src": "assets/broll/b00.mp4",
+   "seg": "m01",
+   "at": 3.3,
+   "dur": 2.7,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b01.mp4",
+   "seg": "m03",
+   "at": 39.6,
+   "dur": 3.0,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b02.mp4",
+   "seg": "m04",
+   "at": 49.6,
+   "dur": 3.2,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b03.mp4",
+   "seg": "m06",
+   "at": 65.2,
+   "dur": 3.0,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b04.mp4",
+   "seg": "m08",
+   "at": 75.4,
+   "dur": 2.4,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b05.mp4",
+   "seg": "m08",
+   "at": 81.5,
+   "dur": 2.6,
+   "offset": 0
+  },
+  {
+   "src": "assets/broll/b06.mp4",
+   "seg": "m08",
+   "at": 84.1,
+   "dur": 2.6,
+   "offset": 0
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "kicker": {
+  "text": "TÉMOIGNAGE | COACHING PRIVÉ",
+  "dur": 2.0
+ },
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0
+ },
+ "keywords": [
+  "kiné",
+  "premières semaines",
+  "pas de prix"
+ ]
+}
