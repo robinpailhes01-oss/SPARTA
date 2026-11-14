@@ -1,0 +1,106 @@
+{
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/formation/formation-11min.MOV"
+ },
+ "vf": {
+  "cours": "zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,fps=30,unsharp=5:5:0.5"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "80% 24%",
+    "tight_scale": 1.8,
+    "wide_scale": 1.35
+   }
+  }
+ },
+ "title": "Squat profond et fessiers — Sparta formation",
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 591.56,
+   "out": 594.36,
+   "qui": "L",
+   "cadrage": "serre",
+   "texte": "Plus le squat est profond et _ le _ buste penché, plus le grand fessier est sollicité."
+  },
+  {
+   "prise": "cours",
+   "in": 594.42,
+   "out": 603.54,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    598.3
+   ],
+   "texte": "Également, pour vous les filles, si ça vous intéresse de développer un grand fessier, du squat, t'es _ profond et le buste est penché, forcément, ça va accentuer la chaîne postérieure, comme je disais tout à l'heure, donc les ischios et les fessiers."
+  },
+  {
+   "prise": "cours",
+   "in": 603.96,
+   "out": 605.56,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 605.67,
+   "out": 611.3,
+   "qui": "L",
+   "cadrage": "serre",
+   "texte": "Toi qui es assez grande quand même pour une fille, tu as beaucoup plus la chaîne postérieure qui est sollicitée sur un squat. Tu dois descendre plus comme ça, toi."
+  },
+  {
+   "prise": "cours",
+   "in": 624.87,
+   "out": 644.11,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    629.3,
+    632.9,
+    638.1,
+    641.0
+   ],
+   "texte": "Mais tu sais quoi ? Les kickbacks et tout, place-les en premier dans ta séance. Comme ça, t'isoles bien ce que tu veux travailler, tes fessiers, etc. Et si t'as des contraintes anatomiques au niveau du squat, et que du coup, ça te permet pas de mettre une intensité qui se rapproche de l'hypertrophie, tu le places en troisième ou quatrième exo. Comme ça, tu privilégies les exos où tu peux bien forcer et cibler."
+  },
+  {
+   "prise": "cours",
+   "in": 657.33,
+   "out": 664.63,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    660.4
+   ],
+   "texte": "Mais tu vas cibler aussi en pré-fatigue, quand tu fais des kickbacks avant le hip-thrust, tu vas activer encore plus ton hip-thrust sur certains protocoles. C'est hyper intéressant de varier comme ça."
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/lot2/DJI_20261006113235_0618_D.MP4",
+   "de": 17.0,
+   "morceau": 1,
+   "at": 600.0,
+   "dur": 2.6
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "FORMATION | COACH SPORTIF",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "keywords": [
+   "grand fessier"
+  ]
+ }
+}

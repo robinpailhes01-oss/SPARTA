@@ -174,6 +174,11 @@ def _chunk_cost(toks, last_word, next_word, dur=None, max_chars=CAP_MAX_CHARS):
         cost += 4.0                                 # carton trop bref : illisible, clignote
     if len(toks) == 1:
         cost += 3.0                                 # pas de mot isolé
+    for t in toks[:-1]:                             # ponctuation au milieu d'une ligne : on préfère couper dessus
+        if t.replace("*", "")[-1:] in ".?!":
+            cost += 6.0                             # « de résultat. Ben ouais, » : deux phrases sur une ligne
+        elif t.replace("*", "")[-1:] in ",;:":
+            cost += 0.8
     if last_word[-1:] in ",.?!;:":
         cost -= 2.5                                 # coupure sur la ponctuation
     elif _bare(last_word) in WEAK or last_word.endswith("’"):

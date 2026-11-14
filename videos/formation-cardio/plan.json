@@ -1,0 +1,138 @@
+{
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/formation/formation-11min.MOV"
+ },
+ "vf": {
+  "cours": "zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,fps=30,unsharp=5:5:0.5"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "80% 24%",
+    "tight_scale": 1.8,
+    "wide_scale": 1.35
+   }
+  }
+ },
+ "title": "Le cardio en base, ça n'apporte rien — Sparta formation",
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 56.45,
+   "out": 63.92,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    58.78,
+    61.4
+   ],
+   "texte": "Tous les gens que je vois qui viennent à Sparta, c'est des gens qui tentent ça. Je cours quatre fois par semaine, je n'ai pas de résultat. Ben ouais, continue comme ça, tu n'en auras pas, toujours pas."
+  },
+  {
+   "prise": "cours",
+   "in": 22.63,
+   "out": 27.95,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 28.01,
+   "out": 30.26,
+   "qui": "L",
+   "cadrage": "serre",
+   "texte": "La base de vos clients, ça doit être du renforcement musculaire."
+  },
+  {
+   "prise": "cours",
+   "in": 30.34,
+   "out": 36.87,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    33.9
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 38.11,
+   "out": 41.94,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 42.54,
+   "out": 47.44,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 47.52,
+   "out": 55.72,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    50.95,
+    52.9
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 64.78,
+   "out": 66.01,
+   "qui": "L",
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/lot2/DJI_20261006103634_0569_D.MP4",
+   "de": 10.0,
+   "morceau": 2,
+   "at": 28.05,
+   "dur": 2.1
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006113235_0618_D.MP4",
+   "de": 17.0,
+   "morceau": 3,
+   "at": 34.0,
+   "dur": 2.6
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006110902_0594_D.MP4",
+   "de": 1.0,
+   "morceau": 4,
+   "at": 38.3,
+   "dur": 3.2
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006110254_0589_D.MP4",
+   "de": 11.5,
+   "morceau": 6,
+   "at": 49.3,
+   "dur": 3.0
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "FORMATION | COACH SPORTIF",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "keywords": [
+   "renforcement musculaire",
+   "ça apporte rien"
+  ]
+ }
+}

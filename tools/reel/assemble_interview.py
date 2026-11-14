@@ -7,6 +7,7 @@ plan.json :
   "title": "...", "fps": 30, "modele": "large-v3",
   "prises": {"0298": "rushes/interview/DJI_..._0298_D.MP4"},
   "cadres": {"0298": {"J": {"origin": "10% 24%", "tight_scale": 2.0, "wide_scale": 1.0}, "C": {...}}},
+  "vf": {"cours": "zscale=...,tonemap=...,fps=30"},      # optionnel : filtre vidéo par prise (ex. iPhone HDR → SDR)
   "morceaux": [{"prise": "0298", "in": 55.27, "out": 58.24, "qui": "J", "cadrage": "serre", "flips": [..],
                 "texte": "Et ça m'a fait plus de bien que le kiné."}],        # texte : optionnel, corrige la transcription
   "broll": [{"src": "rushes/lot2/DJI_..._0531_D.MP4", "de": 9.0, "morceau": 1, "at": 3.2, "dur": 2.6}],
@@ -15,7 +16,7 @@ plan.json :
 Les temps "in", "out", "flips" et "at" sont ceux de la prise brute. Chaque morceau devient un fichier assets/fc/mNN.mp4
 (0,3 s de marge, voix normalisée à -13 LUFS par prise) ; la transcription est faite morceau par morceau, donc sans
 mot à cheval sur une coupe. "texte" remplace les mots transcrits en gardant leurs instants (même nombre de mots,
-sinon les instants sont répartis). --sans-video ne refait que les mots et edl.json.
+sinon les instants sont répartis ; « _ » à la place d'un mot le retire). --sans-video ne refait que les mots et edl.json.
 """
 import json
 import os
@@ -75,7 +76,9 @@ def main():
         if video:
             run("ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{start:.3f}", "-i", src, "-t", f"{m['out'] - start + 0.3:.3f}",
                 "-map", "0:v:0", "-map", "0:a:0", "-af", loudnorm_args(src, cache),
-                "-c:v", "libx264", "-crf", "15", "-preset", "fast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k",
+                *(["-vf", plan["vf"][m["prise"]]] if plan.get("vf", {}).get(m["prise"]) else []),
+                "-c:v", "libx264", "-crf", "15", "-preset", "fast", "-pix_fmt", "yuv420p",
+                "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-c:a", "aac", "-b:a", "256k",
                 "-movflags", "+faststart", out_f)
             json.dump(cache, open(cache_path, "w"), indent=1)
         cadre = plan.get("cadres", {}).get(m["prise"], {}).get(m.get("qui", ""), {})
@@ -113,6 +116,7 @@ def main():
             if len(voulu) == len(mots):
                 for w, t in zip(mots, voulu):
                     w[2] = t
+                mots = [w for w in mots if w[2] != "_"]          # « _ » : mot transcrit à tort, à retirer
             else:
                 print(f"  m{i:02d} : {len(mots)} mots transcrits, {len(voulu)} voulus — instants répartis sur le passage parlé")
                 a0, b0 = (mots[0][0], mots[-1][1]) if mots else (0.05, dur - 0.1)

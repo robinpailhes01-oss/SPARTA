@@ -1,0 +1,113 @@
+{
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/formation/formation-11min.MOV"
+ },
+ "vf": {
+  "cours": "zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,fps=30,unsharp=5:5:0.5"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "80% 24%",
+    "tight_scale": 1.8,
+    "wide_scale": 1.35
+   }
+  }
+ },
+ "title": "Ne copie pas l'entraînement d'un YouTubeur — Sparta formation",
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 368.29,
+   "out": 377.61,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    371.5,
+    374.9
+   ],
+   "texte": "_ Le mec arrive, il a vu sur YouTube, _ _ _ il est comme ça, il arrive, il reproduit ce que le mec fait. Il n'a aucun schéma moteur, aucune coordination intermusculaire, intramusculaire, il ne recrute pas les fibres. C'est n'importe quoi."
+  },
+  {
+   "prise": "cours",
+   "in": 360.2,
+   "out": 367.62,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    362.2
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 338.73,
+   "out": 348.28,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    343.6
+   ],
+   "texte": "Une fois que tu as une structure, qui est une belle structure de trois ans de muscu, un peu en polyarticulaire, tu as une bonne structure, tu vas taper beaucoup plus en _ monoarticulaire, sur des exercices isolés et des mouvements partiels."
+  },
+  {
+   "prise": "cours",
+   "in": 349.16,
+   "out": 354.37,
+   "qui": "L",
+   "cadrage": "large",
+   "texte": "Pour travailler la portion haute du pec, pour bomber le pec, tu vas faire de l'incliné sur des portions très courtes."
+  },
+  {
+   "prise": "cours",
+   "in": 385.75,
+   "out": 394.18,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    388.9,
+    391.2
+   ]
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/lot2/DJI_20261006100913_0539_D.MP4",
+   "de": 2.0,
+   "morceau": 2,
+   "at": 341.3,
+   "dur": 2.3
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006110323_0590_D.MP4",
+   "de": 6.0,
+   "morceau": 2,
+   "at": 345.0,
+   "dur": 2.8
+  },
+  {
+   "src": "rushes/lot2/DJI_20261006105626_0584_D.MP4",
+   "de": 5.0,
+   "morceau": 4,
+   "at": 388.9,
+   "dur": 2.2
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "kicker": {
+   "text": "FORMATION | COACH SPORTIF",
+   "dur": 2.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "keywords": [
+   "zéro résultat"
+  ]
+ }
+}
