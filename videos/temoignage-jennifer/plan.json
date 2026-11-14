@@ -75,10 +75,11 @@
   },
   {
    "prise": "0347",
-   "in": 27.38,
+   "in": 26.9,
    "out": 30.2,
    "qui": "J",
-   "cadrage": "serre"
+   "cadrage": "serre",
+   "texte": "Et c'est pour ça que j'ai décidé de rejoindre le coaching privé."
   },
   {
    "prise": "0349",
@@ -128,7 +129,7 @@
    "out": 65.24,
    "qui": "J",
    "cadrage": "serre",
-   "texte": "Si tu décides de te reprendre en main, c'est comme ça que tu peux débloquer les choses."
+   "texte": "Si tu décides de reprendre tes rênes en main, c'est comme ça que tu peux débloquer les choses."
   },
   {
    "prise": "0350",

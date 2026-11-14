@@ -30,7 +30,7 @@
   },
   {
    "prise": "0298",
-   "in": 0.85,
+   "in": 0.9,
    "out": 6.19,
    "qui": "C",
    "cadrage": "large",
@@ -58,7 +58,8 @@
    "cadrage": "serre",
    "flips": [
     49.0
-   ]
+   ],
+   "texte": "Non, je l'ai senti dès les premières semaines, j'ai plus eu mal au dos quasiment. Et maintenant, on peut commencer à travailler le reste du haut du corps, petit à petit."
   },
   {
    "prise": "0298",
