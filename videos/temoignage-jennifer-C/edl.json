@@ -188,6 +188,7 @@
    "offset": 0
   }
  ],
+ "schemas": [],
  "punch": {
   "scale": 1.3,
   "origin": "50% 28%",

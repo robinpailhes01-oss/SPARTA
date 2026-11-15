@@ -21,6 +21,34 @@
       #flash { position: absolute; inset: 0; }
       .flash-inner { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
       /* Surtitre d'ouverture — § 0 : ligne fine or, texte espacé, sans fond */
+      /* Schémas animés : texte blanc, filets or, voile léger sur la face cam (aucune plaque) */
+      .sch { position: absolute; inset: 0; }
+      .sch-dim { position: absolute; inset: 0; background: radial-gradient(ellipse 100% 58% at 50% 38%, rgba(0,0,0,0.70), rgba(0,0,0,0.46) 65%, rgba(0,0,0,0.16)); }
+      .sch-col { position: absolute; left: 0; right: 0; top: 470px; display: flex; flex-direction: column; align-items: center; }
+      .sch-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #D9C48E; margin-bottom: 34px;
+                   text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+      .sch-step { position: relative; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 58px; line-height: 1.18; color: #FFFFFF; text-align: center;
+                  white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.6), 0 8px 30px rgba(0,0,0,0.45); }
+      .sch-step b { color: #E6D3A0; font-weight: 800; }
+      .sch-strike .sch-txt { opacity: 0.8; }
+      .sch-bar { position: absolute; left: -12px; right: -12px; top: 52%; height: 6px; background: #D9C48E; transform-origin: 0% 50%; border-radius: 3px;
+                 box-shadow: 0 0 0 2px rgba(0,0,0,0.45); }
+      .sch-arrow { display: flex; flex-direction: column; align-items: center; height: 74px; transform-origin: 50% 0%; }
+      .sch-line { display: block; width: 4px; flex: 1; background: #D9C48E; }
+      .sch-head { display: block; width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 18px solid #D9C48E; }
+      .sch-row { width: 820px; margin-bottom: 52px; }
+      .sch-lab { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+      .sch-lab .sch-txt { font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 50px; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+      .sch-val { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 36px; color: #D9C48E; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+      .sch-track { height: 14px; background: rgba(255,255,255,0.16); border-radius: 7px; overflow: hidden; }
+      .sch-fill { display: block; height: 100%; background: #D9C48E; border-radius: 7px; transform-origin: 0% 50%; }
+      /* Accroche en haut d'image : texte blanc gras, mot-clé en or, sans fond (§ 0), sous la zone de sécurité (y ≥ 250) */
+      #hook { position: absolute; left: 0; width: 1080px; top: 262px; height: 300px; display: flex; justify-content: center; }
+      .hook-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+      .hook-rule { display: block; width: 84px; height: 4px; background: #D9C48E; transform-origin: 50% 50%; }
+      .hook-text { display: block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 56px; line-height: 1.2; color: #FFFFFF;
+                   text-align: center; white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.55), 0 8px 30px rgba(0,0,0,0.45); }
+      .hook-text b { font-weight: 800; color: #E6D3A0; }
       #kicker { position: absolute; left: 0; width: 1080px; top: 250px; height: 120px; display: flex; justify-content: center; }
       .kicker-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
       .kicker-rule { display: block; width: 72px; height: 3px; background: #D9C48E; transform-origin: 50% 50%; }
