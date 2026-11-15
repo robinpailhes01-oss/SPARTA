@@ -152,8 +152,13 @@ def main():
         broll.append({"src": rel, "seg": f"m{b['morceau']:02d}", "at": round(b["at"] + offsets[m["prise"]], 3),
                       "dur": b["dur"], "offset": 0})
 
+    schemas = []
+    for sc in plan.get("schemas", []):
+        m = plan["morceaux"][sc["morceau"]]
+        schemas.append({**{k: v for k, v in sc.items() if k != "morceau"}, "seg": f"m{sc['morceau']:02d}",
+                        "at": round(sc["at"] + offsets[m["prise"]], 3)})
     edl = {"title": plan["title"], "fps": plan.get("fps", 30), "source": segments[0]["src"],
-           "words": "assets/facecam.words.json", "segments": segments, "broll": broll,
+           "words": "assets/facecam.words.json", "segments": segments, "broll": broll, "schemas": schemas,
            "punch": {"scale": 1.3, "origin": "50% 28%", "first_tight": True}, **plan.get("edl", {})}
     json.dump(edl, open(os.path.join(proj, "edl.json"), "w"), ensure_ascii=False, indent=1)
     print(f"{proj}/edl.json : {len(segments)} morceaux, {len(broll)} plans de coupe, "

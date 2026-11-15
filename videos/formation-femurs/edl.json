@@ -81,13 +81,57 @@
    ]
   }
  ],
- "broll": [
+ "broll": [],
+ "schemas": [
   {
-   "src": "assets/broll/b00.mp4",
-   "seg": "m02",
-   "at": 447.3,
-   "dur": 2.0,
-   "offset": 0
+   "type": "flow",
+   "at": 442.65,
+   "dur": 9.5,
+   "titre": "FÉMURS LONGS",
+   "temps": [
+    443.0,
+    444.1,
+    448.5,
+    451.1
+   ],
+   "etapes": [
+    [
+     "Dos penché"
+    ],
+    [
+     "Ischios étirés"
+    ],
+    [
+     "Extension de hanche"
+    ],
+    [
+     "Chaîne postérieure"
+    ]
+   ],
+   "seg": "m02"
+  },
+  {
+   "type": "flow",
+   "at": 453.0,
+   "dur": 5.6,
+   "titre": "DOS DROIT",
+   "temps": [
+    453.1,
+    454.6,
+    456.3
+   ],
+   "etapes": [
+    [
+     "Dos droit"
+    ],
+    [
+     "Style front squat"
+    ],
+    [
+     "Plus de quadriceps"
+    ]
+   ],
+   "seg": "m05"
   }
  ],
  "punch": {
@@ -97,10 +141,6 @@
  },
  "cap_style": "epure",
  "cap_max_chars": 26,
- "kicker": {
-  "text": "LE SQUAT | AVEC DES FÉMURS LONGS",
-  "dur": 2.2
- },
  "end_card": {
   "logo": "assets/brand/logo_or_blanc.png",
   "dur": 2.0,
@@ -110,5 +150,9 @@
   "fémurs longs",
   "chaîne postérieure",
   "front squat"
- ]
+ ],
+ "hook": {
+  "text": "**Fémurs longs** : pourquoi | ton squat penche",
+  "dur": 4.5
+ }
 }

@@ -85,10 +85,6 @@
  "edl": {
   "cap_style": "epure",
   "cap_max_chars": 26,
-  "kicker": {
-   "text": "FORMATION | COACH SPORTIF",
-   "dur": 2.0
-  },
   "end_card": {
    "logo": "assets/brand/logo_or_blanc.png",
    "dur": 2.0,
@@ -97,6 +93,42 @@
   "keywords": [
    "acide lactique",
    "micro-lésions"
-  ]
- }
+  ],
+  "hook": {
+   "text": "Les courbatures, ce n'est pas | l'**acide lactique**",
+   "dur": 4.5
+  }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 1,
+   "at": 64.6,
+   "dur": 9.1,
+   "titre": "COURBATURES",
+   "temps": [
+    64.7,
+    65.2,
+    68.4,
+    71.8
+   ],
+   "barres": [
+    0
+   ],
+   "etapes": [
+    [
+     "Acide lactique"
+    ],
+    [
+     "Micro-lésions"
+    ],
+    [
+     "Fibres abîmées"
+    ],
+    [
+     "Inflammation"
+    ]
+   ]
+  }
+ ]
 }

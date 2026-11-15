@@ -83,17 +83,13 @@
    "src": "rushes/lot2/DJI_20261006113235_0618_D.MP4",
    "de": 17.0,
    "morceau": 1,
-   "at": 600.0,
-   "dur": 2.6
+   "at": 601.95,
+   "dur": 1.55
   }
  ],
  "edl": {
   "cap_style": "epure",
   "cap_max_chars": 26,
-  "kicker": {
-   "text": "FORMATION | COACH SPORTIF",
-   "dur": 2.0
-  },
   "end_card": {
    "logo": "assets/brand/logo_or_blanc.png",
    "dur": 2.0,
@@ -101,6 +97,56 @@
   },
   "keywords": [
    "grand fessier"
-  ]
- }
+  ],
+  "hook": {
+   "text": "Squat : comment | cibler les **fessiers**",
+   "dur": 4.5
+  }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 1,
+   "at": 597.2,
+   "dur": 4.5,
+   "titre": "SQUAT PROFOND",
+   "temps": [
+    597.5,
+    599.4,
+    601.0
+   ],
+   "etapes": [
+    [
+     "Buste penché"
+    ],
+    [
+     "Chaîne postérieure"
+    ],
+    [
+     "Ischios + fessiers"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 4,
+   "at": 628.4,
+   "dur": 11.8,
+   "titre": "ORDRE DE LA SÉANCE",
+   "temps": [
+    628.9,
+    634.4
+   ],
+   "etapes": [
+    [
+     "1 · Kickbacks",
+     "pour isoler les fessiers"
+    ],
+    [
+     "3 ou 4 · Squat",
+     "si contraintes anatomiques"
+    ]
+   ]
+  }
+ ]
 }

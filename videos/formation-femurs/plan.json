@@ -76,22 +76,10 @@
    "texte": "Un petit, tchac, dos droit, ça va ressembler à du squat, presque du front squat, le truc. Il va être beaucoup plus _ _ quadriceps."
   }
  ],
- "broll": [
-  {
-   "src": "rushes/lot2/DJI_20261006100913_0539_D.MP4",
-   "de": 2.0,
-   "morceau": 2,
-   "at": 447.3,
-   "dur": 2.0
-  }
- ],
+ "broll": [],
  "edl": {
   "cap_style": "epure",
   "cap_max_chars": 26,
-  "kicker": {
-   "text": "LE SQUAT | AVEC DES FÉMURS LONGS",
-   "dur": 2.2
-  },
   "end_card": {
    "logo": "assets/brand/logo_or_blanc.png",
    "dur": 2.0,
@@ -101,6 +89,62 @@
    "fémurs longs",
    "chaîne postérieure",
    "front squat"
-  ]
- }
+  ],
+  "hook": {
+   "text": "**Fémurs longs** : pourquoi | ton squat penche",
+   "dur": 4.5
+  }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 2,
+   "at": 442.65,
+   "dur": 9.5,
+   "titre": "FÉMURS LONGS",
+   "temps": [
+    443.0,
+    444.1,
+    448.5,
+    451.1
+   ],
+   "etapes": [
+    [
+     "Dos penché"
+    ],
+    [
+     "Ischios étirés"
+    ],
+    [
+     "Extension de hanche"
+    ],
+    [
+     "Chaîne postérieure"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 5,
+   "at": 453.0,
+   "dur": 5.6,
+   "titre": "DOS DROIT",
+   "temps": [
+    453.1,
+    454.6,
+    456.3
+   ],
+   "etapes": [
+    [
+     "Dos droit"
+    ],
+    [
+     "Style front squat"
+    ],
+    [
+     "Plus de quadriceps"
+    ]
+   ]
+  }
+ ]
 }

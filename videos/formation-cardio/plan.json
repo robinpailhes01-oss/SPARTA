@@ -121,10 +121,6 @@
  "edl": {
   "cap_style": "epure",
   "cap_max_chars": 26,
-  "kicker": {
-   "text": "FORMATION | COACH SPORTIF",
-   "dur": 2.0
-  },
   "end_card": {
    "logo": "assets/brand/logo_or_blanc.png",
    "dur": 2.0,
@@ -133,6 +129,35 @@
   "keywords": [
    "renforcement musculaire",
    "ça apporte rien"
-  ]
- }
+  ],
+  "hook": {
+   "text": "Tu cours 4 fois par semaine | **sans résultat** ?",
+   "dur": 4.5
+  }
+ },
+ "schemas": [
+  {
+   "type": "bars",
+   "morceau": 5,
+   "at": 42.62,
+   "dur": 4.7,
+   "titre": "ÉNERGIE DÉPENSÉE",
+   "temps": [
+    43.0,
+    45.4
+   ],
+   "lignes": [
+    [
+     "Footing",
+     "court terme",
+     0.2
+    ],
+    [
+     "Muscle",
+     "long terme",
+     1.0
+    ]
+   ]
+  }
+ ]
 }

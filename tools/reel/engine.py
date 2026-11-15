@@ -23,6 +23,13 @@ edl.json (seuls "title", "source" et "segments" sont obligatoires) :
   "broll": [{"src": "...", "seg": "hook", "at": 22.86, "dur": 2.0, "offset": 0.2}],
   "flash": {"seg": "hook", "at": 22.86},     # optionnel, un seul effet par vidéo
   "kicker": {"text": "COACHING PRIVÉ", "dur": 2.6},   # optionnel : surtitre fin en ouverture
+  "schemas": [{"type": "flow", "seg": "m02", "at": 597.2, "dur": 4.4, "titre": "SQUAT",
+               "etapes": [["Squat profond", "buste penché"], ["Chaîne postérieure"], ["Ischios + fessiers"]]},
+              {"type": "bars", "seg": "m05", "at": 42.6, "dur": 4.6, "titre": "DÉPENSE ÉNERGÉTIQUE",
+               "lignes": [["Cardio", "300–500 kcal", 0.22], ["Renforcement", "toute la journée", 1.0]]}],
+                                             # optionnel : schémas animés (motion design) par-dessus le formateur
+  "hook": {"text": "Tu cours 4 fois par semaine | **sans résultat** ?", "dur": 4.5},   # optionnel : phrase d'accroche en haut
+                                             # (« | » = saut de ligne, ** ** = mot en or) ; remplace le surtitre
   "proof": {"seg": "diete", "at": 55.95, "bg": "...", "images": [["...jpg", 2.0]]},
   "music": {"src": "assets/musique.wav", "len": 43.67, "end_boost": 3.5,
             "start": {"seg": "hook", "at": 22.86}, "beats": "beats/...json"},
@@ -343,7 +350,23 @@ def build(project):
         tweens.append(f'tl.fromTo("#flash .flash-inner", {{opacity: 0.85}}, {{opacity: 0, duration: 0.32, ease: "power2.out"}}, {round(ft,3)});')
 
     # Surtitre d'ouverture : ligne fine or + texte espacé, sans fond (§ 0).
-    if edl.get("kicker"):
+    if edl.get("hook"):
+        hk = edl["hook"]; hd = hk.get("dur", 4.5)
+        lines = []
+        for ln in hk["text"].split("|"):
+            esc = html.escape(ln.strip()).replace("&#x27;", "’").replace("'", "’")
+            while "**" in esc:
+                esc = esc.replace("**", "<b>", 1).replace("**", "</b>", 1)
+            lines.append(esc)
+        parts.append(f'<div id="hook" class="clip" data-start="0.2" data-duration="{hd}" data-track-index="8" '
+                     f'style="z-index:{z+2}"><div class="hook-inner"><span class="hook-rule"></span>'
+                     f'<span class="hook-text">{"<br>".join(lines)}</span></div></div>')
+        tweens += [
+            'tl.fromTo("#hook .hook-rule", {scaleX: 0}, {scaleX: 1, duration: 0.5, ease: "power2.out"}, 0.2);',
+            'tl.fromTo("#hook .hook-text", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.55, ease: "power2.out"}, 0.35);',
+            f'tl.to("#hook .hook-inner", {{opacity: 0, duration: 0.45, ease: "power1.in"}}, {round(0.2 + hd - 0.5, 3)});',
+        ]
+    elif edl.get("kicker"):
         kd = edl["kicker"].get("dur", 2.6)
         parts.append(f'<div id="kicker" class="clip" data-start="0.15" data-duration="{kd}" data-track-index="8" '
                      f'style="z-index:{z+2}"><div class="kicker-inner"><span class="kicker-rule"></span>'
@@ -353,6 +376,52 @@ def build(project):
             f'tl.fromTo("#kicker .kicker-text", {{opacity: 0, y: 8}}, {{opacity: 1, y: 0, duration: 0.5, ease: "power2.out"}}, 0.35);',
             f'tl.to("#kicker .kicker-inner", {{opacity: 0, duration: 0.4, ease: "power1.in"}}, {round(0.15 + kd - 0.45, 3)});',
         ]
+
+    # Schémas animés : texte et filets or sur voile léger, un seul élément à l'écran (§ 0), sous-titres conservés.
+    #   flow : étapes empilées reliées par des flèches ; "barre": true sur une étape = texte barré (idée fausse)
+    #   bars : lignes « libellé / valeur » avec une barre dont la longueur compare les valeurs (0 à 1)
+    for si, sc in enumerate(edl.get("schemas", [])):
+        t0 = to_tl(sc["seg"], sc["at"]); d = sc.get("dur", 4.5); sid = f"sch{si}"
+        def esc_(x):
+            e = html.escape(x).replace("&#x27;", "’").replace("'", "’")
+            while "**" in e:
+                e = e.replace("**", "<b>", 1).replace("**", "</b>", 1)
+            return e
+        body, anim = [], []
+        n = len(sc["etapes"]) if sc["type"] == "flow" else len(sc["lignes"])
+        gap = max(0.5, (d - 1.3) / max(n, 1))
+        if sc.get("titre"):
+            body.append(f'<div class="sch-title" id="{sid}-t">{esc_(sc["titre"])}</div>')
+            anim.append(f'tl.fromTo("#{sid}-t", {{opacity: 0, y: -8}}, {{opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}}, {round(t0 + 0.25, 3)});')
+        # instants d'apparition : listés en temps source ("temps"), sinon répartis sur la durée
+        tps = [to_tl(sc["seg"], x) for x in sc["temps"]] if sc.get("temps") else [round(t0 + 0.55 + k * gap, 3) for k in range(n)]
+        if sc["type"] == "flow":
+            for k, et in enumerate(sc["etapes"]):
+                lines = et if isinstance(et, list) else [et]
+                barre = sc.get("barres", [])
+                cls = "sch-step" + (" sch-strike" if k in barre else "")
+                body.append(f'<div class="{cls}" id="{sid}-s{k}"><span class="sch-txt">{"<br>".join(esc_(x) for x in lines)}</span>'
+                            + ('<span class="sch-bar"></span>' if k in barre else "") + '</div>')
+                ts = tps[k]
+                anim.append(f'tl.fromTo("#{sid}-s{k}", {{opacity: 0, y: 18}}, {{opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}}, {ts});')
+                if k in barre:
+                    anim.append(f'tl.fromTo("#{sid}-s{k} .sch-bar", {{scaleX: 0}}, {{scaleX: 1, duration: 0.4, ease: "power2.inOut"}}, {round(ts + 0.5, 3)});')
+                if k < n - 1:
+                    body.append(f'<div class="sch-arrow" id="{sid}-a{k}"><span class="sch-line"></span><span class="sch-head"></span></div>')
+                    anim.append(f'tl.fromTo("#{sid}-a{k}", {{opacity: 0, scaleY: 0}}, {{opacity: 1, scaleY: 1, duration: 0.3, ease: "power2.out"}}, {round(max(ts + 0.35, tps[k + 1] - 0.35), 3)});')
+        else:
+            for k, (lib, val, frac) in enumerate(sc["lignes"]):
+                body.append(f'<div class="sch-row" id="{sid}-r{k}"><div class="sch-lab"><span class="sch-txt">{esc_(lib)}</span>'
+                            f'<span class="sch-val">{esc_(val)}</span></div><div class="sch-track"><span class="sch-fill" style="width:{round(frac*100)}%"></span></div></div>')
+                ts = tps[k]
+                anim.append(f'tl.fromTo("#{sid}-r{k} .sch-lab", {{opacity: 0, y: 14}}, {{opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}}, {ts});')
+                anim.append(f'tl.fromTo("#{sid}-r{k} .sch-fill", {{scaleX: 0}}, {{scaleX: 1, duration: 1.0, ease: "power2.inOut"}}, {round(ts + 0.25, 3)});')
+        parts.append(f'<div id="{sid}" class="clip sch" data-start="{t0}" data-duration="{d}" data-track-index="{11 + si}" style="z-index:{z+2}">'
+                     f'<div class="sch-dim"></div><div class="sch-col">{"".join(body)}</div></div>')
+        tweens.append(f'tl.fromTo("#{sid} .sch-dim", {{opacity: 0}}, {{opacity: 1, duration: 0.35, ease: "power1.out"}}, {t0});')
+        tweens += anim
+        tweens.append(f'tl.to("#{sid}", {{opacity: 0, duration: 0.4, ease: "power1.in"}}, {round(t0 + d - 0.4, 3)});')
+        cover.append((t0, round(t0 + d, 3)))
 
     # Preuve : moitié « avant », puis balayage vers « après » (§ 6, § 7 bis).
     if proof:
@@ -552,6 +621,34 @@ TEMPLATE = """<!doctype html>
       #flash {{ position: absolute; inset: 0; }}
       .flash-inner {{ position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }}
       /* Surtitre d'ouverture — § 0 : ligne fine or, texte espacé, sans fond */
+      /* Schémas animés : texte blanc, filets or, voile léger sur la face cam (aucune plaque) */
+      .sch {{ position: absolute; inset: 0; }}
+      .sch-dim {{ position: absolute; inset: 0; background: radial-gradient(ellipse 100% 58% at 50% 38%, rgba(0,0,0,0.70), rgba(0,0,0,0.46) 65%, rgba(0,0,0,0.16)); }}
+      .sch-col {{ position: absolute; left: 0; right: 0; top: 470px; display: flex; flex-direction: column; align-items: center; }}
+      .sch-title {{ font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: {GOLD}; margin-bottom: 34px;
+                   text-shadow: 0 1px 3px rgba(0,0,0,0.7); }}
+      .sch-step {{ position: relative; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 58px; line-height: 1.18; color: #FFFFFF; text-align: center;
+                  white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.6), 0 8px 30px rgba(0,0,0,0.45); }}
+      .sch-step b {{ color: #E6D3A0; font-weight: 800; }}
+      .sch-strike .sch-txt {{ opacity: 0.8; }}
+      .sch-bar {{ position: absolute; left: -12px; right: -12px; top: 52%; height: 6px; background: {GOLD}; transform-origin: 0% 50%; border-radius: 3px;
+                 box-shadow: 0 0 0 2px rgba(0,0,0,0.45); }}
+      .sch-arrow {{ display: flex; flex-direction: column; align-items: center; height: 74px; transform-origin: 50% 0%; }}
+      .sch-line {{ display: block; width: 4px; flex: 1; background: {GOLD}; }}
+      .sch-head {{ display: block; width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 18px solid {GOLD}; }}
+      .sch-row {{ width: 820px; margin-bottom: 52px; }}
+      .sch-lab {{ display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }}
+      .sch-lab .sch-txt {{ font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 50px; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }}
+      .sch-val {{ font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 36px; color: {GOLD}; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }}
+      .sch-track {{ height: 14px; background: rgba(255,255,255,0.16); border-radius: 7px; overflow: hidden; }}
+      .sch-fill {{ display: block; height: 100%; background: {GOLD}; border-radius: 7px; transform-origin: 0% 50%; }}
+      /* Accroche en haut d'image : texte blanc gras, mot-clé en or, sans fond (§ 0), sous la zone de sécurité (y ≥ 250) */
+      #hook {{ position: absolute; left: 0; width: {W}px; top: 262px; height: 300px; display: flex; justify-content: center; }}
+      .hook-inner {{ display: flex; flex-direction: column; align-items: center; gap: 26px; }}
+      .hook-rule {{ display: block; width: 84px; height: 4px; background: {GOLD}; transform-origin: 50% 50%; }}
+      .hook-text {{ display: block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 56px; line-height: 1.2; color: #FFFFFF;
+                   text-align: center; white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.55), 0 8px 30px rgba(0,0,0,0.45); }}
+      .hook-text b {{ font-weight: 800; color: #E6D3A0; }}
       #kicker {{ position: absolute; left: 0; width: {W}px; top: 250px; height: 120px; display: flex; justify-content: center; }}
       .kicker-inner {{ display: flex; flex-direction: column; align-items: center; gap: 18px; }}
       .kicker-rule {{ display: block; width: 72px; height: 3px; background: {GOLD}; transform-origin: 50% 50%; }}
