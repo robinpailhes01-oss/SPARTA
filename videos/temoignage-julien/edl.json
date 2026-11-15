@@ -181,10 +181,6 @@
  },
  "cap_style": "epure",
  "cap_max_chars": 26,
- "kicker": {
-  "text": "TÉMOIGNAGE | COACHING PRIVÉ",
-  "dur": 2.0
- },
  "end_card": {
   "logo": "assets/brand/logo_or_blanc.png",
   "dur": 2.0
@@ -193,5 +189,9 @@
   "kiné",
   "premières semaines",
   "pas de prix"
- ]
+ ],
+ "hook": {
+  "text": "Julien, 44 ans | « Plus de bien | que le **kiné** »",
+  "dur": 6.5
+ }
 }

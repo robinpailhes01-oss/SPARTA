@@ -389,7 +389,7 @@ def build(project):
 
     # Surtitre d'ouverture : ligne fine or + texte espacé, sans fond (§ 0).
     if edl.get("hook"):
-        hk = edl["hook"]; hd = hk.get("dur", 4.5)
+        hk = edl["hook"]; hd = hk.get("dur", 6.5)
         lines = []
         for ln in hk["text"].split("|"):
             esc = html.escape(ln.strip()).replace("&#x27;", "’").replace("'", "’")
@@ -683,10 +683,11 @@ TEMPLATE = """<!doctype html>
       .sch-track {{ height: 14px; background: rgba(255,255,255,0.16); border-radius: 7px; overflow: hidden; }}
       .sch-fill {{ display: block; height: 100%; background: {GOLD}; border-radius: 7px; transform-origin: 0% 50%; }}
       /* Accroche en haut d'image : texte blanc gras, mot-clé en or, sans fond (§ 0), sous la zone de sécurité (y ≥ 250) */
-      #hook {{ position: absolute; left: 0; width: {W}px; top: 262px; height: 300px; display: flex; justify-content: center; }}
+      #hook {{ position: absolute; left: 0; width: {W}px; top: 0; height: 760px; display: flex; justify-content: center; padding-top: 262px;
+              background: linear-gradient(to bottom, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.46) 38%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0) 100%); }}
       .hook-inner {{ display: flex; flex-direction: column; align-items: center; gap: 26px; }}
-      .hook-rule {{ display: block; width: 84px; height: 4px; background: {GOLD}; transform-origin: 50% 50%; }}
-      .hook-text {{ display: block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 56px; line-height: 1.2; color: #FFFFFF;
+      .hook-rule {{ display: block; width: 110px; height: 5px; background: {GOLD}; transform-origin: 50% 50%; }}
+      .hook-text {{ display: block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 64px; line-height: 1.2; color: #FFFFFF;
                    text-align: center; white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.55), 0 8px 30px rgba(0,0,0,0.45); }}
       .hook-text b {{ font-weight: 800; color: #E6D3A0; }}
       #kicker {{ position: absolute; left: 0; width: {W}px; top: 250px; height: 120px; display: flex; justify-content: center; }}

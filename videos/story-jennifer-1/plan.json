@@ -1,0 +1,69 @@
+{
+ "title": "Story Jennifer 1",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "0347": "rushes/interview/DJI_20261026180353_0347_D.MP4"
+ },
+ "cadres": {
+  "0347": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0349": {
+   "J": {
+    "origin": "0% 32%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0350": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0298": {
+   "J": {
+    "origin": "0% 24%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "0347",
+   "in": 19.19,
+   "out": 26.66,
+   "qui": "J",
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/seances/DJI_20261026174211_0331_D.MP4",
+   "de": 4.0,
+   "morceau": 0,
+   "at": 24.31,
+   "dur": 2.2
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "hook": {
+   "text": "« Des exercices **précis**, | en **sécurité**, | bien **encadrés** » | ∙ Jennifer, 40 ans",
+   "dur": 8.67
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 1.5
+  },
+  "keywords": []
+ }
+}

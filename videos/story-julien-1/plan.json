@@ -1,0 +1,85 @@
+{
+ "title": "Story Julien 1",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "0298": "rushes/interview/DJI_20261026170411_0298_D.MP4"
+ },
+ "cadres": {
+  "0347": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0349": {
+   "J": {
+    "origin": "0% 32%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0350": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0298": {
+   "J": {
+    "origin": "0% 24%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "0298",
+   "in": 44.4,
+   "out": 48.66,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "Non, je l'ai senti dès les premières semaines, j'ai plus mal au dos quasiment."
+  },
+  {
+   "prise": "0298",
+   "in": 53.8,
+   "out": 58.24,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "Et dans la bonne humeur. Et ça m'a fait plus de bien que le kiné."
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   "de": 6.0,
+   "morceau": 0,
+   "at": 46.31,
+   "dur": 2.2
+  },
+  {
+   "src": "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   "de": 2.0,
+   "morceau": 1,
+   "at": 55.89,
+   "dur": 2.2
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "hook": {
+   "text": "« Plus de bien | que le **kiné** » | ∙ Julien, 44 ans",
+   "dur": 9.9
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 1.5
+  },
+  "keywords": []
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "title": "Story Julien 3",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "0298": "rushes/interview/DJI_20261026170411_0298_D.MP4"
+ },
+ "cadres": {
+  "0347": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0349": {
+   "J": {
+    "origin": "0% 32%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0350": {
+   "J": {
+    "origin": "0% 34%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  },
+  "0298": {
+   "J": {
+    "origin": "0% 24%",
+    "tight_scale": 1.9,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "0298",
+   "in": 72.84,
+   "out": 80.5,
+   "qui": "J",
+   "cadrage": "serre",
+   "texte": "Moi, je dirais qu'il vaut mieux investir dans une salle comme ça, ici, plutôt que dans les salles grand public moins chères,"
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   "de": 10.0,
+   "morceau": 0,
+   "at": 78.15,
+   "dur": 2.2
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "hook": {
+   "text": "« **Investir** dans | une salle comme ça » | ∙ Julien, 44 ans",
+   "dur": 8.86
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 1.5
+  },
+  "keywords": []
+ }
+}
