@@ -16,7 +16,7 @@ plan.json :
 Les temps "in", "out", "flips" et "at" sont ceux de la prise brute. Chaque morceau devient un fichier assets/fc/mNN.mp4
 (0,3 s de marge, voix normalisée à -13 LUFS par prise) ; la transcription est faite morceau par morceau, donc sans
 mot à cheval sur une coupe. "texte" remplace les mots transcrits en gardant leurs instants (même nombre de mots,
-sinon les instants sont répartis ; « _ » à la place d'un mot le retire). --sans-video ne refait que les mots et edl.json.
+sinon les instants sont répartis ; « _ » à la place d'un mot le retire). --sans-video ne refait que les mots et edl.json ; --seulement-broll ne réencode que les plans de coupe.
 """
 import json
 import os
@@ -49,6 +49,7 @@ def main():
     plan = json.load(open(sys.argv[1]))
     proj = sys.argv[2]
     video = "--sans-video" not in sys.argv
+    only_broll = "--seulement-broll" in sys.argv        # ne refait que les plans de coupe (morceaux déjà encodés)
     A = os.path.join(proj, "assets")
     for d in ("fc", "broll", "fonts", "brand"):
         os.makedirs(os.path.join(A, d), exist_ok=True)
@@ -73,7 +74,7 @@ def main():
         start = max(0.0, m["in"] - 0.3)
         rel = f"assets/fc/m{i:02d}.mp4"
         out_f = os.path.join(proj, rel)
-        if video:
+        if video and not only_broll:
             run("ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{start:.3f}", "-i", src, "-t", f"{m['out'] - start + 0.3:.3f}",
                 "-map", "0:v:0", "-map", "0:a:0", "-af", loudnorm_args(src, cache),
                 *(["-vf", plan["vf"][m["prise"]]] if plan.get("vf", {}).get(m["prise"]) else []),
