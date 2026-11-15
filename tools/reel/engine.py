@@ -48,6 +48,11 @@ W, H, FPS = 1080, 1920, 30
 # --- Constantes de la charte (STYLE.md) --------------------------------------
 PUSH_TH = 1.06          # § 7 bis : poussée lente sur la face cam
 PUSH_BROLL = 1.08       # § 7 bis : poussée lente sur les plans de coupe
+# Transitions adoucies (retour client du 15/11 : coupures et transitions trop sèches). "transitions": false dans l'EDL = coupes sèches.
+DISSOLVE = 0.16         # fondu enchaîné entre deux plans de face cam (s)
+BROLL_FADE = 0.22       # entrée et sortie en fondu des plans de coupe (s)
+FLIP_EASE = 0.30        # passage large ↔ serré animé au lieu d'un saut (s)
+AUDIO_IN, AUDIO_OUT = 0.05, 0.08     # fondus de la voix à chaque coupe (s)
 BEAT_MIN_STRENGTH = 0.4
 BEAT_MIN_GAP = 2.5
 BEAT_PUNCH = 1.045
@@ -303,41 +308,74 @@ def build(project):
     grade_attr = f" data-color-grading='{json.dumps(grade)}'" if grade else ""
 
     # Face cam : un <video> par segment, cadre large/serré alterné + poussée lente.
+    # Transitions : le plan entrant apparaît en fondu (0,16 s) par-dessus la fin du plan sortant (clip muet « queue »),
+    # les passages large ↔ serré sont animés, la voix a des fondus plus longs.
+    soft = edl.get("transitions", True)
     tight = punch["first_tight"]
-    for s in segments:
+    for si, s in enumerate(segments):
         sid, a, b = s["id"], s["in"], s["out"]
         t0 = seg_start[sid][0]
         d = round(b - a - 0.002, 3)
         fade = {"version": 1, "lanes": [{"target": "volume", "points": [
-            {"t": 0, "v": 0}, {"t": 0.03, "v": 1}, {"t": round(d - 0.04, 3), "v": 1}, {"t": d, "v": 0}]}]}
+            {"t": 0, "v": 0}, {"t": AUDIO_IN if soft else 0.03, "v": 1},
+            {"t": round(d - (AUDIO_OUT if soft else 0.04), 3), "v": 1}, {"t": d, "v": 0}]}]}
         org = s.get("origin", punch["origin"])          # point de zoom propre au morceau (visage)
+        src = s.get("src", edl["source"]); mstart = round(a - s.get("src_offset", 0), 3)
         parts.append(
             f'<div class="frame" id="thf-{sid}" style="z-index:{z};transform-origin:{org}"><div class="punch" id="thp-{sid}" style="transform-origin:{org}">'
-            f'<video id="th-{sid}" src="{s.get("src", edl["source"])}" data-start="{round(t0,3)}" data-duration="{d}" '
-            f'data-media-start="{round(a - s.get("src_offset", 0), 3)}" data-track-index="0" playsinline data-has-audio="true"{grade_attr} '
+            f'<video id="th-{sid}" src="{src}" data-start="{round(t0,3)}" data-duration="{d}" '
+            f'data-media-start="{mstart}" data-track-index="0" playsinline data-has-audio="true"{grade_attr} '
             f"data-automation='{json.dumps(fade)}'></video></div></div>")
         bounds = [round(t0, 3)] + [to_tl(sid, f) for f in s.get("flips", [])] + [round(t0 + d, 3)]
         if s.get("cadrage") in ("serre", "large"):
             tight = s["cadrage"] == "serre"
+        prev_end = None
         for r0, r1 in zip(bounds, bounds[1:]):
             s0 = (s.get("tight_scale", punch["scale"]) if tight else s.get("wide_scale", 1))
-            tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {round(s0 * PUSH_TH, 4)}, '
-                          f'duration: {round(r1 - r0, 3)}, ease: "none", immediateRender: false}}, {r0});')
+            s1 = round(s0 * PUSH_TH, 4)
+            if soft and prev_end is not None and r1 - r0 > FLIP_EASE + 0.4:       # changement de cadre en douceur
+                tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {prev_end}}}, {{scale: {s0}, duration: {FLIP_EASE}, '
+                              f'ease: "power2.inOut", immediateRender: false}}, {r0});')
+                tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {s1}, '
+                              f'duration: {round(r1 - r0 - FLIP_EASE, 3)}, ease: "none", immediateRender: false}}, {round(r0 + FLIP_EASE, 3)});')
+            else:
+                tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {s1}, '
+                              f'duration: {round(r1 - r0, 3)}, ease: "none", immediateRender: false}}, {r0});')
             th_windows.append((r0, r1, sid))
+            prev_end = s1
             tight = not tight
+        if soft:
+            last = si == len(segments) - 1
+            ov = 0.3 if last else DISSOLVE                 # dernier plan : fondu vers le carton de fin
+            if si > 0:                                      # entrée en fondu du plan, sur la queue du précédent
+                tweens.append(f'tl.fromTo("#thf-{sid}", {{opacity: 0}}, {{opacity: 1, duration: {DISSOLVE}, ease: "none", immediateRender: false}}, {round(t0, 3)});')
+            parts.append(
+                f'<div class="frame" id="tlf-{sid}" style="z-index:{z};transform-origin:{org}">'
+                f'<video id="tl-{sid}" src="{src}" data-start="{round(t0 + d, 3)}" data-duration="{ov}" '
+                f'data-media-start="{round(mstart + d, 3)}" data-track-index="13" muted playsinline{grade_attr}></video></div>')
+            tweens.append(f'tl.set("#tlf-{sid}", {{scale: {prev_end}}}, 0);')
+            tweens.append(f'tl.to("#tlf-{sid}", {{opacity: 0, duration: {round(ov * 0.9, 3)}, ease: "none"}}, {round(t0 + d + ov * 0.1, 3)});') if last else None
     z += 1
 
     # Plans de coupe (muets, par-dessus la face cam).
+    # Deux plans qui se suivent sans trou s'enchaînent en fondu : le premier se prolonge sous le second.
+    brs = [(to_tl(br["seg"], br["at"]), br["dur"]) for br in edl.get("broll", [])]
     for k, br in enumerate(edl.get("broll", [])):
-        st = to_tl(br["seg"], br["at"])
-        d = br["dur"]
+        st, d = brs[k]
+        chained = soft and any(j != k and abs(brs[j][0] - (st + d)) <= 0.05 for j in range(len(brs)))
+        d_eff = round(d + (BROLL_FADE if chained else 0), 3)
         g = f" data-color-grading='{json.dumps(br['grade'])}'" if br.get("grade") else ""
         parts.append(
             f'<div class="frame-b" id="brf-{k}" style="z-index:{z}">'
-            f'<video id="br-{k}" class="full" src="{br["src"]}" data-start="{st}" data-duration="{d}" '
-            f'data-media-start="{br.get("offset", 0)}" data-track-index="1" muted playsinline{g}></video></div>')
-        tweens.append(f'tl.fromTo("#brf-{k}", {{scale: 1}}, {{scale: {PUSH_BROLL}, duration: {d}, '
+            f'<video id="br-{k}" class="full" src="{br["src"]}" data-start="{st}" data-duration="{d_eff}" '
+            f'data-media-start="{br.get("offset", 0)}" data-track-index="{1 + k % 2}" muted playsinline{g}></video></div>')
+        tweens.append(f'tl.fromTo("#brf-{k}", {{scale: 1}}, {{scale: {PUSH_BROLL}, duration: {d_eff}, '
                       f'ease: "none", immediateRender: false}}, {st});')
+        if soft:                                            # entrée et sortie en fondu
+            f_ = min(BROLL_FADE, d / 3)
+            tweens.append(f'tl.fromTo("#brf-{k}", {{opacity: 0}}, {{opacity: 1, duration: {round(f_, 3)}, ease: "power1.out", immediateRender: false}}, {st});')
+            if not chained:
+                tweens.append(f'tl.to("#brf-{k}", {{opacity: 0, duration: {round(f_, 3)}, ease: "power1.in"}}, {round(st + d - f_, 3)});')
         cover.append((st, round(st + d, 3)))
     z += 1
 
@@ -580,6 +618,8 @@ def build(project):
         f'data-track-index="5" style="z-index:{z+5}"><img id="end-logo" src="{end_card["logo"]}" alt="Sparta, centre de coaching privé" />'
         + (f'<div id="end-cta">{cta_html}</div>' if (cta_html := (lambda t: t and html.escape(t).replace("**", "<b>", 1).replace("**", "</b>", 1))(end_card.get("cta"))) else "")
         + '</div>')
+    if soft:
+        tweens.append(f'tl.fromTo("#endcard", {{opacity: 0}}, {{opacity: 1, duration: 0.3, ease: "none", immediateRender: false}}, {round(end_start, 3)});')
     tweens.append(f'tl.fromTo("#end-logo", {{opacity: 0, scale: 0.97}}, {{opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}}, {round(end_start,3)});')
     tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
     if end_card.get("cta"):

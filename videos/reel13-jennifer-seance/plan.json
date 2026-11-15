@@ -1,0 +1,136 @@
+{
+ "title": "Jennifer en séance — Sparta",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "0347": "rushes/interview/DJI_20261026180353_0347_D.MP4",
+  "0349": "rushes/interview/DJI_20261026180503_0349_D.MP4"
+ },
+ "morceaux": [
+  {
+   "prise": "0347",
+   "in": 12.38,
+   "out": 19.17,
+   "qui": "J"
+  },
+  {
+   "prise": "0349",
+   "in": 10.46,
+   "out": 15.28,
+   "qui": "J"
+  },
+  {
+   "prise": "0349",
+   "in": 15.38,
+   "out": 18.65,
+   "qui": "J",
+   "texte": "Et puis, je suis plus à l'aise maintenant à la salle quand j'y vais."
+  },
+  {
+   "prise": "0349",
+   "in": 18.75,
+   "out": 25.12,
+   "qui": "J",
+   "texte": "Les exercices que je ne savais pas faire, je suis beaucoup plus confortable dans ma pratique sportive quotidienne."
+  },
+  {
+   "prise": "0349",
+   "in": 61.17,
+   "out": 65.24,
+   "qui": "J",
+   "texte": "Si tu décides de reprendre tes rênes en main, c'est comme ça que tu peux débloquer les choses."
+  }
+ ],
+ "broll": [
+  {
+   "src": "rushes/seances/DJI_20261026170837_0301_D.MP4",
+   "de": 0.0,
+   "morceau": 0,
+   "at": 12.38,
+   "dur": 2.263
+  },
+  {
+   "src": "rushes/seances/DJI_20261026172119_0316_D.MP4",
+   "de": 8.0,
+   "morceau": 0,
+   "at": 14.643,
+   "dur": 2.263
+  },
+  {
+   "src": "rushes/seances/DJI_20261026172802_0321_D.MP4",
+   "de": 2.0,
+   "morceau": 0,
+   "at": 16.906,
+   "dur": 2.263
+  },
+  {
+   "src": "rushes/seances/DJI_20261026171351_0305_D.MP4",
+   "de": 14.0,
+   "morceau": 1,
+   "at": 10.46,
+   "dur": 2.41
+  },
+  {
+   "src": "rushes/seances/DJI_20261026175926_0343_D.MP4",
+   "de": 2.0,
+   "morceau": 1,
+   "at": 12.87,
+   "dur": 2.41
+  },
+  {
+   "src": "rushes/seances/DJI_20261026175555_0340_D.MP4",
+   "de": 6.0,
+   "morceau": 2,
+   "at": 15.38,
+   "dur": 3.27
+  },
+  {
+   "src": "rushes/seances/DJI_20261026171458_0307_D.MP4",
+   "de": 4.0,
+   "morceau": 3,
+   "at": 18.75,
+   "dur": 2.123
+  },
+  {
+   "src": "rushes/seances/DJI_20261026172119_0316_D.MP4",
+   "de": 14.0,
+   "morceau": 3,
+   "at": 20.873,
+   "dur": 2.123
+  },
+  {
+   "src": "rushes/seances/DJI_20261026172802_0321_D.MP4",
+   "de": 8.0,
+   "morceau": 3,
+   "at": 22.996,
+   "dur": 2.123
+  },
+  {
+   "src": "rushes/seances/DJI_20261026171351_0305_D.MP4",
+   "de": 22.0,
+   "morceau": 4,
+   "at": 61.17,
+   "dur": 2.035
+  },
+  {
+   "src": "rushes/seances/DJI_20261026175926_0343_D.MP4",
+   "de": 14.0,
+   "morceau": 4,
+   "at": 63.205,
+   "dur": 2.035
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "hook": {
+   "text": "Jennifer, 40 ans | **plus à l'aise** à la salle",
+   "dur": 4.5
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0
+  },
+  "keywords": []
+ }
+}

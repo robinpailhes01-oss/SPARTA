@@ -41,7 +41,7 @@ def main():
         a, d, ms = float(a), float(d), float(ms)
         ins += ["-i", os.path.join(proj, src)]
         fl.append(f"[{k}:a]atrim={ms}:{ms + d},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,"
-                  f"afade=t=in:d=0.03,afade=t=out:st={d - 0.04}:d=0.04,adelay={int(a * 1000)}:all=1[v{k}]")
+                  f"afade=t=in:d=0.05,afade=t=out:st={d - 0.08}:d=0.08,adelay={int(a * 1000)}:all=1[v{k}]")
     fl.append("".join(f"[v{k}]" for k in range(len(segs))) + f"amix=inputs={len(segs)}:normalize=0,apad,atrim=0:{dur}[vo]")
     subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y"] + ins + ["-filter_complex", ";".join(fl), "-map", "[vo]", tmp], check=True)
     v_lufs = lufs(tmp)
