@@ -142,7 +142,7 @@
  "cap_style": "epure",
  "cap_max_chars": 26,
  "end_card": {
-  "logo": "assets/brand/logo_or_blanc.png",
+  "logo": null,
   "dur": 2.0,
   "cta": "COMMENTE « **COACH** »"
  },
@@ -153,6 +153,6 @@
  ],
  "hook": {
   "text": "**Fémurs longs** : pourquoi | ton squat penche",
-  "dur": 4.5
+  "dur": 5.2
  }
 }

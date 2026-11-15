@@ -614,14 +614,16 @@ def build(project):
 
     # Carte de fin.
     parts.append(
-        f'<div id="endcard" class="clip" data-start="{round(end_start,3)}" data-duration="{end_card["dur"]}" '
-        f'data-track-index="5" style="z-index:{z+5}"><img id="end-logo" src="{end_card["logo"]}" alt="Sparta, centre de coaching privé" />'
+        f'<div id="endcard" class="clip{" no-logo" if not end_card.get("logo") else ""}" data-start="{round(end_start,3)}" data-duration="{end_card["dur"]}" '
+        f'data-track-index="5" style="z-index:{z+5}"' + '>'
+        + (f'<img id="end-logo" src="{end_card["logo"]}" alt="Sparta, centre de coaching privé" />' if end_card.get("logo") else '')
         + (f'<div id="end-cta">{cta_html}</div>' if (cta_html := (lambda t: t and html.escape(t).replace("**", "<b>", 1).replace("**", "</b>", 1))(end_card.get("cta"))) else "")
         + '</div>')
     if soft:
         tweens.append(f'tl.fromTo("#endcard", {{opacity: 0}}, {{opacity: 1, duration: 0.3, ease: "none", immediateRender: false}}, {round(end_start, 3)});')
-    tweens.append(f'tl.fromTo("#end-logo", {{opacity: 0, scale: 0.97}}, {{opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}}, {round(end_start,3)});')
-    tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
+    if end_card.get("logo"):
+        tweens.append(f'tl.fromTo("#end-logo", {{opacity: 0, scale: 0.97}}, {{opacity: 1, scale: 1, duration: 0.4, ease: "power2.out"}}, {round(end_start,3)});')
+        tweens.append(f'tl.to("#end-logo", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55,3)});')
     if end_card.get("cta"):
         tweens.append(f'tl.fromTo("#end-cta", {{opacity: 0, y: 8}}, {{opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}}, {round(end_start + 0.45, 3)});')
         tweens.append(f'tl.to("#end-cta", {{opacity: 0, duration: 0.5, ease: "power1.in"}}, {round(total - 0.55, 3)});')
@@ -717,6 +719,8 @@ TEMPLATE = """<!doctype html>
       #end-cta {{ position: absolute; left: 0; width: {W}px; top: 1250px; text-align: center; font-family: "Montserrat", sans-serif;
                  font-weight: 600; font-size: 30px; letter-spacing: 0.32em; color: #FFFFFF; }}
       #end-cta b {{ font-weight: 800; color: #E6D3A0; }}
+      /* Carte de fin sans logo (contenus de formation) : l'appel à l'action seul, au centre */
+      #endcard.no-logo #end-cta {{ top: 50%; transform: translateY(-50%); font-size: 46px; }}
       /* Définition d'un sigle (acrostiche) */
       #def {{ position: absolute; inset: 0; }}
       .def-dim {{ position: absolute; inset: 0; background: radial-gradient(ellipse 85% 60% at 50% 45%, rgba(0,0,0,0.55), rgba(0,0,0,0.30)); }}
