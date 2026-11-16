@@ -30,7 +30,7 @@ def main():
     s = open(os.path.join(proj, "index.html"), encoding="utf-8").read()
     segs = re.findall(r'<video id="th-m\d+[a-z]?" src="([^"]+)" data-start="([\d.]+)" data-duration="([\d.]+)" '
                       r'data-media-start="([\d.]+)"[^>]*data-has-audio="true"', s)
-    end = float(re.search(r'id="endcard" class="clip" data-start="([\d.]+)"', s)[1])
+    end = float(re.search(r'id="endcard" class="clip[^"]*" data-start="([\d.]+)"', s)[1])
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", render],
                                capture_output=True, text=True).stdout)
     tmp = out + ".voice.wav"
