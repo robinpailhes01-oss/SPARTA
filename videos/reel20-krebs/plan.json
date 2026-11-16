@@ -41,7 +41,7 @@
   },
   "hook": {
    "text": "**Aérobie** : pourquoi | pas d'effort explosif ?",
-   "dur": 5.2
+   "dur": 4.6
   },
   "keywords": [
    "Krebs",
@@ -49,5 +49,38 @@
    "oxygène",
    "explosif"
   ]
- }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 12.0,
+   "dur": 12.4,
+   "titre": "ATP À L'OXYGÈNE",
+   "temps": [
+    12.1,
+    17.4,
+    20.2,
+    22.7
+   ],
+   "etapes": [
+    [
+     "**Oxygène**",
+     "cycle de Krebs"
+    ],
+    [
+     "Efforts",
+     "**intenses** ?"
+    ],
+    [
+     "Production",
+     "**lente**"
+    ],
+    [
+     "Pas d'effort",
+     "**explosif**"
+    ]
+   ]
+  }
+ ]
 }

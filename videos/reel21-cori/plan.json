@@ -21,19 +21,23 @@
   {
    "prise": "cours",
    "in": 32.87,
-   "out": 40.55,
+   "out": 34.81,
    "qui": "L",
-   "cadrage": "serre",
-   "flips": [
-    36.7
-   ]
+   "cadrage": "serre"
   },
   {
    "prise": "cours",
-   "in": 9.71,
-   "out": 30.86,
+   "in": 38.79,
+   "out": 40.55,
    "qui": "L",
-   "cadrage": "large",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 9.61,
+   "out": 32.83,
+   "qui": "L",
+   "cadrage": "serre",
    "flips": [
     14.5,
     19.5,
@@ -51,7 +55,7 @@
   },
   "hook": {
    "text": "Le **lactate** n'est pas | un **déchet**",
-   "dur": 5.2
+   "dur": 4.0
   },
   "keywords": [
    "lactate",
@@ -59,5 +63,38 @@
    "foie",
    "glucose"
   ]
- }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 2,
+   "at": 14.2,
+   "dur": 12.6,
+   "titre": "CYCLE DE CORI",
+   "temps": [
+    14.4,
+    18.0,
+    19.4,
+    25.4
+   ],
+   "etapes": [
+    [
+     "**Muscle**",
+     "produit du lactate"
+    ],
+    [
+     "**Sang**",
+     "le transporte"
+    ],
+    [
+     "**Foie**",
+     "refait du glucose"
+    ],
+    [
+     "**Cœur** et **cerveau**",
+     "le réutilisent"
+    ]
+   ]
+  }
+ ]
 }

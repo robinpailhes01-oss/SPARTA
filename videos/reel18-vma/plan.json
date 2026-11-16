@@ -20,22 +20,12 @@
  "morceaux": [
   {
    "prise": "cours",
-   "in": 141.18,
-   "out": 153.26,
-   "qui": "L",
-   "cadrage": "serre",
-   "flips": [
-    147.2
-   ]
-  },
-  {
-   "prise": "cours",
    "in": 87.25,
-   "out": 96.88,
+   "out": 96.56,
    "qui": "L",
    "cadrage": "large",
    "flips": [
-    92.0
+    92.4
    ]
   },
   {
@@ -47,23 +37,22 @@
   },
   {
    "prise": "cours",
-   "in": 221.9,
-   "out": 236.98,
+   "in": 141.93,
+   "out": 151.83,
    "qui": "L",
-   "cadrage": "large",
+   "cadrage": "serre",
    "flips": [
-    226.5,
-    231.5
+    147.0
    ]
   },
   {
    "prise": "cours",
-   "in": 236.82,
-   "out": 245.3,
+   "in": 221.65,
+   "out": 231.57,
    "qui": "L",
-   "cadrage": "serre",
+   "cadrage": "large",
    "flips": [
-    241.0
+    226.4
    ]
   }
  ],
@@ -77,7 +66,7 @@
   },
   "hook": {
    "text": "Ta **VMA** : | comment la mesurer ?",
-   "dur": 5.2
+   "dur": 4.2
   },
   "keywords": [
    "VMA",
@@ -85,5 +74,85 @@
    "Luc Léger",
    "Cooper"
   ]
- }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 91.5,
+   "dur": 5.0,
+   "titre": "TESTS DE TERRAIN",
+   "temps": [
+    91.6,
+    92.0,
+    92.35,
+    94.2
+   ],
+   "etapes": [
+    [
+     "**Vameval**"
+    ],
+    [
+     "**Luc Léger**"
+    ],
+    [
+     "**Cooper**"
+    ],
+    [
+     "= ta **VMA**"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 2,
+   "at": 142.6,
+   "dur": 8.9,
+   "titre": "VMA = VO2 MAX",
+   "temps": [
+    142.8,
+    143.7,
+    147.0
+   ],
+   "etapes": [
+    [
+     "**VO2 max**",
+     "= **VMA**"
+    ],
+    [
+     "Vitesse maximale",
+     "en **aérobie**"
+    ],
+    [
+     "Tenir sur",
+     "le **plateau**"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 3,
+   "at": 223.4,
+   "dur": 7.8,
+   "titre": "LE TEST À SPARTA",
+   "temps": [
+    223.6,
+    226.5,
+    229.2
+   ],
+   "etapes": [
+    [
+     "**12 min** de course",
+     "distance **max**"
+    ],
+    [
+     "Ou **3 km**",
+     "en **chrono**"
+    ],
+    [
+     "**Avant** / **après**"
+    ]
+   ]
+  }
+ ]
 }

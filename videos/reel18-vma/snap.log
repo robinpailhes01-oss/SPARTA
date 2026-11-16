@@ -1,0 +1,25 @@
+◆  Capturing 5 frames at [2s, 7s, 14s, 19s, 26s] from reel18-vma
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 3 loaded, 2 unused
+   Note: added an end-of-timeline frame at 33.04s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/reel18-vma/.hyperframes/video-state.json
+
+◇  6 snapshots saved to /home/user/SPARTA/videos/reel18-vma/.hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14
+   .hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/frame-00-at-2s.png
+   .hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/frame-01-at-7s.png
+   .hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/frame-02-at-14s.png
+   .hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/frame-03-at-19s.png
+   .hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/frame-04-at-26s.png
+   .hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/frame-05-at-33.038s.png
+   /home/user/SPARTA/videos/reel18-vma/.hyperframes/artifacts/snapshots/f09f39b6-9f44-42de-8977-d86b5609bc14/contact-sheet.jpg (grid view for AI review)
+
+  This project pins hyperframes@0.8.152 (latest 0.9.52).
+  Bump it: npx hyperframes@latest upgrade --project
+
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

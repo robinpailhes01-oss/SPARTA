@@ -57,7 +57,7 @@
   },
   "hook": {
    "text": "**Sarcoplasme** ou | **myofibrille** ?",
-   "dur": 4.6
+   "dur": 3.2
   },
   "keywords": [
    "sarcoplasme",
@@ -65,5 +65,28 @@
    "volume",
    "densité"
   ]
- }
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 1,
+   "at": 27.15,
+   "dur": 3.9,
+   "titre": "VOLUME OU DENSITÉ",
+   "temps": [
+    27.2,
+    28.4
+   ],
+   "etapes": [
+    [
+     "**Sarcoplasme**",
+     "= volume"
+    ],
+    [
+     "**Myofibrille**",
+     "= densité"
+    ]
+   ]
+  }
+ ]
 }
