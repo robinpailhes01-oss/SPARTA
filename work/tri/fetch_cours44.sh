@@ -1,7 +1,7 @@
 #!/bin/bash
 # Attend que le quota Drive soit levé puis extrait les 4 passages utiles du cours de 44 min (lecture en flux, rien d'autre n'est gardé).
 D=/home/user/SPARTA/rushes/cours44; P=/tmp/claude-0/-home-user-SPARTA/c4e298a3-8dce-5fb4-b2b3-46338f72f342/scratchpad/rangeproxy.py
-U="https://drive.usercontent.google.com/download?id=1PNEeJjghBbFZFHd_Ewx8AQBwtDJy2ryW&export=download&confirm=t"
+U="https://drive.usercontent.google.com/download?id=1wEOpwDM0X3ZiHm_faEPL1ae_XtInn6iY&export=download&confirm=t"
 cd $D; unset http_proxy
 pgrep -f rangeproxy.py >/dev/null || (nohup python3 -I $P > /dev/null 2>&1 &)
 for essai in $(seq 1 150); do
