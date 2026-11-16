@@ -1,0 +1,53 @@
+{
+ "title": "Pourquoi l'aérobie n'est pas explosive — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/cours44/krebs.mp4"
+ },
+ "vf": {
+  "cours": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "88% 40%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 6.28,
+   "out": 24.66,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    11.0,
+    16.0,
+    20.5
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "hook": {
+   "text": "**Aérobie** : pourquoi | pas d'effort explosif ?",
+   "dur": 5.2
+  },
+  "keywords": [
+   "Krebs",
+   "ATP",
+   "oxygène",
+   "explosif"
+  ]
+ }
+}

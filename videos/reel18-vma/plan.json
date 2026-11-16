@@ -1,0 +1,89 @@
+{
+ "title": "Ta VMA : comment la mesurer ? — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/cours44/vma.mp4"
+ },
+ "vf": {
+  "cours": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "88% 40%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 141.18,
+   "out": 153.26,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    147.2
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 87.25,
+   "out": 96.88,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    92.0
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 97.22,
+   "out": 100.15,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 221.9,
+   "out": 236.98,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    226.5,
+    231.5
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 236.82,
+   "out": 245.3,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    241.0
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "hook": {
+   "text": "Ta **VMA** : | comment la mesurer ?",
+   "dur": 5.2
+  },
+  "keywords": [
+   "VMA",
+   "VO2 max",
+   "Luc Léger",
+   "Cooper"
+  ]
+ }
+}

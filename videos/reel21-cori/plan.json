@@ -1,0 +1,63 @@
+{
+ "title": "Le lactate n'est pas un déchet — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/cours44/cori.mp4"
+ },
+ "vf": {
+  "cours": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "88% 40%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 32.87,
+   "out": 40.55,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    36.7
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 9.71,
+   "out": 30.86,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    14.5,
+    19.5,
+    25.0
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "hook": {
+   "text": "Le **lactate** n'est pas | un **déchet**",
+   "dur": 5.2
+  },
+  "keywords": [
+   "lactate",
+   "cycle de Cori",
+   "foie",
+   "glucose"
+  ]
+ }
+}

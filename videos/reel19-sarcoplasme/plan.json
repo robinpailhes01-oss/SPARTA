@@ -1,0 +1,69 @@
+{
+ "title": "Sarcoplasme ou myofibrille — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "cours": "rushes/cours44/sarco.mp4"
+ },
+ "vf": {
+  "cours": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "88% 40%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 22.43,
+   "out": 25.55,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 27.11,
+   "out": 31.07,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 31.07,
+   "out": 36.42,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 37.85,
+   "out": 40.68,
+   "qui": "L",
+   "cadrage": "large"
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "hook": {
+   "text": "**Sarcoplasme** ou | **myofibrille** ?",
+   "dur": 4.6
+  },
+  "keywords": [
+   "sarcoplasme",
+   "myofibrille",
+   "volume",
+   "densité"
+  ]
+ }
+}
