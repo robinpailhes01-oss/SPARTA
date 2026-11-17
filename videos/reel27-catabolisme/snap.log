@@ -1,0 +1,16 @@
+◆  Capturing 5 frames at [2s, 7s, 9s, 12s, 18s] from reel27-catabolisme
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 3 loaded, 2 unused
+   Note: added an end-of-timeline frame at 21.55s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/reel27-catabolisme/.hyperframes/video-state.json
+
+◇  6 snapshots saved to /home/user/SPARTA/videos/reel27-catabolisme/.hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b
+   .hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/frame-00-at-2s.png
+   .hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/frame-01-at-7s.png
+   .hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/frame-02-at-9s.png
+   .hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/frame-03-at-12s.png
+   .hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/frame-04-at-18s.png
+   .hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/frame-05-at-21.553s.png
+   /home/user/SPARTA/videos/reel27-catabolisme/.hyperframes/artifacts/snapshots/443a57cb-a57a-4114-a92c-505c6a8ece4b/contact-sheet.jpg (grid view for AI review)

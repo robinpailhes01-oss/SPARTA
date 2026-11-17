@@ -1,0 +1,16 @@
+◆  Capturing 5 frames at [2s, 6s, 9s, 13s, 17s] from reel26-vo2max
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 3 loaded, 2 unused
+   Note: added an end-of-timeline frame at 20.52s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/reel26-vo2max/.hyperframes/video-state.json
+
+◇  6 snapshots saved to /home/user/SPARTA/videos/reel26-vo2max/.hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a
+   .hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/frame-00-at-2s.png
+   .hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/frame-01-at-6s.png
+   .hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/frame-02-at-9s.png
+   .hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/frame-03-at-13s.png
+   .hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/frame-04-at-17s.png
+   .hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/frame-05-at-20.516s.png
+   /home/user/SPARTA/videos/reel26-vo2max/.hyperframes/artifacts/snapshots/96429cbe-ff6b-490b-a688-ca81f7438b4a/contact-sheet.jpg (grid view for AI review)

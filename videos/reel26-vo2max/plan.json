@@ -1,0 +1,99 @@
+{
+ "title": "Ta VO2 max : où te situes-tu ? — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "e1": "rushes/cours44/e1.mp4",
+  "e2": "rushes/cours44/e2.mp4"
+ },
+ "vf": {
+  "e1": "crop=1296:2304:864:691",
+  "e2": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "e1": {
+   "L": {
+    "origin": "82% 38%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  },
+  "e2": {
+   "L": {
+    "origin": "82% 38%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "e1",
+   "in": 1.53,
+   "out": 6.6,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "e2",
+   "in": 2.81,
+   "out": 16.89,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    7.5,
+    12.2
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "bars",
+   "morceau": 1,
+   "at": 3.9,
+   "dur": 12.9,
+   "titre": "VO2 MAX · ML/MIN/KG",
+   "temps": [
+    1004.25,
+    1010.45,
+    1013.6
+   ],
+   "lignes": [
+    [
+     "Homme sédentaire",
+     "40-45",
+     0.5
+    ],
+    [
+     "Femme sédentaire",
+     "35-40",
+     0.44
+    ],
+    [
+     "Athlète",
+     "85-90",
+     1.0
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "hook": {
+   "text": "Ta **VO2 max** : | où te situes-tu ?",
+   "dur": 4.2
+  },
+  "keywords": [
+   "VO2 max",
+   "sédentaire",
+   "athlète",
+   "oxygène"
+  ]
+ }
+}

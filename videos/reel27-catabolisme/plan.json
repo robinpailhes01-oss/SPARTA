@@ -1,0 +1,83 @@
+{
+ "title": "Quand ton corps mange ton muscle — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "f1": "rushes/cours44/f1.mp4"
+ },
+ "vf": {
+  "f1": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "f1": {
+   "L": {
+    "origin": "80% 38%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "f1",
+   "in": 1.19,
+   "out": 21.41,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    7.0,
+    12.5,
+    17.0
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 6.1,
+   "dur": 9.0,
+   "titre": "QUAND TU CATABOLISES",
+   "temps": [
+    6.2,
+    6.9,
+    7.6,
+    10.5
+   ],
+   "etapes": [
+    [
+     "Plus de **réserves**"
+    ],
+    [
+     "Les **protéines**",
+     "sont utilisées"
+    ],
+    [
+     "**Catabolisme**"
+    ],
+    [
+     "Perte de **muscle**"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  },
+  "hook": {
+   "text": "Quand ton corps | **mange ton muscle**",
+   "dur": 4.6
+  },
+  "keywords": [
+   "catabolisme",
+   "catabolise",
+   "protéines",
+   "muscle"
+  ]
+ }
+}
