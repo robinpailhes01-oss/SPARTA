@@ -1,0 +1,105 @@
+{
+ "title": "Recharger son glycogène — Sparta formation",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "a1": "rushes/cours44/a1.mp4",
+  "a2": "rushes/cours44/a2.mp4"
+ },
+ "vf": {
+  "a1": "crop=1296:2304:864:691",
+  "a2": "crop=1296:2304:864:691"
+ },
+ "cadres": {
+  "a1": {
+   "L": {
+    "origin": "82% 38%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  },
+  "a2": {
+   "L": {
+    "origin": "82% 38%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "a1",
+   "in": 3.27,
+   "out": 13.99,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    8.8
+   ]
+  },
+  {
+   "prise": "a2",
+   "in": 1.63,
+   "out": 6.35,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "a1",
+   "in": 13.99,
+   "out": 21.51,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    17.9
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 7.6,
+   "dur": 6.3,
+   "titre": "RECHARGE DU GLYCOGÈNE",
+   "temps": [
+    7.7,
+    9.4,
+    12.5
+   ],
+   "etapes": [
+    [
+     "**Foie**",
+     "environ **24 h**"
+    ],
+    [
+     "**Muscle** : moitié",
+     "en **4-5 h**"
+    ],
+    [
+     "**Muscle** : total",
+     "en **24-48 h**"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "hook": {
+   "text": "Combien de temps pour | recharger ton **glycogène** ?",
+   "dur": 4.2
+  },
+  "keywords": [
+   "glycogène",
+   "foie",
+   "glucides",
+   "recharge"
+  ],
+  "end_card": {
+   "logo": null,
+   "dur": 2.0,
+   "cta": "COMMENTE « **COACH** »"
+  }
+ }
+}

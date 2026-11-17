@@ -1,0 +1,100 @@
+{
+ "title": "Le carburant de l'aérobie : les lipides — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 1.69,
+   "out": 9.64,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 1.39,
+   "origin": "88% 40%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "serre",
+   "flips": [
+    5.6
+   ]
+  },
+  {
+   "id": "m01",
+   "in": 1001.65,
+   "out": 1006.63,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 1001.35,
+   "origin": "88% 40%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "large"
+  },
+  {
+   "id": "m02",
+   "in": 1010.01,
+   "out": 1013.65,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 1009.71,
+   "origin": "88% 40%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "serre"
+  }
+ ],
+ "broll": [],
+ "schemas": [
+  {
+   "type": "flow",
+   "at": 7.3,
+   "dur": 10.0,
+   "titre": "AÉROBIE",
+   "temps": [
+    7.75,
+    1002.5,
+    1004.9,
+    1012.5
+   ],
+   "etapes": [
+    [
+     "**Lipides**",
+     "(lipolyse)"
+    ],
+    [
+     "Très grande",
+     "**réserve**"
+    ],
+    [
+     "Intensité",
+     "**modérée**"
+    ],
+    [
+     "Effort",
+     "**long**"
+    ]
+   ],
+   "seg": "m00"
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": null,
+  "dur": 2.0,
+  "cta": "COMMENTE « **COACH** »"
+ },
+ "hook": {
+  "text": "Le carburant | de l'**aérobie**",
+  "dur": 4.2
+ },
+ "keywords": [
+  "lipides",
+  "lipolyse",
+  "aérobie",
+  "réserve"
+ ]
+}

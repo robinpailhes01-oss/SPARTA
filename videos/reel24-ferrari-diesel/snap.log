@@ -1,0 +1,13 @@
+◆  Capturing 2 frames at [9s, 19s] from reel24-ferrari-diesel
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 3 loaded, 2 unused
+   Note: added an end-of-timeline frame at 23.34s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/reel24-ferrari-diesel/.hyperframes/video-state.json
+
+◇  3 snapshots saved to /home/user/SPARTA/videos/reel24-ferrari-diesel/.hyperframes/artifacts/snapshots/626ff5b4-d06a-48a7-b0a6-f197d2d8d263
+   .hyperframes/artifacts/snapshots/626ff5b4-d06a-48a7-b0a6-f197d2d8d263/frame-00-at-9s.png
+   .hyperframes/artifacts/snapshots/626ff5b4-d06a-48a7-b0a6-f197d2d8d263/frame-01-at-19s.png
+   .hyperframes/artifacts/snapshots/626ff5b4-d06a-48a7-b0a6-f197d2d8d263/frame-02-at-23.338s.png
+   /home/user/SPARTA/videos/reel24-ferrari-diesel/.hyperframes/artifacts/snapshots/626ff5b4-d06a-48a7-b0a6-f197d2d8d263/contact-sheet.jpg (grid view for AI review)

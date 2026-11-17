@@ -1,0 +1,17 @@
+◆  Capturing 6 frames at [2s, 6.5s, 9s, 12.5s, 16s, 20s] from reel22-glycogene
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 3 loaded, 2 unused
+   Note: added an end-of-timeline frame at 24.21s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/reel22-glycogene/.hyperframes/video-state.json
+
+◇  7 snapshots saved to /home/user/SPARTA/videos/reel22-glycogene/.hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-00-at-2s.png
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-01-at-6.5s.png
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-02-at-9s.png
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-03-at-12.5s.png
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-04-at-16s.png
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-05-at-20s.png
+   .hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/frame-06-at-24.211s.png
+   /home/user/SPARTA/videos/reel22-glycogene/.hyperframes/artifacts/snapshots/032c81f5-260d-4bed-823d-68885beaeefd/contact-sheet.jpg (grid view for AI review)

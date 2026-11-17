@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Ferrari ou vieux diesel : les filières énergétiques — Sparta formation</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; src: url("assets/fonts/PlayfairDisplay-Italic-VF.ttf") format("truetype"); }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; src: url("assets/fonts/InstrumentSerif-Italic.ttf") format("truetype"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000000; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000000; }
+      .frame { position: absolute; inset: 0; transform-origin: 50% 28%; will-change: transform; }
+      .punch { position: absolute; inset: 0; transform-origin: 50% 28%; will-change: transform; }
+      .frame-b { position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; overflow: hidden; }
+      .frame video, video.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      #flash { position: absolute; inset: 0; }
+      .flash-inner { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+      /* Surtitre d'ouverture — § 0 : ligne fine or, texte espacé, sans fond */
+      /* Schémas animés : texte blanc, filets or, voile léger sur la face cam (aucune plaque) */
+      .sch { position: absolute; inset: 0; }
+      .sch-dim { position: absolute; inset: 0; background: radial-gradient(ellipse 100% 58% at 50% 38%, rgba(0,0,0,0.70), rgba(0,0,0,0.46) 65%, rgba(0,0,0,0.16)); }
+      .sch-col { position: absolute; left: 0; right: 0; top: 470px; display: flex; flex-direction: column; align-items: center; }
+      .sch-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #D9C48E; margin-bottom: 34px;
+                   text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+      .sch-step { position: relative; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 58px; line-height: 1.18; color: #FFFFFF; text-align: center;
+                  white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.6), 0 8px 30px rgba(0,0,0,0.45); }
+      .sch-step b { color: #E6D3A0; font-weight: 800; }
+      .sch-strike .sch-txt { opacity: 0.8; }
+      .sch-bar { position: absolute; left: -12px; right: -12px; top: 52%; height: 6px; background: #D9C48E; transform-origin: 0% 50%; border-radius: 3px;
+                 box-shadow: 0 0 0 2px rgba(0,0,0,0.45); }
+      .sch-arrow { display: flex; flex-direction: column; align-items: center; height: 74px; transform-origin: 50% 0%; }
+      .sch-line { display: block; width: 4px; flex: 1; background: #D9C48E; }
+      .sch-head { display: block; width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 18px solid #D9C48E; }
+      .sch-row { width: 820px; margin-bottom: 52px; }
+      .sch-lab { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+      .sch-lab .sch-txt { font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 50px; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+      .sch-val { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 36px; color: #D9C48E; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+      .sch-track { height: 14px; background: rgba(255,255,255,0.16); border-radius: 7px; overflow: hidden; }
+      .sch-fill { display: block; height: 100%; background: #D9C48E; border-radius: 7px; transform-origin: 0% 50%; }
+      /* Accroche en haut d'image : texte blanc gras, mot-clé en or, sans fond (§ 0), sous la zone de sécurité (y ≥ 250) */
+      #hook { position: absolute; left: 0; width: 1080px; top: 0; height: 760px; display: flex; justify-content: center; padding-top: 262px;
+              background: linear-gradient(to bottom, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.46) 38%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0) 100%); }
+      .hook-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+      .hook-rule { display: block; width: 110px; height: 5px; background: #D9C48E; transform-origin: 50% 50%; }
+      .hook-text { display: block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 64px; line-height: 1.2; color: #FFFFFF;
+                   text-align: center; white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.55), 0 8px 30px rgba(0,0,0,0.45); }
+      .hook-text b { font-weight: 800; color: #E6D3A0; }
+      #kicker { position: absolute; left: 0; width: 1080px; top: 250px; height: 120px; display: flex; justify-content: center; }
+      .kicker-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+      .kicker-rule { display: block; width: 72px; height: 3px; background: #D9C48E; transform-origin: 50% 50%; }
+      .kicker-text { display: block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 0.32em;
+                     color: #FFFFFF; text-align: center; line-height: 1.45; text-shadow: 0 1px 3px rgba(0,0,0,0.65), 0 2px 18px rgba(0,0,0,0.6); }
+      /* Preuve — § 6 */
+      .proof { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: flex-start; padding-top: 420px; }
+      .proof-card { position: relative; overflow: hidden; width: 760px; height: 760px; border: 8px solid #FFFFFF; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: #000000; }
+      .proof-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .proof-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 10px; margin-left: -5px; background: #E3CF8F; box-shadow: 0 0 0 2px rgba(0,0,0,0.55), 0 0 24px rgba(227,207,143,0.9); }
+      .tag { position: absolute; top: 18px; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.14em;
+             padding: 8px 16px; border-radius: 4px; line-height: 1; }
+      .tag-avant { left: 18px; color: #FFFFFF; background: rgba(0,0,0,0.65); }
+      .tag-apres { right: 18px; color: #000000; background: #C3B486; transform-origin: 100% 0%; }
+      /* Sous-titres — § 5 */
+      #captions { position: absolute; inset: 0; pointer-events: none; }
+      .cap { position: absolute; left: 0; width: 1080px; top: 1340px; height: 100px; display: flex; align-items: center; justify-content: center; }
+      .cap-box { display: inline-block; font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 46px; line-height: 1; color: #FFFFFF;
+                 background: rgba(0,0,0,0.5); padding: 10px 14px; border-radius: 6px; white-space: nowrap; }
+      .cap-box b, .cap-box em { font-weight: 800; font-style: normal; color: #D9C48E; }
+       .cap-box { position: relative; isolation: isolate; } .cap-box::before { content: ''; position: absolute; inset: -64px -70px; z-index: -1; background: radial-gradient(closest-side, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.14) 50%, rgba(0,0,0,0) 100%); } .cap-box { background: none; padding: 0; font-weight: 700; font-size: 52px; text-shadow: 0 0 1px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.30); } .cap-box b, .cap-box em { font-weight: 800; font-style: normal; font-size: 1.06em; letter-spacing: 0.01em; color: #E6D3A0; text-shadow: 0 0 2px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.30); }
+      /* Carte de fin — § 7 */
+      #endcard { position: absolute; inset: 0; background: #000000; display: flex; align-items: center; justify-content: center; }
+      #end-logo { display: block; width: 520px; height: auto; }
+      #end-cta { position: absolute; left: 0; width: 1080px; top: 1250px; text-align: center; font-family: "Montserrat", sans-serif;
+                 font-weight: 600; font-size: 30px; letter-spacing: 0.32em; color: #FFFFFF; }
+      #end-cta b { font-weight: 800; color: #E6D3A0; }
+      /* Carte de fin sans logo (contenus de formation) : l'appel à l'action seul, au centre */
+      #endcard.no-logo #end-cta { top: 50%; transform: translateY(-50%); font-size: 46px; }
+      /* Définition d'un sigle (acrostiche) */
+      #def { position: absolute; inset: 0; }
+      .def-dim { position: absolute; inset: 0; background: radial-gradient(ellipse 85% 60% at 50% 45%, rgba(0,0,0,0.55), rgba(0,0,0,0.30)); }
+      .def-col { position: absolute; left: 0; right: 0; top: 560px; display: flex; flex-direction: column; align-items: center; }
+      .dl { width: 580px; display: flex; align-items: baseline; height: 112px; }
+      .di { display: inline-block; width: 96px; text-align: right; padding-right: 4px; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 92px;
+            color: #E6D3A0; text-shadow: 0 0 2px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.5); }
+      .dr { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 58px; color: #FFFFFF;
+            text-shadow: 0 0 1px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.30); }
+      
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-fps="30" data-duration="24.06">
+      <div class="frame" id="thf-m00" style="z-index:1;transform-origin:80% 42%"><div class="punch" id="thp-m00" style="transform-origin:80% 42%"><video id="th-m00" src="assets/fc/m00.mp4" data-start="0.0" data-duration="22.058" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 21.978, "v": 1}, {"t": 22.058, "v": 0}]}]}'></video></div></div>
+      <div class="frame" id="tlf-m00" style="z-index:1;transform-origin:80% 42%"><video id="tl-m00" src="assets/fc/m00.mp4" data-start="22.058" data-duration="0.3" data-media-start="22.358" data-track-index="13" muted playsinline></video></div>
+      <div id="hook" class="clip" data-start="0.2" data-duration="4.6" data-track-index="8" style="z-index:5"><div class="hook-inner"><span class="hook-rule"></span><span class="hook-text"><b>Ferrari</b> ou<br><b>vieux diesel</b> ?</span></div></div>
+      <div id="sch0" class="clip sch" data-start="4.2" data-duration="10.8" data-track-index="11" style="z-index:5"><div class="sch-dim"></div><div class="sch-col"><div class="sch-title" id="sch0-t">DÉMARRAGE</div><div class="sch-row" id="sch0-r0"><div class="sch-lab"><span class="sch-txt">Aérobie (diesel)</span><span class="sch-val">~4 min</span></div><div class="sch-track"><span class="sch-fill" style="width:22%"></span></div></div><div class="sch-row" id="sch0-r1"><div class="sch-lab"><span class="sch-txt">Alactique (Ferrari)</span><span class="sch-val">immédiat</span></div><div class="sch-track"><span class="sch-fill" style="width:100%"></span></div></div></div></div>
+      <div id="captions" style="z-index:7"><div id="cap-0" class="clip cap" data-start="0.0" data-duration="0.55" data-track-index="4"><span class="cap-box"><span class="w" id="w-0-0">C’est</span> <span class="w" id="w-0-1">pour</span> <span class="w" id="w-0-2">ça</span> <span class="w" id="w-0-3">qu’au</span> <span class="w" id="w-0-4">bout</span></span></div><div id="cap-1" class="clip cap" data-start="0.55" data-duration="0.78" data-track-index="4"><span class="cap-box"><span class="w" id="w-1-0">de</span> <span class="w" id="w-1-1"><b>4 minutes</b>,</span></span></div><div id="cap-2" class="clip cap" data-start="1.57" data-duration="0.74" data-track-index="4"><span class="cap-box"><span class="w" id="w-2-0">c’est</span> <span class="w" id="w-2-1">comme</span> <span class="w" id="w-2-2">si</span> <span class="w" id="w-2-3">tu</span> <span class="w" id="w-2-4">chauffes</span></span></div><div id="cap-3" class="clip cap" data-start="2.31" data-duration="0.7" data-track-index="4"><span class="cap-box"><span class="w" id="w-3-0">le</span> <span class="w" id="w-3-1">moteur</span> <span class="w" id="w-3-2">tranquille</span></span></div><div id="cap-4" class="clip cap" data-start="3.01" data-duration="0.84" data-track-index="4"><span class="cap-box"><span class="w" id="w-4-0">d’une</span> <span class="w" id="w-4-1">vieille</span> <span class="w" id="w-4-2">voiture,</span></span></div><div id="cap-5" class="clip cap" data-start="4.23" data-duration="0.52" data-track-index="4"><span class="cap-box"><span class="w" id="w-5-0">ça</span> <span class="w" id="w-5-1">met</span> <span class="w" id="w-5-2">du</span> <span class="w" id="w-5-3">temps</span></span></div><div id="cap-6" class="clip cap" data-start="4.75" data-duration="0.62" data-track-index="4"><span class="cap-box"><span class="w" id="w-6-0">à</span> <span class="w" id="w-6-1">chauffer,</span> <span class="w" id="w-6-2">au</span> <span class="w" id="w-6-3">bout</span></span></div><div id="cap-7" class="clip cap" data-start="5.37" data-duration="1.16" data-track-index="4"><span class="cap-box"><span class="w" id="w-7-0">d’un</span> <span class="w" id="w-7-1">moment</span> <span class="w" id="w-7-2">tu</span> <span class="w" id="w-7-3">démarres</span></span></div><div id="cap-8" class="clip cap" data-start="6.53" data-duration="1.88" data-track-index="4"><span class="cap-box"><span class="w" id="w-8-0">et</span> <span class="w" id="w-8-1">c’est</span> <span class="w" id="w-8-2">des</span> <span class="w" id="w-8-3">petits</span></span></div><div id="cap-9" class="clip cap" data-start="8.41" data-duration="0.44" data-track-index="4"><span class="cap-box"><span class="w" id="w-9-0">cycles</span> <span class="w" id="w-9-1">quoi.</span></span></div><div id="cap-10" class="clip cap" data-start="8.85" data-duration="1.3" data-track-index="4"><span class="cap-box"><span class="w" id="w-10-0"><em>L’anaérobie</em></span> <span class="w" id="w-10-1"><em>alactique</em></span></span></div><div id="cap-11" class="clip cap" data-start="10.15" data-duration="0.72" data-track-index="4"><span class="cap-box"><span class="w" id="w-11-0">c’est</span> <span class="w" id="w-11-1">une</span> <span class="w" id="w-11-2"><em>Ferrari</em></span></span></div><div id="cap-12" class="clip cap" data-start="11.65" data-duration="1.32" data-track-index="4"><span class="cap-box"><span class="w" id="w-12-0">ça</span> <span class="w" id="w-12-1">pète</span> <span class="w" id="w-12-2">direct.</span></span></div><div id="cap-13" class="clip cap" data-start="13.35" data-duration="0.7" data-track-index="4"><span class="cap-box"><span class="w" id="w-13-0">Si</span> <span class="w" id="w-13-1">tu</span> <span class="w" id="w-13-2">démarres</span> <span class="w" id="w-13-3">le</span> <span class="w" id="w-13-4">moteur</span></span></div><div id="cap-14" class="clip cap" data-start="14.05" data-duration="1.44" data-track-index="4"><span class="cap-box"><span class="w" id="w-14-0">ça</span> <span class="w" id="w-14-1">tape</span> <span class="w" id="w-14-2">à</span> <span class="w" id="w-14-3"><b>100</b></span></span></div><div id="cap-15" class="clip cap" data-start="15.49" data-duration="0.96" data-track-index="4"><span class="cap-box"><span class="w" id="w-15-0">tu</span> <span class="w" id="w-15-1">vois</span></span></div><div id="cap-16" class="clip cap" data-start="16.45" data-duration="0.74" data-track-index="4"><span class="cap-box"><span class="w" id="w-16-0">et</span> <span class="w" id="w-16-1">plus</span> <span class="w" id="w-16-2">tu</span> <span class="w" id="w-16-3">l’entraînes</span></span></div><div id="cap-17" class="clip cap" data-start="17.19" data-duration="0.78" data-track-index="4"><span class="cap-box"><span class="w" id="w-17-0">plus</span> <span class="w" id="w-17-1">le</span> <span class="w" id="w-17-2">moteur</span></span></div><div id="cap-18" class="clip cap" data-start="17.97" data-duration="0.7" data-track-index="4"><span class="cap-box"><span class="w" id="w-18-0">il</span> <span class="w" id="w-18-1">est</span> <span class="w" id="w-18-2">efficace</span></span></div><div id="cap-19" class="clip cap" data-start="19.21" data-duration="1.28" data-track-index="4"><span class="cap-box"><span class="w" id="w-19-0">tu</span> <span class="w" id="w-19-1">vois</span> <span class="w" id="w-19-2">il</span> <span class="w" id="w-19-3">est</span> <span class="w" id="w-19-4">rodé.</span></span></div><div id="cap-20" class="clip cap" data-start="20.51" data-duration="0.76" data-track-index="4"><span class="cap-box"><span class="w" id="w-20-0">Là</span> <span class="w" id="w-20-1">c’est</span> <span class="w" id="w-20-2">un</span> <span class="w" id="w-20-3">vieux</span></span></div><div id="cap-21" class="clip cap" data-start="21.27" data-duration="0.79" data-track-index="4"><span class="cap-box"><span class="w" id="w-21-0">diesel</span> <span class="w" id="w-21-1">tu</span> <span class="w" id="w-21-2">vois</span></span></div></div>
+      <div id="endcard" class="clip no-logo" data-start="22.06" data-duration="2.0" data-track-index="5" style="z-index:8"><div id="end-cta">COMMENTE « <b>COACH</b> »</div></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#thf-m00", {scale: 1.5}, {scale: 1.59, duration: 4.6, ease: "none", immediateRender: false}, 0.0);
+      tl.fromTo("#thf-m00", {scale: 1.59}, {scale: 1.2, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 4.6);
+      tl.fromTo("#thf-m00", {scale: 1.2}, {scale: 1.272, duration: 5.8, ease: "none", immediateRender: false}, 4.9);
+      tl.fromTo("#thf-m00", {scale: 1.272}, {scale: 1.5, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 10.7);
+      tl.fromTo("#thf-m00", {scale: 1.5}, {scale: 1.59, duration: 5.6, ease: "none", immediateRender: false}, 11.0);
+      tl.fromTo("#thf-m00", {scale: 1.59}, {scale: 1.2, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 16.6);
+      tl.fromTo("#thf-m00", {scale: 1.2}, {scale: 1.272, duration: 5.158, ease: "none", immediateRender: false}, 16.9);
+      tl.set("#tlf-m00", {scale: 1.272}, 0);
+      tl.to("#tlf-m00", {opacity: 0, duration: 0.27, ease: "none"}, 22.088);
+      tl.fromTo("#hook .hook-rule", {scaleX: 0}, {scaleX: 1, duration: 0.5, ease: "power2.out"}, 0.2);
+      tl.fromTo("#hook .hook-text", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.55, ease: "power2.out"}, 0.35);
+      tl.to("#hook .hook-inner", {opacity: 0, duration: 0.45, ease: "power1.in"}, 4.3);
+      tl.fromTo("#sch0 .sch-dim", {opacity: 0}, {opacity: 1, duration: 0.35, ease: "power1.out"}, 4.2);
+      tl.fromTo("#sch0-t", {opacity: 0, y: -8}, {opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}, 4.45);
+      tl.fromTo("#sch0-r0 .sch-lab", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}, 5.0);
+      tl.fromTo("#sch0-r0 .sch-fill", {scaleX: 0}, {scaleX: 1, duration: 1.0, ease: "power2.inOut"}, 5.25);
+      tl.fromTo("#sch0-r1 .sch-lab", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}, 10.45);
+      tl.fromTo("#sch0-r1 .sch-fill", {scaleX: 0}, {scaleX: 1, duration: 1.0, ease: "power2.inOut"}, 10.7);
+      tl.to("#sch0", {opacity: 0, duration: 0.4, ease: "power1.in"}, 14.6);
+      tl.fromTo("#endcard", {opacity: 0}, {opacity: 1, duration: 0.3, ease: "none", immediateRender: false}, 22.06);
+      tl.fromTo("#end-cta", {opacity: 0, y: 8}, {opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}, 22.51);
+      tl.to("#end-cta", {opacity: 0, duration: 0.5, ease: "power1.in"}, 23.51);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
