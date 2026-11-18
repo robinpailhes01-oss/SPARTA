@@ -1,0 +1,84 @@
+{
+ "title": "Témoignage Eline — Sparta",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "7136": "rushes/lot5/IMG_7136.MOV"
+ },
+ "vf": {
+  "7136": "crop=1215:2160:1332:0"
+ },
+ "cadres": {
+  "7136": {
+   "L": {
+    "origin": "50% 29%",
+    "tight_scale": 1.6,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "7136",
+   "in": 1.37,
+   "out": 9.22,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    5.0
+   ]
+  },
+  {
+   "prise": "7136",
+   "in": 11.47,
+   "out": 20.58,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    14.9,
+    17.6
+   ]
+  },
+  {
+   "prise": "7136",
+   "in": 21.35,
+   "out": 25.41,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "7136",
+   "in": 25.76,
+   "out": 30.17,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "7136",
+   "in": 30.47,
+   "out": 35.17,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    32.3
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0
+  },
+  "hook": {
+   "text": "Eline, 21 ans | **-14 kg** en 3 mois",
+   "dur": 6.5
+  },
+  "keywords": [
+   "14 kg",
+   "confiance",
+   "les yeux fermés"
+  ]
+ }
+}

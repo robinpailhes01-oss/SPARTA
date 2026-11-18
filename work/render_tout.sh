@@ -4,6 +4,7 @@
 cd /home/user/SPARTA
 for it in "$@"; do
   p=${it%%:*}; m=${it##*:}; d=videos/$p; R=$d/renders; mkdir -p $R; s=$(date +%s)
+  python3 tools/reel/timeline_check.py $d || { echo "ECHEC $p (contrôle de la timeline)"; continue; }
   (cd $d && timeout 3000 npx --yes hyperframes@0.8.152 render -o renders/$p-image.mp4 -f 30 -q delivery --sdr --skill=general-video > renders.log 2>&1) && echo "OK $p $(( $(date +%s)-s ))s" || { echo "ECHEC $p"; tail -4 $d/renders.log; continue; }
   python3 tools/reel/mix_audio.py $d $R/$p-image.mp4 work/musique/$p.mov work/musique/spec_dyn$m.json | tail -1
   bash tools/reel/finalize.sh work/musique/$p.mov $R/$p-v2.mp4 $R/$p-v2-leger.mp4 | tail -1

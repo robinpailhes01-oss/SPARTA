@@ -362,8 +362,18 @@ def build(project):
     brs = [(to_tl(br["seg"], br["at"]), br["dur"]) for br in edl.get("broll", [])]
     for k, br in enumerate(edl.get("broll", [])):
         st, d = brs[k]
-        chained = soft and any(j != k and abs(brs[j][0] - (st + d)) <= 0.05 for j in range(len(brs)))
-        d_eff = round(d + (BROLL_FADE if chained else 0), 3)
+        # Un plan qui s'arrête juste avant le suivant (trou < 0,6 s) ou juste avant le carton de fin (< 0,8 s)
+        # se prolonge dessous, sinon la face cam apparaît une fraction de seconde (« flash »).
+        nxt = [brs[j][0] for j in range(len(brs)) if j != k and -0.05 <= brs[j][0] - (st + d) <= 0.6]
+        to_end = soft and -0.05 <= end_start - (st + d) <= 0.8
+        chained = soft and bool(nxt)
+        if chained:
+            d_eff = round(min(nxt) - st + BROLL_FADE, 3)
+        elif to_end:
+            d_eff = round(end_start - st + 0.35, 3)
+        else:
+            d_eff = d
+        chained = chained or to_end
         g = f" data-color-grading='{json.dumps(br['grade'])}'" if br.get("grade") else ""
         parts.append(
             f'<div class="frame-b" id="brf-{k}" style="z-index:{z}">'

@@ -1,0 +1,104 @@
+{
+ "title": "Témoignage Lisa — Sparta",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 26.12,
+   "out": 30.1,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 25.82,
+   "origin": "53% 30%",
+   "tight_scale": 1.25,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m01",
+   "in": 0.53,
+   "out": 7.95,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 0.23,
+   "origin": "53% 30%",
+   "tight_scale": 1.25,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    3.8
+   ]
+  },
+  {
+   "id": "m02",
+   "in": 9.01,
+   "out": 14.99,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 8.71,
+   "origin": "53% 30%",
+   "tight_scale": 1.25,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m03",
+   "in": 15.78,
+   "out": 18.52,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 15.48,
+   "origin": "53% 30%",
+   "tight_scale": 1.25,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m04",
+   "in": 19.96,
+   "out": 25.75,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 19.66,
+   "origin": "53% 30%",
+   "tight_scale": 1.25,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m05",
+   "in": 31.06,
+   "out": 40.64,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 30.76,
+   "origin": "53% 30%",
+   "tight_scale": 1.25,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    35.6
+   ]
+  }
+ ],
+ "broll": [],
+ "schemas": [],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0
+ },
+ "hook": {
+  "text": "Lisa, 34 ans | « On ressort | **plus léger** »",
+  "dur": 6.0
+ },
+ "keywords": [
+  "plus léger",
+  "plus musclé",
+  "vider la tête",
+  "bonne ambiance",
+  "réconfort"
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "title": "Témoignage Daisy — Sparta",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "daisy": "rushes/lot5/IMG_7459.MOV"
+ },
+ "vf": {
+  "daisy": "crop=1216:2160:1440:0"
+ },
+ "cadres": {
+  "daisy": {
+   "D": {
+    "origin": "44% 30%",
+    "tight_scale": 1.45,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "daisy",
+   "in": 1.38,
+   "out": 8.75,
+   "qui": "D",
+   "cadrage": "large",
+   "flips": [
+    5.0
+   ]
+  },
+  {
+   "prise": "daisy",
+   "in": 9.2,
+   "out": 13.8,
+   "qui": "D",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "daisy",
+   "in": 16.62,
+   "out": 21.0,
+   "qui": "D",
+   "cadrage": "large"
+  },
+  {
+   "prise": "daisy",
+   "in": 25.6,
+   "out": 28.37,
+   "qui": "D",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "daisy",
+   "in": 28.55,
+   "out": 33.38,
+   "qui": "D",
+   "cadrage": "large",
+   "flips": [
+    31.4
+   ]
+  },
+  {
+   "prise": "daisy",
+   "in": 33.4,
+   "out": 36.18,
+   "qui": "D",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "daisy",
+   "in": 41.35,
+   "out": 44.15,
+   "qui": "D",
+   "cadrage": "serre"
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "hook": {
+   "text": "Daisy, 52 ans | « J'ai trouvé | l'**équilibre** »",
+   "dur": 5.0
+  },
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0
+  },
+  "keywords": [
+   "équilibre",
+   "discipline",
+   "manger bien",
+   "à la maison",
+   "le sport"
+  ]
+ }
+}

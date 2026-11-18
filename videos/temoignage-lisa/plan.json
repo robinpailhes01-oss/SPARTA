@@ -1,0 +1,86 @@
+{
+ "title": "Témoignage Lisa — Sparta",
+ "fps": 30,
+ "modele": "large-v3",
+ "prises": {
+  "lisa": "rushes/lot5/IMG_7238.MOV"
+ },
+ "cadres": {
+  "lisa": {
+   "X": {
+    "origin": "53% 30%",
+    "tight_scale": 1.25,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "lisa",
+   "in": 26.12,
+   "out": 30.1,
+   "qui": "X",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "lisa",
+   "in": 0.53,
+   "out": 7.95,
+   "qui": "X",
+   "cadrage": "large",
+   "flips": [
+    3.8
+   ]
+  },
+  {
+   "prise": "lisa",
+   "in": 9.01,
+   "out": 14.99,
+   "qui": "X",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "lisa",
+   "in": 15.78,
+   "out": 18.52,
+   "qui": "X",
+   "cadrage": "large"
+  },
+  {
+   "prise": "lisa",
+   "in": 19.96,
+   "out": 25.75,
+   "qui": "X",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "lisa",
+   "in": 31.06,
+   "out": 40.64,
+   "qui": "X",
+   "cadrage": "large",
+   "flips": [
+    35.6
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": "assets/brand/logo_or_blanc.png",
+   "dur": 2.0
+  },
+  "hook": {
+   "text": "Lisa, 34 ans | « On ressort | **plus léger** »",
+   "dur": 6.0
+  },
+  "keywords": [
+   "plus léger",
+   "plus musclé",
+   "vider la tête",
+   "bonne ambiance",
+   "réconfort"
+  ]
+ }
+}
