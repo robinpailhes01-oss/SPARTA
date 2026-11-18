@@ -49,3 +49,68 @@ voix -15.0 LUFS · 1 prises · carton de fin 18.38 s · 0 effets
 reel20-krebs-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.7 dBFS  9.0M
 FINI reel20-krebs
 ok       reel21-cori 
+OK reel21-cori 167s
+voix -14.9 LUFS · 3 prises · carton de fin 26.92 s · 0 effets
+reel21-cori-v2-leger.mp4 :  I: -14.1 LUFS  Peak: -3.0 dBFS  14M
+FINI reel21-cori
+ok       reel22-glycogene 
+OK reel22-glycogene 185s
+voix -14.7 LUFS · 3 prises · carton de fin 22.96 s · 0 effets
+reel22-glycogene-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.7 dBFS  12M
+FINI reel22-glycogene
+ok       reel23-indice-glycemique 
+OK reel23-indice-glycemique 151s
+voix -15.1 LUFS · 2 prises · carton de fin 17.28 s · 0 effets
+reel23-indice-glycemique-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.3 dBFS  8.7M
+FINI reel23-indice-glycemique
+ok       reel25-lipides 
+OK reel25-lipides 142s
+voix -15.1 LUFS · 3 prises · carton de fin 16.57 s · 0 effets
+reel25-lipides-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.5 dBFS  8.2M
+FINI reel25-lipides
+ok       reel26-vo2max 
+OK reel26-vo2max 152s
+voix -15.1 LUFS · 2 prises · carton de fin 19.15 s · 0 effets
+reel26-vo2max-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.5 dBFS  9.7M
+FINI reel26-vo2max
+ok       reel27-catabolisme 
+OK reel27-catabolisme 176s
+voix -14.8 LUFS · 1 prises · carton de fin 20.22 s · 0 effets
+reel27-catabolisme-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.9 dBFS  11M
+FINI reel27-catabolisme
+ok       story-jennifer-1 
+OK story-jennifer-1 99s
+voix -12.5 LUFS · 1 prises · carton de fin 7.47 s · 0 effets
+story-jennifer-1-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.6 dBFS  4.0M
+FINI story-jennifer-1
+ok       story-jennifer-2 
+OK story-jennifer-2 118s
+voix -12.8 LUFS · 2 prises · carton de fin 8.09 s · 0 effets
+story-jennifer-2-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.0 dBFS  4.2M
+FINI story-jennifer-2
+ok       story-jennifer-3 
+OK story-jennifer-3 107s
+voix -14.0 LUFS · 1 prises · carton de fin 6.37 s · 0 effets
+story-jennifer-3-v2-leger.mp4 :  I: -14.1 LUFS  Peak: -1.9 dBFS  3.6M
+FINI story-jennifer-3
+ok       story-jennifer-4 
+OK story-jennifer-4 104s
+voix -12.9 LUFS · 2 prises · carton de fin 6.76 s · 0 effets
+story-jennifer-4-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.2 dBFS  3.5M
+FINI story-jennifer-4
+ok       story-julien-1 
+OK story-julien-1 138s
+voix -12.9 LUFS · 2 prises · carton de fin 8.7 s · 0 effets
+story-julien-1-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.0 dBFS  4.5M
+FINI story-julien-1
+ok       story-julien-2 
+OK story-julien-2 132s
+voix -13.2 LUFS · 2 prises · carton de fin 8.93 s · 0 effets
+story-julien-2-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -3.0 dBFS  5.0M
+FINI story-julien-2
+ok       story-julien-3 
+OK story-julien-3 125s
+voix -14.3 LUFS · 1 prises · carton de fin 7.66 s · 0 effets
+story-julien-3-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.6 dBFS  4.2M
+FINI story-julien-3
+TOUT-FINI
