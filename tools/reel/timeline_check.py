@@ -24,7 +24,7 @@ for proj in sys.argv[1:]:
         f = os.path.join(proj, src)
         if os.path.exists(f):
             L = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f], capture_output=True, text=True).stdout or 0)
-            if b - a > L + 0.4:   # au-delà de 0,4 s le dernier plan resterait figé trop longtemps pb.append(f"plan de coupe {src} : {b-a:.2f} s pour un fichier de {L:.2f} s")
+            if b - a > L + 0.4: pb.append(f"plan de coupe {src} : {b-a:.2f} s pour un fichier de {L:.2f} s")   # au-delà de 0,4 s le dernier plan resterait figé trop longtemps
     bad += bool(pb)
     print(("PROBLÈME " if pb else "ok       ") + os.path.basename(proj.rstrip("/")), "; ".join(pb))
 sys.exit(1 if bad else 0)

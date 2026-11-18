@@ -1,2 +1,18 @@
 ◆  Capturing 7 frames at [1.5s, 4s, 8.5s, 9.4s, 11s, 15s, 18s] from temoignage-manon
 [hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 2 loaded, 3 unused
+   Note: added an end-of-timeline frame at 18.61s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/temoignage-manon/.hyperframes/video-state.json
+
+◇  8 snapshots saved to /home/user/SPARTA/videos/temoignage-manon/.hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-00-at-1.5s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-01-at-4s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-02-at-8.5s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-03-at-9.4s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-04-at-11s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-05-at-15s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-06-at-18s.png
+   .hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/frame-07-at-18.614s.png
+   /home/user/SPARTA/videos/temoignage-manon/.hyperframes/artifacts/snapshots/c0b0ba0c-3c21-4d44-a77b-4a352440b75e/contact-sheet.jpg (grid view for AI review)
