@@ -466,8 +466,12 @@ def build(project):
                 lines = et if isinstance(et, list) else [et]
                 barre = sc.get("barres", [])
                 cls = "sch-step" + (" sch-strike" if k in barre else "")
-                body.append(f'<div class="{cls}" id="{sid}-s{k}"><span class="sch-txt">{"<br>".join(esc_(x) for x in lines)}</span>'
-                            + ('<span class="sch-bar"></span>' if k in barre else "") + '</div>')
+                if k in barre:
+                    # un trait par ligne, à la largeur de la ligne (sur deux lignes, un trait unique tombait entre elles et se lisait comme un soulignement)
+                    inner = "<br>".join(f'<span class="sch-ln">{esc_(x)}<span class="sch-bar"></span></span>' for x in lines)
+                else:
+                    inner = "<br>".join(esc_(x) for x in lines)
+                body.append(f'<div class="{cls}" id="{sid}-s{k}"><span class="sch-txt">{inner}</span></div>')
                 ts = tps[k]
                 anim.append(f'tl.fromTo("#{sid}-s{k}", {{opacity: 0, y: 18}}, {{opacity: 1, y: 0, duration: 0.45, ease: "power2.out"}}, {ts});')
                 if k in barre:
@@ -700,7 +704,8 @@ TEMPLATE = """<!doctype html>
       .sch-step {{ position: relative; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 58px; line-height: 1.18; color: #FFFFFF; text-align: center;
                   white-space: nowrap; text-shadow: 0 0 2px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.6), 0 8px 30px rgba(0,0,0,0.45); }}
       .sch-step b {{ color: #E6D3A0; font-weight: 800; }}
-      .sch-strike .sch-txt {{ opacity: 0.8; }}
+      .sch-strike .sch-txt {{ opacity: 0.65; }}
+      .sch-ln {{ position: relative; display: inline-block; }}
       .sch-bar {{ position: absolute; left: -12px; right: -12px; top: 52%; height: 6px; background: {GOLD}; transform-origin: 0% 50%; border-radius: 3px;
                  box-shadow: 0 0 0 2px rgba(0,0,0,0.45); }}
       .sch-arrow {{ display: flex; flex-direction: column; align-items: center; height: 74px; transform-origin: 50% 0%; }}
