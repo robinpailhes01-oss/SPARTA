@@ -1,0 +1,3 @@
+cadence : 25 i/s
+[vost#0:0/libx264 @ 0x558cc34d04c0] Error submitting a packet to the muxer: Immediate exit requested
+[out#0/mp4 @ 0x558cc350b140] Error muxing a packet

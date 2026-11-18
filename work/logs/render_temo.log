@@ -1,0 +1,47 @@
+ok       temoignage-daisy 
+OK temoignage-daisy 140s
+voix -14.5 LUFS · 7 prises · carton de fin 29.53 s · 0 effets
+temoignage-daisy-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -2.9 dBFS  16M
+FINI temoignage-daisy
+ok       temoignage-manon 
+OK temoignage-manon 100s
+voix -15.2 LUFS · 4 prises · carton de fin 17.19 s · 0 effets
+temoignage-manon-v2-leger.mp4 :  I: -14.1 LUFS  Peak: -2.4 dBFS  9.0M
+FINI temoignage-manon
+ok       temoignage-lisa 
+OK temoignage-lisa 161s
+voix -14.0 LUFS · 6 prises · carton de fin 35.49 s · 0 effets
+temoignage-lisa-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -3.5 dBFS  18M
+FINI temoignage-lisa
+ok       temoignage-anais 
+OK temoignage-anais 208s
+voix -13.6 LUFS · 5 prises · carton de fin 29.65 s · 0 effets
+temoignage-anais-v2-leger.mp4 :  I: -14.1 LUFS  Peak: -1.4 dBFS  15M
+FINI temoignage-anais
+ok       temoignage-julien 
+OK temoignage-julien 421s
+voix -13.6 LUFS · 10 prises · carton de fin 52.11 s · 0 effets
+temoignage-julien-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -1.9 dBFS  27M
+FINI temoignage-julien
+ok       temoignage-julien-C 
+OK temoignage-julien-C 443s
+voix -13.5 LUFS · 10 prises · carton de fin 54.34 s · 0 effets
+temoignage-julien-C-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -1.9 dBFS  27M
+FINI temoignage-julien-C
+ok       temoignage-jennifer 
+OK temoignage-jennifer 438s
+voix -13.1 LUFS · 13 prises · carton de fin 54.39 s · 0 effets
+temoignage-jennifer-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -1.8 dBFS  27M
+FINI temoignage-jennifer
+ok       temoignage-jennifer-B 
+OK temoignage-jennifer-B 406s
+voix -13.0 LUFS · 12 prises · carton de fin 52.4 s · 0 effets
+temoignage-jennifer-B-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -1.9 dBFS  27M
+FINI temoignage-jennifer-B
+ok       temoignage-jennifer-C 
+ECHEC temoignage-jennifer-C
+
+   [Render] Sequential screenshot capture stalled: no frame progress for 60000ms (stuck at frame 1129/1690 while injecting video frames). Chrome stopped answering. If another app is keeping the GPU or CPU busy (a 3D render, a game, another export), let it finish or render one job at a time, then retry.
+   Try --docker for containerized rendering
+
+TOUT-FINI
