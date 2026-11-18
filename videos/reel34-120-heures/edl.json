@@ -1,0 +1,161 @@
+{
+ "title": "120 heures par semaine — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 3.77,
+   "out": 12.4,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 3.47,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    7.7
+   ]
+  },
+  {
+   "id": "m01",
+   "in": 19.76,
+   "out": 29.06,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 19.46,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    23.0
+   ]
+  },
+  {
+   "id": "m02",
+   "in": 34.73,
+   "out": 45.74,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 34.43,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    38.0,
+    41.0
+   ]
+  },
+  {
+   "id": "m03",
+   "in": 50.33,
+   "out": 58.64,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 50.03,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m04",
+   "in": 59.85,
+   "out": 60.92,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 59.55,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m05",
+   "in": 95.72,
+   "out": 101.94,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 95.42,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m06",
+   "in": 109.27,
+   "out": 111.54,
+   "src": "assets/fc/m06.mp4",
+   "src_offset": 108.97,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m07",
+   "in": 117.11,
+   "out": 124.29,
+   "src": "assets/fc/m07.mp4",
+   "src_offset": 116.81,
+   "origin": "50% 12%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    121.6
+   ]
+  }
+ ],
+ "broll": [],
+ "schemas": [
+  {
+   "type": "flow",
+   "at": 50.45,
+   "dur": 8.6,
+   "titre": "AUTO → SOCIÉTÉ",
+   "temps": [
+    50.6,
+    53.9,
+    56.8
+   ],
+   "etapes": [
+    [
+     "**Auto-entrepreneur**",
+     "tu te **gaves**"
+    ],
+    [
+     "**Société**",
+     "tu **construis**"
+    ],
+    [
+     "Ta boîte prend",
+     "de la **valeur**"
+    ]
+   ],
+   "seg": "m03"
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": null,
+  "cta": null,
+  "dur": 0.8
+ },
+ "hook": {
+  "text": "**120 heures** par semaine | pendant 3 ans",
+  "dur": 4.2
+ },
+ "keywords": [
+  "120 heures",
+  "micro-entreprise",
+  "société",
+  "système",
+  "valorises"
+ ]
+}

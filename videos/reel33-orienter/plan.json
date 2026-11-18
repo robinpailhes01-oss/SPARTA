@@ -1,0 +1,85 @@
+{
+ "title": "Orienter n'est pas échouer — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "o": "rushes/img5280/orienter.mp4"
+ },
+ "vf": {
+  "o": "crop=1296:2304:560:600"
+ },
+ "cadres": {
+  "o": {
+   "L": {
+    "origin": "56% 28%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "o",
+   "in": 2.5,
+   "out": 15.1,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    8.8,
+    13.9
+   ]
+  },
+  {
+   "prise": "o",
+   "in": 22.85,
+   "out": 27.45,
+   "qui": "L",
+   "cadrage": "large"
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 4.9,
+   "dur": 3.95,
+   "titre": "ÊTRE PRO, C'EST",
+   "temps": [
+    5.35,
+    6.3,
+    7.55
+   ],
+   "etapes": [
+    [
+     "Reconnaître sa **limite**"
+    ],
+    [
+     "Ne pas **s'improviser**"
+    ],
+    [
+     "**Orienter** vers un autre coach"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Orienter, | **ce n'est pas échouer**",
+   "dur": 2.4
+  },
+  "keywords": [
+   "professionnalisme",
+   "limites",
+   "crédibilité",
+   "orienter",
+   "je ne sais pas"
+  ]
+ }
+}

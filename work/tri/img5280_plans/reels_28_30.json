@@ -1,0 +1,340 @@
+{
+ "reel28-obliques": {
+  "title": "Le crunch travaille-t-il les obliques ? — Sparta formation",
+  "prise": "obliques",
+  "clip0": 226,
+  "vf": "crop=1296:2304:800:0",
+  "cadres": {
+   "L": {
+    "origin": "50% 62%",
+    "tight_scale": 1.3,
+    "wide_scale": 1.0
+   },
+   "H": {
+    "origin": "50% 100%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.2
+   }
+  },
+  "morceaux": [
+   {
+    "in": 88.3,
+    "out": 90.1,
+    "qui": "H",
+    "cadrage": "serre",
+    "texte": "Un crunch classique, travaillent-ils les obliques ?"
+   },
+   {
+    "in": 101.16,
+    "out": 104.72,
+    "qui": "H",
+    "cadrage": "large",
+    "texte": "Ils ont plusieurs rôles, les muscles. Ils n'ont pas qu'un rôle. Ce n'est pas que la rotation ou l'inclinaison."
+   },
+   {
+    "in": 134.4,
+    "out": 148.28,
+    "qui": "L",
+    "cadrage": "serre",
+    "flips": [
+     140.6
+    ],
+    "texte": "Rotation, les obliques, on l'avait vu plusieurs fois. Clac, quand on contracte les obliques, ça fait une rotation contre-latérale. Inclinaison, forcément. C'est pour ça que des fois, on travaille comme ça, là, avec un haltère comme ça. Inclinaison, mais aussi en flexion. Donc il travaille."
+   },
+   {
+    "in": 148.68,
+    "out": 155.18,
+    "qui": "H",
+    "cadrage": "serre",
+    "texte": "C'est pour ça que là, encore une fois, ça amène à des révisions des rôles, des actions des muscles. Et plus vous serez bons en anat' et bioméca, plus vous serez bons coachs."
+   },
+   {
+    "in": 156.68,
+    "out": 171.34,
+    "qui": "H",
+    "cadrage": "large",
+    "flips": [
+     161.6,
+     166.2
+    ],
+    "texte": "Donc, apprendre les os par cœur, moyen. Apprendre les muscles principaux, très bien. Et apprendre le rôle des muscles principaux, oui. Ils ont plusieurs rôles à chaque fois. T'as vu, des muscles qui ont 3-4 rôles des fois. Faut bien les connaître, sinon au niveau du coaching, vous serez un peu perdus."
+   }
+  ],
+  "edl": {
+   "cap_style": "epure",
+   "cap_max_chars": 26,
+   "end_card": {
+    "logo": null,
+    "cta": null,
+    "dur": 0.8
+   },
+   "hook": {
+    "text": "Le **crunch** travaille-t-il | tes **obliques** ?",
+    "dur": 4.2
+   },
+   "keywords": [
+    "obliques",
+    "crunch",
+    "flexion",
+    "rotation",
+    "inclinaison",
+    "rôle des muscles",
+    "muscles principaux"
+   ]
+  },
+  "schemas": [
+   {
+    "type": "flow",
+    "morceau": 2,
+    "at": 134.5,
+    "dur": 13.8,
+    "titre": "LES OBLIQUES",
+    "temps": [
+     134.7,
+     139.6,
+     144.3
+    ],
+    "etapes": [
+     [
+      "**Rotation**"
+     ],
+     [
+      "**Inclinaison**"
+     ],
+     [
+      "**Flexion**",
+      "→ le crunch"
+     ]
+    ]
+   }
+  ]
+ },
+ "reel29-debutant": {
+  "title": "Parle simple à ton client débutant — Sparta formation",
+  "prise": "debutant",
+  "clip0": 438,
+  "vf": "crop=1296:2304:800:0",
+  "cadres": {
+   "L": {
+    "origin": "50% 62%",
+    "tight_scale": 1.3,
+    "wide_scale": 1.0
+   },
+   "H": {
+    "origin": "50% 100%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.2
+   }
+  },
+  "morceaux": [
+   {
+    "in": 22.6,
+    "out": 27.98,
+    "qui": "H",
+    "cadrage": "serre",
+    "texte": "Tu parles à un débutant, tu lui dis gaine, gaine, gaine, ouais, tiens-toi droit, il ne sait pas ce que c'est, ça veut dire quoi se tenir droit ?"
+   },
+   {
+    "in": 11.94,
+    "out": 15.02,
+    "qui": "H",
+    "cadrage": "large",
+    "texte": "Personne m'a dit cambre. Tout le monde sait ce que ça veut dire, cambrer."
+   },
+   {
+    "in": 29.94,
+    "out": 42.06,
+    "qui": "H",
+    "cadrage": "serre",
+    "flips": [
+     35.8
+    ],
+    "texte": "Vas-y, cambre-toi. OK, maintenant, à partir de cette position de cambrure, tu descends et tu remontes. Là, oui, ça m'intéresse. Mais à partir d'un moment où tu verrouilles. Et verrouiller, oui, ça peut parler, mais verrouiller, encore une fois, tout le monde ne sait pas ce que c'est, verrouiller."
+   },
+   {
+    "in": 132.2,
+    "out": 145.36,
+    "qui": "H",
+    "cadrage": "large",
+    "flips": [
+     137.0
+    ],
+    "texte": "Puis quand tu vas lui dire serre les omoplates, le mec, il va faire ça, parce que c'est un coach. Mais quand tu vas voir un débutant, tu vas lui dire serre les omoplates, il ne va pas savoir ce que c'est. Vas-y, fixe. Utilise tes fixateurs d'omoplates. Ça ne va ressembler à rien, ce qu'il va faire."
+   },
+   {
+    "in": 55.16,
+    "out": 60.5,
+    "qui": "H",
+    "cadrage": "serre",
+    "texte": "Ensuite, tu lui apprends le vocabulaire, tu l'éduques. La prochaine séance, tu peux lui dire : vas-y, refais comme la dernière fois, tu gaines."
+   },
+   {
+    "in": 60.72,
+    "out": 71.22,
+    "qui": "L",
+    "cadrage": "large",
+    "texte": "Voilà. Il faut l'éduquer, ton client. Tu ne peux pas lui dire vas-y, gaine, tiens-toi droit première séance. Non, non. Parle-lui le langage normal."
+   }
+  ],
+  "edl": {
+   "cap_style": "epure",
+   "cap_max_chars": 26,
+   "end_card": {
+    "logo": null,
+    "cta": null,
+    "dur": 0.8
+   },
+   "hook": {
+    "text": "Ton client **débutant** | ne comprend rien ?",
+    "dur": 4.2
+   },
+   "keywords": [
+    "débutant",
+    "cambre",
+    "cambrer",
+    "verrouiller",
+    "omoplates",
+    "éduquer",
+    "langage normal"
+   ]
+  },
+  "schemas": [
+   {
+    "type": "flow",
+    "morceau": 5,
+    "at": 62.4,
+    "dur": 9.4,
+    "titre": "1RE SÉANCE",
+    "barres": [
+     0,
+     1
+    ],
+    "temps": [
+     63.6,
+     64.0,
+     68.2
+    ],
+    "etapes": [
+     [
+      "Gaine-toi"
+     ],
+     [
+      "Tiens-toi droit"
+     ],
+     [
+      "**Cambre-toi**"
+     ]
+    ]
+   }
+  ]
+ },
+ "reel30-hanches": {
+  "title": "Avant le soulevé de terre, maîtrise ça — Sparta formation",
+  "prise": "hanches",
+  "clip0": 585,
+  "vf": "crop=1440:2560:600:0",
+  "cadres": {
+   "L": {
+    "origin": "50% 62%",
+    "tight_scale": 1.3,
+    "wide_scale": 1.0
+   },
+   "H": {
+    "origin": "50% 100%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.2
+   }
+  },
+  "morceaux": [
+   {
+    "in": 43.0,
+    "out": 50.22,
+    "qui": "H",
+    "cadrage": "serre",
+    "flips": [
+     46.1
+    ],
+    "texte": "S'ils n'ont pas l'extension de hanches, comment tu veux aller faire un soulevé de terre ? Des fois je vois des coachs, ils vont faire des soulevés de terre, le mec n'a même pas l'extension de hanches, il n'a même pas la base du mouvement."
+   },
+   {
+    "in": 50.8,
+    "out": 55.58,
+    "qui": "H",
+    "cadrage": "large",
+    "texte": "Qu'est-ce qu'on va jusqu'à la flexion de genoux à la fin ? On est déjà K.O. dès le premier round."
+   },
+   {
+    "in": 20.3,
+    "out": 28.46,
+    "qui": "L",
+    "cadrage": "serre",
+    "texte": "Tu travailles ton extension de hanches dès le départ, avec un bâton et tout, jusqu'en haut des genoux, simplement. Capter ce truc-là, cambrer, revenir, simplement."
+   },
+   {
+    "in": 28.78,
+    "out": 37.4,
+    "qui": "H",
+    "cadrage": "large",
+    "flips": [
+     32.6
+    ],
+    "texte": "Ensuite tu passeras l'étape des genoux, tu vois. Et déjà qu'elle répète beaucoup ce schéma-là, d'extension de hanches, tu vois. Extension, pousser les fesses vers l'arrière, qu'elle comprenne ce mouvement, il y en a plein qui ne l'ont pas."
+   },
+   {
+    "in": 60.74,
+    "out": 62.54,
+    "qui": "H",
+    "cadrage": "serre",
+    "texte": "Maîtrise ces étapes-là."
+   }
+  ],
+  "edl": {
+   "cap_style": "epure",
+   "cap_max_chars": 26,
+   "end_card": {
+    "logo": null,
+    "cta": null,
+    "dur": 0.8
+   },
+   "hook": {
+    "text": "Avant le **soulevé de terre**, | maîtrise ça",
+    "dur": 4.2
+   },
+   "keywords": [
+    "extension de hanches",
+    "soulevé de terre",
+    "bâton",
+    "base du mouvement",
+    "étape",
+    "fesses vers l'arrière"
+   ]
+  },
+  "schemas": [
+   {
+    "type": "flow",
+    "morceau": 2,
+    "at": 20.4,
+    "dur": 8.0,
+    "titre": "ÉTAPE PAR ÉTAPE",
+    "temps": [
+     20.9,
+     22.3,
+     26.4
+    ],
+    "etapes": [
+     [
+      "Extension",
+      "de **hanches**"
+     ],
+     [
+      "Au **bâton**,",
+      "jusqu'aux genoux"
+     ],
+     [
+      "**Cambrer**, revenir"
+     ]
+    ]
+   }
+  ]
+ }
+}

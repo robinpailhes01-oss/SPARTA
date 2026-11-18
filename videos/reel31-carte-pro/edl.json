@@ -1,0 +1,110 @@
+{
+ "title": "Diplôme, carte pro, contrat — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 2.85,
+   "out": 10.75,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 2.55,
+   "origin": "61% 30%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m01",
+   "in": 30.55,
+   "out": 36.57,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 30.25,
+   "origin": "61% 30%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m02",
+   "in": 36.57,
+   "out": 43.09,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 36.27,
+   "origin": "61% 30%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    38.65
+   ]
+  },
+  {
+   "id": "m03",
+   "in": 43.95,
+   "out": 51.0,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 43.65,
+   "origin": "61% 30%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    47.5
+   ]
+  }
+ ],
+ "broll": [],
+ "schemas": [
+  {
+   "type": "flow",
+   "at": 5.3,
+   "dur": 5.45,
+   "titre": "NE PAS CONFONDRE",
+   "temps": [
+    5.7,
+    6.9,
+    9.2
+   ],
+   "etapes": [
+    [
+     "**Diplôme**",
+     "= ta compétence"
+    ],
+    [
+     "**Carte pro**",
+     "= ta déclaration"
+    ],
+    [
+     "**Contrat**",
+     "= ta façon de travailler"
+    ]
+   ],
+   "seg": "m00"
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": null,
+  "cta": null,
+  "dur": 0.8
+ },
+ "hook": {
+  "text": "Diplôme, carte pro, contrat : | **ne confonds pas tout**",
+  "dur": 2.3
+ },
+ "keywords": [
+  "carte pro",
+  "diplôme",
+  "contrat",
+  "essentiel",
+  "déclaration"
+ ]
+}

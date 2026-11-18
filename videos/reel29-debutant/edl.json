@@ -1,0 +1,135 @@
+{
+ "title": "Parle simple à ton client débutant — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 22.6,
+   "out": 27.98,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 22.3,
+   "origin": "50% 100%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m01",
+   "in": 11.94,
+   "out": 15.02,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 11.64,
+   "origin": "50% 100%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "large"
+  },
+  {
+   "id": "m02",
+   "in": 29.94,
+   "out": 42.06,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 29.64,
+   "origin": "50% 100%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "serre",
+   "flips": [
+    35.8
+   ]
+  },
+  {
+   "id": "m03",
+   "in": 132.2,
+   "out": 145.36,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 131.9,
+   "origin": "50% 100%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "large",
+   "flips": [
+    137.0
+   ]
+  },
+  {
+   "id": "m04",
+   "in": 55.16,
+   "out": 60.5,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 54.86,
+   "origin": "50% 100%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.2,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m05",
+   "in": 60.72,
+   "out": 71.22,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 60.42,
+   "origin": "50% 62%",
+   "tight_scale": 1.3,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  }
+ ],
+ "broll": [],
+ "schemas": [
+  {
+   "type": "flow",
+   "at": 62.4,
+   "dur": 9.4,
+   "titre": "1RE SÉANCE",
+   "barres": [
+    0,
+    1
+   ],
+   "temps": [
+    63.6,
+    64.0,
+    68.2
+   ],
+   "etapes": [
+    [
+     "Gaine-toi"
+    ],
+    [
+     "Tiens-toi droit"
+    ],
+    [
+     "**Cambre-toi**"
+    ]
+   ],
+   "seg": "m05"
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": null,
+  "cta": null,
+  "dur": 0.8
+ },
+ "hook": {
+  "text": "Ton client **débutant** | ne comprend rien ?",
+  "dur": 4.2
+ },
+ "keywords": [
+  "débutant",
+  "cambre",
+  "cambrer",
+  "verrouiller",
+  "omoplates",
+  "éduquer",
+  "langage normal"
+ ]
+}

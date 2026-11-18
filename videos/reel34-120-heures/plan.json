@@ -1,0 +1,144 @@
+{
+ "title": "120 heures par semaine — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "cours": "rushes/img5280/h120.mp4"
+ },
+ "vf": {
+  "cours": "crop=1296:2304:622:691"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "50% 12%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "**120 heures** par semaine | pendant 3 ans",
+   "dur": 4.2
+  },
+  "keywords": [
+   "120 heures",
+   "micro-entreprise",
+   "société",
+   "système",
+   "valorises"
+  ]
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 3.77,
+   "out": 12.4,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    7.7
+   ],
+   "texte": "J'ai charbonné, j'ai travaillé, j'ai fait rentrer de l'argent pendant... Parce que 3 ans, 7 sur 7, coacher, coacher, coacher, coacher, micro-entreprise,"
+  },
+  {
+   "prise": "cours",
+   "in": 19.76,
+   "out": 29.06,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    23.0
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 34.73,
+   "out": 45.74,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    38.0,
+    41.0
+   ],
+   "texte": "Plus la dernière année où j'avais 2 coachs qui travaillaient avec moi. En indépendant, mais ça devenait bizarre. D'indépendant à indépendant, c'est un peu chelou le système. J'ai fait ça 6 mois et après je me suis mis en société."
+  },
+  {
+   "prise": "cours",
+   "in": 50.33,
+   "out": 58.64,
+   "qui": "L",
+   "cadrage": "large",
+   "texte": "Auto-entrepreneur, _ tu te gaves. En société, tu ne touches plus. Tu construis, tu valorises. Tu valorises ta boîte, ça a de la valeur."
+  },
+  {
+   "prise": "cours",
+   "in": 59.85,
+   "out": 60.92,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 95.72,
+   "out": 101.94,
+   "qui": "L",
+   "cadrage": "serre",
+   "texte": "C'est un statut qui est variable, donc plus tu bosses, plus tu gagnes. Le salariat, c'est plafonné."
+  },
+  {
+   "prise": "cours",
+   "in": 109.27,
+   "out": 111.54,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 117.11,
+   "out": 124.29,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    121.6
+   ],
+   "texte": "Société, après, tu peux employer des gens, tu peux prendre des gens et là mettre un système. Quand t'es auto, tu peux pas mettre de système. C'est toi et toi."
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 3,
+   "at": 50.45,
+   "dur": 8.6,
+   "titre": "AUTO → SOCIÉTÉ",
+   "temps": [
+    50.6,
+    53.9,
+    56.8
+   ],
+   "etapes": [
+    [
+     "**Auto-entrepreneur**",
+     "tu te **gaves**"
+    ],
+    [
+     "**Société**",
+     "tu **construis**"
+    ],
+    [
+     "Ta boîte prend",
+     "de la **valeur**"
+    ]
+   ]
+  }
+ ]
+}

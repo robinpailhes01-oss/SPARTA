@@ -1,0 +1,168 @@
+{
+ "title": "Être coach pro : 5 choses — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "cours": "rushes/img5280/synthese.mp4"
+ },
+ "vf": {
+  "cours": "crop=1296:2304:622:691"
+ },
+ "cadres": {
+  "cours": {
+   "L": {
+    "origin": "50% 28%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Être **coach pro**, | c'est 5 choses",
+   "dur": 4.2
+  },
+  "keywords": [
+   "qualifié",
+   "carte pro",
+   "prérogatives",
+   "sécurité",
+   "se former",
+   "RC Pro"
+  ]
+ },
+ "morceaux": [
+  {
+   "prise": "cours",
+   "in": 4.9,
+   "out": 9.65,
+   "qui": "L",
+   "cadrage": "serre",
+   "texte": "Professionnel, c'est cinq choses. Être qualifié, donc détenir le diplôme, reconnu, inscrit au RNCP,"
+  },
+  {
+   "prise": "cours",
+   "in": 11.25,
+   "out": 13.05,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 14.05,
+   "out": 17.2,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "cours",
+   "in": 17.3,
+   "out": 28.3,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    21.0,
+    25.3
+   ]
+  },
+  {
+   "prise": "cours",
+   "in": 30.65,
+   "out": 34.38,
+   "qui": "L",
+   "cadrage": "large",
+   "texte": "cette connerie d'issue de secours et tout, ça coûte une blinde, ben t'es obligé de le mettre,"
+  },
+  {
+   "prise": "cours",
+   "in": 59.6,
+   "out": 62.4,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "cours",
+   "in": 62.9,
+   "out": 70.4,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    66.0
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 6.6,
+   "dur": 10.0,
+   "titre": "ÊTRE PRO = 5 CHOSES",
+   "temps": [
+    6.7,
+    11.4,
+    14.2
+   ],
+   "etapes": [
+    [
+     "**1.** Être **qualifié**",
+     "diplôme RNCP"
+    ],
+    [
+     "**2.** Être **déclaré**",
+     "carte pro"
+    ],
+    [
+     "**3.** Respecter ses",
+     "**prérogatives**"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 3,
+   "at": 17.35,
+   "dur": 5.2,
+   "titre": "ÊTRE PRO = 5 CHOSES",
+   "temps": [
+    17.45,
+    18.4,
+    21.1
+   ],
+   "etapes": [
+    [
+     "**4.** Assurer la **sécurité**"
+    ],
+    [
+     "Obligation de moyens"
+    ],
+    [
+     "Assurance **RC Pro**"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 5,
+   "at": 59.65,
+   "dur": 4.0,
+   "titre": "ÊTRE PRO = 5 CHOSES",
+   "temps": [
+    59.75
+   ],
+   "etapes": [
+    [
+     "**5.** Savoir **se former**",
+     "toute sa carrière"
+    ]
+   ]
+  }
+ ]
+}

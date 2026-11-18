@@ -1,0 +1,126 @@
+{
+ "title": "Parle simple à ton client débutant — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "debutant": "rushes/img5280/debutant.mp4"
+ },
+ "vf": {
+  "debutant": "crop=1296:2304:800:0"
+ },
+ "cadres": {
+  "debutant": {
+   "L": {
+    "origin": "50% 62%",
+    "tight_scale": 1.3,
+    "wide_scale": 1.0
+   },
+   "H": {
+    "origin": "50% 100%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.2
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "debutant",
+   "in": 22.6,
+   "out": 27.98,
+   "qui": "H",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "debutant",
+   "in": 11.94,
+   "out": 15.02,
+   "qui": "H",
+   "cadrage": "large"
+  },
+  {
+   "prise": "debutant",
+   "in": 29.94,
+   "out": 42.06,
+   "qui": "H",
+   "cadrage": "serre",
+   "flips": [
+    35.8
+   ]
+  },
+  {
+   "prise": "debutant",
+   "in": 132.2,
+   "out": 145.36,
+   "qui": "H",
+   "cadrage": "large",
+   "flips": [
+    137.0
+   ]
+  },
+  {
+   "prise": "debutant",
+   "in": 55.16,
+   "out": 60.5,
+   "qui": "H",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "debutant",
+   "in": 60.72,
+   "out": 71.22,
+   "qui": "L",
+   "cadrage": "large"
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Ton client **débutant** | ne comprend rien ?",
+   "dur": 4.2
+  },
+  "keywords": [
+   "débutant",
+   "cambre",
+   "cambrer",
+   "verrouiller",
+   "omoplates",
+   "éduquer",
+   "langage normal"
+  ]
+ },
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 5,
+   "at": 62.4,
+   "dur": 9.4,
+   "titre": "1RE SÉANCE",
+   "barres": [
+    0,
+    1
+   ],
+   "temps": [
+    63.6,
+    64.0,
+    68.2
+   ],
+   "etapes": [
+    [
+     "Gaine-toi"
+    ],
+    [
+     "Tiens-toi droit"
+    ],
+    [
+     "**Cambre-toi**"
+    ]
+   ]
+  }
+ ]
+}

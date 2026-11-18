@@ -1,0 +1,104 @@
+{
+ "title": "Diplôme, carte pro, contrat — Sparta formation",
+ "fps": 30,
+ "modele": "medium",
+ "prises": {
+  "d": "rushes/img5280/diplome.mp4"
+ },
+ "vf": {
+  "d": "crop=1296:2304:330:620"
+ },
+ "cadres": {
+  "d": {
+   "L": {
+    "origin": "61% 30%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "d",
+   "in": 2.85,
+   "out": 10.75,
+   "qui": "L",
+   "cadrage": "serre"
+  },
+  {
+   "prise": "d",
+   "in": 30.55,
+   "out": 36.57,
+   "qui": "L",
+   "cadrage": "large"
+  },
+  {
+   "prise": "d",
+   "in": 36.57,
+   "out": 43.09,
+   "qui": "L",
+   "cadrage": "serre",
+   "flips": [
+    38.65
+   ]
+  },
+  {
+   "prise": "d",
+   "in": 43.95,
+   "out": 51.0,
+   "qui": "L",
+   "cadrage": "large",
+   "flips": [
+    47.5
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 5.3,
+   "dur": 5.45,
+   "titre": "NE PAS CONFONDRE",
+   "temps": [
+    5.7,
+    6.9,
+    9.2
+   ],
+   "etapes": [
+    [
+     "**Diplôme**",
+     "= ta compétence"
+    ],
+    [
+     "**Carte pro**",
+     "= ta déclaration"
+    ],
+    [
+     "**Contrat**",
+     "= ta façon de travailler"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Diplôme, carte pro, contrat : | **ne confonds pas tout**",
+   "dur": 2.3
+  },
+  "keywords": [
+   "carte pro",
+   "diplôme",
+   "contrat",
+   "essentiel",
+   "déclaration"
+  ]
+ }
+}
