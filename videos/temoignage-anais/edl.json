@@ -1,0 +1,94 @@
+{
+ "title": "Témoignage Anaïs — Sparta",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 0.0,
+   "out": 6.19,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 0.0,
+   "origin": "61% 18%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m01",
+   "in": 10.58,
+   "out": 12.93,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 10.28,
+   "origin": "61% 18%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m02",
+   "in": 13.33,
+   "out": 17.66,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 13.03,
+   "origin": "61% 18%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m03",
+   "in": 19.77,
+   "out": 20.66,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 19.47,
+   "origin": "61% 18%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m04",
+   "in": 21.39,
+   "out": 37.28,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 21.09,
+   "origin": "61% 18%",
+   "tight_scale": 1.6,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    25.0,
+    28.5,
+    33.0
+   ]
+  }
+ ],
+ "broll": [],
+ "schemas": [],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": "assets/brand/logo_or_blanc.png",
+  "dur": 2.0
+ },
+ "hook": {
+  "text": "Anaïs, 32 ans | **-10 %** | de masse grasse",
+  "dur": 6.0
+ },
+ "keywords": [
+  "perte de poids",
+  "10 %",
+  "masse graisseuse",
+  "énergie",
+  "cardio",
+  "seule",
+  "ne regrette pas"
+ ]
+}

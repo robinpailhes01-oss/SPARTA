@@ -1,0 +1,18 @@
+◆  Capturing 7 frames at [1.5s, 5s, 10s, 16s, 22s, 30s, 37s] from temoignage-lisa
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 2 loaded, 3 unused
+   Note: added an end-of-timeline frame at 36.37s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/temoignage-lisa/.hyperframes/video-state.json
+
+◇  8 snapshots saved to /home/user/SPARTA/videos/temoignage-lisa/.hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-00-at-1.5s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-01-at-5s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-02-at-10s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-03-at-16s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-04-at-22s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-05-at-30s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-06-at-37s.png
+   .hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/frame-07-at-36.365s.png
+   /home/user/SPARTA/videos/temoignage-lisa/.hyperframes/artifacts/snapshots/c4ffcf8f-ccb9-478d-9204-d90682466400/contact-sheet.jpg (grid view for AI review)

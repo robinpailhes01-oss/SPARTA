@@ -1,0 +1,14 @@
+◆  Capturing 3 frames at [4.5s, 8s, 20s] from temoignage-anais
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   Fonts: 2 loaded, 3 unused
+   Note: added an end-of-timeline frame at 30.70s. Short beats between your --at times may still be skipped — pass them explicitly.
+   Revision: none (inputs-changed)
+   State: /home/user/SPARTA/videos/temoignage-anais/.hyperframes/video-state.json
+
+◇  4 snapshots saved to /home/user/SPARTA/videos/temoignage-anais/.hyperframes/artifacts/snapshots/52bd901f-5bff-4de6-8827-f1fbd00c8509
+   .hyperframes/artifacts/snapshots/52bd901f-5bff-4de6-8827-f1fbd00c8509/frame-00-at-4.5s.png
+   .hyperframes/artifacts/snapshots/52bd901f-5bff-4de6-8827-f1fbd00c8509/frame-01-at-8s.png
+   .hyperframes/artifacts/snapshots/52bd901f-5bff-4de6-8827-f1fbd00c8509/frame-02-at-20s.png
+   .hyperframes/artifacts/snapshots/52bd901f-5bff-4de6-8827-f1fbd00c8509/frame-03-at-30.7s.png
+   /home/user/SPARTA/videos/temoignage-anais/.hyperframes/artifacts/snapshots/52bd901f-5bff-4de6-8827-f1fbd00c8509/contact-sheet.jpg (grid view for AI review)

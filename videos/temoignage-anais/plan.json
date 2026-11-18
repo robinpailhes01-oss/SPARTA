@@ -8,7 +8,7 @@
  "cadres": {
   "anais": {
    "X": {
-    "origin": "61% 28%",
+    "origin": "61% 18%",
     "tight_scale": 1.6,
     "wide_scale": 1.0
    }
@@ -20,10 +20,7 @@
    "in": 0.0,
    "out": 6.19,
    "qui": "X",
-   "cadrage": "large",
-   "flips": [
-    2.9
-   ]
+   "cadrage": "large"
   },
   {
    "prise": "anais",
