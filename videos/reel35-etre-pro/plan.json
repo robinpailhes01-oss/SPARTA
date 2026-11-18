@@ -11,7 +11,7 @@
  "cadres": {
   "cours": {
    "L": {
-    "origin": "50% 28%",
+    "origin": "40% 4%",
     "tight_scale": 1.5,
     "wide_scale": 1.0
    }
@@ -27,7 +27,7 @@
   },
   "hook": {
    "text": "Être **coach pro**, | c'est 5 choses",
-   "dur": 4.2
+   "dur": 1.9
   },
   "keywords": [
    "qualifié",
@@ -41,61 +41,65 @@
  "morceaux": [
   {
    "prise": "cours",
-   "in": 4.9,
-   "out": 9.65,
+   "in": 4.65,
+   "out": 9.76,
    "qui": "L",
    "cadrage": "serre",
    "texte": "Professionnel, c'est cinq choses. Être qualifié, donc détenir le diplôme, reconnu, inscrit au RNCP,"
   },
   {
    "prise": "cours",
-   "in": 11.25,
-   "out": 13.05,
+   "in": 11.24,
+   "out": 13.13,
    "qui": "L",
-   "cadrage": "large"
+   "cadrage": "large",
+   "texte": "Être déclaré, donc avec la carte pro."
   },
   {
    "prise": "cours",
-   "in": 14.05,
-   "out": 17.2,
+   "in": 13.88,
+   "out": 17.18,
    "qui": "L",
-   "cadrage": "large"
+   "cadrage": "large",
+   "texte": "Respecter les prérogatives, ne pas encadrer hors champ de compétences."
   },
   {
    "prise": "cours",
-   "in": 17.3,
-   "out": 28.3,
+   "in": 17.18,
+   "out": 28.59,
    "qui": "L",
    "cadrage": "serre",
    "flips": [
     21.0,
     25.3
-   ]
+   ],
+   "texte": "Assurer la sécurité, obligation de moyens, vigilance matérielle, assurance adaptée, RC Pro, si t'as un local, les baux, les règlements intérieurs, tout ce qui va autour de la sécurité, incendie,"
   },
   {
    "prise": "cours",
-   "in": 30.65,
-   "out": 34.38,
+   "in": 30.69,
+   "out": 34.54,
    "qui": "L",
    "cadrage": "large",
-   "texte": "cette connerie d'issue de secours et tout, ça coûte une blinde, ben t'es obligé de le mettre,"
+   "texte": "cette connerie d'issue de secours et tout, ça coûte une blinde, ben t'es obligé de le mettre. _"
   },
   {
    "prise": "cours",
-   "in": 59.6,
-   "out": 62.4,
+   "in": 59.55,
+   "out": 62.69,
    "qui": "L",
    "cadrage": "serre"
   },
   {
    "prise": "cours",
-   "in": 62.9,
-   "out": 70.4,
+   "in": 62.76,
+   "out": 70.35,
    "qui": "L",
    "cadrage": "large",
    "flips": [
     66.0
-   ]
+   ],
+   "texte": "Formations complémentaires qui n'ont pas forcément un champ de législation, de règlement ou de qualification, mais qui permettent d'élever ses compétences, de rémunérer un meilleur prix."
   }
  ],
  "schemas": [
@@ -103,7 +107,7 @@
    "type": "flow",
    "morceau": 0,
    "at": 6.6,
-   "dur": 10.0,
+   "dur": 8.45,
    "titre": "ÊTRE PRO = 5 CHOSES",
    "temps": [
     6.7,
@@ -152,15 +156,25 @@
    "type": "flow",
    "morceau": 5,
    "at": 59.65,
-   "dur": 4.0,
+   "dur": 10.2,
    "titre": "ÊTRE PRO = 5 CHOSES",
    "temps": [
-    59.75
+    59.75,
+    63.0,
+    68.0
    ],
    "etapes": [
     [
      "**5.** Savoir **se former**",
      "toute sa carrière"
+    ],
+    [
+     "Formations",
+     "**complémentaires**"
+    ],
+    [
+     "Plus de **compétences**",
+     "mieux **rémunéré**"
     ]
    ]
   }

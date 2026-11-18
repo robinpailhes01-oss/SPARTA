@@ -1,0 +1,194 @@
+{
+ "title": "Être coach pro : 5 choses — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 4.65,
+   "out": 9.76,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 4.35,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m01",
+   "in": 11.24,
+   "out": 13.13,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 10.94,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m02",
+   "in": 13.88,
+   "out": 17.18,
+   "src": "assets/fc/m02.mp4",
+   "src_offset": 13.58,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m03",
+   "in": 17.18,
+   "out": 28.59,
+   "src": "assets/fc/m03.mp4",
+   "src_offset": 16.88,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    21.0,
+    25.3
+   ]
+  },
+  {
+   "id": "m04",
+   "in": 30.69,
+   "out": 34.54,
+   "src": "assets/fc/m04.mp4",
+   "src_offset": 30.39,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  },
+  {
+   "id": "m05",
+   "in": 59.55,
+   "out": 62.69,
+   "src": "assets/fc/m05.mp4",
+   "src_offset": 59.25,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m06",
+   "in": 62.76,
+   "out": 70.35,
+   "src": "assets/fc/m06.mp4",
+   "src_offset": 62.46,
+   "origin": "40% 4%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large",
+   "flips": [
+    66.0
+   ]
+  }
+ ],
+ "broll": [],
+ "schemas": [
+  {
+   "type": "flow",
+   "at": 6.6,
+   "dur": 8.45,
+   "titre": "ÊTRE PRO = 5 CHOSES",
+   "temps": [
+    6.7,
+    11.4,
+    14.2
+   ],
+   "etapes": [
+    [
+     "**1.** Être **qualifié**",
+     "diplôme RNCP"
+    ],
+    [
+     "**2.** Être **déclaré**",
+     "carte pro"
+    ],
+    [
+     "**3.** Respecter ses",
+     "**prérogatives**"
+    ]
+   ],
+   "seg": "m00"
+  },
+  {
+   "type": "flow",
+   "at": 17.35,
+   "dur": 5.2,
+   "titre": "ÊTRE PRO = 5 CHOSES",
+   "temps": [
+    17.45,
+    18.4,
+    21.1
+   ],
+   "etapes": [
+    [
+     "**4.** Assurer la **sécurité**"
+    ],
+    [
+     "Obligation de moyens"
+    ],
+    [
+     "Assurance **RC Pro**"
+    ]
+   ],
+   "seg": "m03"
+  },
+  {
+   "type": "flow",
+   "at": 59.65,
+   "dur": 10.2,
+   "titre": "ÊTRE PRO = 5 CHOSES",
+   "temps": [
+    59.75,
+    63.0,
+    68.0
+   ],
+   "etapes": [
+    [
+     "**5.** Savoir **se former**",
+     "toute sa carrière"
+    ],
+    [
+     "Formations",
+     "**complémentaires**"
+    ],
+    [
+     "Plus de **compétences**",
+     "mieux **rémunéré**"
+    ]
+   ],
+   "seg": "m05"
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": null,
+  "cta": null,
+  "dur": 0.8
+ },
+ "hook": {
+  "text": "Être **coach pro**, | c'est 5 choses",
+  "dur": 1.9
+ },
+ "keywords": [
+  "qualifié",
+  "carte pro",
+  "prérogatives",
+  "sécurité",
+  "se former",
+  "RC Pro"
+ ]
+}
