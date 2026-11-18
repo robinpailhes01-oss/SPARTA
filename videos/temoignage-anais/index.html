@@ -94,13 +94,9 @@
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-fps="30" data-duration="31.65">
       <div class="frame" id="thf-m00" style="z-index:1;transform-origin:61% 18%"><div class="punch" id="thp-m00" style="transform-origin:61% 18%"><video id="th-m00" src="assets/fc/m00.mp4" data-start="0.0" data-duration="6.188" data-media-start="0.0" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 6.108, "v": 1}, {"t": 6.188, "v": 0}]}]}'></video></div></div>
-      <div class="frame" id="tlf-m00" style="z-index:1;transform-origin:61% 18%"><video id="tl-m00" src="assets/fc/m00.mp4" data-start="6.188" data-duration="0.16" data-media-start="6.188" data-track-index="13" muted playsinline></video></div>
       <div class="frame" id="thf-m01" style="z-index:1;transform-origin:61% 18%"><div class="punch" id="thp-m01" style="transform-origin:61% 18%"><video id="th-m01" src="assets/fc/m01.mp4" data-start="6.19" data-duration="2.348" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 2.268, "v": 1}, {"t": 2.348, "v": 0}]}]}'></video></div></div>
-      <div class="frame" id="tlf-m01" style="z-index:1;transform-origin:61% 18%"><video id="tl-m01" src="assets/fc/m01.mp4" data-start="8.538" data-duration="0.16" data-media-start="2.648" data-track-index="13" muted playsinline></video></div>
       <div class="frame" id="thf-m02" style="z-index:1;transform-origin:61% 18%"><div class="punch" id="thp-m02" style="transform-origin:61% 18%"><video id="th-m02" src="assets/fc/m02.mp4" data-start="8.54" data-duration="4.328" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 4.248, "v": 1}, {"t": 4.328, "v": 0}]}]}'></video></div></div>
-      <div class="frame" id="tlf-m02" style="z-index:1;transform-origin:61% 18%"><video id="tl-m02" src="assets/fc/m02.mp4" data-start="12.868" data-duration="0.16" data-media-start="4.628" data-track-index="13" muted playsinline></video></div>
       <div class="frame" id="thf-m03" style="z-index:1;transform-origin:61% 18%"><div class="punch" id="thp-m03" style="transform-origin:61% 18%"><video id="th-m03" src="assets/fc/m03.mp4" data-start="12.87" data-duration="0.888" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 0.808, "v": 1}, {"t": 0.888, "v": 0}]}]}'></video></div></div>
-      <div class="frame" id="tlf-m03" style="z-index:1;transform-origin:61% 18%"><video id="tl-m03" src="assets/fc/m03.mp4" data-start="13.758" data-duration="0.16" data-media-start="1.188" data-track-index="13" muted playsinline></video></div>
       <div class="frame" id="thf-m04" style="z-index:1;transform-origin:61% 18%"><div class="punch" id="thp-m04" style="transform-origin:61% 18%"><video id="th-m04" src="assets/fc/m04.mp4" data-start="13.76" data-duration="15.888" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 15.808, "v": 1}, {"t": 15.888, "v": 0}]}]}'></video></div></div>
       <div class="frame" id="tlf-m04" style="z-index:1;transform-origin:61% 18%"><video id="tl-m04" src="assets/fc/m04.mp4" data-start="29.648" data-duration="0.3" data-media-start="16.188" data-track-index="13" muted playsinline></video></div>
       <div id="hook" class="clip" data-start="0.2" data-duration="6.0" data-track-index="8" style="z-index:5"><div class="hook-inner"><span class="hook-rule"></span><span class="hook-text">Anaïs, 32 ans<br><b>-10 %</b><br>de masse grasse</span></div></div>
@@ -110,25 +106,15 @@
     <script>
       const tl = gsap.timeline({ paused: true });
       tl.fromTo("#thf-m00", {scale: 1.0}, {scale: 1.06, duration: 6.188, ease: "none", immediateRender: false}, 0.0);
-      tl.set("#tlf-m00", {scale: 1.06}, 0);
       tl.fromTo("#thf-m01", {scale: 1.6}, {scale: 1.696, duration: 2.348, ease: "none", immediateRender: false}, 6.19);
-      tl.fromTo("#thf-m01", {opacity: 0}, {opacity: 1, duration: 0.16, ease: "none", immediateRender: false}, 6.19);
-      tl.set("#tlf-m01", {scale: 1.696}, 0);
+      tl.fromTo("#thp-m01", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 6.19);
       tl.fromTo("#thf-m02", {scale: 1.0}, {scale: 1.06, duration: 4.328, ease: "none", immediateRender: false}, 8.54);
-      tl.fromTo("#thf-m02", {opacity: 0}, {opacity: 1, duration: 0.16, ease: "none", immediateRender: false}, 8.54);
-      tl.set("#tlf-m02", {scale: 1.06}, 0);
+      tl.fromTo("#thp-m02", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 8.54);
       tl.fromTo("#thf-m03", {scale: 1.6}, {scale: 1.696, duration: 0.888, ease: "none", immediateRender: false}, 12.87);
-      tl.fromTo("#thf-m03", {opacity: 0}, {opacity: 1, duration: 0.16, ease: "none", immediateRender: false}, 12.87);
-      tl.set("#tlf-m03", {scale: 1.696}, 0);
-      tl.fromTo("#thf-m04", {scale: 1.0}, {scale: 1.06, duration: 3.61, ease: "none", immediateRender: false}, 13.76);
-      tl.fromTo("#thf-m04", {scale: 1.06}, {scale: 1.6, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 17.37);
-      tl.fromTo("#thf-m04", {scale: 1.6}, {scale: 1.696, duration: 3.2, ease: "none", immediateRender: false}, 17.67);
-      tl.fromTo("#thf-m04", {scale: 1.696}, {scale: 1.0, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 20.87);
-      tl.fromTo("#thf-m04", {scale: 1.0}, {scale: 1.06, duration: 4.2, ease: "none", immediateRender: false}, 21.17);
-      tl.fromTo("#thf-m04", {scale: 1.06}, {scale: 1.6, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 25.37);
-      tl.fromTo("#thf-m04", {scale: 1.6}, {scale: 1.696, duration: 3.978, ease: "none", immediateRender: false}, 25.67);
-      tl.fromTo("#thf-m04", {opacity: 0}, {opacity: 1, duration: 0.16, ease: "none", immediateRender: false}, 13.76);
-      tl.set("#tlf-m04", {scale: 1.696}, 0);
+      tl.fromTo("#thp-m03", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 12.87);
+      tl.fromTo("#thf-m04", {scale: 1.0}, {scale: 1.06, duration: 15.888, ease: "none", immediateRender: false}, 13.76);
+      tl.fromTo("#thp-m04", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 13.76);
+      tl.set("#tlf-m04", {scale: 1.06}, 0);
       tl.to("#tlf-m04", {opacity: 0, duration: 0.27, ease: "none"}, 29.678);
       tl.fromTo("#hook .hook-rule", {scaleX: 0}, {scaleX: 1, duration: 0.5, ease: "power2.out"}, 0.2);
       tl.fromTo("#hook .hook-text", {opacity: 0, y: 14}, {opacity: 1, y: 0, duration: 0.55, ease: "power2.out"}, 0.35);

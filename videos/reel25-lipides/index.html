@@ -94,9 +94,7 @@
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-fps="30" data-duration="17.37">
       <div class="frame" id="thf-m00" style="z-index:1;transform-origin:88% 40%"><div class="punch" id="thp-m00" style="transform-origin:88% 40%"><video id="th-m00" src="assets/fc/m00.mp4" data-start="0.0" data-duration="7.948" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 7.868, "v": 1}, {"t": 7.948, "v": 0}]}]}'></video></div></div>
-      <div class="frame" id="tlf-m00" style="z-index:1;transform-origin:88% 40%"><video id="tl-m00" src="assets/fc/m00.mp4" data-start="7.948" data-duration="0.16" data-media-start="8.248" data-track-index="13" muted playsinline></video></div>
       <div class="frame" id="thf-m01" style="z-index:1;transform-origin:88% 40%"><div class="punch" id="thp-m01" style="transform-origin:88% 40%"><video id="th-m01" src="assets/fc/m01.mp4" data-start="7.95" data-duration="4.978" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 4.898, "v": 1}, {"t": 4.978, "v": 0}]}]}'></video></div></div>
-      <div class="frame" id="tlf-m01" style="z-index:1;transform-origin:88% 40%"><video id="tl-m01" src="assets/fc/m01.mp4" data-start="12.928" data-duration="0.16" data-media-start="5.278" data-track-index="13" muted playsinline></video></div>
       <div class="frame" id="thf-m02" style="z-index:1;transform-origin:88% 40%"><div class="punch" id="thp-m02" style="transform-origin:88% 40%"><video id="th-m02" src="assets/fc/m02.mp4" data-start="12.93" data-duration="3.638" data-media-start="0.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0}, {"t": 0.05, "v": 1}, {"t": 3.558, "v": 1}, {"t": 3.638, "v": 0}]}]}'></video></div></div>
       <div class="frame" id="tlf-m02" style="z-index:1;transform-origin:88% 40%"><video id="tl-m02" src="assets/fc/m02.mp4" data-start="16.568" data-duration="0.3" data-media-start="3.938" data-track-index="13" muted playsinline></video></div>
       <div id="hook" class="clip" data-start="0.2" data-duration="4.2" data-track-index="8" style="z-index:5"><div class="hook-inner"><span class="hook-rule"></span><span class="hook-text">Le carburant<br>de l’<b>aérobie</b></span></div></div>
@@ -106,15 +104,13 @@
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo("#thf-m00", {scale: 1.5}, {scale: 1.59, duration: 3.91, ease: "none", immediateRender: false}, 0.0);
-      tl.fromTo("#thf-m00", {scale: 1.59}, {scale: 1.2, duration: 0.3, ease: "power2.inOut", immediateRender: false}, 3.91);
-      tl.fromTo("#thf-m00", {scale: 1.2}, {scale: 1.272, duration: 3.738, ease: "none", immediateRender: false}, 4.21);
-      tl.set("#tlf-m00", {scale: 1.272}, 0);
+      tl.fromTo("#thf-m00", {scale: 1.5}, {scale: 1.59, duration: 3.92, ease: "none", immediateRender: false}, 0.0);
+      tl.fromTo("#thf-m00", {scale: 1.2}, {scale: 1.272, duration: 4.028, ease: "none", immediateRender: false}, 3.92);
+      tl.fromTo("#thp-m00", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 3.92);
       tl.fromTo("#thf-m01", {scale: 1.2}, {scale: 1.272, duration: 4.978, ease: "none", immediateRender: false}, 7.95);
-      tl.fromTo("#thf-m01", {opacity: 0}, {opacity: 1, duration: 0.16, ease: "none", immediateRender: false}, 7.95);
-      tl.set("#tlf-m01", {scale: 1.272}, 0);
+      tl.fromTo("#thp-m01", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 7.95);
       tl.fromTo("#thf-m02", {scale: 1.5}, {scale: 1.59, duration: 3.638, ease: "none", immediateRender: false}, 12.93);
-      tl.fromTo("#thf-m02", {opacity: 0}, {opacity: 1, duration: 0.16, ease: "none", immediateRender: false}, 12.93);
+      tl.fromTo("#thp-m02", {scale: 1.035}, {scale: 1, duration: 0.35, ease: "power2.out", immediateRender: false}, 12.93);
       tl.set("#tlf-m02", {scale: 1.59}, 0);
       tl.to("#tlf-m02", {opacity: 0, duration: 0.27, ease: "none"}, 16.598);
       tl.fromTo("#hook .hook-rule", {scaleX: 0}, {scaleX: 1, duration: 0.5, ease: "power2.out"}, 0.2);

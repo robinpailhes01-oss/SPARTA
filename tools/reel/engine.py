@@ -49,7 +49,12 @@ W, H, FPS = 1080, 1920, 30
 PUSH_TH = 1.06          # § 7 bis : poussée lente sur la face cam
 PUSH_BROLL = 1.08       # § 7 bis : poussée lente sur les plans de coupe
 # Transitions adoucies (retour client du 15/11 : coupures et transitions trop sèches). "transitions": false dans l'EDL = coupes sèches.
-DISSOLVE = 0.16         # fondu enchaîné entre deux plans de face cam (s)
+DISSOLVE = 0.16         # (n'est plus utilisé entre deux plans de face cam : voir SETTLE)
+# Retour client du 18/11 (« cuts bizarres, pas entraînants ») : plus de fondu entre deux plans de la même personne
+# (effet fantôme) ni de zoom animé en pleine phrase. Coupe franche + changement de cadre, et le plan entrant
+# « se pose » (léger zoom qui se résorbe) ; les changements de cadre internes tombent sur les pauses de la voix.
+SETTLE, SETTLE_S = 0.35, 1.035
+FLIP_SNAP = 0.8         # un changement de cadre se cale sur la pause la plus proche (± s), sinon il est supprimé
 BROLL_FADE = 0.22       # entrée et sortie en fondu des plans de coupe (s)
 FLIP_EASE = 0.30        # passage large ↔ serré animé au lieu d'un saut (s)
 AUDIO_IN, AUDIO_OUT = 0.05, 0.08     # fondus de la voix à chaque coupe (s)
@@ -326,29 +331,33 @@ def build(project):
             f'<video id="th-{sid}" src="{src}" data-start="{round(t0,3)}" data-duration="{d}" '
             f'data-media-start="{mstart}" data-track-index="0" playsinline data-has-audio="true"{grade_attr} '
             f"data-automation='{json.dumps(fade)}'></video></div></div>")
-        bounds = [round(t0, 3)] + [to_tl(sid, f) for f in s.get("flips", [])] + [round(t0 + d, 3)]
+        ws_ = [w for w in words if w[0] >= a - 0.05 and w[1] <= b + 0.05]
+        gaps = [((e0 + s1) / 2, s1 - e0) for (_, e0, _), (s1, _, _) in zip(ws_, ws_[1:]) if s1 - e0 >= 0.12]
+        fl = []
+        for f in s.get("flips", []):
+            if not ws_:
+                fl.append(f); continue
+            near = [g for g, _ in gaps if abs(g - f) <= FLIP_SNAP and a + 0.8 < g < b - 0.8]
+            if near:
+                g = min(near, key=lambda x: abs(x - f))
+                if all(abs(g - x) > 1.2 for x in fl): fl.append(round(g, 3))
+        bounds = [round(t0, 3)] + [to_tl(sid, f) for f in sorted(fl)] + [round(t0 + d, 3)]
         if s.get("cadrage") in ("serre", "large"):
             tight = s["cadrage"] == "serre"
         prev_end = None
         for r0, r1 in zip(bounds, bounds[1:]):
             s0 = (s.get("tight_scale", punch["scale"]) if tight else s.get("wide_scale", 1))
             s1 = round(s0 * PUSH_TH, 4)
-            if soft and prev_end is not None and r1 - r0 > FLIP_EASE + 0.4:       # changement de cadre en douceur
-                tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {prev_end}}}, {{scale: {s0}, duration: {FLIP_EASE}, '
-                              f'ease: "power2.inOut", immediateRender: false}}, {r0});')
-                tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {s1}, '
-                              f'duration: {round(r1 - r0 - FLIP_EASE, 3)}, ease: "none", immediateRender: false}}, {round(r0 + FLIP_EASE, 3)});')
-            else:
-                tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {s1}, '
-                              f'duration: {round(r1 - r0, 3)}, ease: "none", immediateRender: false}}, {r0});')
+            tweens.append(f'tl.fromTo("#thf-{sid}", {{scale: {s0}}}, {{scale: {s1}, '
+                          f'duration: {round(r1 - r0, 3)}, ease: "none", immediateRender: false}}, {r0});')
+            if soft and (prev_end is not None or si > 0):       # le plan (ou le nouveau cadre) se pose
+                tweens.append(f'tl.fromTo("#thp-{sid}", {{scale: {SETTLE_S}}}, {{scale: 1, duration: {SETTLE}, '
+                              f'ease: "power2.out", immediateRender: false}}, {r0});')
             th_windows.append((r0, r1, sid))
             prev_end = s1
             tight = not tight
-        if soft:
-            last = si == len(segments) - 1
-            ov = 0.3 if last else DISSOLVE                 # dernier plan : fondu vers le carton de fin
-            if si > 0:                                      # entrée en fondu du plan, sur la queue du précédent
-                tweens.append(f'tl.fromTo("#thf-{sid}", {{opacity: 0}}, {{opacity: 1, duration: {DISSOLVE}, ease: "none", immediateRender: false}}, {round(t0, 3)});')
+        if soft and si == len(segments) - 1:
+            last, ov = True, 0.3                            # dernier plan : se prolonge sous le fondu du carton de fin
             parts.append(
                 f'<div class="frame" id="tlf-{sid}" style="z-index:{z};transform-origin:{org}">'
                 f'<video id="tl-{sid}" src="{src}" data-start="{round(t0 + d, 3)}" data-duration="{ov}" '
