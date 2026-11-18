@@ -123,8 +123,8 @@
   "cap_max_chars": 26,
   "end_card": {
    "logo": null,
-   "dur": 2.0,
-   "cta": "COMMENTE « **COACH** »"
+   "cta": null,
+   "dur": 0.8
   },
   "keywords": [
    "renforcement musculaire",
