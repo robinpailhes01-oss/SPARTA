@@ -11,7 +11,9 @@ for proj in sys.argv[1:]:
     end = float(end[1]) if end else None
     fc = [(float(a), float(a) + float(d)) for a, d in re.findall(r'<video id="th-m\d+[a-z]?" src="[^"]+" data-start="([\d.]+)" data-duration="([\d.]+)"', s)]
     pb = []
-    iv = sorted((a, b - 0.22) for a, b, _ in br)   # le plan de coupe s'efface sur ses 0,22 dernières s + ([(end, end + 99)] if end is not None else [])
+    sch = [(float(a), float(a) + float(d)) for a, d in re.findall(r'class="clip sch" data-start="([\d.]+)" data-duration="([\d.]+)"', s)]
+    # le plan de coupe s'efface sur ses 0,22 dernières s, le schéma sur ses 0,4 dernières s
+    iv = sorted([(a, b - 0.22) for a, b, _ in br] + [(a, b - 0.4) for a, b in sch] + ([(end, end + 99)] if end is not None else []))
     cov = []
     for a, b in iv:
         if cov and a <= cov[-1][1] + 1e-3: cov[-1][1] = max(cov[-1][1], b)

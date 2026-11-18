@@ -374,6 +374,8 @@ def build(project):
         # Un plan qui s'arrête juste avant le suivant (trou < 0,6 s) ou juste avant le carton de fin (< 0,8 s)
         # se prolonge dessous, sinon la face cam apparaît une fraction de seconde (« flash »).
         nxt = [brs[j][0] for j in range(len(brs)) if j != k and -0.05 <= brs[j][0] - (st + d) <= 0.6]
+        # un schéma qui démarre juste après (< 1 s) : le plan reste dessous jusqu'à son arrivée
+        nxt += [a for a in (to_tl(x["seg"], x["at"]) for x in edl.get("schemas", [])) if -0.05 <= a - (st + d) <= 1.0]
         to_end = soft and -0.05 <= end_start - (st + d) <= 0.8
         chained = soft and bool(nxt)
         if chained:
@@ -439,6 +441,13 @@ def build(project):
     #   bars : lignes « libellé / valeur » avec une barre dont la longueur compare les valeurs (0 à 1)
     for si, sc in enumerate(edl.get("schemas", [])):
         t0 = to_tl(sc["seg"], sc["at"]); d = sc.get("dur", 4.5); sid = f"sch{si}"
+        # Schéma qui finit juste avant le carton de fin : on le garde jusqu'au fondu au noir,
+        # sinon la face cam réapparaît une fraction de seconde (retour client du 18/11).
+        # Idem si un plan de coupe ou un autre schéma démarre juste après : on enchaîne sans revoir la face cam.
+        suiv = [a for a, _ in cover if a > t0 + 0.5] + [to_tl(x["seg"], x["at"]) for x in edl.get("schemas", []) if x is not sc] + [end_start]
+        suiv = [a for a in suiv if 0 <= a - (t0 + d) <= (1.5 if a == end_start else 1.0)]
+        if suiv:
+            d = round(min(suiv) - t0 + 0.4, 3)
         def esc_(x):
             e = html.escape(x).replace("&#x27;", "’").replace("'", "’")
             while "**" in e:
