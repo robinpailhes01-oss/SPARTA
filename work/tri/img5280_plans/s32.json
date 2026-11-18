@@ -1,0 +1,299 @@
+{
+ "proj": "reel32-trois-piliers",
+ "title": "Statut, CQP, société : vrai ou faux — Sparta formation",
+ "prises": {
+  "s": [
+   "rushes/img5280/statut.mp4",
+   766
+  ],
+  "f": [
+   "rushes/img5280/formations.mp4",
+   1212
+  ]
+ },
+ "vf": {
+  "s": "crop=1296:2304:480:620",
+  "f": "crop=1296:2304:430:620"
+ },
+ "cadres": {
+  "s": {
+   "L": {
+    "origin": "61% 30%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  },
+  "f": {
+   "L": {
+    "origin": "53% 30%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "s",
+   "a": 769.75,
+   "b": 772.95,
+   "cadrage": "serre",
+   "mots": [
+    [
+     769.89,
+     772.81,
+     "Vrai ou faux : avec un statut juridique, je peux exercer comme coach sportif ?"
+    ]
+   ]
+  },
+  {
+   "prise": "s",
+   "a": 773.2,
+   "b": 773.85,
+   "cadrage": "large",
+   "mots": [
+    [
+     773.35,
+     773.67,
+     "Faux."
+    ]
+   ]
+  },
+  {
+   "prise": "s",
+   "a": 774.75,
+   "b": 778.35,
+   "cadrage": "serre",
+   "mots": [
+    [
+     774.89,
+     775.5,
+     "Faux du tout."
+    ],
+    [
+     775.63,
+     777.73,
+     "Avec un CQP, je peux encadrer n'importe quelle activité ?"
+    ],
+    [
+     777.88,
+     778.16,
+     "Faux."
+    ]
+   ]
+  },
+  {
+   "prise": "s",
+   "a": 779.3,
+   "b": 782.6,
+   "cadrage": "large",
+   "mots": [
+    [
+     779.41,
+     780.62,
+     "La carte pro est liée"
+    ],
+    [
+     780.93,
+     782.12,
+     "à l'encadrement rémunéré ?"
+    ],
+    [
+     782.18,
+     782.43,
+     "Oui."
+    ]
+   ]
+  },
+  {
+   "prise": "s",
+   "a": 803.8,
+   "b": 807.6,
+   "cadrage": "serre",
+   "mots": [
+    [
+     803.91,
+     804.67,
+     "Créer une société"
+    ],
+    [
+     805.24,
+     806.55,
+     "augmente mes prérogatives ?"
+    ],
+    [
+     806.55,
+     806.85,
+     "Faux,"
+    ],
+    [
+     806.93,
+     807.42,
+     "rien à voir."
+    ]
+   ]
+  },
+  {
+   "prise": "f",
+   "a": 1213.45,
+   "b": 1221.15,
+   "cadrage": "large",
+   "flips": [
+    1217.2
+   ],
+   "fix": [
+    [
+     [
+      "dans",
+      "100",
+      "titres"
+     ],
+     [
+      "sans",
+      "titre"
+     ]
+    ],
+    [
+     [
+      "'État,"
+     ],
+     [
+      "'État"
+     ]
+    ],
+    [
+     [
+      "'élargis"
+     ],
+     [
+      "'élargit"
+     ]
+    ]
+   ]
+  },
+  {
+   "prise": "f",
+   "a": 1222.35,
+   "b": 1225.7,
+   "cadrage": "serre"
+  },
+  {
+   "prise": "f",
+   "a": 1226.3,
+   "b": 1228.75,
+   "cadrage": "large",
+   "fix": [
+    [
+     [
+      "oui,"
+     ],
+     [
+      "oui."
+     ]
+    ]
+   ]
+  },
+  {
+   "prise": "f",
+   "a": 1233.6,
+   "b": 1236.1,
+   "cadrage": "serre",
+   "mots": [
+    [
+     1233.76,
+     1234.97,
+     "Tant que t'es en règle, après"
+    ],
+    [
+     1235.07,
+     1235.93,
+     "tu fais des formations annexes."
+    ]
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 772.2,
+   "dur": 12.1,
+   "titre": "VRAI OU FAUX ?",
+   "temps": [
+    772.85,
+    777.38,
+    780.2,
+    806.05
+   ],
+   "barres": [
+    0,
+    1,
+    3
+   ],
+   "etapes": [
+    [
+     "Statut juridique",
+     "= coach sportif"
+    ],
+    [
+     "CQP",
+     "= toutes les activités"
+    ],
+    [
+     "**Carte pro**",
+     "= encadrement **rémunéré**"
+    ],
+    [
+     "Société",
+     "= plus de prérogatives"
+    ]
+   ]
+  },
+  {
+   "type": "flow",
+   "morceau": 6,
+   "at": 1222.4,
+   "dur": 5.75,
+   "titre": "FORMATION PRIVÉE",
+   "temps": [
+    1222.85,
+    1224.6,
+    1227.6
+   ],
+   "barres": [
+    0
+   ],
+   "etapes": [
+    [
+     "Prérogatives légales"
+    ],
+    [
+     "**+** de compétences"
+    ],
+    [
+     "**+** de chiffre d'affaires"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Statut, CQP, société : | **vrai ou faux ?**",
+   "dur": 2.4
+  },
+  "keywords": [
+   "faux",
+   "prérogatives",
+   "compétences",
+   "chiffre d'affaires",
+   "en règle",
+   "rémunéré"
+  ]
+ }
+}

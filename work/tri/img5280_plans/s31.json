@@ -1,0 +1,183 @@
+{
+ "proj": "reel31-carte-pro",
+ "title": "Diplôme, carte pro, contrat — Sparta formation",
+ "prises": {
+  "d": [
+   "rushes/img5280/diplome.mp4",
+   1115
+  ]
+ },
+ "vf": {
+  "d": "crop=1296:2304:330:620"
+ },
+ "cadres": {
+  "d": {
+   "L": {
+    "origin": "61% 30%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "d",
+   "a": 1117.85,
+   "b": 1125.75,
+   "cadrage": "serre",
+   "fix": [
+    [
+     [
+      "a",
+      "thèse"
+     ],
+     [
+      "atteste"
+     ]
+    ],
+    [
+     [
+      "a",
+      "thèse"
+     ],
+     [
+      "atteste"
+     ]
+    ],
+    [
+     [
+      "contrat"
+     ],
+     [
+      "contrat."
+     ]
+    ],
+    [
+     [
+      "travailler"
+     ],
+     [
+      "travailler."
+     ]
+    ]
+   ]
+  },
+  {
+   "prise": "d",
+   "a": 1145.55,
+   "b": 1151.57,
+   "cadrage": "large",
+   "fix": [
+    [
+     [
+      "Le"
+     ],
+     []
+    ]
+   ]
+  },
+  {
+   "prise": "d",
+   "a": 1151.57,
+   "b": 1158.09,
+   "cadrage": "serre",
+   "flips": [
+    1153.65
+   ],
+   "fix": [
+    [
+     [
+      "est",
+      "la",
+      "thèse"
+     ],
+     [
+      "atteste"
+     ]
+    ],
+    [
+     [
+      "rémunérer,"
+     ],
+     [
+      "rémunérer."
+     ]
+    ]
+   ]
+  },
+  {
+   "prise": "d",
+   "a": 1158.95,
+   "b": 1166.0,
+   "cadrage": "large",
+   "flips": [
+    1162.5
+   ],
+   "fix": [
+    [
+     [
+      "démarche",
+      "là,"
+     ],
+     [
+      "démarche-là,"
+     ]
+    ],
+    [
+     [
+      "Et"
+     ],
+     []
+    ]
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 1120.3,
+   "dur": 5.45,
+   "titre": "NE PAS CONFONDRE",
+   "temps": [
+    1120.7,
+    1121.9,
+    1124.2
+   ],
+   "etapes": [
+    [
+     "**Diplôme**",
+     "= ta compétence"
+    ],
+    [
+     "**Carte pro**",
+     "= ta déclaration"
+    ],
+    [
+     "**Contrat**",
+     "= ta façon de travailler"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Diplôme, carte pro, contrat : | **ne confonds pas tout**",
+   "dur": 2.3
+  },
+  "keywords": [
+   "carte pro",
+   "diplôme",
+   "contrat",
+   "essentiel",
+   "déclaration"
+  ]
+ }
+}

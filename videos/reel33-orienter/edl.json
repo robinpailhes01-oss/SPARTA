@@ -1,0 +1,83 @@
+{
+ "title": "Orienter n'est pas échouer — Sparta formation",
+ "fps": 30,
+ "source": "assets/fc/m00.mp4",
+ "words": "assets/facecam.words.json",
+ "segments": [
+  {
+   "id": "m00",
+   "in": 2.5,
+   "out": 15.1,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 2.2,
+   "origin": "56% 28%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "serre",
+   "flips": [
+    8.8,
+    13.9
+   ]
+  },
+  {
+   "id": "m01",
+   "in": 22.85,
+   "out": 27.45,
+   "src": "assets/fc/m01.mp4",
+   "src_offset": 22.55,
+   "origin": "56% 28%",
+   "tight_scale": 1.5,
+   "wide_scale": 1.0,
+   "cadrage": "large"
+  }
+ ],
+ "broll": [],
+ "schemas": [
+  {
+   "type": "flow",
+   "at": 4.9,
+   "dur": 3.95,
+   "titre": "ÊTRE PRO, C'EST",
+   "temps": [
+    5.35,
+    6.3,
+    7.55
+   ],
+   "etapes": [
+    [
+     "Reconnaître sa **limite**"
+    ],
+    [
+     "Ne pas **s'improviser**"
+    ],
+    [
+     "**Orienter** vers un autre coach"
+    ]
+   ],
+   "seg": "m00"
+  }
+ ],
+ "punch": {
+  "scale": 1.3,
+  "origin": "50% 28%",
+  "first_tight": true
+ },
+ "cap_style": "epure",
+ "cap_max_chars": 26,
+ "end_card": {
+  "logo": null,
+  "cta": null,
+  "dur": 0.8
+ },
+ "hook": {
+  "text": "Orienter, | **ce n'est pas échouer**",
+  "dur": 2.4
+ },
+ "keywords": [
+  "professionnalisme",
+  "limites",
+  "crédibilité",
+  "orienter",
+  "je ne sais pas"
+ ]
+}

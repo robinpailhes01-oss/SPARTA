@@ -1,0 +1,113 @@
+{
+ "proj": "reel33-orienter",
+ "title": "Orienter n'est pas échouer — Sparta formation",
+ "prises": {
+  "o": [
+   "rushes/img5280/orienter.mp4",
+   2108
+  ]
+ },
+ "vf": {
+  "o": "crop=1296:2304:560:600"
+ },
+ "cadres": {
+  "o": {
+   "L": {
+    "origin": "56% 28%",
+    "tight_scale": 1.5,
+    "wide_scale": 1.0
+   }
+  }
+ },
+ "morceaux": [
+  {
+   "prise": "o",
+   "a": 2110.5,
+   "b": 2123.1,
+   "cadrage": "serre",
+   "flips": [
+    2116.8,
+    2121.9
+   ],
+   "fix": [
+    [
+     [
+      "non"
+     ],
+     [
+      "non."
+     ]
+    ],
+    [
+     [
+      "compliqué"
+     ],
+     [
+      "compliqué,"
+     ]
+    ]
+   ]
+  },
+  {
+   "prise": "o",
+   "a": 2130.85,
+   "b": 2135.45,
+   "cadrage": "large",
+   "fix": [
+    [
+     [
+      "échoué,"
+     ],
+     [
+      "échouer,"
+     ]
+    ]
+   ]
+  }
+ ],
+ "schemas": [
+  {
+   "type": "flow",
+   "morceau": 0,
+   "at": 2112.9,
+   "dur": 3.95,
+   "titre": "ÊTRE PRO, C'EST",
+   "temps": [
+    2113.35,
+    2114.3,
+    2115.55
+   ],
+   "etapes": [
+    [
+     "Reconnaître sa **limite**"
+    ],
+    [
+     "Ne pas **s'improviser**"
+    ],
+    [
+     "**Orienter** vers un autre coach"
+    ]
+   ]
+  }
+ ],
+ "edl": {
+  "cap_style": "epure",
+  "cap_max_chars": 26,
+  "end_card": {
+   "logo": null,
+   "cta": null,
+   "dur": 0.8
+  },
+  "hook": {
+   "text": "Orienter, | **ce n'est pas échouer**",
+   "dur": 2.4
+  },
+  "keywords": [
+   "professionnalisme",
+   "limites",
+   "crédibilité",
+   "orienter",
+   "je ne sais pas"
+  ]
+ }
+}
