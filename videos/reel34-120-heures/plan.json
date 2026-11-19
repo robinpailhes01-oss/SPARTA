@@ -115,29 +115,83 @@
  ],
  "schemas": [
   {
-   "type": "flow",
+   "type": "chiffre",
+   "morceau": 1,
+   "at": 21.4,
+   "dur": 7.6,
+   "icone": "horloge",
+   "valeur": 120,
+   "unite": "h",
+   "label": "par semaine",
+   "sous": [
+    "du lundi au dimanche",
+    "pour financer le projet"
+   ],
+   "temps": [
+    24.0,
+    27.6
+   ]
+  },
+  {
+   "type": "timeline",
+   "morceau": 2,
+   "at": 36.4,
+   "dur": 9.3,
+   "titre": "SON PARCOURS",
+   "etapes": [
+    {
+     "icone": "perso",
+     "titre": "3 ans en micro",
+     "texte": "seul, 7 j / 7"
+    },
+    {
+     "icone": "equipe",
+     "titre": "+ 2 coachs",
+     "texte": "indépendants, 6 mois"
+    },
+    {
+     "icone": "societe",
+     "titre": "Société",
+     "texte": "il construit sa boîte"
+    }
+   ],
+   "temps": [
+    36.5,
+    37.2,
+    45.0
+   ]
+  },
+  {
+   "type": "vs",
    "morceau": 3,
    "at": 50.45,
-   "dur": 8.6,
-   "titre": "AUTO → SOCIÉTÉ",
-   "temps": [
-    50.6,
-    53.9,
-    56.8
-   ],
-   "etapes": [
-    [
-     "**Auto-entrepreneur**",
-     "tu te **gaves**"
+   "dur": 8.2,
+   "accent": "d",
+   "gauche": {
+    "icone": "perso",
+    "titre": "Auto-entrepreneur",
+    "lignes": [
+     "Tu te **gaves**"
     ],
-    [
-     "**Société**",
-     "tu **construis**"
-    ],
-    [
-     "Ta boîte prend",
-     "de la **valeur**"
+    "temps": [
+     51.0
     ]
+   },
+   "droite": {
+    "icone": "societe",
+    "titre": "Société",
+    "lignes": [
+     "Tu **construis**",
+     "Ta boîte prend de la **valeur**"
+    ],
+    "temps": [
+     55.6,
+     57.3
+    ]
+   },
+   "temps": [
+    50.5,
+    53.8
    ]
   }
  ]
