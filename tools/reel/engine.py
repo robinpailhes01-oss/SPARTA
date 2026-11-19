@@ -129,12 +129,12 @@ SCH_ICONS = {
     "assiette": '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="10"/>',
 }
 
-def sch_icon(name, el_id, size=96, color=None):
+def sch_icon(name, el_id, size=96, color=None, sw=2.6):
     """Pictogramme SVG (traits or) ; chaque tracé reçoit pathLength=1 pour l'animation de dessin."""
     body = SCH_ICONS.get(name, SCH_ICONS["cible"])
     body = re.sub(r"<(path|circle|rect)\b", r'<\1 pathLength="1"', body)
     return (f'<svg id="{el_id}" class="sch-ico" viewBox="0 0 48 48" width="{size}" height="{size}" fill="none" '
-            f'stroke="{color or GOLD}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">{body}</svg>')
+            f'stroke="{color or GOLD}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round">{body}</svg>')
 
 def sch_draw(el_id, t, dur=0.7):
     """Dessine le pictogramme au trait (seek-safe : simple tween de propriété CSS)."""
@@ -580,7 +580,7 @@ def build(project):
             # Liste vrai / faux : coche or ou croix blanche dessinée, texte barré-estompé quand c'est faux
             for k, (txt, ok) in enumerate(sc["lignes"]):
                 rid = f"{sid}-r{k}"; ic = f"{rid}-i"
-                body.append(f'<div class="sch-chk{"" if ok else " sch-no"}" id="{rid}">{sch_icon("coche" if ok else "croix", ic, 72, None if ok else "#FFFFFF")}'
+                body.append(f'<div class="sch-chk{"" if ok else " sch-no"}" id="{rid}">{sch_icon("coche" if ok else "croix", ic, 84, None if ok else "#FFFFFF", 4.2)}'
                             f'<span class="sch-ckt">{esc_(txt)}</span></div>')
                 anim.append(f'tl.fromTo("#{rid}", {{opacity: 0, x: -20}}, {{opacity: 1, x: 0, duration: 0.4, ease: "power2.out"}}, {tps[k]});')
                 vt = to_tl(sc["seg"], sc["verdicts"][k]) if sc.get("verdicts") else round(tps[k] + 0.5, 3)
