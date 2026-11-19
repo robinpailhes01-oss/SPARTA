@@ -603,7 +603,7 @@ def build(project):
                 body.append(f'<div class="sch-row" id="{sid}-r{k}"><div class="sch-lab"><span class="sch-txt">{esc_(lib)}</span>'
                             f'<span class="sch-val">{esc_(val)}</span></div><div class="sch-track"><span class="sch-fill" style="width:{round(frac*100)}%"></span></div></div>')
                 ts = tps[k]
-                anim.append(f'tl.fromTo("#{sid}-r{k} .sch-lab", {{opacity: 0, y: 14}}, {{opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}}, {ts});')
+                anim.append(f'tl.fromTo("#{sid}-r{k}", {{opacity: 0, y: 14}}, {{opacity: 1, y: 0, duration: 0.4, ease: "power2.out"}}, {ts});')
                 anim.append(f'tl.fromTo("#{sid}-r{k} .sch-fill", {{scaleX: 0}}, {{scaleX: 1, duration: 1.0, ease: "power2.inOut"}}, {round(ts + 0.25, 3)});')
         parts.append(f'<div id="{sid}" class="clip sch" data-start="{t0}" data-duration="{d}" data-track-index="{11 + si}" style="z-index:{z+2}">'
                      f'<div class="sch-dim"></div><div class="sch-col">{"".join(body)}</div></div>')

@@ -58,30 +58,60 @@
  "broll": [],
  "schemas": [
   {
-   "type": "flow",
+   "type": "timeline",
    "at": 5.3,
    "dur": 5.45,
    "titre": "NE PAS CONFONDRE",
-   "temps": [
-    5.7,
-    6.9,
-    9.2
-   ],
    "etapes": [
-    [
-     "**Diplôme**",
-     "= ta compétence"
-    ],
-    [
-     "**Carte pro**",
-     "= ta déclaration"
-    ],
-    [
-     "**Contrat**",
-     "= ta façon de travailler"
-    ]
+    {
+     "icone": "diplome",
+     "titre": "Diplôme",
+     "texte": "atteste ta **compétence**"
+    },
+    {
+     "icone": "carte",
+     "titre": "Carte pro",
+     "texte": "atteste ta **déclaration**"
+    },
+    {
+     "icone": "contrat",
+     "titre": "Contrat",
+     "texte": "organise ta **façon de travailler**"
+    }
+   ],
+   "temps": [
+    5.5,
+    6.9,
+    9.1
    ],
    "seg": "m00"
+  },
+  {
+   "type": "icones",
+   "at": 38.8,
+   "dur": 4.9,
+   "titre": "DANS L’ORDRE",
+   "colonnes": 3,
+   "items": [
+    {
+     "icone": "diplome",
+     "texte": "Diplôme"
+    },
+    {
+     "icone": "carte",
+     "texte": "Carte pro"
+    },
+    {
+     "icone": "euro",
+     "texte": "Rémunéré"
+    }
+   ],
+   "temps": [
+    39.1,
+    39.9,
+    42.3
+   ],
+   "seg": "m02"
   }
  ],
  "punch": {

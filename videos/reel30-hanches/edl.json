@@ -69,27 +69,62 @@
  "broll": [],
  "schemas": [
   {
-   "type": "flow",
-   "at": 20.4,
-   "dur": 8.0,
-   "titre": "ÉTAPE PAR ÉTAPE",
-   "temps": [
-    20.9,
-    22.3,
-    26.4
-   ],
-   "etapes": [
+   "type": "checks",
+   "at": 47.4,
+   "dur": 4.6,
+   "titre": "IL N’A MÊME PAS",
+   "lignes": [
     [
-     "Extension",
-     "de **hanches**"
+     "L’**extension de hanches**",
+     false
     ],
     [
-     "Au **bâton**,",
-     "jusqu'aux genoux"
-    ],
-    [
-     "**Cambrer**, revenir"
+     "La **base** du mouvement",
+     false
     ]
+   ],
+   "temps": [
+    48.3,
+    49.4
+   ],
+   "verdicts": [
+    48.9,
+    50.0
+   ],
+   "seg": "m00"
+  },
+  {
+   "type": "timeline",
+   "at": 20.4,
+   "dur": 10.4,
+   "titre": "ÉTAPE PAR ÉTAPE",
+   "etapes": [
+    {
+     "icone": "dos",
+     "titre": "Extension de hanches",
+     "texte": "dès le départ"
+    },
+    {
+     "icone": "haltere",
+     "titre": "Au bâton",
+     "texte": "jusqu’en haut des genoux"
+    },
+    {
+     "icone": "coche",
+     "titre": "Cambrer, revenir",
+     "texte": "simplement"
+    },
+    {
+     "icone": "jambe",
+     "titre": "Puis les genoux",
+     "texte": "l’étape suivante"
+    }
+   ],
+   "temps": [
+    20.8,
+    22.2,
+    26.6,
+    29.1
    ],
    "seg": "m02"
   }
