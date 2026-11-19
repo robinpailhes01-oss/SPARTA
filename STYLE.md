@@ -104,6 +104,7 @@ Règles de structure :
 | Poussée lente | chaque plan grossit en continu : face caméra ×1,06, plans de coupe ×1,08 sur la durée du plan, sans accélération (`ease: none`) |
 | Coups de zoom | **supprimés** : le client n'aime pas les pulsations de zoom sur les temps de la musique (retour du 13/10/2026). Le rythme vient des coupes, de l'alternance large/serré et des plans de coupe |
 | Avant/après | la moitié « avant » seule, puis un balayage de 0,6 s révèle « après », suivi par une ligne or `#E3CF8F` de 10 px ; étiquettes AVANT et APRÈS en haut de chaque moitié |
+| Tête toujours entière et dégagée | retour client du 19/11/2026 : **ne jamais couper la tête** (recadrage, zoom serré, poussée) et **ne jamais poser un schéma, une accroche ou un texte sur la tête ou le visage**. Avant chaque rendu, vérifier sur les captures (accroche, chaque schéma, plans serrés) que la tête est dans le cadre et libre de tout graphisme ; sinon déplacer le schéma, réduire le zoom ou changer l'origine du cadre |
 | Interdit | plaques ou compteurs de chiffres, textes animés en rebond, plusieurs éléments graphiques en même temps, coups de zoom rapides |
 
 ## 8. Image et transitions
