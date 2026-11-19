@@ -39,26 +39,54 @@
  ],
  "schemas": [
   {
-   "type": "flow",
+   "type": "timeline",
    "morceau": 0,
    "at": 4.9,
-   "dur": 3.95,
+   "dur": 4.4,
    "titre": "ÊTRE PRO, C'EST",
-   "temps": [
-    5.35,
-    6.3,
-    7.55
-   ],
    "etapes": [
-    [
-     "Reconnaître sa **limite**"
-    ],
-    [
-     "Ne pas **s'improviser**"
-    ],
-    [
-     "**Orienter** vers un autre coach"
-    ]
+    {
+     "icone": "attention",
+     "titre": "Ta limite",
+     "texte": "la reconnaître"
+    },
+    {
+     "icone": "croix",
+     "titre": "Pas d'impro",
+     "texte": "ne pas s'improviser"
+    },
+    {
+     "icone": "fleche",
+     "titre": "Orienter",
+     "texte": "vers un autre coach"
+    }
+   ],
+   "temps": [
+    5.42,
+    6.12,
+    7.66
+   ]
+  },
+  {
+   "type": "icones",
+   "morceau": 1,
+   "at": 23.8,
+   "dur": 3.6,
+   "colonnes": 2,
+   "titre": "ORIENTER ≠ ÉCHOUER",
+   "items": [
+    {
+     "icone": "hausse",
+     "texte": "Ta **crédibilité** monte"
+    },
+    {
+     "icone": "bulle",
+     "texte": "« Je ne sais **pas** »"
+    }
+   ],
+   "temps": [
+    24.0,
+    26.36
    ]
   }
  ],

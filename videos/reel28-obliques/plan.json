@@ -90,27 +90,63 @@
  },
  "schemas": [
   {
-   "type": "flow",
+   "type": "checks",
    "morceau": 2,
    "at": 134.5,
-   "dur": 13.8,
+   "dur": 12.2,
    "titre": "LES OBLIQUES",
+   "lignes": [
+    [
+     "**Rotation** du tronc",
+     true
+    ],
+    [
+     "**Inclinaison** du tronc",
+     true
+    ],
+    [
+     "**Flexion** : le crunch",
+     true
+    ]
+   ],
    "temps": [
     134.7,
     139.6,
-    144.3
+    144.5
    ],
-   "etapes": [
+   "verdicts": [
+    136.9,
+    140.1,
+    145.3
+   ]
+  },
+  {
+   "type": "bars",
+   "morceau": 4,
+   "at": 157.0,
+   "dur": 8.2,
+   "titre": "POUR ÊTRE BON COACH",
+   "lignes": [
     [
-     "**Rotation**"
+     "Les os par cœur",
+     "moyen",
+     0.3
     ],
     [
-     "**Inclinaison**"
+     "Les muscles",
+     "très bien",
+     0.65
     ],
     [
-     "**Flexion**",
-     "→ le crunch"
+     "Leur rôle",
+     "oui !",
+     1.0
     ]
+   ],
+   "temps": [
+    157.2,
+    159.7,
+    162.3
    ]
   }
  ]

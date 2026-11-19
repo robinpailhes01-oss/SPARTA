@@ -104,78 +104,135 @@
  ],
  "schemas": [
   {
-   "type": "flow",
+   "type": "icones",
    "morceau": 0,
    "at": 6.6,
-   "dur": 8.45,
+   "dur": 7.4,
+   "colonnes": 3,
    "titre": "ÊTRE PRO = 5 CHOSES",
-   "temps": [
-    6.7,
-    11.4,
-    14.2
+   "items": [
+    {
+     "icone": "diplome",
+     "texte": "**Qualifié**"
+    },
+    {
+     "icone": "carte",
+     "texte": "**Déclaré**"
+    },
+    {
+     "icone": "cible",
+     "texte": "Dans son **champ**"
+    },
+    {
+     "icone": "bouclier",
+     "texte": "**Sécurité**"
+    },
+    {
+     "icone": "livre",
+     "texte": "Se **former**"
+    }
    ],
-   "etapes": [
-    [
-     "**1.** Être **qualifié**",
-     "diplôme RNCP"
-    ],
-    [
-     "**2.** Être **déclaré**",
-     "carte pro"
-    ],
-    [
-     "**3.** Respecter ses",
-     "**prérogatives**"
-    ]
+   "temps": [
+    6.68,
+    11.36,
+    14.16,
+    17.42,
+    59.7
    ]
   },
   {
-   "type": "flow",
+   "type": "icones",
    "morceau": 3,
-   "at": 17.35,
-   "dur": 5.2,
+   "at": 17.3,
+   "dur": 4.2,
+   "colonnes": 3,
    "titre": "ÊTRE PRO = 5 CHOSES",
-   "temps": [
-    17.45,
-    18.4,
-    21.1
+   "items": [
+    {
+     "icone": "diplome",
+     "texte": "**Qualifié**"
+    },
+    {
+     "icone": "carte",
+     "texte": "**Déclaré**"
+    },
+    {
+     "icone": "cible",
+     "texte": "Dans son **champ**"
+    },
+    {
+     "icone": "bouclier",
+     "texte": "**Sécurité**"
+    },
+    {
+     "icone": "livre",
+     "texte": "Se **former**"
+    }
    ],
-   "etapes": [
-    [
-     "**4.** Assurer la **sécurité**"
-    ],
-    [
-     "Obligation de moyens"
-    ],
-    [
-     "Assurance **RC Pro**"
-    ]
+   "temps": [
+    17.35,
+    17.4,
+    17.45,
+    17.5,
+    59.7
    ]
   },
   {
-   "type": "flow",
+   "type": "icones",
    "morceau": 5,
-   "at": 59.65,
-   "dur": 10.2,
+   "at": 59.6,
+   "dur": 4.0,
+   "colonnes": 3,
    "titre": "ÊTRE PRO = 5 CHOSES",
-   "temps": [
-    59.75,
-    63.0,
-    68.0
+   "items": [
+    {
+     "icone": "diplome",
+     "texte": "**Qualifié**"
+    },
+    {
+     "icone": "carte",
+     "texte": "**Déclaré**"
+    },
+    {
+     "icone": "cible",
+     "texte": "Dans son **champ**"
+    },
+    {
+     "icone": "bouclier",
+     "texte": "**Sécurité**"
+    },
+    {
+     "icone": "livre",
+     "texte": "Se **former**"
+    }
    ],
-   "etapes": [
-    [
-     "**5.** Savoir **se former**",
-     "toute sa carrière"
-    ],
-    [
-     "Formations",
-     "**complémentaires**"
-    ],
-    [
-     "Plus de **compétences**",
-     "mieux **rémunéré**"
-    ]
+   "temps": [
+    59.65,
+    59.7,
+    59.75,
+    59.8,
+    60.0
+   ]
+  },
+  {
+   "type": "icones",
+   "morceau": 6,
+   "at": 67.9,
+   "dur": 3.0,
+   "colonnes": 2,
+   "items": [
+    {
+     "icone": "hausse",
+     "texte": "**+** de compétences"
+    },
+    {
+     "icone": "euro",
+     "texte": "Mieux **rémunéré**"
+    }
+   ],
+   "temps": [
+    68.0,
+    69.44
    ]
   }
  ]

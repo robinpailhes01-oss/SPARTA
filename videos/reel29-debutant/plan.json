@@ -96,30 +96,67 @@
  },
  "schemas": [
   {
-   "type": "flow",
+   "type": "vs",
+   "morceau": 3,
+   "at": 133.0,
+   "dur": 9.0,
+   "titre": "« SERRE LES OMOPLATES »",
+   "gauche": {
+    "icone": "haltere",
+    "titre": "Un coach",
+    "lignes": [
+     "il le fait"
+    ],
+    "temps": [
+     134.3
+    ]
+   },
+   "droite": {
+    "icone": "perso",
+    "titre": "Un débutant",
+    "lignes": [
+     "il ne sait pas",
+     "ce que c'est"
+    ],
+    "temps": [
+     139.6,
+     140.3
+    ]
+   },
+   "temps": [
+    133.2,
+    136.6
+   ]
+  },
+  {
+   "type": "checks",
    "morceau": 5,
    "at": 62.4,
    "dur": 9.4,
    "titre": "1RE SÉANCE",
-   "barres": [
-    0,
-    1
+   "lignes": [
+    [
+     "« Gaine-toi »",
+     false
+    ],
+    [
+     "« Tiens-toi droit »",
+     false
+    ],
+    [
+     "« **Cambre-toi** »",
+     true
+    ]
    ],
    "temps": [
-    63.6,
-    64.0,
-    68.2
+    63.4,
+    63.7,
+    68.1
    ],
-   "etapes": [
-    [
-     "Gaine-toi"
-    ],
-    [
-     "Tiens-toi droit"
-    ],
-    [
-     "**Cambre-toi**"
-    ]
+   "verdicts": [
+    64.9,
+    66.9,
+    68.6
    ]
   }
  ]
