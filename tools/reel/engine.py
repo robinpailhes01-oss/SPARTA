@@ -76,6 +76,12 @@ DEF_STYLES = {
                  " .dr { font-weight: 600; }",
 }
 CAP_STYLES = {
+    # « base » : style des témoignages Sparta publiés (Mickaël, Xavier) — texte fin crème au milieu de l'image,
+    # sans fond ni mot coloré, 2 à 4 mots (retour client du 20/11).
+    "base": " @font-face { font-family: 'InterBase'; font-weight: 400; src: url('assets/fonts/Inter-Regular.otf') format('opentype'); }"
+            " .cap { top: 1180px; } .cap-box { background: none; padding: 0; font-family: 'InterBase', sans-serif; font-weight: 400;"
+            " font-size: 52px; letter-spacing: -0.005em; color: #F3ECD6; text-shadow: 0 1px 3px rgba(0,0,0,0.45), 0 2px 12px rgba(0,0,0,0.25); }"
+            " .cap-box b, .cap-box em { font-weight: 400; font-style: normal; color: inherit; font-size: 1em; }",
     # Montserrat Bold blanc, mots-clés ExtraBold or.
     "epure": _HALO + " .cap-box { background: none; padding: 0; font-weight: 700; font-size: 52px; " + _SHADOW + " }"
              " .cap-box b, .cap-box em { font-weight: 800; font-style: normal; font-size: 1.06em; letter-spacing: 0.01em; color: " + _KW_GOLD + "; " + _KW_SHADOW + " }",

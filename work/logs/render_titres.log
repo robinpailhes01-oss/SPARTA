@@ -1,1 +1,17 @@
 ok       temoignage-eline 
+ECHEC temoignage-eline
+
+   ENOENT: no such file or directory, open '/home/user/SPARTA/videos/temoignage-eline/renders/work-97cf7540-7ea3-44fd-9cb2-ce74110b9201-VGtOpk/compiled/__hyperframes_video_frames/th-m03/frame_00089.jpg'
+   Try --docker for containerized rendering
+
+ok       temoignage-manon 
+OK temoignage-manon 133s
+voix -15.2 LUFS · 4 prises · carton de fin 17.19 s · 0 effets
+temoignage-manon-v2-leger.mp4 :  I: -14.1 LUFS  Peak: -2.4 dBFS  9.0M
+FINI temoignage-manon
+ok       temoignage-lisa 
+OK temoignage-lisa 277s
+voix -14.0 LUFS · 6 prises · carton de fin 35.49 s · 0 effets
+temoignage-lisa-v2-leger.mp4 :  I: -14.0 LUFS  Peak: -3.5 dBFS  18M
+FINI temoignage-lisa
+ok       temoignage-anais 
