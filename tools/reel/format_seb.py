@@ -45,7 +45,32 @@ with open(f"{tmp}/list.txt", "w") as fh:
     fh.write(f"file '{os.path.abspath(tmp)}/pre.mp4'\nfile '{os.path.abspath(tmp)}/main.mp4'\n")
 run("ffmpeg", "-v", "error", "-f", "concat", "-safe", "0", "-i", f"{tmp}/list.txt", "-c:v", "libx264", "-crf", "16", "-preset", "fast",
     "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-y", f"{tmp}/cat.mp4")
-if mus:
+def musique_base(music, end_at, dst):
+    """Piste des reels Sparta (séparée de la voix) : début fort, lit bas rallongé par fondus, remontée finale sur le logo."""
+    md = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", music], capture_output=True, text=True).stdout)
+    A0, A1, B0 = 3.0, md - 4.6, md - 4.4
+    need = end_at - 0.2
+    seg = [(0, A1)]
+    while sum(b - a for a, b in seg) - 1.0 * (len(seg) - 1) < need:
+        seg.append((A0 + 6, A1))
+    ch = [f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS[s{i}]" for i, (a, b) in enumerate(seg)]
+    cur = "s0"
+    for i in range(1, len(seg)):
+        ch.append(f"[{cur}][s{i}]acrossfade=d=1.0:c1=tri:c2=tri[x{i}]"); cur = f"x{i}"
+    ch.append(f"[{cur}]atrim=0:{need},asetpts=PTS-STARTPTS[body]")
+    ch.append(f"[0:a]atrim={B0}:{md},asetpts=PTS-STARTPTS,afade=t=out:st={md - B0 - 1.2}:d=1.2[tail]")
+    ch.append("[body][tail]acrossfade=d=0.4,aresample=48000,aformat=channel_layouts=stereo[mus]")
+    run("ffmpeg", "-v", "error", "-i", music, "-filter_complex", ";".join(ch), "-map", "[mus]", "-y", dst)
+
+mus_base = opt("--musique-base", None)
+if mus_base:
+    m_ = re.search(r'id="endcard" class="clip[^"]*" data-start="([\d.]+)"', html)
+    musique_base(mus_base, pre_d + float(m_[1]), f"{tmp}/mus.wav")
+    gain = float(opt("--musique-gain", 3))
+    run("ffmpeg", "-v", "error", "-i", f"{tmp}/cat.mp4", "-i", f"{tmp}/mus.wav", "-filter_complex",
+        f"[1:a]volume={gain}dB[m];[0:a][m]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]",
+        "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", "-y", out)
+elif mus:
     run("ffmpeg", "-v", "error", "-i", f"{tmp}/cat.mp4", "-stream_loop", "-1", "-i", mus, "-filter_complex",
         f"[1:a]volume={mus_db + 14}dB,aresample=48000[m];[0:a][m]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]",
         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-y", out)

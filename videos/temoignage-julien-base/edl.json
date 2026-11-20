@@ -237,8 +237,8 @@
   "dur": 2.0
  },
  "keywords": [],
- "noir_blanc": true,
- "flash_lieux": true,
+ "noir_blanc": false,
+ "flash_lieux": "lumiere",
  "preroll": [
   [
    "rushes/seances/DJI_20261026170202_0297_D.MP4",

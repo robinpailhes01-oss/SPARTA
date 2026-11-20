@@ -192,7 +192,7 @@
    "dur": 2.0
   },
   "keywords": [],
-  "noir_blanc": true,
-  "flash_lieux": true
+  "noir_blanc": false,
+  "flash_lieux": "lumiere"
  }
 }

@@ -477,7 +477,15 @@ def build(project):
                      f'data-track-index="2" style="z-index:{z+3}"><div class="flash-inner"></div></div>')
         tweens.append(f'tl.fromTo("#flash .flash-inner", {{opacity: 0.85}}, {{opacity: 0, duration: 0.32, ease: "power2.out"}}, {round(ft,3)});')
 
+    lumiere = edl.get("flash_lieux") == "lumiere"
     for q, ft_ in enumerate(flash_lieux):
+        if lumiere:
+            # Fuite de lumière chaude (reels Sparta Mickaël, Xavier, Joy) : halo orangé qui traverse l'image en 0,6 s
+            parts.append(f'<div id="flash-l{q}" class="clip" data-start="{round(max(ft_ - 0.3, 0), 3)}" data-duration="0.75" '
+                         f'data-track-index="{15 + q}" style="z-index:{z+3}"><div class="leak" id="fli-{q}"></div></div>')
+            tweens.append(f'tl.fromTo("#fli-{q}", {{opacity: 0, xPercent: -18}}, {{opacity: 0.9, xPercent: 0, duration: 0.3, ease: "power1.in"}}, {round(max(ft_ - 0.3, 0), 3)});')
+            tweens.append(f'tl.to("#fli-{q}", {{opacity: 0, xPercent: 16, duration: 0.42, ease: "power1.out"}}, {round(ft_, 3)});')
+            continue
         parts.append(f'<div id="flash-l{q}" class="clip" data-start="{round(max(ft_ - 0.04, 0), 3)}" data-duration="0.2" '
                      f'data-track-index="{15 + q}" style="z-index:{z+3}"><div class="flash-inner" id="fli-{q}"></div></div>')
         tweens.append(f'tl.fromTo("#fli-{q}", {{opacity: 0.95}}, {{opacity: 0, duration: 0.12, ease: "power2.in"}}, {round(ft_ + 0.03, 3)});')
@@ -852,6 +860,8 @@ TEMPLATE = """<!doctype html>
       .frame-b {{ position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; overflow: hidden; }}
       .frame video, video.full {{ position: absolute; left: 0; top: 0; width: {W}px; height: {H}px; object-fit: cover; }}
       #flash {{ position: absolute; inset: 0; }}
+      .leak {{ position: absolute; inset: -10%; mix-blend-mode: screen; opacity: 0;
+              background: radial-gradient(ellipse 70% 55% at 30% 40%, rgba(255,196,120,0.95), rgba(255,120,70,0.75) 38%, rgba(240,80,90,0.35) 62%, rgba(255,160,120,0) 82%); }}
       .flash-inner {{ position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }}
       /* Surtitre d'ouverture — § 0 : ligne fine or, texte espacé, sans fond */
       /* Schémas animés : texte blanc, filets or, voile léger sur la face cam (aucune plaque) */
