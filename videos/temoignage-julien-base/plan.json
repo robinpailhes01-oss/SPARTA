@@ -185,13 +185,17 @@
   }
  ],
  "edl": {
-  "cap_style": "seb",
-  "cap_max_chars": 22,
+  "cap_style": "epure",
+  "cap_max_chars": 26,
   "end_card": {
    "logo": "assets/brand/logo_or_blanc.png",
    "dur": 2.0
   },
-  "keywords": [],
+  "keywords": [
+   "kiné",
+   "premières semaines",
+   "pas de prix"
+  ],
   "noir_blanc": false,
   "flash_lieux": "lumiere"
  }
