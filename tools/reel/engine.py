@@ -463,7 +463,10 @@ def build(project):
             while "**" in esc:
                 esc = esc.replace("**", "<b>", 1).replace("**", "</b>", 1)
             lines.append(esc)
-        parts.append(f'<div id="hook" class="clip" data-start="0.2" data-duration="{hd}" data-track-index="8" '
+        # "position": "bas" : titre posé sur le buste, au-dessus des sous-titres, quand la tête est haute dans le cadre
+        # (règle client du 19/11 : jamais de texte sur la tête).
+        hcls = "clip bas" if hk.get("position") == "bas" else "clip"
+        parts.append(f'<div id="hook" class="{hcls}" data-start="0.2" data-duration="{hd}" data-track-index="8" '
                      f'style="z-index:{z+2}"><div class="hook-inner"><span class="hook-rule"></span>'
                      f'<span class="hook-text">{"<br>".join(lines)}</span></div></div>')
         tweens += [
@@ -871,6 +874,8 @@ TEMPLATE = """<!doctype html>
       /* Accroche en haut d'image : texte blanc gras, mot-clé en or, sans fond (§ 0), sous la zone de sécurité (y ≥ 250) */
       #hook {{ position: absolute; left: 0; width: {W}px; top: 0; height: 760px; display: flex; justify-content: center; padding-top: 262px;
               background: linear-gradient(to bottom, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.46) 38%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0) 100%); }}
+      #hook.bas {{ top: 900px; height: 440px; padding-top: 104px;
+              background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.42) 80%, rgba(0,0,0,0) 100%); }}
       .hook-inner {{ display: flex; flex-direction: column; align-items: center; gap: 26px; }}
       .hook-rule {{ display: block; width: 110px; height: 5px; background: {GOLD}; transform-origin: 50% 50%; }}
       .hook-text {{ display: block; font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 64px; line-height: 1.2; color: #FFFFFF;

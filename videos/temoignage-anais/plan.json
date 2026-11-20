@@ -65,7 +65,8 @@
   },
   "hook": {
    "text": "Anaïs, 32 ans | **-10 %** | de masse grasse",
-   "dur": 6.0
+   "dur": 6.0,
+   "position": "bas"
   },
   "keywords": [
    "perte de poids",

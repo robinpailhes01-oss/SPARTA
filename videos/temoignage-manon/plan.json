@@ -62,7 +62,8 @@
   },
   "hook": {
    "text": "Manon, 22 ans | Un **cadre** et | de la **discipline**",
-   "dur": 6.5
+   "dur": 6.5,
+   "position": "bas"
   },
   "keywords": [
    "discipline",

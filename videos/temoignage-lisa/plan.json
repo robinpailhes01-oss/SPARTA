@@ -73,7 +73,8 @@
   },
   "hook": {
    "text": "Lisa, 34 ans | « On ressort | **plus léger** »",
-   "dur": 6.0
+   "dur": 6.0,
+   "position": "bas"
   },
   "keywords": [
    "plus léger",
