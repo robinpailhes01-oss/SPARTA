@@ -76,6 +76,15 @@ DEF_STYLES = {
                  " .dr { font-weight: 600; }",
 }
 CAP_STYLES = {
+    # « seb » : reel de Sébastien (retour client du 20/11) — 2 lignes, la 1re fine, la 2e extra-grasse, mot par mot, sur le buste
+    "seb": " @font-face { font-family: 'InterL'; font-weight: 300; src: url('assets/fonts/Inter-Light.otf') format('opentype'); }"
+           " @font-face { font-family: 'InterX'; font-weight: 800; src: url('assets/fonts/Inter-ExtraBold.otf') format('opentype'); }"
+           " .cap { top: 1150px; height: 160px; } .cap-box { background: none; padding: 0; text-align: center; line-height: 1.08; color: #FFFFFF;"
+           " text-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 2px 14px rgba(0,0,0,0.3); }"
+           " .cap-box .l1 { font-family: 'InterL', sans-serif; font-weight: 300; font-size: 50px; }"
+           " .cap-box .l2 { font-family: 'InterX', sans-serif; font-weight: 800; font-size: 60px; letter-spacing: -0.01em; }"
+           " .cap-box .w { opacity: 0; } .cap-box .w:first-child { opacity: 1; }"
+           " .cap-box b, .cap-box em { font-weight: inherit; font-style: normal; color: inherit; }",
     # « base » : style des témoignages Sparta publiés (Mickaël, Xavier) — texte fin crème au milieu de l'image,
     # sans fond ni mot coloré, 2 à 4 mots (retour client du 20/11).
     "base": " @font-face { font-family: 'InterBase'; font-weight: 400; src: url('assets/fonts/Inter-Regular.otf') format('opentype'); }"
@@ -421,6 +430,7 @@ def build(project):
     # Plans de coupe (muets, par-dessus la face cam).
     # Deux plans qui se suivent sans trou s'enchaînent en fondu : le premier se prolonge sous le second.
     brs = [(to_tl(br["seg"], br["at"]), br["dur"]) for br in edl.get("broll", [])]
+    flash_lieux = []
     for k, br in enumerate(edl.get("broll", [])):
         st, d = brs[k]
         # Un plan qui s'arrête juste avant le suivant (trou < 0,6 s) ou juste avant le carton de fin (< 0,8 s)
@@ -442,8 +452,15 @@ def build(project):
             f'<div class="frame-b" id="brf-{k}" style="z-index:{z}">'
             f'<video id="br-{k}" class="full" src="{br["src"]}" data-start="{st}" data-duration="{d_eff}" '
             f'data-media-start="{br.get("offset", 0)}" data-track-index="{1 + k % 2}" muted playsinline{g}></video></div>')
-        tweens.append(f'tl.fromTo("#brf-{k}", {{scale: 1}}, {{scale: {PUSH_BROLL}, duration: {d_eff}, '
-                      f'ease: "none", immediateRender: false}}, {st});')
+        if br.get("punch"):                                  # poussée rapide sur un gros plan (style « Sébastien »)
+            tweens.append(f'tl.fromTo("#brf-{k}", {{scale: 1}}, {{scale: 1.15, duration: 0.4, ease: "power2.out", immediateRender: false}}, {st});')
+        else:
+            tweens.append(f'tl.fromTo("#brf-{k}", {{scale: 1}}, {{scale: {PUSH_BROLL}, duration: {d_eff}, '
+                          f'ease: "none", immediateRender: false}}, {st});')
+        # Flash blanc très bref quand on passe de l'interview à la séance (changement de lieu), 6 au plus
+        prev_br = [brs[j] for j in range(len(brs)) if j != k and -0.05 <= st - (brs[j][0] + brs[j][1]) <= 0.6]
+        if edl.get("flash_lieux") and not prev_br and len(flash_lieux) < 6:
+            flash_lieux.append(st)
         if soft:                                            # entrée et sortie en fondu
             f_ = min(BROLL_FADE, d / 3)
             tweens.append(f'tl.fromTo("#brf-{k}", {{opacity: 0}}, {{opacity: 1, duration: {round(f_, 3)}, ease: "power1.out", immediateRender: false}}, {st});')
@@ -459,6 +476,11 @@ def build(project):
         parts.append(f'<div id="flash" class="clip" data-start="{round(max(ft-0.02, 0),3)}" data-duration="0.4" '
                      f'data-track-index="2" style="z-index:{z+3}"><div class="flash-inner"></div></div>')
         tweens.append(f'tl.fromTo("#flash .flash-inner", {{opacity: 0.85}}, {{opacity: 0, duration: 0.32, ease: "power2.out"}}, {round(ft,3)});')
+
+    for q, ft_ in enumerate(flash_lieux):
+        parts.append(f'<div id="flash-l{q}" class="clip" data-start="{round(max(ft_ - 0.04, 0), 3)}" data-duration="0.2" '
+                     f'data-track-index="{15 + q}" style="z-index:{z+3}"><div class="flash-inner" id="fli-{q}"></div></div>')
+        tweens.append(f'tl.fromTo("#fli-{q}", {{opacity: 0.95}}, {{opacity: 0, duration: 0.12, ease: "power2.in"}}, {round(ft_ + 0.03, 3)});')
 
     # Surtitre d'ouverture : ligne fine or + texte espacé, sans fond (§ 0).
     if edl.get("hook"):
@@ -765,6 +787,14 @@ def build(project):
                 tail = esc[len(lead) + len(core):]
                 ac = ' class="ac"' if core.isupper() and len(core) >= 3 else ""      # sigle : EPMSP, COACH
                 esc = f"{lead}<em{ac}>{core}</em>{tail}"
+            if cap_style == "seb":
+                nl1 = (len(toks) + 1) // 2
+                cls_ = "w l1" if wi < nl1 else "w l2"
+                br_ = "<br>" if wi == nl1 and len(toks) > 1 else ""
+                spans.append(f'{br_}<span class="{cls_}" id="w-{i}-{wi}">{esc}</span>')
+                if wi > 0:
+                    tweens.append(f'tl.set("#w-{i}-{wi}", {{opacity: 1}}, {round(max(a, wtimes[wi] - 0.03), 3)});')
+                continue
             spans.append(f'<span class="w" id="w-{i}-{wi}">{esc}</span>')
             if cap_style == "karaoke" and wi > 0:        # mot pas encore dit : estompé, puis plein à son instant
                 tweens.append(f'tl.set("#w-{i}-{wi}", {{opacity: 1}}, {round(max(a, wtimes[wi]), 3)});')
@@ -790,7 +820,8 @@ def build(project):
 
     doc = TEMPLATE.format(W=W, H=H, FPS=fps, total=total, parts="\n      ".join(parts), GOLD=GOLD,
                           tweens="\n      ".join(tweens), origin=punch["origin"], title=html.escape(edl["title"]),
-                          cap_css=CAP_STYLES.get(edl.get("cap_style", "boite"), ""),
+                          cap_css=CAP_STYLES.get(edl.get("cap_style", "boite"), "")
+                          + (" video { filter: grayscale(1) contrast(1.06); }" if edl.get("noir_blanc") else ""),
                           def_css=DEF_STYLES.get(edl.get("cap_style", "boite"), ""))
     open(os.path.join(project, "index.html"), "w").write(doc)
     report = {"duration": total, "speech": speech_end, "segments": len(segments), "captions": len(cap_html),

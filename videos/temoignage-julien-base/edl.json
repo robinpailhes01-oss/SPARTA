@@ -1,5 +1,5 @@
 {
- "title": "Témoignage Julien — format Sparta",
+ "title": "Témoignage Julien — format Sébastien (essai)",
  "fps": 30,
  "source": "assets/fc/m00.mp4",
  "words": "assets/facecam.words.json",
@@ -136,49 +136,92 @@
    "seg": "m01",
    "at": 3.3,
    "dur": 2.7,
-   "offset": 0
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   "de": 2.0
   },
   {
    "src": "assets/broll/b01.mp4",
    "seg": "m03",
    "at": 39.6,
    "dur": 3.0,
-   "offset": 0
+   "offset": 0,
+   "punch": true,
+   "rush": "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   "de": 6.0
   },
   {
    "src": "assets/broll/b02.mp4",
    "seg": "m05",
    "at": 49.6,
    "dur": 3.2,
-   "offset": 0
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026165218_0281_D.MP4",
+   "de": 4.0
   },
   {
    "src": "assets/broll/b03.mp4",
    "seg": "m07",
    "at": 65.2,
    "dur": 3.0,
-   "offset": 0
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   "de": 6.0
   },
   {
    "src": "assets/broll/b04.mp4",
    "seg": "m09",
    "at": 75.4,
    "dur": 2.4,
-   "offset": 0
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   "de": 10.0
   },
   {
    "src": "assets/broll/b05.mp4",
    "seg": "m09",
    "at": 81.5,
    "dur": 2.6,
-   "offset": 0
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   "de": 18.0
   },
   {
    "src": "assets/broll/b06.mp4",
    "seg": "m09",
    "at": 84.1,
    "dur": 2.6,
-   "offset": 0
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026165218_0281_D.MP4",
+   "de": 8.0
+  },
+  {
+   "src": "assets/broll/b07.mp4",
+   "seg": "m02",
+   "at": 21.6,
+   "dur": 2.0,
+   "offset": 0,
+   "punch": true,
+   "rush": "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   "de": 12.0
+  },
+  {
+   "src": "assets/broll/b08.mp4",
+   "seg": "m06",
+   "at": 55.0,
+   "dur": 2.2,
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   "de": 14.0
+  },
+  {
+   "src": "assets/broll/b09.mp4",
+   "seg": "m09",
+   "at": 77.9,
+   "dur": 2.2,
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   "de": 24.0
   }
  ],
  "schemas": [],
@@ -187,11 +230,35 @@
   "origin": "50% 28%",
   "first_tight": true
  },
- "cap_style": "base",
- "cap_max_chars": 18,
+ "cap_style": "seb",
+ "cap_max_chars": 22,
  "end_card": {
   "logo": "assets/brand/logo_or_blanc.png",
   "dur": 2.0
  },
- "keywords": []
+ "keywords": [],
+ "noir_blanc": true,
+ "flash_lieux": true,
+ "preroll": [
+  [
+   "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   0.6
+  ],
+  [
+   "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   3.0
+  ],
+  [
+   "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   26.0
+  ],
+  [
+   "rushes/seances/DJI_20261026170202_0297_D.MP4",
+   17.0
+  ],
+  [
+   "rushes/seances/DJI_20261026165247_0282_D.MP4",
+   20.0
+  ]
+ ]
 }
