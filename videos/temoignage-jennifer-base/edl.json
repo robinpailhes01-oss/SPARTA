@@ -7,7 +7,7 @@
   {
    "id": "m00",
    "in": 1020.74,
-   "out": 1025.12,
+   "out": 1024.66,
    "src": "assets/fc/m00.mp4",
    "src_offset": 1020.44,
    "origin": "0% 32%",
@@ -56,7 +56,7 @@
   },
   {
    "id": "m04",
-   "in": 26.9,
+   "in": 27.35,
    "out": 30.2,
    "src": "assets/fc/m04.mp4",
    "src_offset": 26.6,
@@ -67,7 +67,7 @@
   },
   {
    "id": "m05",
-   "in": 1002.74,
+   "in": 1003.29,
    "out": 1009.2,
    "src": "assets/fc/m05.mp4",
    "src_offset": 1002.44,
@@ -110,7 +110,7 @@
   },
   {
    "id": "m09",
-   "in": 1061.17,
+   "in": 1061.37,
    "out": 1065.24,
    "src": "assets/fc/m09.mp4",
    "src_offset": 1060.87,
@@ -128,7 +128,7 @@
    "origin": "100% 32%",
    "tight_scale": 1.9,
    "wide_scale": 1.0,
-   "cadrage": "serre"
+   "cadrage": "large"
   },
   {
    "id": "m11",
@@ -206,24 +206,6 @@
    "punch": true,
    "rush": "rushes/seances/DJI_20261026171108_0304_D.MP4",
    "de": 6.0
-  },
-  {
-   "src": "assets/broll/b07.mp4",
-   "seg": "m09",
-   "at": 1062.4,
-   "dur": 2.0,
-   "offset": 0,
-   "rush": "rushes/seances/DJI_20261026171351_0305_D.MP4",
-   "de": 10.0
-  },
-  {
-   "src": "assets/broll/b08.mp4",
-   "seg": "m11",
-   "at": 2017.6,
-   "dur": 2.0,
-   "offset": 0,
-   "rush": "rushes/seances/DJI_20261026171351_0305_D.MP4",
-   "de": 20.0
   },
   {
    "src": "assets/broll/b09.mp4",
