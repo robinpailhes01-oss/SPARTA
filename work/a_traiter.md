@@ -20,3 +20,4 @@
 - Lucas : 100 Go libres sur chaque Drive pour rushes → montage → dépôt des reels. Nos droits : lecture seule sur ces dossiers (on ne peut pas y déposer).
 - À FAIRE : rushes de l'apprenti de Fabien (WeTransfer jamais téléchargé) — uniquement les plans en salle de cours avec le kiné → il manque le lien WeTransfer.
 - Transcriptions en cours : work/tri/transcr_interventions.sh → work/tri/{img5333,mindset,polo}.jsonl
+- 26/11 : plans de salle de cours (kiné) = DJI_20261006_0522 à 0526 (lot du 6 oct, « LUCAS RUSH 1 ») : copiés dans Académie/PLANS COURS. Scan complet des 91 clips impossible : Drive limite les lectures (page d'erreur) après ~150 images. À refaire plus tard : (1) échantillonner plusieurs images par clip, (2) lister le contenu du zip transfer-01a1a586 (9,6 Go) via plages d'octets pour voir s'il contient des fichiers non extraits (numéros DJI > 0619 ?). Transcriptions (img5333, mindset, polo) à relancer : work/tri/transcr_interventions.sh
