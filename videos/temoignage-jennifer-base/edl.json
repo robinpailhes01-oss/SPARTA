@@ -6,8 +6,8 @@
  "segments": [
   {
    "id": "m00",
-   "in": 1020.74,
-   "out": 1024.66,
+   "in": 1020.84,
+   "out": 1025.06,
    "src": "assets/fc/m00.mp4",
    "src_offset": 1020.44,
    "origin": "0% 32%",
@@ -17,7 +17,7 @@
   },
   {
    "id": "m01",
-   "in": 1.45,
+   "in": 1.48,
    "out": 3.7,
    "src": "assets/fc/m01.mp4",
    "src_offset": 1.15,
