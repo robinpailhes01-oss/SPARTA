@@ -5,17 +5,6 @@
  "words": "assets/facecam.words.json",
  "segments": [
   {
-   "id": "m00",
-   "in": 1020.84,
-   "out": 1025.06,
-   "src": "assets/fc/m00.mp4",
-   "src_offset": 1020.44,
-   "origin": "0% 32%",
-   "tight_scale": 1.9,
-   "wide_scale": 1.0,
-   "cadrage": "serre"
-  },
-  {
    "id": "m01",
    "in": 1.48,
    "out": 3.7,
@@ -144,16 +133,25 @@
  ],
  "broll": [
   {
-   "src": "assets/broll/b00.mp4",
-   "seg": "m03",
-   "at": 22.9,
-   "dur": 2.8,
+   "src": "assets/broll/n00.mp4",
+   "seg": "m02",
+   "at": 14.6,
+   "dur": 4.5,
    "offset": 0,
    "rush": "rushes/seances/DJI_20261026170837_0301_D.MP4",
-   "de": 12.0
+   "de": 16.0
   },
   {
-   "src": "assets/broll/b01.mp4",
+   "src": "assets/broll/n01.mp4",
+   "seg": "m03",
+   "at": 22.9,
+   "dur": 3.76,
+   "offset": 0,
+   "rush": "rushes/seances/DJI_20261026171108_0304_D.MP4",
+   "de": 16.0
+  },
+  {
+   "src": "assets/broll/n02.mp4",
    "seg": "m05",
    "at": 1004.6,
    "dur": 3.0,
@@ -162,59 +160,31 @@
    "de": 4.0
   },
   {
-   "src": "assets/broll/b02.mp4",
+   "src": "assets/broll/n03.mp4",
    "seg": "m06",
    "at": 1012.3,
-   "dur": 2.6,
+   "dur": 2.98,
    "offset": 0,
    "rush": "rushes/seances/DJI_20261026172119_0316_D.MP4",
    "de": 1.0
   },
   {
-   "src": "assets/broll/b03.mp4",
+   "src": "assets/broll/n04.mp4",
    "seg": "m07",
-   "at": 1016.0,
-   "dur": 2.4,
+   "at": 1015.38,
+   "dur": 3.0,
    "offset": 0,
    "rush": "rushes/seances/DJI_20261026172802_0321_D.MP4",
    "de": 4.0
   },
   {
-   "src": "assets/broll/b04.mp4",
+   "src": "assets/broll/n05.mp4",
    "seg": "m08",
    "at": 1055.3,
    "dur": 2.8,
    "offset": 0,
    "rush": "rushes/seances/DJI_20261026174211_0331_D.MP4",
    "de": 4.0
-  },
-  {
-   "src": "assets/broll/b05.mp4",
-   "seg": "m02",
-   "at": 14.6,
-   "dur": 2.2,
-   "offset": 0,
-   "rush": "rushes/seances/DJI_20261026170837_0301_D.MP4",
-   "de": 4.0
-  },
-  {
-   "src": "assets/broll/b06.mp4",
-   "seg": "m04",
-   "at": 27.8,
-   "dur": 2.0,
-   "offset": 0,
-   "punch": true,
-   "rush": "rushes/seances/DJI_20261026171108_0304_D.MP4",
-   "de": 6.0
-  },
-  {
-   "src": "assets/broll/b09.mp4",
-   "seg": "m02",
-   "at": 16.9,
-   "dur": 2.0,
-   "offset": 0,
-   "rush": "rushes/seances/DJI_20261026171458_0307_D.MP4",
-   "de": 10.0
   }
  ],
  "schemas": [],
@@ -256,5 +226,8 @@
    "rushes/seances/DJI_20261026174211_0331_D.MP4",
    10.0
   ]
+ ],
+ "lumiere_segs": [
+  "m04"
  ]
 }

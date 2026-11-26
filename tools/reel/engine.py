@@ -478,7 +478,21 @@ def build(project):
         tweens.append(f'tl.fromTo("#flash .flash-inner", {{opacity: 0.85}}, {{opacity: 0, duration: 0.32, ease: "power2.out"}}, {round(ft,3)});')
 
     lumiere = edl.get("flash_lieux") == "lumiere"
+    if edl.get("lumiere_segs"):
+        # Une seule fuite de lumière par partie, comme Mickaël (6 s) et Xavier (38 s) : au raccord d'entrée du morceau donné.
+        flash_lieux = [to_tl(sid, next(s_["in"] for s_ in edl["segments"] if s_["id"] == sid)) for sid in edl["lumiere_segs"]]
+        lumiere = True
     for q, ft_ in enumerate(flash_lieux):
+        if lumiere and edl.get("lumiere_segs"):
+            # Montée chaude depuis le bas à gauche (0,28 s), 2 images blanches sur la coupe, reste de lueur qui s'éteint (0,3 s)
+            a0 = round(max(ft_ - 0.3, 0), 3)
+            parts.append(f'<div id="flash-l{q}" class="clip" data-start="{a0}" data-duration="0.75" data-track-index="{15 + q}" '
+                         f'style="z-index:{z+3}"><div class="leak leak-bg" id="fli-{q}"></div><div class="flash-inner" id="flw-{q}"></div></div>')
+            tweens.append(f'tl.fromTo("#fli-{q}", {{opacity: 0, xPercent: -25, yPercent: 20}}, {{opacity: 1, xPercent: 0, yPercent: 0, duration: 0.28, ease: "power2.in"}}, {a0});')
+            tweens.append(f'tl.fromTo("#flw-{q}", {{opacity: 0}}, {{opacity: 1, duration: 0.07, ease: "power1.in"}}, {round(ft_ - 0.07, 3)});')
+            tweens.append(f'tl.to("#flw-{q}", {{opacity: 0, duration: 0.14, ease: "power1.out"}}, {round(ft_ + 0.03, 3)});')
+            tweens.append(f'tl.to("#fli-{q}", {{opacity: 0, xPercent: 18, duration: 0.32, ease: "power1.out"}}, {round(ft_ + 0.03, 3)});')
+            continue
         if lumiere:
             # Fuite de lumière chaude (reels Sparta Mickaël, Xavier, Joy) : halo orangé qui traverse l'image en 0,6 s
             parts.append(f'<div id="flash-l{q}" class="clip" data-start="{round(max(ft_ - 0.3, 0), 3)}" data-duration="0.75" '
@@ -862,6 +876,7 @@ TEMPLATE = """<!doctype html>
       #flash {{ position: absolute; inset: 0; }}
       .leak {{ position: absolute; inset: -10%; mix-blend-mode: screen; opacity: 0;
               background: radial-gradient(ellipse 70% 55% at 30% 40%, rgba(255,196,120,0.95), rgba(255,120,70,0.75) 38%, rgba(240,80,90,0.35) 62%, rgba(255,160,120,0) 82%); }}
+      .leak-bg {{ background: radial-gradient(ellipse 90% 70% at 18% 82%, rgba(255,214,150,1), rgba(255,150,80,0.85) 35%, rgba(245,95,90,0.45) 62%, rgba(255,170,120,0) 85%); }}
       .flash-inner {{ position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }}
       /* Surtitre d'ouverture — § 0 : ligne fine or, texte espacé, sans fond */
       /* Schémas animés : texte blanc, filets or, voile léger sur la face cam (aucune plaque) */

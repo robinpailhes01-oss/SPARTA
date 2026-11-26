@@ -69,11 +69,13 @@ if mus_base and milieu:
     # le milieu de la piste séparée n'était qu'un grondement grave). Le fondu finit avant le premier mot (retour du 26/11).
     m_ = re.search(r'id="endcard" class="clip[^"]*" data-start="([\d.]+)"', html)
     tot = pre_d + float(m_[1]) + 2.0
-    rel = float(opt("--milieu-db", -20))
+    rel = float(opt("--milieu-db", -12))
     run("ffmpeg", "-v", "error", "-i", mus_base, "-stream_loop", "-1", "-i", milieu, "-filter_complex",
-        f"[0:a]atrim=0:{pre_d},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,volume=3dB[a];"
+        # Analyse du 26/11 (Mickaël) : pas de trou après l'ouverture, lit continu ~12 dB sous la voix, remontée sur le logo.
+        f"[0:a]atrim=0:{pre_d + 0.4},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,volume=3dB[a];"
         f"[1:a]atrim=0:{tot},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,loudnorm=I={-14 + rel}:TP=-4[b];"
-        f"[a][b]acrossfade=d=0.7:c1=tri:c2=tri,atrim=0:{tot},afade=t=out:st={tot - 1.6}:d=1.6[mus]", "-map", "[mus]", "-y", f"{tmp}/mus.wav")
+        f"[a][b]acrossfade=d=0.8:c1=tri:c2=tri,atrim=0:{tot},"
+        f"volume='if(lt(t,{tot - 2.0}),1,min(1.8,1+(t-{tot - 2.0})*2))':eval=frame,afade=t=out:st={tot - 1.2}:d=1.2[mus]", "-map", "[mus]", "-y", f"{tmp}/mus.wav")
     run("ffmpeg", "-v", "error", "-i", f"{tmp}/cat.mp4", "-i", f"{tmp}/mus.wav", "-filter_complex",
         "[0:a][1:a]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]",
         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", "-y", out)
