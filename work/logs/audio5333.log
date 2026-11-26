@@ -1,0 +1,4 @@
+box b'wave'
+sr 48000 ch 1 obj 2 sfi 3 cc 1 paquets 171343 ts 48000 dur/paquet 1024
+plages 7311 octets 40758795
+ok 41958196
