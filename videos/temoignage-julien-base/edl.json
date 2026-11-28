@@ -40,7 +40,7 @@
   {
    "id": "m04",
    "in": 44.4,
-   "out": 46.52,
+   "out": 46.82,
    "src": "assets/fc/m04.mp4",
    "src_offset": 44.1,
    "origin": "0% 24%",
@@ -73,7 +73,7 @@
   {
    "id": "m07",
    "in": 64.24,
-   "out": 68.38,
+   "out": 68.62,
    "src": "assets/fc/m07.mp4",
    "src_offset": 63.94,
    "origin": "90% 16%",
@@ -151,7 +151,7 @@
    "src": "assets/broll/n03.mp4",
    "seg": "m07",
    "at": 65.2,
-   "dur": 3.18,
+   "dur": 3.4,
    "offset": 0,
    "rush": "rushes/seances/DJI_20261026170202_0297_D.MP4",
    "de": 11.0
