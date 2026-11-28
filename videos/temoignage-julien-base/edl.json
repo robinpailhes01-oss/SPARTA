@@ -5,15 +5,15 @@
  "words": "assets/facecam.words.json",
  "segments": [
   {
-   "id": "m01",
-   "in": 0.9,
-   "out": 2.68,
-   "src": "assets/fc/m01.mp4",
-   "src_offset": 0.6,
-   "origin": "90% 16%",
+   "id": "m06b",
+   "in": 55.92,
+   "out": 58.1,
+   "src": "assets/fc/m06.mp4",
+   "src_offset": 53.5,
+   "origin": "0% 24%",
    "tight_scale": 1.9,
    "wide_scale": 1.0,
-   "cadrage": "large"
+   "cadrage": "serre"
   },
   {
    "id": "m02",
@@ -38,17 +38,6 @@
    "cadrage": "serre"
   },
   {
-   "id": "m06b",
-   "in": 55.92,
-   "out": 58.1,
-   "src": "assets/fc/m06.mp4",
-   "src_offset": 53.5,
-   "origin": "0% 24%",
-   "tight_scale": 1.9,
-   "wide_scale": 1.0,
-   "cadrage": "serre"
-  },
-  {
    "id": "m03",
    "in": 37.45,
    "out": 40.12,
@@ -65,6 +54,17 @@
    "out": 46.82,
    "src": "assets/fc/m04.mp4",
    "src_offset": 44.1,
+   "origin": "0% 24%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m00",
+   "in": 46.83,
+   "out": 48.86,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 46.27,
    "origin": "0% 24%",
    "tight_scale": 1.9,
    "wide_scale": 1.0,
@@ -239,6 +239,6 @@
   ]
  ],
  "lumiere_segs": [
-  "m06b"
+  "m03"
  ]
 }

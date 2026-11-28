@@ -5,20 +5,20 @@
  "words": "assets/facecam.words.json",
  "segments": [
   {
-   "id": "m01",
-   "in": 1.48,
-   "out": 3.7,
-   "src": "assets/fc/m01.mp4",
-   "src_offset": 1.15,
-   "origin": "84% 32%",
+   "id": "m00",
+   "in": 1020.84,
+   "out": 1025.06,
+   "src": "assets/fc/m00.mp4",
+   "src_offset": 1020.44,
+   "origin": "0% 32%",
    "tight_scale": 1.9,
    "wide_scale": 1.0,
-   "cadrage": "large"
+   "cadrage": "serre"
   },
   {
    "id": "m02",
-   "in": 14.0,
-   "out": 16.3,
+   "in": 15.34,
+   "out": 19.17,
    "src": "assets/fc/m02.mp4",
    "src_offset": 12.08,
    "origin": "0% 34%",
