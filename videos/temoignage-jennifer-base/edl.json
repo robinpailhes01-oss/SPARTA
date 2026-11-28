@@ -17,17 +17,35 @@
   },
   {
    "id": "m02",
-   "in": 12.38,
-   "out": 19.17,
+   "in": 14.0,
+   "out": 16.3,
    "src": "assets/fc/m02.mp4",
    "src_offset": 12.08,
    "origin": "0% 34%",
    "tight_scale": 1.9,
    "wide_scale": 1.0,
-   "cadrage": "serre",
-   "flips": [
-    15.0
-   ]
+   "cadrage": "serre"
+  },
+  {
+   "id": "m06",
+   "in": 1010.73,
+   "out": 1015.28,
+   "src": "assets/fc/m06.mp4",
+   "src_offset": 1010.16,
+   "origin": "0% 32%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0,
+   "cadrage": "serre"
+  },
+  {
+   "id": "m07",
+   "in": 1015.38,
+   "out": 1018.65,
+   "src": "assets/fc/m07.mp4",
+   "src_offset": 1015.08,
+   "origin": "0% 32%",
+   "tight_scale": 1.9,
+   "wide_scale": 1.0
   },
   {
    "id": "m03",
@@ -53,38 +71,6 @@
    "tight_scale": 1.9,
    "wide_scale": 1.0,
    "cadrage": "serre"
-  },
-  {
-   "id": "m05",
-   "in": 1003.29,
-   "out": 1009.2,
-   "src": "assets/fc/m05.mp4",
-   "src_offset": 1002.44,
-   "origin": "100% 30%",
-   "tight_scale": 1.9,
-   "wide_scale": 1.0,
-   "cadrage": "serre"
-  },
-  {
-   "id": "m06",
-   "in": 1010.46,
-   "out": 1015.28,
-   "src": "assets/fc/m06.mp4",
-   "src_offset": 1010.16,
-   "origin": "0% 32%",
-   "tight_scale": 1.9,
-   "wide_scale": 1.0,
-   "cadrage": "serre"
-  },
-  {
-   "id": "m07",
-   "in": 1015.38,
-   "out": 1018.65,
-   "src": "assets/fc/m07.mp4",
-   "src_offset": 1015.08,
-   "origin": "0% 32%",
-   "tight_scale": 1.9,
-   "wide_scale": 1.0
   },
   {
    "id": "m08",
@@ -133,15 +119,6 @@
  ],
  "broll": [
   {
-   "src": "assets/broll/n00.mp4",
-   "seg": "m02",
-   "at": 14.6,
-   "dur": 4.5,
-   "offset": 0,
-   "rush": "rushes/seances/DJI_20261026170837_0301_D.MP4",
-   "de": 16.0
-  },
-  {
    "src": "assets/broll/n01.mp4",
    "seg": "m03",
    "at": 22.9,
@@ -149,15 +126,6 @@
    "offset": 0,
    "rush": "rushes/seances/DJI_20261026171108_0304_D.MP4",
    "de": 16.0
-  },
-  {
-   "src": "assets/broll/n02.mp4",
-   "seg": "m05",
-   "at": 1004.6,
-   "dur": 3.0,
-   "offset": 0,
-   "rush": "rushes/seances/DJI_20261026171458_0307_D.MP4",
-   "de": 4.0
   },
   {
    "src": "assets/broll/n03.mp4",
@@ -228,6 +196,6 @@
   ]
  ],
  "lumiere_segs": [
-  "m05"
+  "m06"
  ]
 }
